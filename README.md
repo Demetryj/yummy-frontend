@@ -1,4 +1,68 @@
-# React homework template
+# react-icons:
+
+# import { IconName } from "react-icons/bs";
+
+1. BsYoutube; //Youtube
+2. BsArrowRight; //ArrowRight
+3. BsCheckCircle; // Inputs state
+4. BsCheckLg; // Check без кола
+5. BsFillPlusCircleFill; // дадавання на User profile
+6. BsPlusLg; // Plus на Add recipe
+7. sSquare; // квадрат на Recipe
+8. BsArrowRight; // Arrow в So Yummy в Delicious and healthy
+
+# import { IconName } from "react-icons/fi";
+
+1. FiInstagram; //Instagram
+2. FiFacebook;//Facebook
+3. FiUser;//User = User profile
+4. FiMail;//Mail = footer, registration
+5. FiSearch; // Search = header,
+6. FiTrash2; // смітник під видалення
+7. FiMinus; // Minus = відняти строку на Add recipe
+8. FiChevronLeft; // на пагінацю сторінок
+9. FiChevronRight; // на пагінацю сторінок
+10. FiClock; // на Recipe
+
+# import { IconName } from "react-icons/rx";
+
+1. RxCrossCircled; // Cross Inputs state
+2. RxCross2; // User profile, Add recipe,
+3. RxCheckbox; //Checkbox на Recipe
+
+# import { IconName } from "react-icons/cg";
+
+1. CgLock; // на User profile
+
+# import { IconName } from "react-icons/tfi";
+
+1. TfiTwitterAlt;//Twitter
+
+# import { IconName } from "react-icons/tb";
+
+1. TbExclamationMark; // clamationmark на
+
+# import { IconName } from "react-icons/hi";
+
+1. HiOutlinePencil; // ручка User profile
+2. HiOutlineMenuAlt2; // меню на table size
+
+# import { IconName } from "react-icons/io";
+
+1. IoIosArrowDown; // Arrow на Add recipe
+2. IoIosArrowUp; // Arrow на Add recipe
+
+# import { IconName } from "react-icons/bi";
+
+1. BiRestaurant; // вилка та ніж
+
+# import { IconName } from "react-icons/sl";
+
+1. SlCamera; // Camera на Add recipe
+
+# import { IconName } from "react-icons/ai";
+
+1. AiOutlineCopyrightCircle; // Copyright на футер
 
 Этот проект был создан при помощи
 [Create React App](https://github.com/facebook/create-react-app). Для знакомства
