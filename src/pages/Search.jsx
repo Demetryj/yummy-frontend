@@ -1,5 +1,5 @@
-const Categories = () => {
+const Search = () => {
   return <main></main>;
 };
 
-export default Categories;
+export default Search;
