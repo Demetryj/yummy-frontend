@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/yummy-frontend/static/css/main.7acaea2f.css",
-    "main.js": "/yummy-frontend/static/js/main.07d3183d.js",
+    "main.css": "/yummy-frontend/static/css/main.c3d5249d.css",
+    "main.js": "/yummy-frontend/static/js/main.85114a97.js",
     "index.html": "/yummy-frontend/index.html",
-    "main.7acaea2f.css.map": "/yummy-frontend/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/yummy-frontend/static/js/main.07d3183d.js.map"
+    "main.c3d5249d.css.map": "/yummy-frontend/static/css/main.c3d5249d.css.map",
+    "main.85114a97.js.map": "/yummy-frontend/static/js/main.85114a97.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.c3d5249d.css",
+    "static/js/main.85114a97.js"
   ]
 }
