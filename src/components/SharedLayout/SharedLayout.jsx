@@ -4,7 +4,7 @@ import { AppBar } from 'components/AppBar';
 import { Footer } from 'components/Footer';
 import { Box } from 'components/Box';
 
-export const Layout = () => {
+export const SharedLayout = () => {
   return (
     <Box display="grid" gridTemplatesRows="75px 1fr">
       <AppBar />
