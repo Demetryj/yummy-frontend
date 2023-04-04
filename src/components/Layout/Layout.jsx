@@ -16,6 +16,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { AppBar } from 'components/AppBar';
+import { Footer } from 'components/Footer';
 
 export default function Layout() {
   return (
@@ -24,6 +25,7 @@ export default function Layout() {
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
+      <Footer />
     </>
   );
 }
