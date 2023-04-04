@@ -8,7 +8,7 @@ const Categories = React.lazy(() => import('../pages/Categories'));
 const AddRecipes = React.lazy(() => import('../pages/AddRecipes'));
 const MyRecipes = React.lazy(() => import('../pages/MyRecipes'));
 const Favorites = React.lazy(() => import('../pages/Favorites'));
-const SoppingList = React.lazy(() => import('../pages/SoppingList'));
+const ShoppingList = React.lazy(() => import('../pages/ShoppingList'));
 const Search = React.lazy(() => import('../pages/Search'));
 
 export const App = () => {
@@ -20,7 +20,7 @@ export const App = () => {
         <Route path="AddRecipes" element={<AddRecipes />} />
         <Route path="MyRecipes" element={<MyRecipes />} />
         <Route path="Favorites" element={<Favorites />} />
-        <Route path="SoppingList" element={<SoppingList />} />
+        <Route path="ShoppingList" element={<ShoppingList />} />
         <Route path="Search" element={<Search />} />
         <Route path="*" element={<NoPage />} />
       </Route>
