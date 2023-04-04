@@ -1,12 +1,6 @@
-// import { Container } from './AppBar.styled';
-
-// export default function AppBar({ mode }) {
-//   return (
-//     <Container mode={mode}>
-//       <h1>AppBar</h1>
-//     </Container>
-//   );
-// }
+import { Box } from '../Box';
+import { NavItem } from './AppBar.styled';
+import { NavLink } from 'react-router-dom';
 
 const navItems = [
   { href: '/', text: 'Main' },
@@ -18,13 +12,31 @@ const navItems = [
   { href: 'search', text: 'Search' },
 ];
 
-import { Box } from '../Box';
-import { NavItem } from './AppBar.styled';
-
 export const AppBar = () => {
   return (
-    <Box>
-      <Box></Box>
-    </Box>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <NavItem to={'/'}>{'Main'}</NavItem>
+          </li>
+          <li>
+            <NavItem to={'categories'}>{'Categories'}</NavItem>
+          </li>
+          <li>
+            <NavItem to={'addRecipes'}>{'AddRecipes'}</NavItem>
+          </li>
+          <li>
+            <NavItem to={'favorites'}>{'Favorites'}</NavItem>
+          </li>
+          <li>
+            <NavItem to={'shoppingList'}>{'ShoppingList'}</NavItem>
+          </li>
+          <li>
+            <NavItem to={'search'}>{'Search'}</NavItem>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 };
