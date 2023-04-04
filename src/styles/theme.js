@@ -23,7 +23,7 @@ export const theme = {
     greenColor: '#8BAA36',
   },
 
-  space: `${n => 2 * n}px`,
+  spacing: n => `${2 * n}px`,
 
   fonts: {
     body: "'Roboto', sans-serif",
