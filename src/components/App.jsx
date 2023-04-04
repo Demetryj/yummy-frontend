@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import RegisterPage from 'pages/Register';
 import SigninPage from 'pages/Signin';
-import WelcomPage from 'pages/Welcom';
+import WelcomePage from 'pages/Welcome';
 import { SharedLayout } from 'components/SharedLayout';
 
 const MainPage = React.lazy(() => import('pages/Main'));
@@ -20,7 +20,7 @@ export const App = () => {
   return (
     <Routes>
       <>
-        <Route path="/" element={<WelcomPage />} />
+        <Route path="/" element={<WelcomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/signin" element={<SigninPage />} />
       </>
