@@ -10,12 +10,12 @@ export const Image = styled.img`
             heigth: 124px;
         }
     
-        @media screen and (min-width: 768px) {
+        @media screen and ${(p) => p.theme.media.medium} {
             width: 228px;
             heigth: 232px;
         }
     
-        @media screen and (min-width: 1440px) {
+        @media screen and ${(p) => p.theme.media.large} {
              width: 318px;
              heigth: 324px;
         }
@@ -29,12 +29,12 @@ export const Card = styled.div`
             heigth: 152px;
         }
     
-        @media screen and (min-width: 768px) {
+        @media screen and ${(p) => p.theme.media.medium} {
             width: 704px;
             heigth: 288px;
         }
     
-        @media screen and (min-width: 1440px) {
+        @media screen and ${(p) => p.theme.media.large} {
              width: 1240px;
              heigth: 404px;
         }
@@ -55,12 +55,12 @@ export const Title = styled.h3`
             margin-top: 14px;
         }
     
-        @media screen and (min-width: 768px) {
+        @media screen and ${(p) => p.theme.media.medium} {
             font-size: ${p => p.theme.fontSize.l};
             margin-top: 28px;
         }
     
-        @media screen and (min-width: 1440px) {
+        @media screen and ${(p) => p.theme.media.large} {
             font-size: ${p => p.theme.fontSize.s};
             margin-top: 40px;
         }
@@ -76,14 +76,14 @@ export const Paragraph = styled.p`
             line-height: 1;
         }
     
-        @media screen and (min-width: 768px) {
+        @media screen and ${(p) => p.theme.media.medium} {
             width: 298px;
             margin-top: 28px;
             font-size: ${p => p.theme.fontSize.s};
             line-height: 2.4;
         }
     
-        @media screen and (min-width: 1440px) {
+        @media screen and ${(p) => p.theme.media.large} {
             width: 298px;
             margin-top: 40px;
             font-size: ${p => p.theme.fontSize.xm};
