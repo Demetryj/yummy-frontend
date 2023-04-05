@@ -1,6 +1,8 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 import { FormStyled } from './RegisterForm.styled';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 
 const registerSchema = object({
   name: string().min(5).required('yup!'),
@@ -9,10 +11,11 @@ const registerSchema = object({
 });
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
-    console.log(values);
-    console.log(actions);
-    actions.resetForm();
+    dispatch(register(values));
+    // actions.resetForm();
   };
 
   return (
@@ -20,7 +23,11 @@ export const RegisterForm = () => {
       <h1>Registration</h1>
       <Formik
         validationSchema={registerSchema}
-        initialValues={{ name: 'asd', email: 'xcv@g.g', password: 'pass' }}
+        initialValues={{
+          name: 'lytvyn',
+          email: 'lytvyn@mail.com',
+          password: '12345678',
+        }}
         onSubmit={handleSubmit}
       >
         <FormStyled>
