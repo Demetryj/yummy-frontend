@@ -18,3 +18,16 @@ export const ListItem = styled.li`
 `;
 
 export const Avatar = styled.img``;
+
+export const Paragraph = styled.p`
+  font-size: ${p => p.theme.fontSizes.xs};
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: ${p => p.theme.fontWeights.semiBold};
+  line-height: 170%;
+`;
+
+/* media: {
+    medium: '(min-width: 768px)',
+    large: '(min-width: 1440px)',
+  }, */

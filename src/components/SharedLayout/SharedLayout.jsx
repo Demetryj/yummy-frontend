@@ -9,7 +9,13 @@ import { Box } from 'components/Box';
 
 export const SharedLayout = () => {
   return (
-    <Box display="grid" gridTemplateRows="75x 1fr" width={1}>
+    <Box
+      display="grid"
+      gridTemplateRows="75x 1fr"
+      // width={{ xs: 375, md: '100%' }}
+      width={1}
+      mx="auto"
+    >
       <AppBar />
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />

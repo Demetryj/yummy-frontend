@@ -71,6 +71,19 @@ export const theme = {
     medium: '(min-width: 768px)',
     large: '(min-width: 1440px)',
   },
+
+  // breakpoints: {
+  //   xs: '0',
+  //   sm: '768px',
+  //   lg: '1440px',
+  // },
+
+  breakpoints: {
+    xs: '0',
+    xm: '375',
+    md: '768px',
+    lg: '1440px',
+  },
 };
 
 // @media screen and ${(p) => p.theme.media.large} {
@@ -78,3 +91,11 @@ export const theme = {
 //     color: ;
 //     ...
 //   }
+
+// breakpoints: {
+//   xs: '0',
+//   sm: '600px',
+//   md: '960px',
+//   lg: '1280px',
+//   xl: '1920px',
+// },
