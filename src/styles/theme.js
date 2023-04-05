@@ -23,7 +23,20 @@ export const theme = {
     greenColor: '#8BAA36',
   },
 
-  space: `${n => 2 * n}px`,
+  spacing: n => `${2 * n}px`,
+
+  media: {
+    medium: '(min-width: 768px)',
+    large: '(min-width: 1440px)',
+  },
+
+  /* usage 
+   @media screen and ${(p) => p.theme.media.large} {
+    height: ;
+    color: ;
+    ...
+  }
+  */
 
   fonts: {
     body: "'Roboto', sans-serif",
