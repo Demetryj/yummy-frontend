@@ -17,7 +17,6 @@ import {
 export const RecipeItem = ({ img, title, description, instructions, time}) => {
      const dispatch = useDispatch();
   return (
-    <>
     <Card>
         <Image
           src={img}
@@ -44,7 +43,6 @@ export const RecipeItem = ({ img, title, description, instructions, time}) => {
     </List>
     </Information>
     </Card>
-    </>
   );
 }
 
