@@ -25,6 +25,19 @@ export const theme = {
 
   spacing: n => `${2 * n}px`,
 
+  media: {
+    medium: '(min-width: 768px)',
+    large: '(min-width: 1440px)',
+  },
+
+  /* usage 
+   @media screen and ${(p) => p.theme.media.large} {
+    height: ;
+    color: ;
+    ...
+  }
+  */
+
   fonts: {
     body: "'Roboto', sans-serif",
     heading: "'Fira Sans', sans-serif",
