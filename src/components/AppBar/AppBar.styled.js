@@ -16,3 +16,5 @@ export const ListItem = styled.li`
     margin-right: ${p => p.theme.spacing(15)};
   }
 `;
+
+export const Avatar = styled.img``;

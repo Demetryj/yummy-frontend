@@ -66,4 +66,15 @@ export const theme = {
   shadows: {
     pagination: '0px 4px 4px rgba(135, 135, 135, 0.2)',
   },
+
+  media: {
+    medium: '(min-width: 768px)',
+    large: '(min-width: 1440px)',
+  },
 };
+
+// @media screen and ${(p) => p.theme.media.large} {
+//     height: ;
+//     color: ;
+//     ...
+//   }
