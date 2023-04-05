@@ -1,7 +1,9 @@
+import { SigninForm } from 'components/SigninForm/SigninForm';
+
 const Signin = () => {
   return (
     <main>
-      <h1>Signin Page</h1>
+      <SigninForm />
     </main>
   );
 };

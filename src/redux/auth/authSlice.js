@@ -20,11 +20,10 @@ const authSlice = createSlice({
         console.log(action.payload);
         state.user = action.payload;
       })
-      .addCase(register.rejected, (state, action) => state);
-    // .addCase(signIn.fulfield, (state, action) => {
-    //   console.log(action.payload);
-    //   state.user = action.payload;
-    // });
+      .addCase(register.rejected, (state, action) => state)
+      .addCase(signIn.fulfilled, (state, action) => {
+        console.log(action);
+      });
   },
 });
 
