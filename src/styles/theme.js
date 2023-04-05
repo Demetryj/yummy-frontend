@@ -37,6 +37,22 @@ export const theme = {
     ...
   }
   */
+  breakpoints: {
+    xs: '0px',
+    md: '768px',
+    lg: '1440px',
+  },
+
+  /*
+   usage 
+   <Box
+        width={{ xs: 375, md: 768, lg: 1440 }}
+        height={200}
+        p={{ xs: 10, md: 25, lg: 50 }}
+        bg="greenBgColor"
+      >
+        <h1>Main Page</h1>
+  </Box> */
 
   fonts: {
     body: "'Roboto', sans-serif",
