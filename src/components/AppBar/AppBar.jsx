@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Box } from '../Box';
-import { NavItem, List, ListItem, Avatar, Paragraph } from './AppBar.styled';
+import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
 import { BiRestaurant } from 'react-icons/bi';
 import { FiSearch, FiUser } from 'react-icons/fi';
 import { BsToggleOff, BsToggleOn } from 'react-icons/bs';
@@ -14,15 +14,14 @@ const navItems = [
   { href: 'my', item: 'My recipes' },
   { href: 'favorite', item: 'Favorites' },
   { href: 'shopping-list', item: 'Shopping List' },
-  // { href: 'search', item: <FiSearch /> },
   {
     href: 'search',
     item: (
       <Box display="flex" alignItems="center">
-        <Box display="flex" alignItems="center">
+        <Box display="flex" alignItems="center" mr={'8px'}>
           <FiSearch size={20} />
         </Box>
-        <Box display={{ md: 'none' }} alignItems="center">
+        <Box display={{ lg: 'none' }} alignItems="center">
           Search
         </Box>
       </Box>
@@ -38,7 +37,7 @@ export const AppBar = () => {
   };
 
   return (
-    <Box as="section" border="1px solid blue" px={{ xs: 16 }} mt={{ xs: 18 }}>
+    <Box as="section">
       <Box
         as="header"
         display="flex"
@@ -46,22 +45,17 @@ export const AppBar = () => {
         py={{ xs: '3px' }}
       >
         <Box
-          border="1px solid red"
           display="flex"
           justifyContent="center"
           alignItems="center"
-          width={{ xs: 40 }}
-          height={{ xs: 40 }}
+          width={{ xs: 40, md: 44 }}
+          height={{ xs: 40, md: 44 }}
           borderRadius={12}
-          bg="#EBF3D4"
+          bg="#8BAA36"
         >
-          <NavItem to={'/'}>{<BiRestaurant size={32} color="red" />}</NavItem>
+          <NavItem to={'/'}>{<BiRestaurant color="white" size={30} />}</NavItem>
         </Box>
-        <Box
-          as="nav"
-          border="1px solid yellow"
-          display={{ xs: 'none', md: 'flex' }}
-        >
+        <Box as="nav" display={{ xs: 'none', lg: 'flex' }}>
           <List>
             {navItems.map(({ href, item }) => (
               <ListItem key={href}>
@@ -70,62 +64,73 @@ export const AppBar = () => {
             ))}
           </List>
         </Box>
-        <Box border="1px solid green" display="flex" alignItems="center">
-          <Box
-            display="flex"
-            border="1px solid green"
-            alignItems="center"
-            mr={{ xs: 24 }}
-          >
+        <Box display="flex" alignItems="center">
+          <Box display="flex" alignItems="center" mr={{ xs: 24, md: 50 }}>
             <Box
               mr={{
                 xs: 14,
               }}
-              border="1px solid orange"
               borderRadius="50%"
               width={{ xs: 34 }}
               height={{ xs: 34 }}
               overflow="hidden"
+              bg="lightgrey"
             >
-              <FiUser size={34} />
+              <FiUser size={{ xs: 34, md: 44 }} />
               {/* <Avatar alt="Avatar" src="" /> */}
             </Box>
             <Box>
               <Paragraph>User</Paragraph>
             </Box>
           </Box>
-          <Box border="1px solid red" display={{ xs: 'none', md: 'flex' }}>
+          <Box display={{ xs: 'none', lg: 'flex' }}>
             <BsToggleOff size={32} />
           </Box>
-          <Box
-            onClick={toggleModal}
-            border="1px solid red"
-            display={{ xs: 'flex', md: 'none' }}
-          >
+          <Box onClick={toggleModal} display={{ xs: 'flex', lg: 'none' }}>
             <HiOutlineMenuAlt2 size={28} />
           </Box>
         </Box>
       </Box>
       {open && (
         <HeaderModal onClose={toggleModal}>
-          <Box px={{ xs: 16 }} py={{ xs: 18 }}>
+          <Box
+            mx="auto"
+            width={{ xs: 375, md: '100%' }}
+            px={{ xs: 16, md: 32 }}
+            py={{ xs: 18 }}
+            display="flex"
+            flexDirection="column"
+            height="100vh"
+          >
             <Box
               display="flex"
               justifyContent="space-between"
               alignItems="center"
-              border="1px solid blue"
             >
-              <Box onClick={toggleModal}>
-                <NavItem to={'/'}>
-                  {<BiRestaurant size={32} color="red" />}
-                </NavItem>
+              <Box
+                onClick={toggleModal}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                width={{ xs: 40, md: 44 }}
+                height={{ xs: 40, md: 44 }}
+                borderRadius={12}
+                bg="#8BAA36"
+              >
+                <NavItem to={'/'}>{<BiRestaurant color="white" />}</NavItem>
               </Box>
 
               <Box onClick={toggleModal}>
                 <RxCrossCircled size={32} />
               </Box>
             </Box>
-            <Box as="nav" border="1px solid red" display={{ xs: 'block' }}>
+            <Box
+              as="nav"
+              flexGrow={1}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
               <List>
                 {navItems.map(({ href, item }) => (
                   <ListItem key={href} onClick={toggleModal}>
@@ -134,7 +139,7 @@ export const AppBar = () => {
                 ))}
               </List>
             </Box>
-            <Box border="1px solid red" display={{ xs: 'flex' }}>
+            <Box>
               <BsToggleOff size={32} />
             </Box>
           </Box>

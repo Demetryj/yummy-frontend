@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import { ModalBackdrop, ModalContent } from './HeaderModal.styled';
+import { ModalBackdrop, ModalContent } from './ProfileModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const HeaderModal = ({ onClose, children }) => {
+export const ProfileModal = ({ onClose, children }) => {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {

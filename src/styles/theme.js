@@ -72,15 +72,8 @@ export const theme = {
     large: '(min-width: 1440px)',
   },
 
-  // breakpoints: {
-  //   xs: '0',
-  //   sm: '768px',
-  //   lg: '1440px',
-  // },
-
   breakpoints: {
     xs: '0',
-    xm: '375',
     md: '768px',
     lg: '1440px',
   },
