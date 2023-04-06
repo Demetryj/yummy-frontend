@@ -6,9 +6,12 @@ export const NavItem = styled(NavLink)`
 `;
 
 export const List = styled.ul`
-  display: flex;
   /* justify-content: space-between; */
   /* alignitems: center; */
+
+  @media screen and ${p => p.theme.media.medium} {
+    display: flex;
+  }
 `;
 
 export const ListItem = styled.li`

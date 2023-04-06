@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { Box } from '../Box';
 import { NavItem, List, ListItem, Avatar, Paragraph } from './AppBar.styled';
 import { BiRestaurant } from 'react-icons/bi';
 import { FiSearch, FiUser } from 'react-icons/fi';
 import { BsToggleOff, BsToggleOn } from 'react-icons/bs';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
+import { HeaderModal } from '../HeaderModal';
+import { RxCrossCircled } from 'react-icons/rx';
 
 const navItems = [
   { href: 'categories', item: 'Categories' },
@@ -11,20 +14,27 @@ const navItems = [
   { href: 'my', item: 'My recipes' },
   { href: 'favorite', item: 'Favorites' },
   { href: 'shopping-list', item: 'Shopping List' },
-  { href: 'search', item: <FiSearch /> },
+  // { href: 'search', item: <FiSearch /> },
+  {
+    href: 'search',
+    item: (
+      <Box display="flex" alignItems="center">
+        <Box display="flex" alignItems="center">
+          <FiSearch size={20} />
+        </Box>
+        <Box display={{ md: 'none' }} alignItems="center">
+          Search
+        </Box>
+      </Box>
+    ),
+  },
 ];
 
-// const MobileMenu = () => {
-//   return (
-//     <Box width={1} height={1} bg="red">
-//       <h2>Mobile Menu</h2>
-//     </Box>
-//   );
-// };
-
 export const AppBar = () => {
-  const handleMenuOpen = () => {
-    console.log('Menu Open');
+  const [open, setOpen] = useState(false);
+
+  const toggleModal = () => {
+    setOpen(!open);
   };
 
   return (
@@ -88,7 +98,7 @@ export const AppBar = () => {
             <BsToggleOff size={32} />
           </Box>
           <Box
-            onClick={handleMenuOpen}
+            onClick={toggleModal}
             border="1px solid red"
             display={{ xs: 'flex', md: 'none' }}
           >
@@ -96,7 +106,40 @@ export const AppBar = () => {
           </Box>
         </Box>
       </Box>
-      {/* <MobileMenu /> */}
+      {open && (
+        <HeaderModal onClose={toggleModal}>
+          <Box px={{ xs: 16 }} py={{ xs: 18 }}>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              border="1px solid blue"
+            >
+              <Box onClick={toggleModal}>
+                <NavItem to={'/'}>
+                  {<BiRestaurant size={32} color="red" />}
+                </NavItem>
+              </Box>
+
+              <Box onClick={toggleModal}>
+                <RxCrossCircled size={32} />
+              </Box>
+            </Box>
+            <Box as="nav" border="1px solid red" display={{ xs: 'block' }}>
+              <List>
+                {navItems.map(({ href, item }) => (
+                  <ListItem key={href} onClick={toggleModal}>
+                    <NavItem to={href}>{item}</NavItem>
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+            <Box border="1px solid red" display={{ xs: 'flex' }}>
+              <BsToggleOff size={32} />
+            </Box>
+          </Box>
+        </HeaderModal>
+      )}
     </Box>
   );
 };
