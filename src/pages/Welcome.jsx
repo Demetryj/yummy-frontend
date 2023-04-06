@@ -1,9 +1,11 @@
-import { WelcomeMain } from 'components/WelcomeMain/WelcomeMain.jsx';
+
+import { AuthNav } from 'components/AuthNav/AuthNav';
+
 
 const Welcome = () => {
   return (
     <main>
-      <WelcomeMain />
+      <AuthNav />
     </main>
   );
 };
