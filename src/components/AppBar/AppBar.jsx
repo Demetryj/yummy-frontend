@@ -12,7 +12,7 @@ const navItems = [
   { href: 'categories', item: 'Categories' },
   { href: 'add', item: 'Add recipes' },
   { href: 'my', item: 'My recipes' },
-  { href: 'favorite', item: 'Favorites' },
+  { href: 'favorites', item: 'Favorites' },
   { href: 'shopping-list', item: 'Shopping List' },
   {
     href: 'search',
@@ -37,6 +37,7 @@ export const AppBar = () => {
   };
 
   return (
+
     <Box as="section">
       <Box
         as="header"
@@ -146,5 +147,6 @@ export const AppBar = () => {
         </HeaderModal>
       )}
     </Box>
+
   );
 };
