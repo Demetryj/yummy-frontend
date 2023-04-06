@@ -1,9 +1,14 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import RegisterPage from 'pages/Register';
 import SigninPage from 'pages/Signin';
 import WelcomePage from 'pages/Welcome';
 import { SharedLayout } from 'components/SharedLayout';
+
+import { useDispatch } from 'react-redux';
+import { refreshUser } from 'redux/auth/operations';
+import { useAuth } from 'hooks/useAuth';
 
 const MainPage = React.lazy(() => import('pages/Main'));
 const CategoriesPage = React.lazy(() => import('pages/Categories'));
@@ -17,14 +22,23 @@ const SearchPage = React.lazy(() => import('pages/Search'));
 const ErrorPage = React.lazy(() => import('pages/Error'));
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+  return isRefreshing ? (
+    'refreshing'
+  ) : (
     <Routes>
       <>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/signin" element={<SigninPage />} />
       </>
-      <Route path="/" element={<SharedLayout />}>
+      {/* <Route path="/" element={<SharedLayout />}>
         <Route index element={<MainPage />} />
         <Route path="/categories" element={<CategoriesPage />}>
           <Route path=":categoryName" element={<CategoryNamePage />} />
@@ -36,7 +50,7 @@ export const App = () => {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/recipe/:recipeId" element={<RecipesPage />} />
         <Route path="*" element={<ErrorPage />} />
-      </Route>
+      </Route> */}
     </Routes>
   );
 };
