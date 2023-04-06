@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/yummy-frontend/static/css/main.c3d5249d.css",
-    "main.js": "/yummy-frontend/static/js/main.b3770ed1.js",
+    "main.js": "/yummy-frontend/static/js/main.901e42f2.js",
     "static/js/865.0d9867c8.chunk.js": "/yummy-frontend/static/js/865.0d9867c8.chunk.js",
     "static/js/211.9d011cd5.chunk.js": "/yummy-frontend/static/js/211.9d011cd5.chunk.js",
     "static/js/404.e967ed91.chunk.js": "/yummy-frontend/static/js/404.e967ed91.chunk.js",
@@ -12,9 +12,16 @@
     "static/js/487.3ba2781e.chunk.js": "/yummy-frontend/static/js/487.3ba2781e.chunk.js",
     "static/js/565.2a4f0549.chunk.js": "/yummy-frontend/static/js/565.2a4f0549.chunk.js",
     "static/js/307.f598e24d.chunk.js": "/yummy-frontend/static/js/307.f598e24d.chunk.js",
+    "static/media/welcome-desk@2x.jpg": "/yummy-frontend/static/media/welcome-desk@2x.0c944c21b18acf06bf26.jpg",
+    "static/media/welcome-tablet@2x.jpg": "/yummy-frontend/static/media/welcome-tablet@2x.5ce77743028206c1f7fe.jpg",
+    "static/media/welcome-mob@2x.jpg": "/yummy-frontend/static/media/welcome-mob@2x.9d6457d12a59f0b4ddb6.jpg",
+    "static/media/welcome-desk.jpg": "/yummy-frontend/static/media/welcome-desk.ca00237b03118b12874a.jpg",
+    "static/media/welcome-tablet.jpg": "/yummy-frontend/static/media/welcome-tablet.37c9489c48bd385deeee.jpg",
+    "static/media/welcome-mob.jpg": "/yummy-frontend/static/media/welcome-mob.ef11c7f632492b2bc291.jpg",
     "index.html": "/yummy-frontend/index.html",
+    "static/media/logo-header.svg": "/yummy-frontend/static/media/logo-header.730141656e2fa293a2ae7c83da54bb81.svg",
     "main.c3d5249d.css.map": "/yummy-frontend/static/css/main.c3d5249d.css.map",
-    "main.b3770ed1.js.map": "/yummy-frontend/static/js/main.b3770ed1.js.map",
+    "main.901e42f2.js.map": "/yummy-frontend/static/js/main.901e42f2.js.map",
     "865.0d9867c8.chunk.js.map": "/yummy-frontend/static/js/865.0d9867c8.chunk.js.map",
     "211.9d011cd5.chunk.js.map": "/yummy-frontend/static/js/211.9d011cd5.chunk.js.map",
     "404.e967ed91.chunk.js.map": "/yummy-frontend/static/js/404.e967ed91.chunk.js.map",
@@ -28,6 +35,6 @@
   },
   "entrypoints": [
     "static/css/main.c3d5249d.css",
-    "static/js/main.b3770ed1.js"
+    "static/js/main.901e42f2.js"
   ]
 }
