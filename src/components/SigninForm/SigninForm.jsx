@@ -4,6 +4,8 @@ import { FormStyled } from '../RegisterForm/RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/auth/operations';
 
+import { logout } from '../../redux/auth/operations';
+
 const signinSchema = object({
   email: string().required().email('yup!'),
   password: string().required(),
@@ -17,6 +19,10 @@ export const SigninForm = () => {
     // actions.resetForm();
   };
 
+  const onLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <>
       <h1>Signin</h1>
@@ -24,7 +30,7 @@ export const SigninForm = () => {
         validationSchema={signinSchema}
         initialValues={{
           email: 'lytvyn@mail.com',
-          password: '12345678',
+          password: 'lytvyn123456',
         }}
         onSubmit={handleSubmit}
       >
@@ -36,6 +42,9 @@ export const SigninForm = () => {
           <button type="submit">Submit</button>
         </FormStyled>
       </Formik>
+      <button type="button" onClick={onLogout}>
+        temp log out
+      </button>
     </>
   );
 };

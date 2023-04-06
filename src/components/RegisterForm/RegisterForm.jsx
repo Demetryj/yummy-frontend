@@ -1,8 +1,16 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import { object, string } from 'yup';
-import { FormStyled } from './RegisterForm.styled';
+import {
+  FormStyled,
+  FieldStyled,
+  ButtonStyled,
+  ErrorMessageStyled,
+  Title,
+  FieldWrapperStyled,
+} from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import { useState } from 'react';
 
 const registerSchema = object({
   name: string().min(5).required('yup!'),
@@ -11,6 +19,8 @@ const registerSchema = object({
 });
 
 export const RegisterForm = () => {
+  const [validationColor, setColor] = useState('white');
+
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -20,24 +30,58 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <h1>Registration</h1>
       <Formik
         validationSchema={registerSchema}
         initialValues={{
-          name: 'lytvyn',
-          email: 'lytvyn@mail.com',
-          password: '12345678',
+          name: '',
+          email: '',
+          password: '',
         }}
         onSubmit={handleSubmit}
       >
         <FormStyled>
-          <Field name="name" type="text" />
-          <ErrorMessage name="name" />
-          <Field name="email" type="email" />
-          <ErrorMessage name="email" />
-          <Field name="password" type="password" />
-          <ErrorMessage name="password" />
-          <button type="submit">Submit</button>
+          <Title>Registration</Title>
+          <FieldWrapperStyled>
+            <i>ssss</i>
+            <FieldStyled
+              name="name"
+              type="text"
+              placeholder="Name"
+              // inputColor={validationColor}
+            />
+            <ErrorMessageStyled
+              name="name"
+              component="span"
+              inputColor="green"
+            />
+          </FieldWrapperStyled>
+          <FieldWrapperStyled>
+            <FieldStyled
+              name="email"
+              type="email"
+              placeholder="Email"
+              // inputColor="green"
+            />
+            <ErrorMessageStyled
+              name="email"
+              component="span"
+              // inputColor="green"
+            />
+          </FieldWrapperStyled>
+          <FieldWrapperStyled>
+            <FieldStyled
+              name="password"
+              type="password"
+              placeholder="Password"
+              // inputColor="green"
+            />
+            <ErrorMessageStyled
+              name="password"
+              component="span"
+              // inputColor="green"
+            ></ErrorMessageStyled>
+          </FieldWrapperStyled>
+          <ButtonStyled type="submit">Submit</ButtonStyled>
         </FormStyled>
       </Formik>
     </>

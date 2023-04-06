@@ -1,7 +1,9 @@
+import { AuthNav } from 'components/AuthNav/AuthNav';
+
 const Welcome = () => {
   return (
     <main>
-      <h1>Welcome Page</h1>
+      <AuthNav />
     </main>
   );
 };
