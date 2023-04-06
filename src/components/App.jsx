@@ -38,7 +38,7 @@ export const App = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/signin" element={<SigninPage />} />
       </>
-      {/* <Route path="/" element={<SharedLayout />}>
+      <Route path="/" element={<SharedLayout />}>
         <Route index element={<MainPage />} />
         <Route path="/categories" element={<CategoriesPage />}>
           <Route path=":categoryName" element={<CategoryNamePage />} />
@@ -50,7 +50,7 @@ export const App = () => {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/recipe/:recipeId" element={<RecipesPage />} />
         <Route path="*" element={<ErrorPage />} />
-      </Route> */}
+      </Route>
     </Routes>
   );
 };
