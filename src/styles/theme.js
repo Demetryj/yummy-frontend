@@ -25,7 +25,6 @@ export const theme = {
     greenColor: '#8BAA36',
   },
 
-
   spacing: n => `${2 * n}px`,
 
   media: {
@@ -56,7 +55,6 @@ export const theme = {
       >
         <h1>Main Page</h1>
   </Box> */
-
 
   fonts: {
     body: "'Roboto', sans-serif",
@@ -102,29 +100,4 @@ export const theme = {
     pagination: '0px 4px 4px rgba(135, 135, 135, 0.2)',
     switch: 'inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);',
   },
-
-  media: {
-    medium: '(min-width: 768px)',
-    large: '(min-width: 1440px)',
-  },
-
-  breakpoints: {
-    xs: '0',
-    md: '768px',
-    lg: '1440px',
-  },
 };
-
-// @media screen and ${(p) => p.theme.media.large} {
-//     height: ;
-//     color: ;
-//     ...
-//   }
-
-// breakpoints: {
-//   xs: '0',
-//   sm: '600px',
-//   md: '960px',
-//   lg: '1280px',
-//   xl: '1920px',
-// },
