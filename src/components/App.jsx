@@ -31,7 +31,7 @@ export const App = () => {
         </Route>
         <Route path="/add" element={<AddRecipesPage />} />
         <Route path="/my" element={<MyRecipesPage />} />
-        <Route path="/favorite" element={<FavoritesPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/shopping-list" element={<ShoppingListPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/recipe/:recipeId" element={<RecipesPage />} />
