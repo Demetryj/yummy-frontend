@@ -27,7 +27,7 @@ export const AppBar = () => {
             <NavItem to={'add'}>{'AddRecipes'}</NavItem>
           </li>
           <li>
-            <NavItem to={'favorite'}>{'Favorites'}</NavItem>
+            <NavItem to={'favorites'}>{'Favorites'}</NavItem>
           </li>
           <li>
             <NavItem to={'shopping-list'}>{'ShoppingList'}</NavItem>
