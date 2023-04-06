@@ -18,6 +18,7 @@ export const theme = {
     lightDarckBgColor: '#2A2C36',
     darckBgColor: '#1E1F28',
     greenBgColor: '#8BAA36',
+    footerLogoBgColor: '#EBF3D4',
 
     whiteColor: '#FAFAFA',
     greenColor: '#8BAA36',
@@ -83,6 +84,7 @@ export const theme = {
   borders: {
     none: 'none',
     normal: '1px solid',
+    medium: '2px solid',
   },
 
   radii: {
@@ -90,9 +92,11 @@ export const theme = {
     light: '6px',
     normal: '8px',
     pagination: '26px',
+    switch: '50px',
   },
 
   shadows: {
     pagination: '0px 4px 4px rgba(135, 135, 135, 0.2)',
+    switch: 'inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);',
   },
 };
