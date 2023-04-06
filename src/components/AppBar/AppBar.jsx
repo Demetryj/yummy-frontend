@@ -24,13 +24,13 @@ export const AppBar = () => {
             <NavItem to={'categories'}>{'Categories'}</NavItem>
           </li>
           <li>
-            <NavItem to={'addRecipes'}>{'AddRecipes'}</NavItem>
+            <NavItem to={'add'}>{'AddRecipes'}</NavItem>
           </li>
           <li>
             <NavItem to={'favorites'}>{'Favorites'}</NavItem>
           </li>
           <li>
-            <NavItem to={'shoppingList'}>{'ShoppingList'}</NavItem>
+            <NavItem to={'shopping-list'}>{'ShoppingList'}</NavItem>
           </li>
           <li>
             <NavItem to={'search'}>{'Search'}</NavItem>
