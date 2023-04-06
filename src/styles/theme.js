@@ -84,6 +84,7 @@ export const theme = {
   borders: {
     none: 'none',
     normal: '1px solid',
+    medium: '2px solid',
   },
 
   radii: {
