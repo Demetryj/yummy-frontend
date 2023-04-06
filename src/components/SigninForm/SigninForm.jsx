@@ -1,10 +1,21 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
+import { Link } from 'react-router-dom';
 import { object, string } from 'yup';
-import { FormStyled } from '../RegisterForm/RegisterForm.styled';
+import {
+  FieldWrapperStyled,
+  FormStyled,
+  ButtonStyled,
+  FormBoxStyled,
+  Title,
+  ButtonTemp,
+} from '../RegisterForm/RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/auth/operations';
 
 import { logout } from '../../redux/auth/operations';
+import { FieldStyled } from '../RegisterForm/RegisterForm.styled';
+
+console.log();
 
 const signinSchema = object({
   email: string().required().email('yup!'),
@@ -25,26 +36,37 @@ export const SigninForm = () => {
 
   return (
     <>
-      <h1>Signin</h1>
-      <Formik
-        validationSchema={signinSchema}
-        initialValues={{
-          email: 'lytvyn@mail.com',
-          password: 'lytvyn123456',
-        }}
-        onSubmit={handleSubmit}
-      >
-        <FormStyled>
-          <Field name="email" type="email" />
-          <ErrorMessage name="email" />
-          <Field name="password" type="password" />
-          <ErrorMessage name="password" />
-          <button type="submit">Submit</button>
-        </FormStyled>
-      </Formik>
-      <button type="button" onClick={onLogout}>
-        temp log out
-      </button>
+      <FormBoxStyled>
+        <Title>Signin</Title>
+        <Formik
+          validationSchema={signinSchema}
+          initialValues={{
+            email: '',
+            password: '',
+          }}
+          onSubmit={handleSubmit}
+        >
+          <FormStyled>
+            <FieldWrapperStyled>
+              <FieldStyled name="email" type="email" placeholder="email" />
+              <ErrorMessage name="email" />
+            </FieldWrapperStyled>
+            <FieldWrapperStyled>
+              <FieldStyled
+                name="password"
+                type="password"
+                placeholder="password"
+              />
+              <ErrorMessage name="password" />
+            </FieldWrapperStyled>
+            <ButtonStyled type="submit">Submit</ButtonStyled>
+          </FormStyled>
+        </Formik>
+        <ButtonTemp type="button" onClick={onLogout}>
+          temp log out
+        </ButtonTemp>
+        <Link to="/register">Registration</Link>
+      </FormBoxStyled>
     </>
   );
 };

@@ -33,6 +33,7 @@ export const signIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -54,7 +55,7 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const { token } = thunkAPI.getState().auth;
     if (!token) {
-      return;
+      return thunkAPI.rejectWithValue('no token');
     }
     setAuthHeader(token);
     try {
