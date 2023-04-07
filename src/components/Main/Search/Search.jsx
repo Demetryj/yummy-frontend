@@ -1,34 +1,35 @@
-// import PropTypes from 'prop-types';
-// import { Formik, ErrorMessage } from 'formik';
-// import * as yup from 'yup';
-//import { useDispatch, useSelector } from 'react-redux';
-//  Нужно записать, что ввели в строку поиска в Local Storage
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import {changeQuery} from '../../../redux/query/querySlice';
+import {selectQuery} from "../../../redux/query/selector";
+//  Нужно записать то, что ввели в строку поиска в Local Storage
 import {Input, Button, SearchForm, SearchFormContainer} from "./Search.styled";
 
 
 export const Search = () => {
-    // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const query = useSelector(selectQuery);
 
-    // const handleInputChange = e => {
-    //     setQuery(e.currentTarget.value.toLowerCase());
-    //   };
+  const changeHandleSearch = e => {
+  const { value } = e.currentTarget;
 
-    // const handleSubmit = event => {
-    //         event.preventDefault();
-    //         const form = event.target;
-       
-    //         dispatch(addQuery(form.elements.text.value));
-    //         form.reset();
-    //       };
+  dispatch(changeQuery(value));
+  console.log(query);
+  };
+
+  // const handleSubmit = e => {
+  // e.preventDefault();
+  // };
         
-          return (<SearchFormContainer>
+          return (
+          <SearchFormContainer>
             <SearchForm 
             // onSubmit={handleSubmit}
             >
               <Input type="text"
             name="query"
-            // value={query}
-            // onChange={handleInputChange}
+            value={query}
+            onChange={changeHandleSearch }
             autocomplete="off"
             autoFocus
             placeholder="Beef" />
@@ -36,28 +37,8 @@ export const Search = () => {
             </SearchForm>
           </SearchFormContainer>  
           );
-}
+};
 
-
-
-
-// export const TaskForm = () => {
-//   // Получаем ссылку на функцию отправки экшенов
-//   const dispatch = useDispatch();
-
-//   const handleSubmit = event => {
-//     event.preventDefault();
-//     const form = event.target;
-//     // Вызываем генератор экшена и передаем текст задачи для поля payload
-//     // Отправляем результат - экшен создания задачи
-//     dispatch(addTask(form.elements.text.value));
-//     form.reset();
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <input type="text" name="text" placeholder="Enter task text..." />
-//       <button type="submit">Add task</button>
-//     </form>
-//   );
-// // }
+Search.propTypes = {
+  query: PropTypes.string,
+};

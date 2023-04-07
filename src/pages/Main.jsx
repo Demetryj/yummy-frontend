@@ -1,8 +1,8 @@
+import {MainPage} from "../components/Main/MainPage"
+
 const Main = () => {
   return (
-    <main>
-      <h1>Main Page</h1>
-    </main>
+    <MainPage/>
   );
 };
 
