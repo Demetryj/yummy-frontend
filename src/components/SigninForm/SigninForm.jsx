@@ -14,6 +14,7 @@ import { signIn } from 'redux/auth/operations';
 
 import { logout } from '../../redux/auth/operations';
 import { FieldStyled } from '../RegisterForm/RegisterForm.styled';
+import { useAuth } from 'hooks/useAuth';
 
 console.log();
 
@@ -24,6 +25,8 @@ const signinSchema = object({
 
 export const SigninForm = () => {
   const dispatch = useDispatch();
+
+  const { isLoading } = useAuth();
 
   const handleSubmit = (values, actions) => {
     dispatch(signIn(values));
@@ -36,6 +39,7 @@ export const SigninForm = () => {
 
   return (
     <>
+      {isLoading && <p>component loading</p>}
       <FormBoxStyled>
         <Title>Signin</Title>
         <Formik
