@@ -26,6 +26,7 @@ export const RegisterForm = () => {
 
   // const { isLoading, error } = useSelector(state => state.auth);
   const { isLoading } = useAuth();
+  const { errorMessage } = useAuth();
 
   const handleSubmit = (values, actions) => {
     dispatch(register(values));
@@ -86,6 +87,7 @@ export const RegisterForm = () => {
                 // inputColor="green"
               ></ErrorMessageStyled>
             </FieldWrapperStyled>
+            {errorMessage && <p>${errorMessage}</p>}
             <ButtonStyled type="submit">Submit</ButtonStyled>
           </FormStyled>
         </Formik>

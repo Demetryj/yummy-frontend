@@ -8,6 +8,7 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: false,
   isLoading: false,
+  errorMessage: null,
 };
 
 const authSlice = createSlice({
@@ -23,6 +24,7 @@ const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(register.rejected, (state, action) => {
+        state.errorMessage = action.payload;
         state.isLoading = false;
       })
       .addCase(signIn.pending, (state, action) => {
