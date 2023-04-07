@@ -93,11 +93,13 @@ export const theme = {
     light: '6px',
     normal: '8px',
     pagination: '26px',
+    modalProfile: '30px',
     switch: '50px',
   },
 
   shadows: {
     pagination: '0px 4px 4px rgba(135, 135, 135, 0.2)',
     switch: 'inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);',
+    modalProfile: ' 0px 4px 48px rgba(0, 0, 0, 0.1);',
   },
 };
