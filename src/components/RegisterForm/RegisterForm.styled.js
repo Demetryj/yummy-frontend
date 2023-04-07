@@ -3,11 +3,9 @@ import { Form, Field, ErrorMessage } from 'formik';
 import { theme } from '../../styles/theme';
 
 export const FormStyled = styled(Form)`
-  /* width: 400px; */
   margin-top: 18px;
   display: flex;
   flex-direction: column;
-  /* gap: 25px; */
 `;
 
 export const FieldWrapperStyled = styled.div`

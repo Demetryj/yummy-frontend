@@ -20,6 +20,7 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(register.fulfilled, (state, action) => {
+        console.log(action);
         state.user = action.payload;
         state.isLoading = false;
       })

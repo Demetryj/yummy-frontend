@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { ErrorMessage, Formik } from 'formik';
 import { Link } from 'react-router-dom';
 import { object, string } from 'yup';
 import {
@@ -12,25 +12,23 @@ import {
 } from './RegisterForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { useState } from 'react';
 import { useAuth } from 'hooks/useAuth';
 
 const registerSchema = object({
-  name: string().min(5).required('yup!'),
-  email: string().required().email('yup!'),
-  password: string().required(),
+  name: string().required(),
+  email: string().required().email(),
+  password: string().min(6).required(),
 });
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  // const { isLoading, error } = useSelector(state => state.auth);
   const { isLoading } = useAuth();
   const { errorMessage } = useAuth();
 
   const handleSubmit = (values, actions) => {
     dispatch(register(values));
-    // actions.resetForm();
+    actions.resetForm();
   };
 
   return (
@@ -46,20 +44,12 @@ export const RegisterForm = () => {
           }}
           onSubmit={handleSubmit}
         >
-          <FormStyled>
+          <FormStyled autoComplete="off">
             <Title>Registration</Title>
             <FieldWrapperStyled>
-              <FieldStyled
-                name="name"
-                type="text"
-                placeholder="Name"
-                // inputColor={validationColor}
-              />
-              <ErrorMessageStyled
-                name="name"
-                component="span"
-                inputColor="green"
-              />
+              <FieldStyled name="name" type="text" placeholder="Name" />
+
+              <ErrorMessageStyled name="name" />
             </FieldWrapperStyled>
             <FieldWrapperStyled>
               <FieldStyled
@@ -68,11 +58,7 @@ export const RegisterForm = () => {
                 placeholder="Email"
                 // inputColor="green"
               />
-              <ErrorMessageStyled
-                name="email"
-                component="span"
-                // inputColor="green"
-              />
+              <ErrorMessageStyled name="email" />
             </FieldWrapperStyled>
             <FieldWrapperStyled>
               <FieldStyled
@@ -83,7 +69,7 @@ export const RegisterForm = () => {
               />
               <ErrorMessageStyled
                 name="password"
-                component="span"
+                // component="span"
                 // inputColor="green"
               ></ErrorMessageStyled>
             </FieldWrapperStyled>
