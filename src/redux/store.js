@@ -16,7 +16,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     // ingredients: ingredientsReducer,
-    // recepies: recipesReducer,
+    // recipes: recipesReducer,
     // shoppingList: shoppingListReducer,
   },
 
