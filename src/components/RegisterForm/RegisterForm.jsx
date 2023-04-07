@@ -10,9 +10,10 @@ import {
   FieldWrapperStyled,
   FormBoxStyled,
 } from './RegisterForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { useState } from 'react';
+import { useAuth } from 'hooks/useAuth';
 
 const registerSchema = object({
   name: string().min(5).required('yup!'),
@@ -21,9 +22,10 @@ const registerSchema = object({
 });
 
 export const RegisterForm = () => {
-  const [validationColor, setColor] = useState('white');
-
   const dispatch = useDispatch();
+
+  // const { isLoading, error } = useSelector(state => state.auth);
+  const { isLoading } = useAuth();
 
   const handleSubmit = (values, actions) => {
     dispatch(register(values));
@@ -32,6 +34,7 @@ export const RegisterForm = () => {
 
   return (
     <>
+      {isLoading && <p>component loading</p>}
       <FormBoxStyled>
         <Formik
           validationSchema={registerSchema}
