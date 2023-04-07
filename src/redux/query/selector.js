@@ -1,1 +1,1 @@
-export const selectQuery = state => state.query.letters;
+// export const selectQuery = state => state.query.letters;

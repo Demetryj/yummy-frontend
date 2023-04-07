@@ -32,10 +32,22 @@ export const fetchRecipes = createAsyncThunk(
   'recipes/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/recipes'); //  /main-page
+      const response = await axios.get('/recipes');
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
+);
+
+  export const fetchRecipesPopular = createAsyncThunk(
+    'recipes/fetchPopular',
+    async (_, thunkAPI) => {
+      try {
+        const response = await axios.get('/recipes/main-page');
+        return response.data;
+      } catch (e) {
+        return thunkAPI.rejectWithValue(e.message);
+      }
+    }
 );

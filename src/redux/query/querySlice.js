@@ -1,19 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+// import { createSlice } from '@reduxjs/toolkit';
 
-const queryInitialState = {
-  letters: '',
-};
+// const queryInitialState = {
+//   letters: '',
+// };
 
-const querySlice = createSlice({
-  name: 'query',
-  initialState: queryInitialState,
-  reducers: {
-    changeQuery(state, action) {
-      state.letters = action.payload;
-    },
-  },
-});
+// const querySlice = createSlice({
+//   name: 'query',
+//   initialState: queryInitialState,
+//   reducers: {
+//     changeQuery(state, action) {
+//       state.letters = action.payload;
+//     },
+//   },
+// });
 
-export const { changeQuery } = querySlice.actions;
+// export const { changeQuery } = querySlice.actions;
 
-export const queryReducer = querySlice.reducer;
+// export const queryReducer = querySlice.reducer;

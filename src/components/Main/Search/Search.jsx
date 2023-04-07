@@ -1,8 +1,5 @@
-import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import {changeQuery} from '../../../redux/query/querySlice';
-import {selectQuery} from "../../../redux/query/selector";
 //  TODO! записать то, что ввели в строку поиска в Local Storage
 import {
   Input,
@@ -12,24 +9,29 @@ import {
 } from "./Search.styled";
 
 export const Search = () => {
-  const dispatch = useDispatch();
-  const query = useSelector(selectQuery);
-
+  // зробити тимчасовий useState ???
   const changeHandleSearch = e => {
   const { value } = e.currentTarget;
-  // .toLowerCase()
-  dispatch(changeQuery(value));
+ 
+  localStorage.setItem('query', value.toLowerCase());
   };
 
   const handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault(); 
+    const { value } = e.currentTarget;
+    console.log('value',value);
+    const queryInput = localStorage.getItem('query');
+     // const dispatch = useDispatch();
 
-    if (query.trim() === '') {
+    if (!value) {
+      console.log("in toaster");
       return toast.error('Please enter title.', {
         duration: 2000,
-        position: 'top-right',
+        position: "top-center",
       });
     } 
+//делаем запрос на бекенд
+// localStorage.removeItem("query"); // -  це потрібно ???
   };
 
   return (
@@ -38,8 +40,8 @@ export const Search = () => {
             onSubmit={handleSubmit}
             >
               <Input type="text"
-            name="query"
-            value={query}
+            name="queryInput"
+            //  value={query} // TODO!
             onChange={changeHandleSearch }
             autocomplete="off"
             autoFocus
@@ -50,8 +52,4 @@ export const Search = () => {
           </SearchForm>
           </SearchFormContainer>  
           );
-};
-
-Search.propTypes = {
-  query: PropTypes.string,
 };
