@@ -1,10 +1,16 @@
 import PropTypes from 'prop-types';
+import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
+// import { Link } from 'react-router-dom';
 import {changeQuery} from '../../../redux/query/querySlice';
 import {selectQuery} from "../../../redux/query/selector";
-//  Нужно записать то, что ввели в строку поиска в Local Storage
-import {Input, Button, SearchForm, SearchFormContainer} from "./Search.styled";
-
+//  TODO! записать то, что ввели в строку поиска в Local Storage
+import {
+  Input,
+  Button,
+  SearchForm,
+  SearchFormContainer
+} from "./Search.styled";
 
 export const Search = () => {
   const dispatch = useDispatch();
@@ -12,19 +18,25 @@ export const Search = () => {
 
   const changeHandleSearch = e => {
   const { value } = e.currentTarget;
-
+  // .toLowerCase()
   dispatch(changeQuery(value));
-  console.log(query);
   };
 
-  // const handleSubmit = e => {
-  // e.preventDefault();
-  // };
-        
-          return (
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if (query.trim() === '') {
+      return toast.error('Please enter title.', {
+        duration: 2000,
+        position: 'top-right',
+      });
+    } 
+  };
+
+  return (
           <SearchFormContainer>
             <SearchForm 
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             >
               <Input type="text"
             name="query"
@@ -33,8 +45,10 @@ export const Search = () => {
             autocomplete="off"
             autoFocus
             placeholder="Beef" />
-              <Button type="submit">Search</Button>
-            </SearchForm>
+          {/* <Link to="/search"> */}
+          <Button type="submit">Search</Button>
+          {/* </Link>      */}
+          </SearchForm>
           </SearchFormContainer>  
           );
 };

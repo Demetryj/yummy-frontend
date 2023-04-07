@@ -27,8 +27,6 @@ outline: none;
 background-color: #FAFAFA;
 border: 1px solid #F0F0F0;
 
-font-family: 'Poppins';
-font-style: normal;
 font-weight: 400;
 font-size: 12px;
 line-height: 18px;
@@ -48,8 +46,6 @@ top: 0;
 clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
 padding: 50px 42px;
 
-font-family: 'Poppins';
-font-style: normal;
 font-weight: 400;
 font-size: 14px;
 line-height: 21px;
