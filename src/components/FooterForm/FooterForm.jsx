@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, Form, Formik, FormikProps } from 'formik';
-import { Label, Input, Error } from './FooterForm.styled';
+import { SearchForm, Label, Input, Error } from './FooterForm.styled';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { FiMail } from 'react-icons/fi';
@@ -54,7 +54,7 @@ export const FootForm = () => (
         isSubmitting,
         /* and other goodies */
       }) => (
-        <Form onSubmit={handleSubmit}>
+        <SearchForm onSubmit={handleSubmit}>
           <Input
             type="email"
             name="email"
@@ -63,11 +63,13 @@ export const FootForm = () => (
             onBlur={handleBlur}
             value={values.email}
           />
+
           {errors.email && touched.email && errors.email}
+
           <Button type="submit" disabled={isSubmitting}>
             Subscribe
           </Button>
-        </Form>
+        </SearchForm>
       )}
     </Formik>
   </Box>

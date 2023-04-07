@@ -1,5 +1,22 @@
 import styled from 'styled-components';
-import { Field, ErrorMessage } from 'formik';
+import { Form, Field, ErrorMessage } from 'formik';
+
+export const SearchForm = styled(Form)`
+  @media screen and ${p => p.theme.media.medium} {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid red;
+    display: flex;
+    width: ${p => p.theme.spacing(221)};
+    overflow: hidden;
+  }
+  @media screen and ${p => p.theme.media.large} {
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+    width: 339px;
+  }
+`;
 
 export const Label = styled.label`
   display: block;
@@ -12,7 +29,7 @@ export const Input = styled(Field)`
   /* display: block; */
   /* align-items: center; */
   /* justify-content: center; */
-  width: 204px;
+  /* width: 204px; */
   margin-left: auto;
   margin-right: auto;
   background-color: transparent;
@@ -38,6 +55,13 @@ export const Input = styled(Field)`
   /* border: 1px solid '#fafafa'; */
   /* border: none; */
   outline: none;
+
+  @media screen and ${p => p.theme.media.medium} {
+    margin-bottom: ${p => p.theme.spacing(0)};
+    width: 100%;
+    margin-right: ${p => p.theme.spacing(6)};
+    margin-left: 0;
+  }
 `;
 
 export const Error = styled(ErrorMessage)`

@@ -6,6 +6,10 @@ import {
   List,
   ListItem,
   IconList,
+  Logo,
+  BenefitsList,
+  BenefitsItem,
+  IconItem,
 } from './Footer.styled';
 import { FootForm } from '../FooterForm';
 import logoHeader from '../../images/logo/logo-footer.svg';
@@ -41,37 +45,66 @@ const socialIcons = [
   },
 ];
 
+const benefits = [
+  { item: 'Database of recipes that can be replenished' },
+  { item: 'Flexible search for desired and unwanted ingredients' },
+  { item: 'Ability to add your own recipes with photos' },
+  { item: 'Convenient and easy to use' },
+];
+
 export const Footer = () => {
   return (
     <Box as="section" border="1px solid red">
-      <Box pt={{ xs: 28 }} pb={{ xs: 18 }} bg="yummyColor">
-        <Box
-          display={{ sx: 'flex' }}
-          justifyContent="center"
-          alignItems="center"
-          mb={{ xs: 32 }}
-        >
-          <NavItem to={'/'}>
-            <img
-              src={logoHeader}
-              alt="logo"
-              style={{ width: 32, height: 32 }}
-            />
-          </NavItem>
-          <Title>So Yummy</Title>
+      <Box
+        as="footer"
+        pt={{ xs: 28, md: 50 }}
+        pb={{ xs: 18, md: 24 }}
+        px={{ md: 32, lg: 100 }}
+        bg="yummyColor"
+      >
+        <Box display={{ lg: 'flex' }}>
+          <Box display={{ md: 'flex' }} mb={{ md: 72 }} flexGrow={{ lg: 2 }}>
+            <Box flexGrow={{ md: 3 }} border="1px solid red">
+              <Box
+                display={{ sx: 'flex' }}
+                justifyContent={{ sx: 'center', md: 'start' }}
+                alignItems="center"
+                mb={{ xs: 32 }}
+              >
+                <NavItem to={'/'}>
+                  <Logo src={logoHeader} alt="logo" />
+                </NavItem>
+                <Title>So Yummy</Title>
+              </Box>
+              <Box display={{ xs: 'none', md: 'block' }}>
+                <BenefitsList>
+                  {benefits.map(({ item }) => (
+                    <BenefitsItem key={item}>{item}</BenefitsItem>
+                  ))}
+                </BenefitsList>
+              </Box>
+            </Box>
+            <Box
+              as="nav"
+              mb={{ xs: 32 }}
+              flexGrow={{ md: 1 }}
+              border="1px solid red"
+            >
+              <List>
+                {navItems.map(({ href, item }) => (
+                  <ListItem key={href}>
+                    <NavItem to={href}>{item}</NavItem>
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+          </Box>
+
+          <Box mb={{ xs: 44, md: 38 }} border="1px solid red">
+            <FootForm />
+          </Box>
         </Box>
-        <Box as="nav" mb={{ xs: 32 }}>
-          <List>
-            {navItems.map(({ href, item }) => (
-              <ListItem key={href}>
-                <NavItem to={href}>{item}</NavItem>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-        <Box mb={{ xs: 44 }}>
-          <FootForm />
-        </Box>
+
         <Box
           display="flex"
           alignItems="center"
@@ -80,14 +113,20 @@ export const Footer = () => {
         >
           <IconList>
             {socialIcons.map(({ href, item }) => (
-              <ListItem key={href}>
+              <IconItem key={href}>
                 <NavItem to={href}>{item}</NavItem>
-              </ListItem>
+              </IconItem>
             ))}
           </IconList>
         </Box>
       </Box>
-      <Box display="flex" justifyContent="center" py={{ xs: 28 }}>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        py={{ xs: 28, md: 32 }}
+        bg={'transparent'}
+      >
         <AiOutlineCopyrightCircle size={10} />
         <Paragraph>&nbsp;2023 All Rights Reserved.</Paragraph>
         <Paragraph>Terms of service</Paragraph>
