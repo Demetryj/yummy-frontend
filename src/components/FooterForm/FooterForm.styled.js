@@ -36,7 +36,7 @@ export const Input = styled(Field)`
   border-bottom-style: #fafafa;
 
   /* border: 1px solid '#fafafa'; */
-
+  /* border: none; */
   outline: none;
 `;
 

@@ -62,3 +62,10 @@ export const Paragraph = styled.p`
     font-size: ${p => p.theme.fontSizes.s};
   }
 `;
+
+export const IconList = styled.ul`
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
+  gap: ${p => p.theme.spacing(7)};
+`;
