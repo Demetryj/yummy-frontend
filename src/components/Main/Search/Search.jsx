@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import {changeQuery} from '../../../redux/query/querySlice';
 import {selectQuery} from "../../../redux/query/selector";
 //  TODO! записать то, что ввели в строку поиска в Local Storage

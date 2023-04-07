@@ -1,21 +1,21 @@
+import { Link } from 'react-router-dom';
 import {
-    // TextMain, TextSub,
-       Text, TextBox, Button, 
-       Selected, 
-      //  ImageWrap,
-      //  Image
+      Text,
+      TextBox,
+      Button, 
+      Selected, 
       } from "./СhooseYourBreakfast.styled"
+import {BsArrowRight}  from "react-icons/bs";
   
   export const СhooseYourBreakfast = () => {
       return (
       <>
-      {/* <TextMain><Selected>So</Selected>Yummy</TextMain>
-      <TextSub>"What to cook?" is not only a recipe app, it is, in fact, your cookbook. You can add your own recipes to save them for the future.</TextSub>
-      <ImageWrap>
-      <Image src={require("../../../images/mainPage/vegetable-plate-mob.png")} alt="image" />
-        </ImageWrap> */}
-      <TextBox><Text><Selected>Delicious and healthy</Selected> way to enjoy a variety of fresh ingredients in one satisfying meal</Text>
-      <Button>See recipes</Button></TextBox>
+      <TextBox>
+        <Text><Selected>Delicious and healthy</Selected> way to enjoy a variety of fresh ingredients in one satisfying meal</Text>
+        <Link to='/categories'>
+        <Button>See recipes<BsArrowRight></BsArrowRight></Button>
+        </Link>
+        </TextBox>
       </>   
       )
   }
