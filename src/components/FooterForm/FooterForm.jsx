@@ -61,13 +61,6 @@ export const FootForm = () => (
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.email}
-            style={
-              {
-                // backgroundColor: 'red',
-                // borderColor: '#fafafa',
-                // color: 'white',
-              }
-            }
           />
 
           {errors.email && touched.email && errors.email}

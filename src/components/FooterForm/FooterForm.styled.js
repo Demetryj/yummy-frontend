@@ -34,22 +34,15 @@ export const Input = styled(Field)`
   font-size: ${p => p.theme.fontSizes.x};
   line-height: 100%;
   letter-spacing: -0.02em;
-
-  border-radius: ${p => p.theme.radii.light};
   padding-top: ${p => p.theme.spacing(5)};
   padding-bottom: ${p => p.theme.spacing(5)};
   margin-bottom: ${p => p.theme.spacing(4)};
   padding-left: ${p => p.theme.spacing(21)};
   padding-right: ${p => p.theme.spacing(21)};
-
-  /* border-top-style: #fafafa;
-  border-right-style: #fafafa;
-  border-left-style: #fafafa;
-  border-bottom-style: #fafafa; */
-
-  border: 1px solid '#fafafa';
-  /* border: none; */
+  border-radius: ${p => p.theme.radii.light};
+  border-color: ${p => p.theme.colors.whiteColor};
   outline: none;
+  opacity: 0.5;
 
   @media screen and ${p => p.theme.media.medium} {
     margin-bottom: ${p => p.theme.spacing(0)};

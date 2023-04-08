@@ -83,7 +83,6 @@ export const Paragraph = styled.p`
   line-height: 100%;
   letter-spacing: -0.01em;
   color: ${p => p.theme.colors.yummyColor};
-  opacity: 0.5;
   &:not(:last-child) {
     margin-right: ${p => p.theme.spacing(7)};
   }

@@ -130,6 +130,7 @@ export const Footer = () => {
         alignItems="center"
         py={{ xs: 28, md: 32 }}
         bg={'transparent'}
+        style={{ opacity: 0.5 }}
       >
         <AiOutlineCopyrightCircle size={10} />
         <Paragraph>&nbsp;2023 All Rights Reserved.</Paragraph>
