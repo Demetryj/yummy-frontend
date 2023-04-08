@@ -10,16 +10,16 @@ export const ProfilePortal = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [userProfile, setUserProfile] = React.useState('Initial Modal State');
 
-  //   const openModal = () => {
-  //     setIsOpen(true);
-  //     console.log(modalIsOpen);
-  //   };
+  const openModal = () => {
+    setIsOpen(true);
+    console.log('modalIsOpen in', modalIsOpen);
+  };
 
   const closeModal = () => {
     setIsOpen(false);
   };
 
-  console.log(modalIsOpen);
+  console.log('modalIsOpen out', modalIsOpen);
 
   return (
     <>
@@ -30,7 +30,7 @@ export const ProfilePortal = () => {
           alignItems="center"
           pb={{ xs: 28 }}
           onClick={() => {
-            setIsOpen(true);
+            openModal();
             setUserProfile({
               children: <UserProfile />,
             });
