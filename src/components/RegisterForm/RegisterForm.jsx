@@ -10,11 +10,14 @@ import {
   FieldWrapperStyled,
   FormBoxStyled,
   LinkStyled,
+  Icon,
 } from './RegisterForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 import { getColor } from 'utils/authColors';
+import { FiLock, FiUser } from 'react-icons/fi';
+import { HiOutlineMail } from 'react-icons/hi';
 
 const registerSchema = object({
   name: string().required(),
@@ -55,6 +58,9 @@ export const RegisterForm = () => {
                   placeholder="Name"
                   color={getColor(errors.name, values.name)}
                 />
+                <Icon>
+                  <FiUser size={18} />
+                </Icon>
 
                 <ErrorMessageStyled
                   name="name"
@@ -69,6 +75,9 @@ export const RegisterForm = () => {
                   placeholder="Email"
                   color={getColor(errors.email, values.email)}
                 />
+                <Icon>
+                  <HiOutlineMail size={18} />
+                </Icon>
                 <ErrorMessageStyled
                   name="email"
                   component="span"
@@ -82,6 +91,9 @@ export const RegisterForm = () => {
                   placeholder="Password"
                   color={getColor(errors.password, values.password)}
                 />
+                <Icon>
+                  <FiLock size={18} />
+                </Icon>
                 <ErrorMessageStyled
                   component="span"
                   name="password"
