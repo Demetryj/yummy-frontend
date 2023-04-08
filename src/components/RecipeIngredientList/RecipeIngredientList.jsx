@@ -1,27 +1,28 @@
+import {
+  Container,
+  Table,
+  Text,
+  Label,
+  InngredientsList,
+} from './RecipeIngredientList.styled';
+import { RecipeIngredientItem } from 'components/RecipeIngredientItem/RecipeIngredientItem';
 export const RecipeIngredientList = ({ recipe }) => {
   const { ingredients } = recipe;
 
   return (
-    <div>
-      <ul>
+    <Container>
+      <Table>
+        <Text>Ingredients</Text>
+        <Text>
+          Number <Label>Add to list</Label>
+        </Text>
+      </Table>
+      <InngredientsList>
         {ingredients.map(item => (
-          <li key={item._id}>
-            <div>
-              <img src={item.thb} alt="poster" />
-            </div>
-            <label htmlFor="ingridient">{item.ttl}</label>
-            <p>{item.measure}</p>
-            <input
-              type="checkbox"
-              name="ingridient"
-              value={item.ttl}
-              id="ingridient"
-              // onChange={handleToggle}
-            />
-          </li>
+          <RecipeIngredientItem key={item._id} ingredient={item} />
         ))}
-      </ul>
-    </div>
+      </InngredientsList>
+    </Container>
   );
 };
 // export const filteredIngredients = (ingredients, receiptIngredients) => {

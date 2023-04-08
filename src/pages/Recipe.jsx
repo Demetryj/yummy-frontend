@@ -23,7 +23,7 @@ const Recipe = () => {
     dispatch(getRecipeById(recipeId));
   }, [dispatch, recipeId]);
   return (
-    <Box
+    <div
     // width={{ xs: 375, md: 768, lg: 1440 }}
     // height={200}
     // p={{ xs: 10, md: 25, lg: 50 }}
@@ -33,7 +33,7 @@ const Recipe = () => {
       {recipe && <RecipeIngredientList recipe={recipe} />}
       {recipe && <RecipePreparation recipe={recipe} />}
       {isLoading && !error && !recipe && <Loader />}
-    </Box>
+    </div>
   );
 };
 
