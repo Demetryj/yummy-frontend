@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Box } from '../Box';
 import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
-import { BiRestaurant } from 'react-icons/bi';
 import { FiSearch, FiUser } from 'react-icons/fi';
-import { BsToggleOff, BsToggleOn } from 'react-icons/bs';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
-import { RxCrossCircled } from 'react-icons/rx';
+import logoDark from '../../images/logo/logoDark.png';
+import logoLight from '../../images/logo/logo_footer_mob@2x.png';
+import cross from '../../images/logo/cross-header.svg';
+import switchBodyOff from '../../images/logo/switch-body-off.png';
+import switchOff from '../../images/logo/switch-off.png';
 
 const navItems = [
   { href: 'categories', item: 'Categories' },
@@ -44,16 +46,8 @@ export const AppBar = () => {
         justifyContent="space-between"
         py={{ xs: '3px' }}
       >
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          width={{ xs: 40, md: 44 }}
-          height={{ xs: 40, md: 44 }}
-          borderRadius={12}
-          bg="#8BAA36"
-        >
-          <NavItem to={'/'}>{<BiRestaurant color="white" size={30} />}</NavItem>
+        <Box width={{ xs: 40, md: 44 }} height={{ xs: 40, md: 44 }}>
+          <NavItem to={'/'}>{<img src={logoLight} alt="logoLight" />}</NavItem>
         </Box>
         <Box as="nav" display={{ xs: 'none', lg: 'flex' }}>
           <List>
@@ -83,8 +77,24 @@ export const AppBar = () => {
               <Paragraph>User</Paragraph>
             </Box>
           </Box>
-          <Box display={{ xs: 'none', lg: 'flex' }}>
-            <BsToggleOff size={32} />
+          <Box
+            display={{ xs: 'none', lg: 'flex' }}
+            width={{ xs: 61 }}
+            height={{ xs: 27 }}
+            position="relative"
+          >
+            {<img src={switchBodyOff} alt="switchBodyOff" />}
+            <Box
+              width={{ xs: 28 }}
+              height={{ xs: 28 }}
+              position="absolute"
+              left={{ xs: '5%', md: '0%' }}
+              right={{ xs: '60%', md: '0%' }}
+              top={{ xs: '3%', md: '0%' }}
+              bottom={{ xs: '11.11%', md: '0%' }}
+            >
+              {<img src={switchOff} alt="switchOff" />}
+            </Box>
           </Box>
           <Box onClick={toggleModal} display={{ xs: 'flex', lg: 'none' }}>
             <HiOutlineMenuAlt2 size={28} />
@@ -109,19 +119,16 @@ export const AppBar = () => {
             >
               <Box
                 onClick={toggleModal}
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
                 width={{ xs: 40, md: 44 }}
                 height={{ xs: 40, md: 44 }}
-                borderRadius={12}
-                bg="#8BAA36"
               >
-                <NavItem to={'/'}>{<BiRestaurant color="white" />}</NavItem>
+                <NavItem to={'/'}>
+                  {<img src={logoDark} alt="logoDark" />}
+                </NavItem>
               </Box>
 
-              <Box onClick={toggleModal}>
-                <RxCrossCircled size={32} />
+              <Box onClick={toggleModal} width={{ xs: 13 }} height={{ xs: 13 }}>
+                {<img src={cross} alt="cross" />}
               </Box>
             </Box>
             <Box
@@ -139,8 +146,19 @@ export const AppBar = () => {
                 ))}
               </List>
             </Box>
-            <Box>
-              <BsToggleOff size={32} />
+            <Box width={{ xs: 61 }} height={{ xs: 27 }} position="relative">
+              {<img src={switchBodyOff} alt="switchBodyOff" />}
+              <Box
+                width={{ xs: 28 }}
+                height={{ xs: 28 }}
+                position="absolute"
+                left={{ xs: '5%', md: '0%' }}
+                right={{ xs: '60%', md: '0%' }}
+                top={{ xs: '3%', md: '0%' }}
+                bottom={{ xs: '11.11%', md: '0%' }}
+              >
+                {<img src={switchOff} alt="switchOff" />}
+              </Box>
             </Box>
           </Box>
         </HeaderModal>
