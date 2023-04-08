@@ -6,8 +6,8 @@ import {
 } from 'redux/shoppingList/selectors';
 import { Ingredient } from './Ingredient';
 import {
-  TitleWrapper,
-  TitleСontrol,
+  Panel,
+  PanelСontrol,
   Title,
   ShoppingList,
 } from './IngredientsShoppingList.styled';
@@ -19,13 +19,13 @@ export const IngredientsShoppingList = () => {
 
   return (
     <>
-      <TitleWrapper>
+      <Panel>
         <Title>Products</Title>
-        <TitleСontrol>
+        <PanelСontrol>
           <Title>Number</Title>
           <Title>Remove</Title>
-        </TitleСontrol>
-      </TitleWrapper>
+        </PanelСontrol>
+      </Panel>
 
       {shoppingList.length > 0 && !error && (
         <ShoppingList>

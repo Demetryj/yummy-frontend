@@ -1,34 +1,34 @@
 import styled from 'styled-components';
 
-export const TitleWrapper = styled.div`
+export const Panel = styled.div`
   display: flex;
   justify-content: space-between;
   padding: ${p => p.theme.spacing(5)};
-  margin-top: 3.125rem;
+  margin-top: ${p => p.theme.spacing(25)};
   background-color: ${p => p.theme.colors.greenTextColor};
   border-radius: ${p => p.theme.radii.normal};
   @media screen and ${p => p.theme.media.medium} {
+    margin-top: ${p => p.theme.spacing(36)};
     padding: ${p => p.theme.spacing(8)} ${p => p.theme.spacing(10)};
   }
   @media screen and ${p => p.theme.media.large} {
-    padding: 17px ${p => p.theme.spacing(20)};
+    padding: ${p => p.theme.spacing(8)} ${p => p.theme.spacing(20)};
   }
 `;
 
-export const TitleСontrol = styled.div`
+export const PanelСontrol = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: ${p => p.theme.spacing(12)};
   @media screen and ${p => p.theme.media.medium} {
-    gap: 4.875rem;
+    gap: ${p => p.theme.spacing(39)};
   }
   @media screen and ${p => p.theme.media.large} {
-    gap: 8.875rem;
+    gap: ${p => p.theme.spacing(71)};
   }
 `;
 
 export const Title = styled.div`
-  font-family: 'Poppins';
   font-weight: ${p => p.theme.fontWeights.semiBold};
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: 1.5;
@@ -48,9 +48,10 @@ export const ShoppingList = styled.ul`
   grid-template-columns: repeat(1, 1fr);
   margin: ${p => p.theme.spacing(0)} auto;
   margin-top: ${p => p.theme.spacing(16)};
-  gap: 3.0625rem;
+  gap: ${p => p.theme.spacing(25)};
+
   @media screen and ${p => p.theme.media.medium} {
     margin-top: ${p => p.theme.spacing(25)};
-    gap: 5.44rem;
+    gap: ${p => p.theme.spacing(45)};
   }
 `;

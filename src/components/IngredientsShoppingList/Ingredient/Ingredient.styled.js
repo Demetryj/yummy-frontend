@@ -21,16 +21,16 @@ export const Product = styled.li`
 `;
 
 export const ProductPicture = styled.img`
-  width: 60px;
-  height: 60px;
+  width: ${p => p.theme.spacing(30)};
+  height: ${p => p.theme.spacing(30)};
   background: ${p => p.theme.colors.footerLogoBgColor};
   border-radius: ${p => p.theme.radii.light};
   padding: ${p => p.theme.spacing(3)};
   margin-right: ${p => p.theme.spacing(0)};
   margin-left: ${p => p.theme.spacing(4)};
   @media screen and ${p => p.theme.media.medium} {
-    width: 93px;
-    height: 97px;
+    width: ${p => p.theme.spacing(46)};
+    height: ${p => p.theme.spacing(48)};
     border-radius: ${p => p.theme.radii.normal};
     padding: ${p => p.theme.spacing(4)} ${p => p.theme.spacing(3)};
     margin-left: ${p => p.theme.spacing(0)};
@@ -41,7 +41,6 @@ export const ProductPicture = styled.img`
 `;
 
 export const ProductName = styled.p`
-  font-family: 'Poppins';
   margin-left: ${p => p.theme.spacing(5)};
   font-weight: ${p => p.theme.fontWeights.medium};
   font-size: ${p => p.theme.fontSizes.xs};
@@ -55,23 +54,22 @@ export const ProductName = styled.p`
 `;
 
 export const ProductQuantity = styled.div`
-  font-family: 'Poppins';
-  width: 37px;
-  height: 23px;
+  width: ${p => p.theme.spacing(18)};
+  height: ${p => p.theme.spacing(11)};
   margin-left: auto;
   background: ${p => p.theme.colors.greenTextColor};
   border-radius: 4px;
   text-align: center;
-  line-height: 23px;
+  line-height: 2.3;
   font-weight: ${p => p.theme.fontWeights.semiBold};
   font-size: 10px;
   text-align: center;
   color: ${p => p.theme.colors.whiteTextColor};
   @media screen and ${p => p.theme.media.medium} {
-    width: 68px;
-    height: 35px;
+    width: ${p => p.theme.spacing(34)};
+    height: ${p => p.theme.spacing(17)};
     font-size: ${p => p.theme.fontSizes.xm};
-    line-height: 35px;
+    line-height: 1.9;
   }
 `;
 
@@ -81,8 +79,8 @@ export const Button = styled.button`
   margin-right: ${p => p.theme.spacing(15)};
   margin-left: ${p => p.theme.spacing(25)};
   @media screen and ${p => p.theme.media.medium} {
-    width: 12px;
-    height: 12px;
+    width: ${p => p.theme.spacing(6)};
+    height: ${p => p.theme.spacing(6)};
     margin-top: ${p => p.theme.spacing(0)};
     margin-right: ${p => p.theme.spacing(25)};
     margin-left: ${p => p.theme.spacing(57)};
