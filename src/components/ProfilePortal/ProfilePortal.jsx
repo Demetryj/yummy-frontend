@@ -10,9 +10,10 @@ export const ProfilePortal = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [userProfile, setUserProfile] = React.useState('Initial Modal State');
 
-  const openModal = () => {
+  const openModal = async () => {
     setIsOpen(true);
-    console.log('modalIsOpen in', modalIsOpen);
+    console.log('Open Modal Start');
+    console.log(modalIsOpen);
   };
 
   const closeModal = () => {

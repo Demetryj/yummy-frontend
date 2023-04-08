@@ -21,6 +21,8 @@ export const ReactModal = ({ modalIsOpen, closeModal }) => {
   const { children } = React.useContext(ModalContext);
   let subtitle;
 
+  console.log('React Modal modalIsOpen', modalIsOpen);
+
   //   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   //   function openModal() {
