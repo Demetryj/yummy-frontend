@@ -1,10 +1,22 @@
-import * as React from 'react';
-import ModalContext from '../../utils';
+import { Box } from '../Box';
+import { HiOutlinePencil } from 'react-icons/hi';
+import { P } from './ProfilePortal.styled';
 
 export const ProfilePortal = () => {
-  const [profilePortal, setProfilePortal] = React.useState(
-    'Initial Modal State'
+  return (
+    <>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        pb={{ xs: 28 }}
+      >
+        <P>Edit profile</P>
+        <HiOutlinePencil cursor="pointer" />
+      </Box>
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <button type="button">Log out</button>
+      </Box>
+    </>
   );
-
-  return <ModalContext.Provider value={profilePortal}></ModalContext.Provider>;
 };

@@ -11,16 +11,16 @@ export const ModalBackdrop = styled.div`
 
 export const ModalContent = styled.div`
   position: absolute;
-  width: 161px;
-  height: 130px;
-  left: 230px;
-  top: 132px;
+  width: ${p => p.theme.spacing(80)};
+  height: ${p => p.theme.spacing(65)};
+  left: ${p => p.theme.spacing(115)};
+  top: ${p => p.theme.spacing(66)};
   transform: translate(-50%, -50%);
   /* min-height: 300px; */
   /* max-width: 600px; */
 
   border: 1px solid #8baa36;
-  border-radius: 8px;
+  border-radius: ${p => p.theme.radii.normal};
 
   padding: ${p => p.theme.spacing(9)};
   background-color: ${p => p.theme.colors.whiteColor};

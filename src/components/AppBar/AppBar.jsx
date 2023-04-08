@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Box } from '../Box';
 import ModalContext from '../../utils';
-
 import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
 import { FiSearch, FiUser } from 'react-icons/fi';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
@@ -13,6 +12,7 @@ import logoLight from '../../images/logo/logo_footer_mob@2x.png';
 import cross from '../../images/logo/cross-header.svg';
 import switchBodyOff from '../../images/logo/switch-body-off.png';
 import switchOff from '../../images/logo/switch-off.png';
+import { ProfilePortal } from '../ProfilePortal';
 
 const navItems = [
   { href: 'categories', item: 'Categories' },
@@ -81,8 +81,7 @@ export const AppBar = () => {
               onClick={() => {
                 handleProfile();
                 setProfilePortal({
-                  title: 'Profile',
-                  body: <p>Account details</p>,
+                  children: <ProfilePortal />,
                 });
               }}
             >
