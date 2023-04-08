@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import salat from 'images/mainPage/vegetable-plate-mob.png';
+import spinachTopLeft from 'images/spinach/mobile/spinach-top-left-mob@2x.png';
+import spinachTopRight from 'images/spinach/mobile/spinach-top-right-mob.png';
+import triangle from 'images/mainPage/triangle_bg2.png';
+
 
 export const ContainerHero = styled.div`
 width: 100%;
 
-background-color: yellow;
-background-image: url(${salat});
+background-image: url(${salat}), url(${spinachTopLeft}), ;
 
 background-repeat: no-repeat;
 background-position: left 28px top 322px, top 54px left 577px, left 325px

@@ -1,14 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addRecipe, deleteRecipe, fetchRecipes, fetchRecipesPopular } from './operations';
+import { addRecipe, deleteRecipe, fetchRecipes, fetchRecipesMainPage } from './operations';
 
 const initialState = {
   items: [],
-  popular: {"Vegan":[{title:"Salat"}]}, // подумати чи потрібно це !!!
+  popular: null, 
   isLoading: false,
   error: null,
 };
-
-console.log("initialState.popular:",initialState.popular)
 
 const recipesSlice = createSlice({
   name: 'recipes',
@@ -23,15 +21,13 @@ const recipesSlice = createSlice({
     }).addCase(fetchRecipes.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
-    }).addCase(fetchRecipesPopular.fulfilled, (state, action) => { //builder для запроса в якому отримуємо обєкт з 16 рецептами
+    }).addCase(fetchRecipesMainPage.fulfilled, (state, action) => { 
       state.popular = action.payload;
       state.isLoading = false;
       state.error = null;
-      console.log("Hello from recipesSlise");
-      console.log("action.payload: ", action.payload);
-    }).addCase(fetchRecipesPopular.pending, state => {
+    }).addCase(fetchRecipesMainPage.pending, state => {
       state.isLoading = true;
-    }).addCase(fetchRecipesPopular.rejected, (state, action) => {
+    }).addCase(fetchRecipesMainPage.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     });

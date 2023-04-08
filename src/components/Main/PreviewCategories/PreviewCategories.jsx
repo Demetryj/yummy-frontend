@@ -1,45 +1,41 @@
-import { useSelector } from 'react-redux';
-import {selectRecipes,selectRecipesPopular} from '../../../redux/recipes/selectors';
-import {selectUser} from '../../../redux/auth/selectors';
-// import { RecipeGalleryItem } from 'components/';
-// import { Gallery } from './PreviewCategories.styled';
-
-// const categoriesPopular = ["Breakfast", "Miscellaneous", "Vegan", "Dessert"];
+import { v4 as uuidv4 } from 'uuid';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectRecipesPopular } from '../../../redux/recipes/selectors';
+import { fetchRecipesMainPage } from '../../../redux/recipes/operations';
+import { Link } from 'react-router-dom';
+import { Loader } from 'components/Loader';
+import { MainTitle } from '../../MainTitle/MainTitle';
+import { List, BtnRecipe, Button } from "./PreviewCategories.styled";
 
 export const PreviewCategories = () => {
-  // const dispatch = useDispatch();
-const user = useSelector(selectUser);
-console.log("Hello from component PreviewCategories ");
-console.log("user: ", user);
+  const dispatch = useDispatch();
+  dispatch(fetchRecipesMainPage());
 
-const items = useSelector(selectRecipes);
-console.log("Hello from component PreviewCategories ");
-console.log("items: ", items);
+  const recipesPopular = useSelector(selectRecipesPopular);
 
-const recipesPopular = useSelector(selectRecipesPopular);
-console.log("Hello from component PreviewCategories ");
-console.log("recipesPopular: ", recipesPopular);
-  return (<>
-  <p>Hello from PreviewCategories</p>
-    {/* <Gallery>
-    </Gallery> */}
-    </>
+    return (
+    <>
+       <List>
+        {recipesPopular ? Object.keys(recipesPopular).map((key) => {
+          const recipes = recipesPopular[key];
+      return <li key={uuidv4()}> 
+      <MainTitle title={key}/>
+      <List>
+        {recipes.map((recipe) => { 
+          return  <Link to={`/recipe/${recipe._id}`}>
+          <BtnRecipe key={recipe._id}>{recipe.title}</BtnRecipe>
+          </Link>})}
+      </List>
+      <Link to={`/categories/${recipesPopular[key].category}`}> 
+      <Button>See all</Button>
+      </Link>
+    </li>
+  }) : <Loader/>}
+       </List>
+       <Link to='/categories'>
+       <Button>Other categories</Button>
+       </Link>
+      </>
   );
 };
 
-// return (
-//   <List>
-//     {filter
-//       ? visibleContacts.map(contact => (
-//           <li key={contact.id}>
-//             <ContactListItem contact={contact} />
-//           </li>
-//         ))
-//       : contacts.map(contact => (
-//           <li key={contact.id}>
-//             <ContactListItem contact={contact} />
-//           </li>
-//         ))}
-//   </List>
-// );
-// };

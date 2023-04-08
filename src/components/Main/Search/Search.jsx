@@ -1,7 +1,6 @@
 import toast from 'react-hot-toast';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {} from '../../../redux/recipes/operations'
-//  TODO! записать то, что ввели в строку поиска в Local Storage
 import {
   Input,
   Button,
@@ -11,19 +10,17 @@ import {
 
 export const Search = () => {
   // const [query, setQuery] = useState(''); // зробити тимчасовий useState ???
+
   const changeHandleSearch = e => {
-  const { value } = e.currentTarget;
- 
+    const { value } = e.currentTarget;
   localStorage.setItem('query', value.toLowerCase());
   };
 
   const handleSubmit = e => {
     e.preventDefault(); 
-     const form = e.currentTarget; // використовую для очистки поля вводу
+    const form = e.currentTarget; // використовую для очистки поля вводу
     
-    const queryInput = localStorage.getItem('query'); // дістаємо з LocalStorage слово-запрос
-    console.log('queryInput', queryInput);
-    const dispatch = useDispatch(); 
+    const queryInput = localStorage.getItem('query');
 
     if (!queryInput) {
       console.log("in toaster");
@@ -33,7 +30,7 @@ export const Search = () => {
       });
     } 
 
-    dispatch()
+    // dispatch()
 //делаем запрос на бекенд
 // localStorage.removeItem("query"); // -  це потрібно ???
 // очистити стрічку вводу - ??? setQuery('');
