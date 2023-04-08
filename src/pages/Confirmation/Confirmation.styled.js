@@ -1,32 +1,32 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
-  padding: 100px 58px;
+  padding: ${p => p.theme.spacing(50)} ${p => p.theme.spacing(29)};
   text-align: center;
 
   @media screen and (${p => p.theme.media.medium}) {
-    padding: 100px 0 204px;
+    padding: ${p => p.theme.spacing(50)} 0 ${p => p.theme.spacing(102)};
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    padding: 138px 0 203px;
+    padding: ${p => p.theme.spacing(69)} 0 ${p => p.theme.spacing(101, 5)};
   }
 `;
 
 export const Img = styled.img`
-  width: 259px;
-  height: 170px;
+  width: ${p => p.theme.spacing(129, 5)};
+  height: ${p => p.theme.spacing(85)};
   margin: 0 auto;
   margin-bottom: ${p => p.theme.spacing(7)};
 
   @media screen and (${p => p.theme.media.medium}) {
-    width: 498px;
-    height: 327px;
+    width: ${p => p.theme.spacing(249)};
+    height: ${p => p.theme.spacing(163, 5)};
     margin-bottom: ${p => p.theme.spacing(16)};
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    height: 331px;
+    height: ${p => p.theme.spacing(165, 5)};
   }
 `;
 

@@ -1,4 +1,4 @@
-import { Main, Img, Title, Desc } from './Error.styled';
+import { Main, Img, Title, Desc } from '../Confirmation/Confirmation.styled';
 
 import NotFoundDesk1x from 'images/errorPage/404-desk-tab.png';
 import NotFoundMob1x from 'images/errorPage/404-mob.png';
