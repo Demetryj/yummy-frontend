@@ -16,8 +16,6 @@ export const ModalContent = styled.div`
   left: ${p => p.theme.spacing(115)};
   top: ${p => p.theme.spacing(66)};
   transform: translate(-50%, -50%);
-  /* min-height: 300px; */
-  /* max-width: 600px; */
 
   border: 1px solid #8baa36;
   border-radius: ${p => p.theme.radii.normal};
