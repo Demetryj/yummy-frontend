@@ -27,7 +27,7 @@ export const FieldStyled = styled(Field)`
 
 export const ButtonStyled = styled.button`
   background-color: ${theme.colors.greenBgColor};
-  height: 45px;
+  height: ${p => p.theme.spacing(22)};
   border-radius: ${theme.radii.light};
 `;
 export const ButtonTemp = styled(ButtonStyled)`
@@ -42,7 +42,7 @@ export const Title = styled.h1`
 export const ErrorMessageStyled = styled(ErrorMessage)`
   /* position: absolute; */
   font-size: ${theme.fontSizes.s};
-  color: ${props => props.color};
+  color: ${props => props.color || props.theme.colors.whiteTextColor};
   /* color: white; */
   margin-top: 8px;
 `;
