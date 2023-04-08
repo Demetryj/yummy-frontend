@@ -1,25 +1,27 @@
-export const RecipeIngredientList = ingredients => {
+export const RecipeIngredientList = ({ recipe }) => {
+  const { ingredients } = recipe;
+
   return (
-    <container>
+    <div>
       <ul>
         {ingredients.map(item => (
-          <li key={item.id}>
+          <li key={item._id}>
             <div>
-              <img src={getImage(item.thb)} alt="poster" />
+              <img src={item.thb} alt="poster" />
             </div>
-            <label for="ingridient">{item.ttl}</label>
-            <p>{measure}</p>
+            <label htmlFor="ingridient">{item.ttl}</label>
+            <p>{item.measure}</p>
             <input
               type="checkbox"
               name="ingridient"
               value={item.ttl}
               id="ingridient"
-              onChange={handleToggle}
+              // onChange={handleToggle}
             />
           </li>
         ))}
       </ul>
-    </container>
+    </div>
   );
 };
 // export const filteredIngredients = (ingredients, receiptIngredients) => {
