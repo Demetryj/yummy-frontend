@@ -10,6 +10,8 @@ import {
   BenefitsList,
   BenefitsItem,
   IconItem,
+  Subtitle,
+  P,
 } from './Footer.styled';
 import { FootForm } from '../FooterForm';
 import logoHeader from '../../images/logo/logo-footer.svg';
@@ -47,14 +49,14 @@ const socialIcons = [
 
 const benefits = [
   { item: 'Database of recipes that can be replenished' },
-  { item: 'Flexible search for desired and unwanted ingredients' },
+  { item: `Flexible search for desired and unwanted ingredients` },
   { item: 'Ability to add your own recipes with photos' },
   { item: 'Convenient and easy to use' },
 ];
 
 export const Footer = () => {
   return (
-    <Box as="section" border="1px solid red">
+    <Box as="section">
       <Box
         as="footer"
         pt={{ xs: 28, md: 50 }}
@@ -62,9 +64,13 @@ export const Footer = () => {
         px={{ md: 32, lg: 100 }}
         bg="yummyColor"
       >
-        <Box display={{ lg: 'flex' }}>
-          <Box display={{ md: 'flex' }} mb={{ md: 72 }} flexGrow={{ lg: 2 }}>
-            <Box flexGrow={{ md: 3 }} border="1px solid red">
+        <Box display={{ lg: 'flex' }} justifyContent={{ lg: 'space-between' }}>
+          <Box display={{ md: 'flex' }} mb={{ md: 72 }} flexGrow={{ lg: 0 }}>
+            <Box
+              flexGrow={{ md: 3, lg: 0 }}
+              mr={{ lg: 159 }}
+              width={{ lg: 418 }}
+            >
               <Box
                 display={{ sx: 'flex' }}
                 justifyContent={{ sx: 'center', md: 'start' }}
@@ -84,12 +90,7 @@ export const Footer = () => {
                 </BenefitsList>
               </Box>
             </Box>
-            <Box
-              as="nav"
-              mb={{ xs: 32 }}
-              flexGrow={{ md: 1 }}
-              border="1px solid red"
-            >
+            <Box as="nav" mb={{ xs: 32 }} flexGrow={{ md: 1 }}>
               <List>
                 {navItems.map(({ href, item }) => (
                   <ListItem key={href}>
@@ -100,17 +101,20 @@ export const Footer = () => {
             </Box>
           </Box>
 
-          <Box mb={{ xs: 44, md: 38 }} border="1px solid red">
+          <Box mb={{ xs: 44, md: 38 }}>
+            <Box display={{ xs: 'none', lg: 'block' }} mb={{ lg: 28 }}>
+              <Subtitle>Subscribe to our Newsletter</Subtitle>
+
+              <P>
+                Subscribe up to our newsletter. Be in touch with <br /> latest
+                news and special offers, etc.
+              </P>
+            </Box>
             <FootForm />
           </Box>
         </Box>
 
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          border="1px solid red"
-        >
+        <Box display="flex" alignItems="center" justifyContent="center">
           <IconList>
             {socialIcons.map(({ href, item }) => (
               <IconItem key={href}>

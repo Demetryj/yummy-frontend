@@ -5,11 +5,17 @@ export const BenefitsList = styled.ul`
   list-style: disc;
   list-style-position: inside;
   color: ${p => p.theme.colors.whiteColor};
-
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes.s};
   line-height: 129%;
   letter-spacing: -0.02em;
+
+  @media screen and ${p => p.theme.media.large} {
+    font-size: ${p => p.theme.fontSizes.xm};
+    line-height: 133%;
+    list-style-position: outside;
+    padding-left: ${p => p.theme.spacing(13)};
+  }
 `;
 
 export const BenefitsItem = styled.li`
@@ -63,6 +69,14 @@ export const Title = styled.h2`
   }
 `;
 
+export const Subtitle = styled.b`
+  font-weight: ${p => p.theme.fontWeights.bold};
+  font-size: ${p => p.theme.fontSizes.xm};
+  line-height: 27px;
+  color: ${p => p.theme.colors.whiteColor};
+  margin-bottom: ${p => p.theme.spacing(7)};
+`;
+
 export const Paragraph = styled.p`
   font-size: ${p => p.theme.fontSizes.x};
   font-weight: ${p => p.theme.fontWeights.medium};
@@ -76,6 +90,14 @@ export const Paragraph = styled.p`
   @media screen and ${p => p.theme.media.medium} {
     font-size: ${p => p.theme.fontSizes.s};
   }
+`;
+
+export const P = styled.p`
+  font-weight: ${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes.s};
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: ${p => p.theme.colors.whiteColor};
 `;
 
 export const IconList = styled.ul`

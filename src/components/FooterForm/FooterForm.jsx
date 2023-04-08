@@ -1,9 +1,10 @@
 import React from 'react';
-import { Field, Form, Formik, FormikProps } from 'formik';
-import { SearchForm, Label, Input, Error } from './FooterForm.styled';
+import { Formik } from 'formik';
+import { SearchForm, Input, Error } from './FooterForm.styled';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { FiMail } from 'react-icons/fi';
+import logoMail from '../../images/mail/mail.svg';
 
 // const placeHolder = () => {
 //   return (
@@ -14,16 +15,12 @@ import { FiMail } from 'react-icons/fi';
 //   );
 // };
 
-// const holder = placeHolder();
+const mail = <img src={logoMail} alt="mail" />;
+
+// const holder = `${FiMail} Enter your email address`;
 
 export const FootForm = () => (
-  <Box
-  // display="flex"
-  // flexDirection="column"
-  // alignItems="flex-start"
-  // p={0}
-  // gap={8}
-  >
+  <Box>
     <Formik
       initialValues={{ email: '' }}
       validate={values => {
@@ -37,11 +34,14 @@ export const FootForm = () => (
         }
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        // setTimeout(() => {
+        //   alert(JSON.stringify(values, null, 2));
+        //   setSubmitting(false);
+        // }, 400);
+        console.log(values);
+        setSubmitting(false);
+        resetForm();
       }}
     >
       {({
@@ -52,16 +52,22 @@ export const FootForm = () => (
         handleBlur,
         handleSubmit,
         isSubmitting,
-        /* and other goodies */
       }) => (
         <SearchForm onSubmit={handleSubmit}>
           <Input
             type="email"
             name="email"
-            placeholder="Enter your email address"
+            placeholder={`Enter your email address`}
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.email}
+            style={
+              {
+                // backgroundColor: 'red',
+                // borderColor: '#fafafa',
+                // color: 'white',
+              }
+            }
           />
 
           {errors.email && touched.email && errors.email}

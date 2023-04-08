@@ -5,7 +5,6 @@ export const SearchForm = styled(Form)`
   @media screen and ${p => p.theme.media.medium} {
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid red;
     display: flex;
     width: ${p => p.theme.spacing(221)};
     overflow: hidden;
@@ -26,10 +25,6 @@ export const Label = styled.label`
 
 export const Input = styled(Field)`
   display: flex;
-  /* display: block; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* width: 204px; */
   margin-left: auto;
   margin-right: auto;
   background-color: transparent;
@@ -47,12 +42,12 @@ export const Input = styled(Field)`
   padding-left: ${p => p.theme.spacing(21)};
   padding-right: ${p => p.theme.spacing(21)};
 
-  border-top-style: #fafafa;
+  /* border-top-style: #fafafa;
   border-right-style: #fafafa;
   border-left-style: #fafafa;
-  border-bottom-style: #fafafa;
+  border-bottom-style: #fafafa; */
 
-  /* border: 1px solid '#fafafa'; */
+  border: 1px solid '#fafafa';
   /* border: none; */
   outline: none;
 
@@ -61,6 +56,14 @@ export const Input = styled(Field)`
     width: 100%;
     margin-right: ${p => p.theme.spacing(6)};
     margin-left: 0;
+  }
+
+  @media screen and ${p => p.theme.media.large} {
+    width: 100%;
+    margin-bottom: ${p => p.theme.spacing(8)};
+    padding-top: ${p => p.theme.spacing(9)};
+    padding-bottom: ${p => p.theme.spacing(9)};
+    font-size: ${p => p.theme.fontSizes.xm};
   }
 `;
 
