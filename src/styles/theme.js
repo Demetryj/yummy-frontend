@@ -32,8 +32,8 @@ export const theme = {
     large: '(min-width: 1440px)',
   },
 
-  /* usage 
-   @media screen and ${(p) => p.theme.media.large} {
+  /* usage
+   @media screen and (${(p) => p.theme.media.large}) {
     height: ;
     color: ;
     ...
@@ -46,7 +46,7 @@ export const theme = {
   },
 
   /*
-   usage 
+   usage
    <Box
         width={{ xs: 375, md: 768, lg: 1440 }}
         height={200}
