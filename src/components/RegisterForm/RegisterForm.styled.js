@@ -21,8 +21,8 @@ export const FieldStyled = styled(Field)`
   font-size: ${theme.fontSizes.xm};
   color: ${theme.colors.whiteTextColor};
   background-color: transparent;
-  border: 1px solid ${theme.colors.greyTextColor};
-  border-color: ${props => props.inputColor || theme.colors.greyTextColor};
+  border: 1px solid;
+  border-color: ${props => props.color || 'black'};
 `;
 
 export const ButtonStyled = styled.button`
@@ -42,7 +42,8 @@ export const Title = styled.h1`
 export const ErrorMessageStyled = styled(ErrorMessage)`
   /* position: absolute; */
   font-size: ${theme.fontSizes.s};
-  color: ${props => props.inputColor || 'white'};
+  color: ${props => props.color};
+  /* color: white; */
   margin-top: 8px;
 `;
 

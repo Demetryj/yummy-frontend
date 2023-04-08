@@ -8,6 +8,7 @@ import {
   FormBoxStyled,
   Title,
   ButtonTemp,
+  ErrorMessageStyled,
 } from '../RegisterForm/RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/auth/operations';
@@ -15,12 +16,13 @@ import { signIn } from 'redux/auth/operations';
 import { logout } from '../../redux/auth/operations';
 import { FieldStyled } from '../RegisterForm/RegisterForm.styled';
 import { useAuth } from 'hooks/useAuth';
+import { getColor } from 'utils/authColors';
 
 console.log();
 
 const signinSchema = object({
-  email: string().required().email('yup!'),
-  password: string().required(),
+  email: string().required().email(),
+  password: string().min(6).required(),
 });
 
 export const SigninForm = () => {
@@ -36,7 +38,6 @@ export const SigninForm = () => {
   const onLogout = () => {
     dispatch(logout());
   };
-
   return (
     <>
       {isLoading && <p>component loading</p>}
@@ -50,21 +51,37 @@ export const SigninForm = () => {
           }}
           onSubmit={handleSubmit}
         >
-          <FormStyled>
-            <FieldWrapperStyled>
-              <FieldStyled name="email" type="email" placeholder="email" />
-              <ErrorMessage name="email" />
-            </FieldWrapperStyled>
-            <FieldWrapperStyled>
-              <FieldStyled
-                name="password"
-                type="password"
-                placeholder="password"
-              />
-              <ErrorMessage name="password" />
-            </FieldWrapperStyled>
-            <ButtonStyled type="submit">Submit</ButtonStyled>
-          </FormStyled>
+          {({ errors, values }) => (
+            <FormStyled>
+              <FieldWrapperStyled>
+                <FieldStyled
+                  name="email"
+                  type="email"
+                  placeholder="email"
+                  color={getColor(errors.email, values.email)}
+                />
+                <ErrorMessageStyled
+                  component="span"
+                  name="email"
+                  color={getColor(errors.email, values.email)}
+                />
+              </FieldWrapperStyled>
+              <FieldWrapperStyled>
+                <FieldStyled
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                  color={getColor(errors.password, values.password)}
+                />
+                <ErrorMessageStyled
+                  component="span"
+                  name="password"
+                  color={getColor(errors.password, values.password)}
+                />
+              </FieldWrapperStyled>
+              <ButtonStyled type="submit">Submit</ButtonStyled>
+            </FormStyled>
+          )}
         </Formik>
         <ButtonTemp type="button" onClick={onLogout}>
           temp log out

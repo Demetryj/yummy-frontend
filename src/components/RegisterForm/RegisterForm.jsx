@@ -13,6 +13,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
+import { getColor } from 'utils/authColors';
 
 const registerSchema = object({
   name: string().required(),
@@ -30,7 +31,6 @@ export const RegisterForm = () => {
     dispatch(register(values));
     actions.resetForm();
   };
-
   return (
     <>
       {isLoading && <p>component loading</p>}
@@ -44,38 +44,55 @@ export const RegisterForm = () => {
           }}
           onSubmit={handleSubmit}
         >
-          <FormStyled autoComplete="off">
-            <Title>Registration</Title>
-            <FieldWrapperStyled>
-              <FieldStyled name="name" type="text" placeholder="Name" />
+          {({ errors, values }) => (
+            <FormStyled autoComplete="off">
+              <Title>Registration</Title>
+              <FieldWrapperStyled>
+                <FieldStyled
+                  name="name"
+                  type="text"
+                  placeholder="Name"
+                  color={getColor(errors.name, values.name)}
+                />
 
-              <ErrorMessageStyled name="name" />
-            </FieldWrapperStyled>
-            <FieldWrapperStyled>
-              <FieldStyled
-                name="email"
-                type="email"
-                placeholder="Email"
-                // inputColor="green"
-              />
-              <ErrorMessageStyled name="email" />
-            </FieldWrapperStyled>
-            <FieldWrapperStyled>
-              <FieldStyled
-                name="password"
-                type="password"
-                placeholder="Password"
-                // inputColor="green"
-              />
-              <ErrorMessageStyled
-                name="password"
-                // component="span"
-                // inputColor="green"
-              ></ErrorMessageStyled>
-            </FieldWrapperStyled>
-            {errorMessage && <p>${errorMessage}</p>}
-            <ButtonStyled type="submit">Submit</ButtonStyled>
-          </FormStyled>
+                <ErrorMessageStyled
+                  name="name"
+                  component="span"
+                  color={getColor(errors.name, values.name)}
+                />
+              </FieldWrapperStyled>
+              <FieldWrapperStyled>
+                <FieldStyled
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  color={getColor(errors.email, values.email)}
+                />
+                <ErrorMessageStyled
+                  name="email"
+                  component="span"
+                  color={getColor(errors.email, values.email)}
+                />
+              </FieldWrapperStyled>
+              <FieldWrapperStyled>
+                <FieldStyled
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  color={getColor(errors.password, values.password)}
+                />
+                <ErrorMessageStyled
+                  component="span"
+                  name="password"
+                  color={getColor(errors.password, values.password)}
+                ></ErrorMessageStyled>
+              </FieldWrapperStyled>
+              {errorMessage && (
+                <p style={{ color: '#E74A3B' }}>${errorMessage}</p>
+              )}
+              <ButtonStyled type="submit">Submit</ButtonStyled>
+            </FormStyled>
+          )}
         </Formik>
         <Link to="/signin">Sign in</Link>
       </FormBoxStyled>
