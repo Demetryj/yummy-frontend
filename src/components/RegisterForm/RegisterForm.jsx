@@ -9,6 +9,7 @@ import {
   Title,
   FieldWrapperStyled,
   FormBoxStyled,
+  LinkStyled,
 } from './RegisterForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
@@ -94,7 +95,7 @@ export const RegisterForm = () => {
             </FormStyled>
           )}
         </Formik>
-        <Link to="/signin">Sign in</Link>
+        <LinkStyled to="/signin">Sign in</LinkStyled>
       </FormBoxStyled>
     </>
   );
