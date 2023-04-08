@@ -7,6 +7,7 @@ import { FiSearch, FiUser } from 'react-icons/fi';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
 import { ProfileModal } from '../ProfileModal';
+import { ReactModal } from '../ReactModal';
 import logoDark from '../../images/logo/logoDark.png';
 import logoLight from '../../images/logo/logo_footer_mob@2x.png';
 import cross from '../../images/logo/cross-header.svg';
@@ -42,12 +43,22 @@ export const AppBar = () => {
     'Initial Modal State'
   );
 
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
   const toggleModal = () => {
     setOpen(!open);
   };
 
   const handleProfile = () => {
     setProfile(!profile);
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -78,14 +89,28 @@ export const AppBar = () => {
               display="flex"
               alignItems="center"
               mr={{ xs: 24, md: 50 }}
+              // onClick={() => {
+              //   handleProfile();
+              //   setProfilePortal({
+              //     children: <ProfilePortal />,
+              //   });
+              // }}
               onClick={() => {
-                handleProfile();
+                openModal();
                 setProfilePortal({
                   children: <ProfilePortal />,
                 });
               }}
             >
-              <Box>{profile && <ProfileModal onClose={handleProfile} />}</Box>
+              {/* <Box>{profile && <ProfileModal onClose={handleProfile} />}</Box> */}
+              <Box>
+                {modalIsOpen && (
+                  <ReactModal
+                    modalIsOpen={modalIsOpen}
+                    closeModal={closeModal}
+                  />
+                )}
+              </Box>
               <Box
                 mr={{
                   xs: 14,

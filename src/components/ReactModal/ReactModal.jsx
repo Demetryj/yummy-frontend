@@ -19,9 +19,9 @@ Modal.setAppElement('#modal-root');
 
 export const ReactModal = ({ modalIsOpen, closeModal }) => {
   const { children } = React.useContext(ModalContext);
-  let subtitle;
+  //   let subtitle;
 
-  console.log('React Modal modalIsOpen', modalIsOpen);
+  //   console.log('React Modal modalIsOpen', modalIsOpen);
 
   //   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -31,7 +31,7 @@ export const ReactModal = ({ modalIsOpen, closeModal }) => {
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
+    // subtitle.style.color = '#f00';
   }
 
   //   function closeModal() {
@@ -48,16 +48,8 @@ export const ReactModal = ({ modalIsOpen, closeModal }) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
         {/* <button onClick={closeModal}>close</button> */}
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+
         {children}
       </Modal>
     </div>

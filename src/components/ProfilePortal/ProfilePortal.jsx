@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import ModalContext from '../../utils';
 import { Box } from '../Box';
 import { HiOutlinePencil } from 'react-icons/hi';
@@ -7,20 +7,16 @@ import { UserProfile } from '../UserProfile';
 import { ReactModal } from '../ReactModal';
 
 export const ProfilePortal = () => {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [userProfile, setUserProfile] = React.useState('Initial Modal State');
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [userProfile, setUserProfile] = useState('Initial Modal State');
 
-  const openModal = async () => {
+  const openModal = () => {
     setIsOpen(true);
-    console.log('Open Modal Start');
-    console.log(modalIsOpen);
   };
 
   const closeModal = () => {
     setIsOpen(false);
   };
-
-  console.log('modalIsOpen out', modalIsOpen);
 
   return (
     <>
