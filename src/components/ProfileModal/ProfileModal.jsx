@@ -1,12 +1,16 @@
-import { useEffect } from 'react';
+import * as React from 'react';
 import { createPortal } from 'react-dom';
+
+import ModalContext from '../../utils';
 
 import { ModalBackdrop, ModalContent } from './ProfileModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const ProfileModal = ({ onClose, children }) => {
-  useEffect(() => {
+export const ProfileModal = ({ onClose }) => {
+  const { title, body } = React.useContext(ModalContext);
+
+  React.useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
         onClose();
@@ -26,7 +30,10 @@ export const ProfileModal = ({ onClose, children }) => {
 
   return createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
-      <ModalContent>{children}</ModalContent>
+      <ModalContent>
+        <h2>{title}</h2>
+        <p>{body}</p>
+      </ModalContent>
     </ModalBackdrop>,
     modalRoot
   );
