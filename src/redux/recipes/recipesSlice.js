@@ -3,33 +3,35 @@ import { addRecipe, deleteRecipe, fetchRecipes, fetchRecipesPopular } from './op
 
 const initialState = {
   items: [],
-  popular: [],
+  popular: {"Vegan":[{title:"Salat"}]}, // подумати чи потрібно це !!!
   isLoading: false,
   error: null,
 };
+
+console.log("initialState.popular:",initialState.popular)
 
 const recipesSlice = createSlice({
   name: 'recipes',
   initialState,
   extraReducers: builder => {
-    builder.addCase(fetchRecipes.fulfilled,(state, action) => {
+    builder.addCase(fetchRecipes.fulfilled, (state, action) => {
       state.items = action.payload;
       state.isLoading = false;
       state.error = null;
     }).addCase(fetchRecipes.pending, state => {
       state.isLoading = true;
-    }).addCase(fetchRecipes, (state, action) => {
+    }).addCase(fetchRecipes.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
-    });
-
-    builder.addCase(fetchRecipesPopular.fulfilled,(state, action) => {
+    }).addCase(fetchRecipesPopular.fulfilled, (state, action) => { //builder для запроса в якому отримуємо обєкт з 16 рецептами
       state.popular = action.payload;
       state.isLoading = false;
       state.error = null;
-    }).addCase(fetchRecipes.pending, state => {
+      console.log("Hello from recipesSlise");
+      console.log("action.payload: ", action.payload);
+    }).addCase(fetchRecipesPopular.pending, state => {
       state.isLoading = true;
-    }).addCase(fetchRecipes, (state, action) => {
+    }).addCase(fetchRecipesPopular.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     });
@@ -40,7 +42,7 @@ const recipesSlice = createSlice({
           state.items.push(action.payload); 
         }).addCase(addRecipe.pending, state => {
           state.isLoading = true;
-        }).addCase(addRecipe, (state, action) => {
+        }).addCase(addRecipe.rejected, (state, action) => {
           state.isLoading = false;
           state.error = action.payload;
         });
@@ -54,7 +56,7 @@ const recipesSlice = createSlice({
               state.items.splice(index, 1); 
         }).addCase(deleteRecipe.pending, state => {
           state.isLoading = true;
-        }).addCase(deleteRecipe, (state, action) => {
+        }).addCase(deleteRecipe.rejected, (state, action) => {
           state.isLoading = false;
           state.error = action.payload;
         })

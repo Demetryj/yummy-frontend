@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// axios.defaults.baseURL = ''; // на разі не знаю яке значення присвоїти axios.defaults.baseURL
+ axios.defaults.baseURL = 'http://localhost:3001/api'; 
 
 export const addRecipe = createAsyncThunk(
   'recipes/addRecipe',
