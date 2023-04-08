@@ -34,19 +34,15 @@ const navItems = [
 
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [profile, setProfile] = useState(false);
 
   const toggleModal = () => {
     setOpen(!open);
   };
 
-  const openModal = () => {
-    setIsOpen(true);
+  const handleProfile = () => {
+    setProfile(!profile);
   };
-
-  function closeModal() {
-    setIsOpen(false);
-  }
 
   return (
     <Box as="section">
@@ -73,16 +69,9 @@ export const AppBar = () => {
             display="flex"
             alignItems="center"
             mr={{ xs: 24, md: 50 }}
-            onClick={openModal}
+            onClick={handleProfile}
           >
-            <Box>
-              {modalIsOpen && (
-                <ProfileModal
-                  modalIsOpen={modalIsOpen}
-                  closeModal={closeModal}
-                />
-              )}
-            </Box>
+            <Box>{profile && <ProfileModal onClose={handleProfile} />}</Box>
             <Box
               mr={{
                 xs: 14,
