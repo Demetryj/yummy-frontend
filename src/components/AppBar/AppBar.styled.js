@@ -49,6 +49,7 @@ export const Paragraph = styled.p`
   font-style: normal;
   font-weight: ${p => p.theme.fontWeights.semiBold};
   line-height: 170%;
+
   @media screen and ${p => p.theme.media.medium} {
     font-size: ${p => p.theme.fontSizes.s};
   }

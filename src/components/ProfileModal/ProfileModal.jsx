@@ -1,33 +1,59 @@
-import { useEffect } from 'react';
-import { createPortal } from 'react-dom';
+import React from 'react';
+// import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 
-import { ModalBackdrop, ModalContent } from './ProfileModal.styled';
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
-const modalRoot = document.querySelector('#modal-root');
+// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement('#modal-root');
 
-export const ProfileModal = ({ onClose, children }) => {
-  useEffect(() => {
-    const handleKeyDown = e => {
-      if (e.code === 'Escape') {
-        onClose();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [onClose]);
+export const ProfileModal = ({ modalIsOpen, closeModal }) => {
+  let subtitle;
+  // const [modalIsOpen, setIsOpen] = React.useState(false);
 
-  const handleBackdropClick = e => {
-    if (e.currentTarget === e.target) {
-      onClose();
-    }
-  };
+  // function openModal() {
+  //   setIsOpen(true);
+  // }
 
-  return createPortal(
-    <ModalBackdrop onClick={handleBackdropClick}>
-      <ModalContent>{children}</ModalContent>
-    </ModalBackdrop>,
-    modalRoot
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  // function closeModal() {
+  //   setIsOpen(false);
+  // }
+
+  return (
+    <div>
+      {/* <button onClick={openModal}>Open React Modal</button> */}
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={closeModal}>close</button>
+        <div>I am a modal</div>
+        <form>
+          <input />
+          <button>tab navigation</button>
+          <button>stays</button>
+          <button>inside</button>
+          <button>the modal</button>
+        </form>
+      </Modal>
+    </div>
   );
 };

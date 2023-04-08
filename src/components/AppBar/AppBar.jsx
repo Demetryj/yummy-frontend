@@ -4,6 +4,7 @@ import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
 import { FiSearch, FiUser } from 'react-icons/fi';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
+import { ProfileModal } from '../ProfileModal';
 import logoDark from '../../images/logo/logoDark.png';
 import logoLight from '../../images/logo/logo_footer_mob@2x.png';
 import cross from '../../images/logo/cross-header.svg';
@@ -33,10 +34,19 @@ const navItems = [
 
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {
     setOpen(!open);
   };
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <Box as="section">
@@ -59,7 +69,20 @@ export const AppBar = () => {
           </List>
         </Box>
         <Box display="flex" alignItems="center">
-          <Box display="flex" alignItems="center" mr={{ xs: 24, md: 50 }}>
+          <Box
+            display="flex"
+            alignItems="center"
+            mr={{ xs: 24, md: 50 }}
+            onClick={openModal}
+          >
+            <Box>
+              {modalIsOpen && (
+                <ProfileModal
+                  modalIsOpen={modalIsOpen}
+                  closeModal={closeModal}
+                />
+              )}
+            </Box>
             <Box
               mr={{
                 xs: 14,
@@ -70,7 +93,7 @@ export const AppBar = () => {
               overflow="hidden"
               bg="lightgrey"
             >
-              <FiUser size={{ xs: 34, md: 44 }} />
+              <FiUser size={{ xs: 34, md: 44 }} cursor="pointer" />
               {/* <Avatar alt="Avatar" src="" /> */}
             </Box>
             <Box>
