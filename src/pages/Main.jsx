@@ -1,8 +1,11 @@
+import { StartMainPage } from "../components/Main";
+
 const Main = () => {
   return (
     <main>
-      <h1>Main Page</h1>
+      <StartMainPage/>
     </main>
+    
   );
 };
 
