@@ -8,6 +8,7 @@ import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
 import { RxCrossCircled } from 'react-icons/rx';
 
+
 const navItems = [
   { href: 'categories', item: 'Categories' },
   { href: 'add', item: 'Add recipes' },
@@ -29,6 +30,7 @@ const navItems = [
   },
 ];
 
+
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
 
@@ -37,6 +39,7 @@ export const AppBar = () => {
   };
 
   return (
+
     <Box as="section">
       <Box
         as="header"
@@ -150,5 +153,6 @@ export const AppBar = () => {
         </HeaderModal>
       )}
     </Box>
+
   );
 };
