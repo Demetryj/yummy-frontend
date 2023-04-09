@@ -10,6 +10,7 @@ import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
 import { RxCrossCircled } from 'react-icons/rx';
 
+
 const navItems = [
   { href: 'categories', item: 'Categories' },
   { href: 'add', item: 'Add recipes' },
@@ -30,6 +31,7 @@ const navItems = [
     ),
   },
 ];
+
 
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
@@ -54,9 +56,11 @@ export const AppBar = () => {
           width={{ xs: 40, md: 44 }}
           height={{ xs: 40, md: 44 }}
           borderRadius={12}
-          bg="#8BAA36"
+          bg="greenBgColor"
         >
-          <NavItem to={'/'}>{<BiRestaurant color="white" size={30} />}</NavItem>
+          <NavItem to={'/'}>
+            {<BiRestaurant color="whiteColor" size={30} />}
+          </NavItem>
         </Box>
         <Box as="nav" display={{ xs: 'none', lg: 'flex' }}>
           <List>
@@ -77,7 +81,7 @@ export const AppBar = () => {
               width={{ xs: 34 }}
               height={{ xs: 34 }}
               overflow="hidden"
-              bg="lightgrey"
+              bg="greenBgColor"
             >
               <FiUser size={{ xs: 34, md: 44 }} />
               {/* <Avatar alt="Avatar" src="" /> */}
@@ -118,9 +122,11 @@ export const AppBar = () => {
                 width={{ xs: 40, md: 44 }}
                 height={{ xs: 40, md: 44 }}
                 borderRadius={12}
-                bg="#8BAA36"
+                bg="greenBgColor"
               >
-                <NavItem to={'/'}>{<BiRestaurant color="white" />}</NavItem>
+                <NavItem to={'/'}>
+                  {<BiRestaurant color="whiteColor" />}
+                </NavItem>
               </Box>
 
               <Box onClick={toggleModal}>

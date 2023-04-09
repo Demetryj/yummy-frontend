@@ -32,8 +32,8 @@ export const theme = {
     large: '(min-width: 1440px)',
   },
 
-  /* usage 
-   @media screen and ${(p) => p.theme.media.large} {
+  /* usage
+   @media screen and (${(p) => p.theme.media.large}) {
     height: ;
     color: ;
     ...
@@ -46,7 +46,7 @@ export const theme = {
   },
 
   /*
-   usage 
+   usage
    <Box
         width={{ xs: 375, md: 768, lg: 1440 }}
         height={200}
@@ -62,6 +62,7 @@ export const theme = {
   },
 
   fontSizes: {
+    x: '10px',
     xs: '12px',
     s: '14px',
     m: '16px',
@@ -93,11 +94,13 @@ export const theme = {
     light: '6px',
     normal: '8px',
     pagination: '26px',
+    modalProfile: '30px',
     switch: '50px',
   },
 
   shadows: {
     pagination: '0px 4px 4px rgba(135, 135, 135, 0.2)',
     switch: 'inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);',
+    modalProfile: ' 0px 4px 48px rgba(0, 0, 0, 0.1);',
   },
 };

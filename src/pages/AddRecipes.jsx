@@ -1,7 +1,12 @@
+import AddRecipeForm from 'components/AddRecipeForm/AddRecipeForm';
+import FollowUs from 'components/FollowUs/FollowUs'
+import PopularRecipe from 'components/PopularRecipe/PopularRecipe';
 const AddRecipes = () => {
   return (
     <main>
-      <h1>AddRecipes Page</h1>
+      <AddRecipeForm />
+      <FollowUs />
+      <PopularRecipe />
     </main>
   );
 };

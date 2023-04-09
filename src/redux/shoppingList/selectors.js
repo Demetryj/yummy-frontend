@@ -1,3 +1,3 @@
-export const selectIngredient = state => state.ingredient.items;
-export const selectError = state => state.ingredient.error;
-export const selectIsLoading = state => state.ingredient.isLoading;
+export const selectShoppingList = state => state.shoppingList.items;
+export const selectError = state => state.shoppingList.error;
+export const selectIsLoading = state => state.shoppingList.isLoading;
