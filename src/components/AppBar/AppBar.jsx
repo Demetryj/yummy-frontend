@@ -92,13 +92,13 @@ export const AppBar = () => {
               // onClick={() => {
               //   handleProfile();
               //   setProfilePortal({
-              //     children: <ProfilePortal />,
+              //     children: <ProfilePortal handleProfile={handleProfile} />,
               //   });
               // }}
               onClick={() => {
                 openModal();
                 setProfilePortal({
-                  children: <ProfilePortal />,
+                  children: <ProfilePortal closeModal={closeModal} />,
                 });
               }}
             >

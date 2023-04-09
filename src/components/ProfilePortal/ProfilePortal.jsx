@@ -32,6 +32,10 @@ export const ProfilePortal = () => {
               children: <UserProfile />,
             });
           }}
+          // onClick={() => {
+          //   handleProfile();
+          //   openModal();
+          // }}
         >
           <P>Edit profile</P>
           <HiOutlinePencil cursor="pointer" />
