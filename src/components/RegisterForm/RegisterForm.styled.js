@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 import { Link } from 'react-router-dom';
-import { FiUser } from 'react-icons/fi';
+import registerMob from 'images/registrationLogin/Order-food-pana-1mob.png';
+import registerMob2x from 'images/registrationLogin/Order-food-pana-1mob@2x.png';
+import registerTab from 'images/registrationLogin/Order-food-pana-1tabl.png';
+import registerTab2x from 'images/registrationLogin/Order-food-pana-1tabl@2x.png';
+import registerDesk from 'images/registrationLogin/Order-food-pana-desk.png';
+import registerDesk2x from 'images/registrationLogin/Order-food-pana-desk@2x.png';
 
 export const FormStyled = styled(Form)`
   display: flex;
@@ -73,7 +78,12 @@ export const ErrorMessageStyled = styled(ErrorMessage)`
 `;
 
 export const FormBoxStyled = styled.div`
-  margin: 0 auto;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  transform: translateY(305px);
   width: 335px;
   padding: 32px 28px 40px 28px;
   background-color: ${p => p.theme.colors.lightDarckBgColor};
@@ -91,7 +101,7 @@ export const LinkStyled = styled(Link)`
   display: block;
   text-align: center;
   text-decoration: underline;
-  /* color: ${p => p.theme.colors.whiteTextColor}; */
+  color: ${p => p.theme.colors.whiteTextColor};
   transform: translateY(95px);
   @media screen and ${p => p.theme.media.medium} {
     font-size: 16px;
@@ -104,4 +114,40 @@ export const Icon = styled.div`
   color: ${p => p.theme.colors.whiteTextColor};
   opacity: 0.8;
   transform: translate(15px, 15px);
+`;
+
+export const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  /* background-color: ${p => p.theme.colors.darckBgColor}; */
+  background-image: url(${registerMob});
+  background-repeat: no-repeat;
+  background-size: 285px;
+  background-position: 50% 87px;
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${registerMob2x});
+  }
+  @media screen and ${p => p.theme.media.medium} {
+    background-size: 409px;
+    background-image: url(${registerTab});
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${registerTab2x});
+    }
+  }
+  @media screen and ${p => p.theme.media.large} {
+    background-size: 532px;
+    background-image: url(${registerDesk});
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${registerDesk2x});
+    }
+  }
 `;

@@ -11,6 +11,7 @@ import {
   FormBoxStyled,
   LinkStyled,
   Icon,
+  Container,
 } from './RegisterForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
@@ -38,77 +39,79 @@ export const RegisterForm = () => {
   return (
     <>
       {isLoading && <p>component loading</p>}
-      <FormBoxStyled>
-        <Formik
-          validationSchema={registerSchema}
-          initialValues={{
-            name: '',
-            email: '',
-            password: '',
-          }}
-          onSubmit={handleSubmit}
-        >
-          {({ errors, values }) => (
-            <FormStyled autoComplete="off">
-              <Title>Registration</Title>
-              <FieldWrapperStyled>
-                <FieldStyled
-                  name="name"
-                  type="text"
-                  placeholder="Name"
-                  color={getColor(errors.name, values.name)}
-                />
-                <Icon>
-                  <FiUser size={18} />
-                </Icon>
+      <Container>
+        <FormBoxStyled>
+          <Formik
+            validationSchema={registerSchema}
+            initialValues={{
+              name: '',
+              email: '',
+              password: '',
+            }}
+            onSubmit={handleSubmit}
+          >
+            {({ errors, values }) => (
+              <FormStyled autoComplete="off">
+                <Title>Registration</Title>
+                <FieldWrapperStyled>
+                  <FieldStyled
+                    name="name"
+                    type="text"
+                    placeholder="Name"
+                    color={getColor(errors.name, values.name)}
+                  />
+                  <Icon>
+                    <FiUser size={18} />
+                  </Icon>
 
-                <ErrorMessageStyled
-                  name="name"
-                  component="span"
-                  color={getColor(errors.name, values.name)}
-                />
-              </FieldWrapperStyled>
-              <FieldWrapperStyled>
-                <FieldStyled
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  color={getColor(errors.email, values.email)}
-                />
-                <Icon>
-                  <HiOutlineMail size={18} />
-                </Icon>
-                <ErrorMessageStyled
-                  name="email"
-                  component="span"
-                  color={getColor(errors.email, values.email)}
-                />
-              </FieldWrapperStyled>
-              <FieldWrapperStyled>
-                <FieldStyled
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  color={getColor(errors.password, values.password)}
-                />
-                <Icon>
-                  <FiLock size={18} />
-                </Icon>
-                <ErrorMessageStyled
-                  component="span"
-                  name="password"
-                  color={getColor(errors.password, values.password)}
-                ></ErrorMessageStyled>
-              </FieldWrapperStyled>
-              {errorMessage && (
-                <p style={{ color: '#E74A3B' }}>${errorMessage}</p>
-              )}
-              <ButtonStyled type="submit">Submit</ButtonStyled>
-            </FormStyled>
-          )}
-        </Formik>
-        <LinkStyled to="/signin">Sign in</LinkStyled>
-      </FormBoxStyled>
+                  <ErrorMessageStyled
+                    name="name"
+                    component="span"
+                    color={getColor(errors.name, values.name)}
+                  />
+                </FieldWrapperStyled>
+                <FieldWrapperStyled>
+                  <FieldStyled
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    color={getColor(errors.email, values.email)}
+                  />
+                  <Icon>
+                    <HiOutlineMail size={18} />
+                  </Icon>
+                  <ErrorMessageStyled
+                    name="email"
+                    component="span"
+                    color={getColor(errors.email, values.email)}
+                  />
+                </FieldWrapperStyled>
+                <FieldWrapperStyled>
+                  <FieldStyled
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                    color={getColor(errors.password, values.password)}
+                  />
+                  <Icon>
+                    <FiLock size={18} />
+                  </Icon>
+                  <ErrorMessageStyled
+                    component="span"
+                    name="password"
+                    color={getColor(errors.password, values.password)}
+                  ></ErrorMessageStyled>
+                </FieldWrapperStyled>
+                {errorMessage && (
+                  <p style={{ color: '#E74A3B' }}>${errorMessage}</p>
+                )}
+                <ButtonStyled type="submit">Submit</ButtonStyled>
+              </FormStyled>
+            )}
+          </Formik>
+          <LinkStyled to="/signin">Sign in</LinkStyled>
+        </FormBoxStyled>
+      </Container>
     </>
   );
 };
