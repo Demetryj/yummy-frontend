@@ -8,7 +8,7 @@ import { ModalBackdrop, ModalContent } from './ProfileModal.styled';
 const modalRoot = document.querySelector('#modal-root');
 
 export const ProfileModal = ({ onClose }) => {
-  const { children } = React.useContext(ModalContext);
+  const { children, userProfile } = React.useContext(ModalContext);
 
   React.useEffect(() => {
     const handleKeyDown = e => {
@@ -30,7 +30,8 @@ export const ProfileModal = ({ onClose }) => {
 
   return createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
-      <ModalContent>{children}</ModalContent>
+      <ModalContent>{userProfile}</ModalContent>
+      {/* <ModalContent>{children}</ModalContent> */}
     </ModalBackdrop>,
     modalRoot
   );

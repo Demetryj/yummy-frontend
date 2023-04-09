@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
-export default class ModelWrapper extends Component {
+Modal.setAppElement('#modal-root');
+
+export class ModalWrapper extends Component {
   state = {
-    loginOpened: false,
+    loginOpened: true,
     signupOpened: false,
   };
   openModal = modalType => () => {
@@ -52,5 +54,5 @@ export default class ModelWrapper extends Component {
   }
 }
 
-const rootElement = document.getElementById('root');
-ReactDOM.render(<ModelWrapper />, rootElement);
+// const rootElement = document.getElementById('root');
+// ReactDOM.render(<ModalWrapper />, rootElement);

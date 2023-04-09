@@ -5,10 +5,16 @@ import { HiOutlinePencil } from 'react-icons/hi';
 import { P } from './ProfilePortal.styled';
 import { UserProfile } from '../UserProfile';
 import { ReactModal } from '../ReactModal';
+import { ProfileModal } from '../ProfileModal';
 
 export const ProfilePortal = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [userProfile, setUserProfile] = useState('Initial Modal State');
+  const [open, setOpen] = useState(false);
+
+  const handleModal = () => {
+    setOpen(true);
+  };
 
   const openModal = () => {
     setIsOpen(true);
@@ -27,9 +33,9 @@ export const ProfilePortal = () => {
           alignItems="center"
           pb={{ xs: 28 }}
           onClick={() => {
-            openModal();
+            handleModal();
             setUserProfile({
-              children: <UserProfile />,
+              userProfile: <UserProfile />,
             });
           }}
           // onClick={() => {
@@ -43,9 +49,10 @@ export const ProfilePortal = () => {
         <Box display="flex" justifyContent="center" alignItems="center">
           <button type="button">Log out</button>
         </Box>
-        <Box>
-          {<ReactModal modalIsOpen={modalIsOpen} closeModal={closeModal} />}
-        </Box>
+        {/* <Box>
+          {<ReactModal profileIsOpen={modalIsOpen} closeModal={closeModal} />}
+        </Box> */}
+        <Box>{open && <ProfileModal />}</Box>
       </ModalContext.Provider>
     </>
   );
