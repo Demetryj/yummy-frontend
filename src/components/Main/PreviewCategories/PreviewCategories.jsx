@@ -21,7 +21,7 @@ export const PreviewCategories = () => {
   const isLoading = useSelector(selectIsLoading);
   useEffect(()=> {
     dispatch(fetchRecipesMainPage());
-  },[]);
+  },[dispatch]);
   
   const recipesPopular = useSelector(selectRecipesPopular); 
     return (

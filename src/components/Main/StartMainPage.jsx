@@ -1,15 +1,15 @@
-import { СhooseYourBreakfast } from "../Main/СhooseYourBreakfast/СhooseYourBreakfast";
-import { Search } from "../Main/Search/Search";
+import { СhooseYourBreakfast } from "./СhooseYourBreakfast/СhooseYourBreakfast";
+import { Search } from "./Search/Search";
 import { PreviewCategories } from "./PreviewCategories/PreviewCategories";
 import {
 Container,
 ContainerHero,
 TextMain,
 TextSub,
-} from "./MainPage.styled"
+} from "./StartMainPage.styled"
 import { Selected } from "./СhooseYourBreakfast/СhooseYourBreakfast.styled";
 
-export const MainPage = () => {
+export const StartMainPage = () => {
     return ( 
       <>
       <ContainerHero>

@@ -1,10 +1,9 @@
-// import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+ import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 const Register = () => {
   return (
     <main>
-      {/* <RegisterForm /> */}
-      RegisterForm
+      <RegisterForm />
     </main>
   );
 };
