@@ -5,7 +5,7 @@ import { NavItem } from './AppBar.styled';
 // const navItems = [
 //   { href: '/', text: 'Main' },
 //   { href: 'categories', text: 'Categories' },
-//   { href: 'addRecipes', text: 'AddRecipes' },
+//   { href: 'add', text: 'AddRecipes' },
 //   { href: 'myRecipes', text: 'MyRecipes' },
 //   { href: 'favorites', text: 'Favorites' },
 //   { href: 'shoppingList', text: 'ShoppingList' },
@@ -24,7 +24,7 @@ export const AppBar = () => {
             <NavItem to={'categories'}>{'Categories'}</NavItem>
           </li>
           <li>
-            <NavItem to={'addRecipes'}>{'AddRecipes'}</NavItem>
+            <NavItem to={'add'}>{'AddRecipes'}</NavItem>
           </li>
           <li>
             <NavItem to={'favorites'}>{'Favorites'}</NavItem>
