@@ -1,20 +1,34 @@
+import {
+  RecipeContainer,
+  ImageBlock,
+  Label,
+  TextContainer,
+  IngName,
+  IngDescr,
+  IngQuantity,
+} from './RecipeIngredientItem.styled';
 export const RecipeIngredientItem = ({ ingredient }) => {
   console.log(ingredient);
-  const { thb, ttl, measure, _id } = ingredient;
+  const { thb, ttl, measure, _id, desc } = ingredient;
   return (
-    <div>
-      <div>
-        <img src={thb} alt="poster" />
-      </div>
-      <label htmlFor="ingridient">{ttl}</label>
-      <p>{measure}</p>
-      <input
-        type="checkbox"
-        name="ingridient"
-        value={ttl}
-        id="ingridient"
-        // onChange={handleToggle}
-      />
-    </div>
+    <RecipeContainer>
+      <Label>
+        <ImageBlock>
+          <img src={thb} alt="poster" />
+        </ImageBlock>
+        <TextContainer>
+          <IngName>{ttl}</IngName>
+          <IngDescr>{desc}</IngDescr>
+        </TextContainer>
+        <IngQuantity>{measure}</IngQuantity>
+        <input
+          type="checkbox"
+          name="ingridient"
+          value={ttl}
+          id="ingridient"
+          // onChange={handleToggle}
+        />
+      </Label>
+    </RecipeContainer>
   );
 };
