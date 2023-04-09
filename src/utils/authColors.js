@@ -5,7 +5,7 @@ export const getColor = (
 ) => {
   if (
     errors === 'password must be at least 6 characters' ||
-    errors === 'Your password is little secure. Add a letter!'
+    errors === 'email must be a valid email'
   ) {
     return '#F6C23E';
   }

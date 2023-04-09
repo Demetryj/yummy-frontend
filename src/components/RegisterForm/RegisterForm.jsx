@@ -13,11 +13,14 @@ import {
   IconEmail,
   IconPass,
   IconCheck,
+  BgBottom,
 } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 import { getColor } from 'utils/authColors';
+
+import sprite from 'images/registrationLogin/spriteRegister.svg';
 
 const registerSchema = object({
   name: string().required(),
@@ -39,10 +42,9 @@ export const RegisterForm = () => {
     <>
       {isLoading && <p>component loading</p>}
       <Container>
+        {/* <BgBottom></BgBottom> */}
         <FormBoxStyled>
           <Formik
-            // validateOnChange={false}
-            // validateOnBlur={false}
             validationSchema={registerSchema}
             initialValues={{
               name: '',
@@ -55,7 +57,6 @@ export const RegisterForm = () => {
               <FormStyled autoComplete="off">
                 <Title>Registration</Title>
                 <FieldWrapperStyled>
-                  {/* ---------NAME-------- */}
                   <FieldStyled
                     name="name"
                     type="text"
@@ -63,7 +64,7 @@ export const RegisterForm = () => {
                     color={getColor(errors.name, values.name)}
                   />
                   <IconName />
-                  {errors.name && (
+                  {values.name && (
                     <>
                       <p
                         style={{
@@ -72,10 +73,17 @@ export const RegisterForm = () => {
                       >
                         ${errors.name}
                       </p>
+                      <IconCheck color={getColor(errors.name, values.name)}>
+                        <svg>
+                          <use
+                            href={`${sprite}${getColor(
+                              errors.name,
+                              values.name
+                            )}`}
+                          ></use>
+                        </svg>
+                      </IconCheck>
                     </>
-                  )}
-                  {values.name && (
-                    <IconCheck color={getColor(errors.name, values.name)} />
                   )}
                 </FieldWrapperStyled>
                 <FieldWrapperStyled>
@@ -86,7 +94,7 @@ export const RegisterForm = () => {
                     color={getColor(errors.email, values.email)}
                   />
                   <IconEmail />
-                  {errors.email && (
+                  {values.email && (
                     <>
                       <p
                         style={{
@@ -95,13 +103,19 @@ export const RegisterForm = () => {
                       >
                         ${errors.email}
                       </p>
+                      <IconCheck color={getColor(errors.email, values.email)}>
+                        <svg>
+                          <use
+                            href={`${sprite}${getColor(
+                              errors.email,
+                              values.email
+                            )}`}
+                          ></use>
+                        </svg>
+                      </IconCheck>
                     </>
                   )}
-                  {values.email && (
-                    <IconCheck color={getColor(errors.email, values.email)} />
-                  )}
                 </FieldWrapperStyled>
-                {/* -------PASSWORD---------- */}
                 <FieldWrapperStyled>
                   <FieldStyled
                     name="password"
@@ -110,7 +124,7 @@ export const RegisterForm = () => {
                     color={getColor(errors.password, values.password)}
                   />
                   <IconPass />
-                  {errors.password && (
+                  {values.password && (
                     <>
                       <p
                         style={{
@@ -122,12 +136,19 @@ export const RegisterForm = () => {
                       >
                         ${errors.password}
                       </p>
+                      <IconCheck
+                        color={getColor(errors.password, values.password)}
+                      >
+                        <svg>
+                          <use
+                            href={`${sprite}${getColor(
+                              errors.password,
+                              values.password
+                            )}`}
+                          ></use>
+                        </svg>
+                      </IconCheck>
                     </>
-                  )}
-                  {values.password && (
-                    <IconCheck
-                      color={getColor(errors.password, values.password)}
-                    />
                   )}
                 </FieldWrapperStyled>
                 {errorMessage && (

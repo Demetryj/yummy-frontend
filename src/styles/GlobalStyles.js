@@ -47,4 +47,8 @@ img {
   width: 100%;
   height: auto;
  
-}`;
+}
+input {
+  all: unset;
+}s
+`;

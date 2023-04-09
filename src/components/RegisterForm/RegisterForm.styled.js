@@ -1,14 +1,17 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
 import { Link } from 'react-router-dom';
+import { FiLock, FiUser } from 'react-icons/fi';
+import { HiOutlineMail } from 'react-icons/hi';
 import registerMob from 'images/registrationLogin/Order-food-pana-1mob.png';
 import registerMob2x from 'images/registrationLogin/Order-food-pana-1mob@2x.png';
 import registerTab from 'images/registrationLogin/Order-food-pana-1tabl.png';
 import registerTab2x from 'images/registrationLogin/Order-food-pana-1tabl@2x.png';
 import registerDesk from 'images/registrationLogin/Order-food-pana-desk.png';
 import registerDesk2x from 'images/registrationLogin/Order-food-pana-desk@2x.png';
-import { FiLock, FiUser } from 'react-icons/fi';
-import { HiOutlineMail } from 'react-icons/hi';
+import registerBottomMob from 'images/registrationLogin/auth-bg-mob.png';
+import registerBottomTab from 'images/registrationLogin/auth-bg-tab.png';
+import registerBottomDesk from 'images/registrationLogin/auth-bg-desk.png';
 
 export const FormStyled = styled(Form)`
   display: flex;
@@ -25,7 +28,7 @@ export const FieldWrapperStyled = styled.div`
   }
 `;
 export const FieldStyled = styled(Field)`
-  padding: ${p => p.theme.spacing(6)} ${p => p.theme.spacing(20)};
+  padding: 0 ${p => p.theme.spacing(20)};
   height: ${p => p.theme.spacing(22)};
   border-radius: ${p => p.theme.radii.light};
   font-size: ${p => p.theme.fontSizes.xm};
@@ -33,6 +36,9 @@ export const FieldStyled = styled(Field)`
   background-color: transparent;
   border: ${p => p.theme.borders.normal};
   border-color: ${props => props.color || props.theme.colors.blackTextColor};
+  :hover {
+    border-color: #ffffff;
+  }
   ::placeholder {
     font-size: ${p => p.theme.fontSizes.s};
     line-height: 21px;
@@ -147,48 +153,54 @@ export const IconPass = styled(FiLock)`
 `;
 
 export const IconCheck = styled.div`
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  right: ${p => p.theme.spacing(9)};
-  width: ${p => p.theme.spacing(9)};
-  height: ${p => p.theme.spacing(9)};
-  background-color: ${props => props.color};
-  transform: translate(0, 15px);
+  top: 14px;
 `;
 
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  /* background-color: ${p => p.theme.colors.darckBgColor}; */
-  background-image: url(${registerMob});
+  background-image: url(${registerMob}), url(${registerBottomMob});
   background-repeat: no-repeat;
-  background-size: ${p => p.theme.spacing(142)};
-  background-position: 50% ${p => p.theme.spacing(43)};
+  background-size: ${p => p.theme.spacing(142)}, 100%;
+  background-position: 50% ${p => p.theme.spacing(43)}, bottom;
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(${registerMob2x});
+    background-image: url(${registerMob2x}), url(${registerBottomMob});
   }
   @media screen and ${p => p.theme.media.medium} {
-    background-size: ${p => p.theme.spacing(204)};
-    background-position: 50% ${p => p.theme.spacing(48)};
-    background-image: url(${registerTab});
+    background-size: ${p => p.theme.spacing(204)}, 100%;
+    background-position: 50% ${p => p.theme.spacing(48)}, bottom;
+    background-image: url(${registerTab}), url(${registerBottomTab});
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${registerTab2x});
+      background-image: url(${registerTab2x}), url(${registerBottomTab});
     }
   }
   @media screen and ${p => p.theme.media.large} {
-    background-position: ${p => p.theme.spacing(77)} ${p => p.theme.spacing(77)};
-    background-size: ${p => p.theme.spacing(266)};
-    background-image: url(${registerDesk});
+    background-position: ${p => p.theme.spacing(77)} ${p => p.theme.spacing(77)},
+      bottom;
+    background-size: ${p => p.theme.spacing(266)}, 100%;
+    background-image: url(${registerDesk}), url(${registerBottomDesk});
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${registerDesk2x});
+      background-image: url(${registerDesk2x}), url(${registerBottomDesk});
     }
-  }
+  } ;
+`;
+
+export const BgBottom = styled.div`
+  background-image: url(${registerBottomMob});
 `;
