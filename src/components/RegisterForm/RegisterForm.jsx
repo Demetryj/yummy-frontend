@@ -1,24 +1,23 @@
-import { ErrorMessage, Formik } from 'formik';
-import { Link } from 'react-router-dom';
+import { Formik } from 'formik';
 import { object, string } from 'yup';
 import {
   FormStyled,
   FieldStyled,
   ButtonStyled,
-  ErrorMessageStyled,
   Title,
   FieldWrapperStyled,
   FormBoxStyled,
   LinkStyled,
-  Icon,
   Container,
+  IconName,
+  IconEmail,
+  IconPass,
+  IconCheck,
 } from './RegisterForm.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 import { getColor } from 'utils/authColors';
-import { FiLock, FiUser } from 'react-icons/fi';
-import { HiOutlineMail } from 'react-icons/hi';
 
 const registerSchema = object({
   name: string().required(),
@@ -42,6 +41,8 @@ export const RegisterForm = () => {
       <Container>
         <FormBoxStyled>
           <Formik
+            // validateOnChange={false}
+            // validateOnBlur={false}
             validationSchema={registerSchema}
             initialValues={{
               name: '',
@@ -54,21 +55,28 @@ export const RegisterForm = () => {
               <FormStyled autoComplete="off">
                 <Title>Registration</Title>
                 <FieldWrapperStyled>
+                  {/* ---------NAME-------- */}
                   <FieldStyled
                     name="name"
                     type="text"
                     placeholder="Name"
                     color={getColor(errors.name, values.name)}
                   />
-                  <Icon>
-                    <FiUser size={18} />
-                  </Icon>
-
-                  <ErrorMessageStyled
-                    name="name"
-                    component="span"
-                    color={getColor(errors.name, values.name)}
-                  />
+                  <IconName />
+                  {errors.name && (
+                    <>
+                      <p
+                        style={{
+                          color: `${getColor(errors.name, values.name)}`,
+                        }}
+                      >
+                        ${errors.name}
+                      </p>
+                    </>
+                  )}
+                  {values.name && (
+                    <IconCheck color={getColor(errors.name, values.name)} />
+                  )}
                 </FieldWrapperStyled>
                 <FieldWrapperStyled>
                   <FieldStyled
@@ -77,15 +85,23 @@ export const RegisterForm = () => {
                     placeholder="Email"
                     color={getColor(errors.email, values.email)}
                   />
-                  <Icon>
-                    <HiOutlineMail size={18} />
-                  </Icon>
-                  <ErrorMessageStyled
-                    name="email"
-                    component="span"
-                    color={getColor(errors.email, values.email)}
-                  />
+                  <IconEmail />
+                  {errors.email && (
+                    <>
+                      <p
+                        style={{
+                          color: `${getColor(errors.email, values.email)}`,
+                        }}
+                      >
+                        ${errors.email}
+                      </p>
+                    </>
+                  )}
+                  {values.email && (
+                    <IconCheck color={getColor(errors.email, values.email)} />
+                  )}
                 </FieldWrapperStyled>
+                {/* -------PASSWORD---------- */}
                 <FieldWrapperStyled>
                   <FieldStyled
                     name="password"
@@ -93,14 +109,26 @@ export const RegisterForm = () => {
                     placeholder="Password"
                     color={getColor(errors.password, values.password)}
                   />
-                  <Icon>
-                    <FiLock size={18} />
-                  </Icon>
-                  <ErrorMessageStyled
-                    component="span"
-                    name="password"
-                    color={getColor(errors.password, values.password)}
-                  ></ErrorMessageStyled>
+                  <IconPass />
+                  {errors.password && (
+                    <>
+                      <p
+                        style={{
+                          color: `${getColor(
+                            errors.password,
+                            values.password
+                          )}`,
+                        }}
+                      >
+                        ${errors.password}
+                      </p>
+                    </>
+                  )}
+                  {values.password && (
+                    <IconCheck
+                      color={getColor(errors.password, values.password)}
+                    />
+                  )}
                 </FieldWrapperStyled>
                 {errorMessage && (
                   <p style={{ color: '#E74A3B' }}>${errorMessage}</p>
