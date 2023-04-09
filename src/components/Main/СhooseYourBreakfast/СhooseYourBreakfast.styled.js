@@ -5,7 +5,7 @@ color: #8BAA36;`
 
 export const TextBox = styled.div`
 display: block;
-// margin-top: 157px;
+margin-top: 157px;
 padding: 8px;
 width: 225px;
 border-radius: 8px;

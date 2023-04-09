@@ -1,9 +1,8 @@
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link , useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { fetchSearchRecipes } from '../../../redux/recipes/operations';
 import { selectRecipes, selectIsLoading } from "../../../redux/recipes/selectors";
-import { selectToken } from "../../../redux/auth/selectors";
 import { Loader } from 'components/Loader';
 import {
   Input,
@@ -16,25 +15,23 @@ import { useState } from 'react';
 export const Search = () => {
   const [input,setInput] = useState("");
   const dispatch = useDispatch();
-  const recipes = useSelector(selectRecipes);
-  const token = useSelector(selectToken);
   const isLoading = useSelector(selectIsLoading);
-  console.log("token:",token);
-
+  const recipes = useSelector(selectRecipes);
+  const navigate = useNavigate();
+  
   const changeHandleSearch = e => {
     const { value } = e.currentTarget;
-    console.log("value:",value);
     setInput(value.trim());
+
     if(input === ""){
       return;
-    }else{localStorage.setItem('query', value.toLowerCase());}
+    } else {
+      localStorage.setItem('query', value.toLowerCase());
+   }
   };
-
-  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault(); 
-    // const form = e.currentTarget; // використовую для очистки поля вводу
     const queryInput = localStorage.getItem('query');
 
     if (!queryInput || input === "") {
@@ -48,20 +45,13 @@ export const Search = () => {
 
     if(input === ""){
       return;
-    }else{
-      navigate("/search",{replace: true});
+    } else {
+      navigate("/search", { replace: true });
     };
-
     dispatch(fetchSearchRecipes(queryInput));
-    console.log("recipies:",recipes)
-// remowe LocalStarage
-    //  як при перевірці recipes, якщо там пустий масив відрендирити блок з помилкою?
-//  form.reset(); // очистити стрічку вводу
+    // коли recipeData.length === 0, тобто по такому запросу нічого немає в БД, тоді відрендирити інформаційний блок; ЯК ДІСТАТИ recipeData з items???
  setInput("");
   };
-
-  // const goToSearch = 
-
   return (
           <SearchFormContainer>
             <SearchForm 
@@ -69,19 +59,14 @@ export const Search = () => {
             >
               <Input type="text"
             name="queryInput"
-            value={input}// TODO! не знаю чи воно потрібно, якщо так то, що присвоїти?
+            value={input}
             onChange={changeHandleSearch }
             autocomplete="off"
             autoFocus
             placeholder="Search recipe" />
-            { (recipes.length === 0 && isLoading) && <Loader/>}
-          {/* <Link to="/search"> */}
-          <Button type="submit" 
-          // onClick={goToSearch}
-          >Search</Button>
-          {/* </Link>      */}
-          </SearchForm>
-          <Toaster />
+            {(recipes.length === 0 && isLoading) && <Loader/>}
+          <Button type="submit">Search</Button>
+          </SearchForm> 
           </SearchFormContainer> 
           );
 };

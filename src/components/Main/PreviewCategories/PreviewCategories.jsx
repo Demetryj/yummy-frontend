@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import { useMedia } from "hooks/useMedia";
 
 export const PreviewCategories = () => {
-  const { isMobile, isTablet, isDesktop} = useMedia();
+  const { isMobile, isTablet } = useMedia();
   let numCard;
 
   if (isMobile){numCard = 1} 

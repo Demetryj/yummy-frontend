@@ -3,17 +3,12 @@ import styled from 'styled-components';
 export const SearchFormContainer = styled.div`
 height: 52px;
 padding-left: 40px;
-padding-right: 40px;
+padding-right: 40px;`
 
-@media (min-width: 768px) {
-    background-color: orange;
-  }
-`
 export const SearchForm = styled.form`
 position: relative;
-// margin-top: 115px;
-height: 52px;
-`
+height: 52px;`
+
 export const Input = styled.input`
 display: inline-block;
 box-sizing: border-box;
@@ -35,8 +30,7 @@ line-height: 18px;
 font: inherit;
 font-size: 12px;
 color: #BDBDBD;
-}
-`
+}`
 
 export const Button = styled.button`
 position: absolute;
@@ -59,5 +53,4 @@ border: none;
 outline: none;
 &:hover {
     background: #8BAA36;
-}
-`
+}`
