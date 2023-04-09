@@ -1,7 +1,9 @@
+import { WelcomeMain } from 'components/WelcomeMain';
+
 const Welcome = () => {
   return (
     <main>
-      <h1>Welcome Page</h1>
+      <WelcomeMain />
     </main>
   );
 };
