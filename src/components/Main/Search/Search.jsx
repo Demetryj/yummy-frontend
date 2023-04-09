@@ -1,41 +1,66 @@
-import toast from 'react-hot-toast';
-import { useDispatch } from 'react-redux';
-import {} from '../../../redux/recipes/operations'
+import toast, { Toaster } from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link , useNavigate } from 'react-router-dom';
+import { fetchSearchRecipes } from '../../../redux/recipes/operations';
+import { selectRecipes, selectIsLoading } from "../../../redux/recipes/selectors";
+import { selectToken } from "../../../redux/auth/selectors";
+import { Loader } from 'components/Loader';
 import {
   Input,
   Button,
   SearchForm,
   SearchFormContainer
 } from "./Search.styled";
+import { useState } from 'react';
 
 export const Search = () => {
-  // const [query, setQuery] = useState(''); // зробити тимчасовий useState ???
+  const [input,setInput] = useState("");
+  const dispatch = useDispatch();
+  const recipes = useSelector(selectRecipes);
+  const token = useSelector(selectToken);
+  const isLoading = useSelector(selectIsLoading);
+  console.log("token:",token);
 
   const changeHandleSearch = e => {
     const { value } = e.currentTarget;
-  localStorage.setItem('query', value.toLowerCase());
+    console.log("value:",value);
+    setInput(value.trim());
+    if(input === ""){
+      return;
+    }else{localStorage.setItem('query', value.toLowerCase());}
   };
+
+  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault(); 
-    const form = e.currentTarget; // використовую для очистки поля вводу
-    
+    // const form = e.currentTarget; // використовую для очистки поля вводу
     const queryInput = localStorage.getItem('query');
 
-    if (!queryInput) {
+    if (!queryInput || input === "") {
       console.log("in toaster");
+      console.log("queryInput: ",queryInput);
       return toast.error('Please enter title.', {
         duration: 2000,
         position: "top-center",
       });
     } 
 
-    // dispatch()
-//делаем запрос на бекенд
-// localStorage.removeItem("query"); // -  це потрібно ???
-// очистити стрічку вводу - ??? setQuery('');
- form.reset(); // очистити стрічку вводу
+    if(input === ""){
+      return;
+    }else{
+      navigate("/search",{replace: true});
+    };
+
+    dispatch(fetchSearchRecipes(queryInput));
+    console.log("recipies:",recipes)
+// remowe LocalStarage
+    //  як при перевірці recipes, якщо там пустий масив відрендирити блок з помилкою?
+//  form.reset(); // очистити стрічку вводу
+ setInput("");
   };
+
+  // const goToSearch = 
 
   return (
           <SearchFormContainer>
@@ -44,15 +69,19 @@ export const Search = () => {
             >
               <Input type="text"
             name="queryInput"
-            //  value={query} // TODO!
+            value={input}// TODO! не знаю чи воно потрібно, якщо так то, що присвоїти?
             onChange={changeHandleSearch }
             autocomplete="off"
             autoFocus
-            placeholder="Beef" />
+            placeholder="Search recipe" />
+            { (recipes.length === 0 && isLoading) && <Loader/>}
           {/* <Link to="/search"> */}
-          <Button type="submit">Search</Button>
+          <Button type="submit" 
+          // onClick={goToSearch}
+          >Search</Button>
           {/* </Link>      */}
           </SearchForm>
-          </SearchFormContainer>  
+          <Toaster />
+          </SearchFormContainer> 
           );
 };

@@ -17,34 +17,6 @@ background-size: auto;
 
   // position: relative;
   // z-index: 1;`
-  
-// .hero-container {
-//   position: relative;
-//   z-index: 1;
-//   @include tablet {
-//     min-height: 324px;
-//     padding-top: 10px;
-//   }
-
-// .ellipse {
-//   position: absolute;
-//   z-index: -2;
-//   @include tablet {
-//     padding-left: 0;
-//     right: 185px;
-//     bottom: 40px;
-//     width: 335px;
-//     height: 333px;
-//   }
-
-// .icecream-img {
-//   position: absolute;
-//   z-index: -1;
-//   @media screen and(min-width:768px) {
-//     right: 303px;
-//     width: 143px;
-//     height: 336px;
-//   }
 
 export const Container = styled.div``
 

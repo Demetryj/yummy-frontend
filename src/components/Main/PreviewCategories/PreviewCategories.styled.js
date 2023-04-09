@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'; 
 
-export const List = styled.ul`
-  padding: 0;
-  list-style: none;`
+export const List = styled.ul``
 
-export const BtnRecipe = styled.button``
+export const BtnRecipe = styled(Link)`
+text-decoration: none;
+`
 
 export const Button = styled.button``
 
