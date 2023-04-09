@@ -46,7 +46,7 @@ export const Table = styled.div`
   }
 `;
 export const Text = styled.p`
-  font-weight: ${p => p.theme.fontWeights[2]};
+  font-weight: ${p => p.theme.fontWeights.medium};
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: 1.5;
   letter-spacing: 0.03em;
