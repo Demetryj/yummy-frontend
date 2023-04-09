@@ -63,7 +63,7 @@ export const RegisterForm = () => {
                     placeholder="Name"
                     color={getColor(errors.name, values.name)}
                   />
-                  <IconName />
+                  <IconName color={getColor(errors.name, values.name)} />
                   {values.name && (
                     <>
                       <p
@@ -93,7 +93,7 @@ export const RegisterForm = () => {
                     placeholder="Email"
                     color={getColor(errors.email, values.email)}
                   />
-                  <IconEmail />
+                  <IconEmail color={getColor(errors.email, values.email)} />
                   {values.email && (
                     <>
                       <p
@@ -123,7 +123,9 @@ export const RegisterForm = () => {
                     placeholder="Password"
                     color={getColor(errors.password, values.password)}
                   />
-                  <IconPass />
+                  <IconPass
+                    color={getColor(errors.password, values.password)}
+                  />
                   {values.password && (
                     <>
                       <p
