@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-    clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
     cursor: pointer;
     text-align: center;
     font-weight: ${p => p.theme.fontWeights.regular};
@@ -27,6 +26,8 @@ export const Button = styled.button`
     };
 
     border: none;
+
+    border-radius: 35px 70px;
 
     border: ${({ styled, theme }) => {
         switch (styled) {
@@ -76,14 +77,45 @@ export const Button = styled.button`
 
      };
 
-     
     padding: 
-    11px 71px,
-    50px 42px,
-    14px 18px,
-    14px 18px;
-    18px 39px;
-    
+     // 12px 24px;
+    ${p => p.theme.spacsing(6)} ${p => p.theme.spacsing(12)},
+    // 12px 72px,
+    ${p => p.theme.spacsing(6)} ${p => p.theme.spacsing(36)},
+    // 50px 42px,
+    ${p => p.theme.spacsing(25)} ${p => p.theme.spacsing(21)},
+    // 14px 18px,
+    ${p => p.theme.spacsing(7)} ${p => p.theme.spacsing(9)},
+    // 18px 38px;
+    ${p => p.theme.spacsing(9)} ${p => p.theme.spacsing(19)},
+    // 16px 32px,
+    ${p => p.theme.spacsing(8)} ${p => p.theme.spacsing(16)},
+    // 12px 28px,
+    ${p => p.theme.spacsing(6)} ${p => p.theme.spacsing(14)},
+    // 6px 14px,
+    ${p => p.theme.spacsing(3)} ${p => p.theme.spacsing(7)},
+    // 16px 32px;
+    ${p => p.theme.spacsing(8)} ${p => p.theme.spacsing(16)},
+    // 16px 52px,
+    ${p => p.theme.spacsing(8)} ${p => p.theme.spacsing(26)},
+    // 12px 32px,
+    ${p => p.theme.spacsing(6)} ${p => p.theme.spacsing(16)},
+    // 18px 44px,
+    ${p => p.theme.spacsing(9)} ${p => p.theme.spacsing(22)},
+    // 14px 64px;
+    ${p => p.theme.spacsing(7)} ${p => p.theme.spacsing(32)},
+    // 20px 52px,
+    ${p => p.theme.spacsing(10)} ${p => p.theme.spacsing(26)},
+    // 14px 32px;
+    ${p => p.theme.spacsing(7)} ${p => p.theme.spacsing(16)},
+    // 24px 52px,
+    ${p => p.theme.spacsing(12)} ${p => p.theme.spacsing(26)},
+    // 14px 38px;
+    ${p => p.theme.spacsing(7)} ${p => p.theme.spacsing(19)},
+    // 24px 52px,
+    ${p => p.theme.spacsing(12)} ${p => p.theme.spacsing(26)},
+    // 22px 44px;
+    ${p => p.theme.spacsing(11)} ${p => p.theme.spacsing(22)},
 
     font-size:
     ${p => p.theme.fontSizes.s},
@@ -93,9 +125,13 @@ export const Button = styled.button`
     min-width: 130px;
 
     line-height: 
-    16px,
-    18px,
-    21px,
-    24px;
+    // 16px,
+    ${p => p.theme.spacsing(8)},
+    // 18px,
+    ${p => p.theme.spacsing(9)},
+    // 22px,
+    ${p => p.theme.spacsing(11)},
+    // 24px,
+    ${p => p.theme.spacsing(12)},
 `;
 
