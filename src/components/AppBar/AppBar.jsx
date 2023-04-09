@@ -78,7 +78,7 @@ export const AppBar = () => {
         py={{ xs: '3px' }}
       >
         <Box width={{ xs: 40, md: 44 }} height={{ xs: 40, md: 44 }}>
-          <NavItem to={'/'}>{<img src={logoLight} alt="logoLight" />}</NavItem>
+          <NavItem to={'/'}>{<img src={logoDark} alt="logoLight" />}</NavItem>
         </Box>
         <Box as="nav" display={{ xs: 'none', lg: 'flex' }}>
           <List>
