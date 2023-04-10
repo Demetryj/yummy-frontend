@@ -26,6 +26,9 @@ export const theme = {
     bcgWhiteColor: '#FFFFFF',
     searchBorderColor: '#F0F0F0',
     greenColor: '#8BAA36',
+    inputBgColor: '#F5F5F5',
+    textAreaBg: '#D9D9D9',
+    popularRecBorder: '#707070',
   },
 
   spacing: n => `${2 * n}px`,
