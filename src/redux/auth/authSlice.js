@@ -38,6 +38,7 @@ const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(signIn.rejected, (state, action) => {
+        state.errorMessage = action.payload;
         state.isLoading = false;
       })
       .addCase(logout.pending, (state, action) => {
