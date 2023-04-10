@@ -1,9 +1,8 @@
 import { Social, Links } from './FollowUs.styled';
-import instagram from '../../images/svg/instagram.png';
-import faceBook from '../../images/svg/faceBook.png';
-import youTube from '../../images/svg/youTube.png';
-import twitter from '../../images/svg/twitter.png'
-
+import instagram from 'images/svg/instagram.png';
+import faceBook from 'images/svg/faceBook.png';
+import youTube from 'images/svg/youTube.png';
+import twitter from 'images/svg/twitter.png';
 
 const FollowUs = () => {
   return (
@@ -16,7 +15,7 @@ const FollowUs = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={instagram} alt="" width="20px" height="20px"/>
+            <img src={instagram} alt="" width="20px" height="20px" />
           </a>
         </Links>
         <Links>
@@ -25,8 +24,7 @@ const FollowUs = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={faceBook} alt="" width="20px" height="20px"/>
-            
+            <img src={faceBook} alt="" width="20px" height="20px" />
           </a>
         </Links>
         <Links>
@@ -35,8 +33,7 @@ const FollowUs = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={youTube} alt="" width="20px" height="20px"/>
-            
+            <img src={youTube} alt="" width="20px" height="20px" />
           </a>
         </Links>
         <Links>
@@ -45,8 +42,7 @@ const FollowUs = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={twitter} alt="" width="20px" height="20px"/>
-            
+            <img src={twitter} alt="" width="20px" height="20px" />
           </a>
         </Links>
       </Social>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
+
 import { Link } from 'react-router-dom';
 import { FiLock, FiUser } from 'react-icons/fi';
 import { HiOutlineMail } from 'react-icons/hi';
@@ -12,6 +13,7 @@ import registerDesk2x from 'images/registrationLogin/Order-food-pana-desk@2x.png
 import registerBottomMob from 'images/registrationLogin/auth-bg-mob.png';
 import registerBottomTab from 'images/registrationLogin/auth-bg-tab.png';
 import registerBottomDesk from 'images/registrationLogin/auth-bg-desk.png';
+
 
 export const FormStyled = styled(Form)`
   display: flex;

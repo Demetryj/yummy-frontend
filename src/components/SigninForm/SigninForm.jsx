@@ -19,7 +19,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/auth/operations';
 
-import { logout } from '../../redux/auth/operations';
+import { logout } from 'redux/auth/operations';
 import { FieldStyled } from '../RegisterForm/RegisterForm.styled';
 import { useAuth } from 'hooks/useAuth';
 import { getColor } from 'utils/authColors';
