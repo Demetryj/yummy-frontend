@@ -6,6 +6,7 @@ import { fetchRecipesMainPage } from 'redux/recipes/operations';
 import { Link } from 'react-router-dom';
 import { Loader } from 'components/Loader';
 import { MainTitle } from '../../MainTitle/MainTitle';
+import { SearchItem } from "components/SearchFragments/SearchItem";
 
 import { List, BtnRecipe, Button } from './PreviewCategories.styled';
 import { useEffect } from 'react';
@@ -35,21 +36,23 @@ export const PreviewCategories = () => {
 
       <List>
         {recipesPopular && !isLoading ? (
-          Object.keys(recipesPopular).map(key => {
-            const recipes = recipesPopular[key];
+          Object.keys(recipesPopular).map(keyRecipe => {
+            const recipes = recipesPopular[keyRecipe];
             return (
               <li key={uuidv4()}>
-                <MainTitle title={key} />
+                <MainTitle title={keyRecipe} />   
                 <List>
-                  {recipes.slice(0, numCard).map(recipe => {
+                  {recipes.slice(0, numCard).map(({_id, title,  thumb}) => {
                     return (
-                      <BtnRecipe to={`/recipe/${recipe._id}`}>
-                        <li key={recipe._id}>{recipe.title}</li>
+                      <BtnRecipe to={`/recipe/${_id}`}>
+                        <li key={_id}>
+                          <SearchItem title={title} img={thumb}></SearchItem>
+                        </li>
                       </BtnRecipe>
                     );
                   })}
                 </List>
-                <Link to={`/categories/${recipesPopular[key].category}`}>
+                <Link to={`/categories/${recipesPopular[keyRecipe].category}`}>
                   <Button>See all</Button>
                 </Link>
               </li>

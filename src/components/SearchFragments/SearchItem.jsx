@@ -1,9 +1,9 @@
-import { ImgDesc, ImgDescWrapper, ImgWrapper } from './SearchFragments.styled';
+import { ImgDesc, ImgDescWrapper, ImgWrapper, Img } from './SearchFragments.styled';
 
 export const SearchItem = ({ title, img }) => {
   return (
     <ImgWrapper>
-      <img src={img} alt="title" />
+      <Img src={img} alt="title" />
       <ImgDescWrapper>
         <ImgDesc>{title}</ImgDesc>
       </ImgDescWrapper>

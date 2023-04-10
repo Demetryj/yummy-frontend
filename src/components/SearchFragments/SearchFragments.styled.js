@@ -222,6 +222,9 @@ export const List = styled.ul`
 export const ImgWrapper = styled.div`
   position: relative;
 `;
+export const Img = styled.img`
+border-radius: ${p => p.theme.radii.normal};
+`
 
 export const ImgDescWrapper = styled.div`
   position: absolute;
