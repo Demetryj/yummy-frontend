@@ -85,6 +85,12 @@ export const ErrorMessageStyled = styled(ErrorMessage)`
   margin-top: ${p => p.theme.spacing(4)};
 `;
 
+export const ErrorText = styled.p`
+  font-size: ${p => p.theme.fontSizes.s};
+  color: ${props => props.color};
+  margin-top: ${p => p.theme.spacing(4)};
+`;
+
 export const FormBoxStyled = styled.div`
   position: absolute;
   margin-left: auto;

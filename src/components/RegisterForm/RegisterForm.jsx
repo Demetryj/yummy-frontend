@@ -14,6 +14,7 @@ import {
   IconPass,
   IconCheck,
   BgBottom,
+  ErrorText,
 } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
@@ -66,13 +67,12 @@ export const RegisterForm = () => {
                   <IconName color={getColor(errors.name, values.name)} />
                   {values.name && (
                     <>
-                      <p
-                        style={{
-                          color: `${getColor(errors.name, values.name)}`,
-                        }}
-                      >
-                        ${errors.name}
-                      </p>
+                      {errors.name && (
+                        <ErrorText color={getColor(errors.name, values.name)}>
+                          {errors.name}
+                        </ErrorText>
+                      )}
+
                       <IconCheck color={getColor(errors.name, values.name)}>
                         <svg>
                           <use
@@ -96,13 +96,12 @@ export const RegisterForm = () => {
                   <IconEmail color={getColor(errors.email, values.email)} />
                   {values.email && (
                     <>
-                      <p
-                        style={{
-                          color: `${getColor(errors.email, values.email)}`,
-                        }}
-                      >
-                        ${errors.email}
-                      </p>
+                      {errors.email && (
+                        <ErrorText color={getColor(errors.email, values.email)}>
+                          {errors.email}
+                        </ErrorText>
+                      )}
+
                       <IconCheck color={getColor(errors.email, values.email)}>
                         <svg>
                           <use
@@ -128,16 +127,14 @@ export const RegisterForm = () => {
                   />
                   {values.password && (
                     <>
-                      <p
-                        style={{
-                          color: `${getColor(
-                            errors.password,
-                            values.password
-                          )}`,
-                        }}
-                      >
-                        ${errors.password}
-                      </p>
+                      {errors.password && (
+                        <ErrorText
+                          color={getColor(errors.password, values.password)}
+                        >
+                          {errors.password}
+                        </ErrorText>
+                      )}
+
                       <IconCheck
                         color={getColor(errors.password, values.password)}
                       >
@@ -154,7 +151,7 @@ export const RegisterForm = () => {
                   )}
                 </FieldWrapperStyled>
                 {errorMessage && (
-                  <p style={{ color: '#E74A3B' }}>${errorMessage}</p>
+                  <p style={{ color: '#E74A3B' }}>{errorMessage}</p>
                 )}
                 <ButtonStyled type="submit">Submit</ButtonStyled>
               </FormStyled>
