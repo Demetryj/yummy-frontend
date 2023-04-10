@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http:localhost:3001';
+axios.defaults.baseURL = 'http://localhost:3001/api/';
 
 export const fetchRecipesMainPage = createAsyncThunk(
   'recipes/fetchPopular',
@@ -21,7 +21,6 @@ export const getRecipeById = createAsyncThunk(
     console.log(_id);
     try {
       const response = await axios.get(`/recipes/${_id}`);
-
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

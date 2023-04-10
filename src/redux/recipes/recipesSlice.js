@@ -10,21 +10,12 @@ import {
   removeFromFavorites,
 } from './operations';
 
-const handlePending = state => {
-  state.isLoading = true;
-};
-
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
-
 const initialState = {
   items: [],
   isLoading: false,
   error: null,
 };
-console.log(initialState);
+
 const recipesSlice = createSlice({
   name: 'recipes',
   initialState,
@@ -59,7 +50,6 @@ const recipesSlice = createSlice({
       .addCase(getRecipeById.fulfilled, (state, action) => {
         state.items = action.payload;
         state.isLoading = false;
-
         state.error = null;
       })
       .addCase(getRecipeById.pending, state => {
