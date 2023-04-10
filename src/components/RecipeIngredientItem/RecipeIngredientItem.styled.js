@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const RecipeContainer = styled.li`
-  border-radius: ${li => li.theme.radii.normal};
-  background-color: ${li => li.theme.colors.footerLogoBgColor};
+export const RecipeContainer = styled.div`
+  border-radius: ${p => p.theme.radii.normal};
+  background-color: ${p => p.theme.colors.footerLogoBgColor};
 `;
 
 export const ImageBlock = styled.div`

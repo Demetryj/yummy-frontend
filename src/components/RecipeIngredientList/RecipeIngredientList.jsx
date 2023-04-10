@@ -5,6 +5,7 @@ import {
   Label,
   InngredientsList,
 } from './RecipeIngredientList.styled';
+import { nanoid } from 'nanoid';
 import { RecipeIngredientItem } from 'components/RecipeIngredientItem/RecipeIngredientItem';
 export const RecipeIngredientList = ({ recipe }) => {
   const { ingredients } = recipe;
@@ -19,7 +20,9 @@ export const RecipeIngredientList = ({ recipe }) => {
       </Table>
       <InngredientsList>
         {ingredients.map(item => (
-          <RecipeIngredientItem key={item._id} ingredient={item} />
+          <li key={nanoid(6)}>
+            <RecipeIngredientItem ingredient={item} />
+          </li>
         ))}
       </InngredientsList>
     </Container>

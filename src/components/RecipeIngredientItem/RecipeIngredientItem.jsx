@@ -13,6 +13,7 @@ import sprite from '../../images/symbol-defs.svg';
 export const RecipeIngredientItem = ({ ingredient }) => {
   console.log(ingredient);
   const { thb, ttl, measure, _id, desc } = ingredient;
+  console.log(thb);
   return (
     <RecipeContainer>
       <Label>

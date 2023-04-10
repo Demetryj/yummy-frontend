@@ -3,6 +3,7 @@ import { selectUser } from 'redux/auth/selectors';
 import { addToFavorites, removeFromFavorites } from 'redux/recipes/operations';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { RoundButton } from 'components/Button/RoundButton';
 import {
   Container,
   Title,
@@ -37,10 +38,16 @@ export const RecipePageHero = ({ recipe }) => {
       <Title>{title}</Title>
       <Text>{description}</Text>
       {inFavorites && !isOwner && (
-        <button onClick={handleRemove}>Remove from favorites recipes</button>
+        <RoundButton
+          onClick={handleRemove}
+          text={'Remove from favorites recipes'}
+        ></RoundButton>
       )}
       {!inFavorites && !isOwner && (
-        <button onClick={handleAdd}>Add to favorite recipes</button>
+        <RoundButton
+          onClick={handleAdd}
+          text={'Add to favorite recipes'}
+        ></RoundButton>
       )}
       <ClockBlock>
         <Clock size={14} />
