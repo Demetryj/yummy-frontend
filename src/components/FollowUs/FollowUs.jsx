@@ -1,9 +1,3 @@
-// import { Social, Links } from './FollowUs.styled';
-// import instagram from '../../images/svg/instagram.png';
-// import faceBook from '../../images/svg/faceBook.png';
-// import youTube from '../../images/svg/youTube.png';
-// import twitter from '../../images/svg/twitter.png'
-
 import { Box } from '../Box';
 import { BsYoutube, BsFacebook } from 'react-icons/bs';
 import { FiInstagram } from 'react-icons/fi';
@@ -41,6 +35,8 @@ const FollowUs = () => {
         ))}
       </IconList>
     </Box>
+
+
   );
 };
 export default FollowUs;

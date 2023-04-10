@@ -22,7 +22,7 @@ import FollowUs from 'components/FollowUs/FollowUs';
 import PopularRecipe from 'components/PopularRecipe/PopularRecipe';
 
 import IngredientsFilter from 'components/IngredientsFilter/IngredientsFilter';
-import plug from '../../images/addRecipesPages/green-plug-desk.png';
+import plug from 'images/addRecipesPages/green-plug-desk.png';
 const AddRecipeForm = () => {
   const [preview, setPreview] = useState(plug);
   // const [file, setFile] = useState();
@@ -123,6 +123,7 @@ const AddRecipeForm = () => {
         </AddRecipeWrap>
       </div>
     </AddRecipePage>
+
   );
 };
 export default AddRecipeForm;

@@ -3,7 +3,9 @@ import { Box } from '../Box';
 import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
 import { BiRestaurant } from 'react-icons/bi';
 import { FiSearch, FiUser } from 'react-icons/fi';
-import { BsToggleOff, BsToggleOn } from 'react-icons/bs';
+import { BsToggleOff,
+  //  BsToggleOn
+   } from 'react-icons/bs';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
 import { RxCrossCircled } from 'react-icons/rx';
