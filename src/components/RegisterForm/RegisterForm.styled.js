@@ -53,6 +53,7 @@ export const FieldStyled = styled(Field)`
 `;
 
 export const ButtonStyled = styled.button`
+
   background-color: ${p => p.theme.colors.greenBgColor};
   height: ${p => p.theme.spacing(22)};
   border-radius: ${p => p.theme.radii.light};
@@ -60,6 +61,7 @@ export const ButtonStyled = styled.button`
   @media screen and ${p => p.theme.media.medium} {
     margin-top: ${p => p.theme.spacing(13)};
   }
+
 `;
 export const ButtonTemp = styled(ButtonStyled)`
   margin-top: ${p => p.theme.spacing(12)};
@@ -89,6 +91,7 @@ export const ErrorText = styled.p`
   font-size: ${p => p.theme.fontSizes.s};
   color: ${props => props.color};
   margin-top: ${p => p.theme.spacing(4)};
+
 `;
 
 export const FormBoxStyled = styled.div`

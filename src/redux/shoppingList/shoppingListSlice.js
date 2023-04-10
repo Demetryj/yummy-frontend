@@ -15,7 +15,7 @@ const initialState = {
   error: null,
 };
 
-const shoppingList = createSlice({
+const shoppingListSlice = createSlice({
   name: 'shoppingList',
   initialState,
   extraReducers: builder =>
@@ -34,4 +34,4 @@ const shoppingList = createSlice({
       .addMatcher(isAnyOf(...getActions('rejected')), reducer.anyRejected),
 });
 
-export const shoppingListReducer = shoppingList.reducer;
+export const shoppingListReducer = shoppingListSlice.reducer;
