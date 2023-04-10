@@ -57,6 +57,9 @@ export const ButtonStyled = styled.button`
   height: ${p => p.theme.spacing(22)};
   border-radius: ${p => p.theme.radii.light};
   margin-top: ${p => p.theme.spacing(7)};
+  :hover {
+    color: ${p => p.theme.colors.whiteTextColor};
+  }
   @media screen and ${p => p.theme.media.medium} {
     margin-top: ${p => p.theme.spacing(13)};
   }
@@ -123,6 +126,9 @@ export const LinkStyled = styled(Link)`
   text-decoration: underline;
   color: ${p => p.theme.colors.whiteTextColor};
   transform: translateY(${p => p.theme.spacing(47)});
+  :hover {
+    color: ${p => p.theme.colors.greenBgColor};
+  }
   @media screen and ${p => p.theme.media.medium} {
     font-size: ${p => p.theme.fontSizes.m};
     line-height: ${p => p.theme.spacing(12)};

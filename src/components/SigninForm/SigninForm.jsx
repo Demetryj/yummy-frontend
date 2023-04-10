@@ -25,6 +25,7 @@ import { useAuth } from 'hooks/useAuth';
 import { getColor } from 'utils/authColors';
 
 import sprite from 'images/registrationLogin/spriteRegister.svg';
+import { Loader } from 'components/Loader';
 
 console.log();
 
@@ -49,7 +50,7 @@ export const SigninForm = () => {
   // };
   return (
     <>
-      {isLoading && <p>component loading</p>}
+      {isLoading && <Loader />}
       <Container>
         <FormBoxStyled>
           <Formik

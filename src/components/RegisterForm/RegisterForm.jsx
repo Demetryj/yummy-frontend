@@ -22,6 +22,7 @@ import { useAuth } from 'hooks/useAuth';
 import { getColor } from 'utils/authColors';
 
 import sprite from 'images/registrationLogin/spriteRegister.svg';
+import { Loader } from 'components/Loader';
 
 const registerSchema = object({
   name: string().required(),
@@ -42,7 +43,7 @@ export const RegisterForm = () => {
 
   return (
     <>
-      {isLoading && <p>component loading</p>}
+      {isLoading && <Loader />}
       <Container>
         {/* <BgBottom></BgBottom> */}
         <FormBoxStyled>
