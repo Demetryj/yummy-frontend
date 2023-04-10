@@ -2,33 +2,33 @@ import styled from 'styled-components';
 
 export const SearchFormContainer = styled.div`
   position: relative;
-  width: 295px;
-  height: 52px;
+  width:  ${p => p.theme.spacing(147.5)};
+  height: ${p => p.theme.spacing(26)};
   background-color: ${p => p.theme.colors.whiteTextColor};
-  border-top-left-radius: 30px;
+  border-top-left-radius: ${p => p.theme.radii.modalProfile};
   border-top-right-radius: 80px;
   border-bottom-left-radius: 80px;
-  border-bottom-right-radius: 30px;
-  margin: 0 24px 83px;
+  border-bottom-right-radius: ${p => p.theme.radii.modalProfile};
+  margin: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(12)} ${p => p.theme.spacing(41.5)};
   border: ${p => p.theme.colors.whiteTextColor};
   color: ${p => p.theme.colors.greyTextColor};
   font-weight:${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes.xs};
-  line-height: 18px;
+  line-height: ${p => p.theme.spacing(9)};
 
   @media (${p => p.theme.media.medium}) {
-    width: 369px;
-    height: 59px;
+    width: ${p => p.theme.spacing(184.5)};
+    height: ${p => p.theme.spacing(29.5)};
     font-size: ${p => p.theme.fontSizes.m};
-    line-height: 24px;
-    margin: 0 0 195px;
+    line-height: ${p => p.theme.spacing(12)};
+    margin: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(0)} ${p => p.theme.spacing(97.5)};
   }
 
   @media (${p => p.theme.media.large}) {
-    width: 510px;
-    height: 71px;
+    width: ${p => p.theme.spacing(255)};
+    height: ${p => p.theme.spacing(35.5)};
     font-size:${p => p.theme.fontSizes.m};
-    line-height: 24px;
+    line-height:${p => p.theme.spacing(12)};
   }`
 
 export const SearchForm = styled.form`
@@ -39,19 +39,19 @@ export const SearchForm = styled.form`
 
 export const Input = styled.input`
   width: 100%;
-  border-top-left-radius: 30px;
+  border-top-left-radius: ${p => p.theme.radii.modalProfile};
   border-bottom-left-radius: 80px;
   border: ${p => p.theme.borders.none};
   background-color: transparent;
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes.xs};
-  line-height: 18px;
-  padding-left: 32px;
+  line-height: ${p => p.theme.spacing(9)};
+  padding-left: ${p => p.theme.spacing(16)};
   color: ${p => p.theme.colors.greyTextColor};
   @media (${p => p.theme.media.medium}) {
     font-weight: ${p => p.theme.fontWeights.regular};
     font-size:${p => p.theme.fontSizes.m};
-    line-height: 24px;
+    line-height:${p => p.theme.spacing(12)};
   }
 
   &:hover {
@@ -70,30 +70,30 @@ export const Input = styled.input`
   &::placeholder {
     font-weight: ${p => p.theme.fontWeights.regular};
     font-size:${p => p.theme.fontSizes.xs};
-    line-height: 18px;
+    line-height: ${p => p.theme.spacing(9)};
     color: ${p => p.theme.colors.greyTextColor};
     @media (${p => p.theme.media.medium}){
         font-size: ${p => p.theme.fontSizes.m};
-        line-height: 24px;
+        line-height: ${p => p.theme.spacing(12)};
     }
   }`
 
 export const Button = styled.button`
 position: absolute;
 display: block;
-width: 113px;
-height: 52px;
+width:${p => p.theme.spacing(56.5)};
+height: ${p => p.theme.spacing(26)};
 top: -0.5px;
 right: -0.5px;
 
-border-top-left-radius: 30px;
+border-top-left-radius: ${p => p.theme.radii.modalProfile};
 border-top-right-radius: 80px;
 border-bottom-left-radius: 80px;
-border-bottom-right-radius: 30px;
+border-bottom-right-radius: ${p => p.theme.radii.modalProfile};
 
 font-weight: ${p => p.theme.fontWeights.regular};
 font-size: ${p => p.theme.fontSizes.s};
-line-height: 21px;
+line-height:${p => p.theme.spacing(10.5)};
 text-align: center;
 
 color:${p => p.theme.colors.whiteTextColor};
@@ -107,17 +107,17 @@ outline: ${p => p.theme.borders.none};
 }
   @media (${p => p.theme.media.medium}) {
     {
-      width: 161px;
-      height: 59px;
+      width:${p => p.theme.spacing(80.5)};
+      height:${p => p.theme.spacing(29.5)};
       font-size: ${p => p.theme.fontSizes.m};
-      line-height: 24px;
+      line-height:${p => p.theme.spacing(12)};
     }
   }
 
   @media (${p => p.theme.media.large}) {
     {
-      width: 161px;
-      height: 70px;
+      width: ${p => p.theme.spacing(80.5)};
+      height: ${p => p.theme.spacing(35)};
     }
   }
 `
