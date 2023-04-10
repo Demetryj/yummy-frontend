@@ -39,7 +39,7 @@ export const RecipeItem = ({ img, title, description, instructions, time}) => {
           >
             See recipe
           </Button>
-        </Item>
+        </Item>   
     </List>
     </Information>
     </Card>

@@ -7,7 +7,8 @@ export const NavItem = styled(NavLink)`
     color: ${p => p.theme.colors.mainTextColor};
   }
   &:hover,
-  &:focus {
+  &:focus,
+  &.active {
     color: ${p => p.theme.colors.greenTextColor};
   }
 `;

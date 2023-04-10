@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { AppBar } from 'components/AppBar';
 import { Footer } from 'components/Footer';
 import { Box } from 'components/Box';
+import { Toaster } from 'react-hot-toast';
 
 export const SharedLayout = () => {
   return (
@@ -21,6 +22,7 @@ export const SharedLayout = () => {
         </Suspense>
       </Box>
       <Footer />
+      <Toaster />
     </>
   );
 };

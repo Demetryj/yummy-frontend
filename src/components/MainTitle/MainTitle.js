@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Title,
-} from './RecipeItem.styled';
+} from './MainTitle.styled';
 
 export const MainTitle = ({title}) => {
     return (
