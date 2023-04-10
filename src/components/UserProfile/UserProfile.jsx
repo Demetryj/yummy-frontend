@@ -36,7 +36,6 @@ export const UserProfile = () => {
           borderRadius="50%"
           overflow="hidden"
           bg="#D9D9D9"
-          border="1px solid red"
           display="flex"
           justifyContent="center"
           alignItems="center"

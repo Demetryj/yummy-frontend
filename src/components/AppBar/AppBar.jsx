@@ -13,7 +13,7 @@ import switchOff from '../../images/logo/switch-off.png';
 import { ProfilePortal } from '../ProfilePortal';
 import { UserLogoModalII } from '../UserLogoModalII';
 import { UserInfoModalII } from '../UserInfoModalII';
-import { LogoutModal } from '../LogoutModal';
+import { LogoutModalII } from '../LogoutModalII';
 import { useSelector, useDispatch } from 'react-redux';
 import { openLogo } from '../../redux/modal';
 
@@ -90,7 +90,7 @@ export const AppBar = () => {
             >
               <Box>{isOpenLogo && <UserLogoModalII />}</Box>
               <Box>{isOpenInfo && <UserInfoModalII />}</Box>
-              <Box>{isOpenLogout && <LogoutModal />}</Box>
+              <Box>{isOpenLogout && <LogoutModalII />}</Box>
               <Box
                 mr={{
                   xs: 14,
