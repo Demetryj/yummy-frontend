@@ -15,7 +15,7 @@ import {
   PageTitle,
 } from './AddRecipeForm.styled';
 import IngredientsFilter from 'components/IngredientsFilter/IngredientsFilter';
-import plug from '../../images/addRecipesPages/green-plug-desk.png';
+import plug from 'images/addRecipesPages/green-plug-desk.png';
 const AddRecipeForm = () => {
   const [preview, setPreview] = useState(plug);
   // const [file, setFile] = useState();
@@ -104,7 +104,7 @@ const AddRecipeForm = () => {
             scroll={true}
           ></TextArea>
         </TextAreaContainer>
-        
+
         <button type="submit">Add</button>
       </Form>
     </div>

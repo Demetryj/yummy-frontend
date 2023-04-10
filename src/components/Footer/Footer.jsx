@@ -14,7 +14,7 @@ import {
   P,
 } from './Footer.styled';
 import { FootForm } from '../FooterForm';
-import logoHeader from '../../images/logo/logo-footer.svg';
+import logoHeader from 'images/logo/logo-footer.svg';
 import { AiOutlineCopyrightCircle } from 'react-icons/ai';
 import { BsYoutube, BsFacebook } from 'react-icons/bs';
 import { FiInstagram } from 'react-icons/fi';

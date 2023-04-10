@@ -1,13 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectRecipesPopular,
-  selectIsLoading,
-} from '../../../redux/recipes/selectors';
-import { fetchRecipesMainPage } from '../../../redux/recipes/operations';
+import { selectRecipesPopular, selectIsLoading } from 'redux/recipes/selectors';
+import { fetchRecipesMainPage } from 'redux/recipes/operations';
 import { Link } from 'react-router-dom';
 import { Loader } from 'components/Loader';
-import { MainTitle } from '../../MainTitle/MainTitle';
+// import { MainTitle } from 'MainTitle/MainTitle';
 import { List, BtnRecipe, Button } from './PreviewCategories.styled';
 import { useEffect } from 'react';
 import { useMedia } from 'hooks/useMedia';

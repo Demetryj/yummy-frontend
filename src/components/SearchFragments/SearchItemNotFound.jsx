@@ -1,3 +1,3 @@
 export const SearchItemNotFound = () => {
-  return <>Noting was found</>;
+  return <>Nothing was found</>;
 };

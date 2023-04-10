@@ -122,6 +122,7 @@ export const SelectorWrapper = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: center;
+  z-index: 9999;
   width: ${p => p.theme.spacing(111.5)};
   margin: 0 auto ${p => p.theme.spacing(21)};
 

@@ -1,11 +1,8 @@
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { fetchSearchRecipes } from '../../../redux/recipes/operations';
-import {
-  selectRecipes,
-  selectIsLoading,
-} from '../../../redux/recipes/selectors';
+import { fetchSearchRecipes } from 'redux/recipes/operations';
+import { selectRecipes, selectIsLoading } from 'redux/recipes/selectors';
 import { Loader } from 'components/Loader';
 import {
   Input,
