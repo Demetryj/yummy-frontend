@@ -79,43 +79,43 @@ export const Button = styled.button`
 
     padding: 
      // 12px 24px;
-    ${p => p.theme.spasing(6)} ${p => p.theme.spasing(12)},
+    ${p => p.theme.spacing(6)} ${p => p.theme.spacing(12)},
     // 12px 72px,
-    ${p => p.theme.spasing(6)} ${p => p.theme.spasing(36)},
+    ${p => p.theme.spacing(6)} ${p => p.theme.spacing(36)},
     // 50px 42px,
-    ${p => p.theme.spasing(25)} ${p => p.theme.spasing(21)},
+    ${p => p.theme.spacing(25)} ${p => p.theme.spacing(21)},
     // 14px 18px,
-    ${p => p.theme.spasing(7)} ${p => p.theme.spasing(9)},
+    ${p => p.theme.spacing(7)} ${p => p.theme.spacing(9)},
     // 18px 38px;
-    ${p => p.theme.spasing(9)} ${p => p.theme.spasing(19)},
+    ${p => p.theme.spacing(9)} ${p => p.theme.spacing(19)},
     // 16px 32px,
-    ${p => p.theme.spasing(8)} ${p => p.theme.spasing(16)},
+    ${p => p.theme.spacing(8)} ${p => p.theme.spacing(16)},
     // 12px 28px,
-    ${p => p.theme.spasing(6)} ${p => p.theme.spasing(14)},
+    ${p => p.theme.spacing(6)} ${p => p.theme.spacing(14)},
     // 6px 14px,
-    ${p => p.theme.spasing(3)} ${p => p.theme.spasing(7)},
+    ${p => p.theme.spacing(3)} ${p => p.theme.spacing(7)},
     // 16px 32px;
-    ${p => p.theme.spasing(8)} ${p => p.theme.spasing(16)},
+    ${p => p.theme.spacing(8)} ${p => p.theme.spacing(16)},
     // 16px 52px,
-    ${p => p.theme.spasing(8)} ${p => p.theme.spasing(26)},
+    ${p => p.theme.spacing(8)} ${p => p.theme.spacing(26)},
     // 12px 32px,
-    ${p => p.theme.spasing(6)} ${p => p.theme.spasing(16)},
+    ${p => p.theme.spacing(6)} ${p => p.theme.spacing(16)},
     // 18px 44px,
-    ${p => p.theme.spasing(9)} ${p => p.theme.spasing(22)},
+    ${p => p.theme.spacing(9)} ${p => p.theme.spacing(22)},
     // 14px 64px;
-    ${p => p.theme.spasing(7)} ${p => p.theme.spasing(32)},
+    ${p => p.theme.spacing(7)} ${p => p.theme.spacing(32)},
     // 20px 52px,
-    ${p => p.theme.spasing(10)} ${p => p.theme.spasing(26)},
+    ${p => p.theme.spacing(10)} ${p => p.theme.spacing(26)},
     // 14px 32px;
-    ${p => p.theme.spasing(7)} ${p => p.theme.spasing(16)},
+    ${p => p.theme.spacing(7)} ${p => p.theme.spacing(16)},
     // 24px 52px,
-    ${p => p.theme.spasing(12)} ${p => p.theme.spasing(26)},
+    ${p => p.theme.spacing(12)} ${p => p.theme.spacing(26)},
     // 14px 38px;
-    ${p => p.theme.spasing(7)} ${p => p.theme.spasing(19)},
+    ${p => p.theme.spacing(7)} ${p => p.theme.spacing(19)},
     // 24px 52px,
-    ${p => p.theme.spasing(12)} ${p => p.theme.spasing(26)},
+    ${p => p.theme.spacing(12)} ${p => p.theme.spacing(26)},
     // 22px 44px;
-    ${p => p.theme.spasing(11)} ${p => p.theme.spasing(22)},
+    ${p => p.theme.spacing(11)} ${p => p.theme.spacing(22)},
 
     font-size:
     ${p => p.theme.fontSizes.s},
@@ -126,12 +126,12 @@ export const Button = styled.button`
 
     line-height: 
     // 16px,
-    ${p => p.theme.spasing(8)},
+    ${p => p.theme.spacing(8)},
     // 18px,
-    ${p => p.theme.spasing(9)},
+    ${p => p.theme.spacing(9)},
     // 22px,
-    ${p => p.theme.spasing(11)},
+    ${p => p.theme.spacing(11)},
     // 24px,
-    ${p => p.theme.spasing(12)},
+    ${p => p.theme.spacing(12)},
 `;
 
