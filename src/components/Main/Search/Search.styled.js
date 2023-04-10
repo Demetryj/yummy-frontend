@@ -1,56 +1,123 @@
 import styled from 'styled-components';
 
 export const SearchFormContainer = styled.div`
-height: 52px;
-padding-left: 40px;
-padding-right: 40px;`
+  position: relative;
+  width: 295px;
+  height: 52px;
+  background-color: ${p => p.theme.colors.whiteTextColor};
+  border-top-left-radius: 30px;
+  border-top-right-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 30px;
+  margin: 0 24px 83px;
+  border: ${p => p.theme.colors.whiteTextColor};
+  color: ${p => p.theme.colors.greyTextColor};
+  font-weight:${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: 18px;
+
+  @media (${p => p.theme.media.medium}) {
+    width: 369px;
+    height: 59px;
+    font-size: ${p => p.theme.fontSizes.m};
+    line-height: 24px;
+    margin: 0 0 195px;
+  }
+
+  @media (${p => p.theme.media.large}) {
+    width: 510px;
+    height: 71px;
+    font-size:${p => p.theme.fontSizes.m};
+    line-height: 24px;
+  }`
 
 export const SearchForm = styled.form`
-position: relative;
-height: 52px;`
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 30px, 80px;
+  height: 100%;`
 
 export const Input = styled.input`
-display: inline-block;
-box-sizing: border-box;
-width: 100%;
+  width: 100%;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 80px;
+  border: ${p => p.theme.borders.none};
+  background-color: transparent;
+  font-weight: ${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: 18px;
+  padding-left: 32px;
+  color: ${p => p.theme.colors.greyTextColor};
+  @media (${p => p.theme.media.medium}) {
+    font-weight: ${p => p.theme.fontWeights.regular};
+    font-size:${p => p.theme.fontSizes.m};
+    line-height: 24px;
+  }
 
-clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
-padding: 50px 42px;
+  &:hover {
+    border: ${p => p.theme.borders.none};
+    outline: ${p => p.theme.borders.none};
+  }
+  &:active {
+    border: ${p => p.theme.borders.none};
+    outline: ${p => p.theme.borders.none};
+  }
+  &:focus {
+    border: ${p => p.theme.borders.none};
+    outline: ${p => p.theme.borders.none};
+  }
 
-border: none;
-outline: none;
-background-color: #FAFAFA;
-border: 1px solid #F0F0F0;
-
-font-weight: 400;
-font-size: 12px;
-line-height: 18px;
-
-&::placeholder {
-font: inherit;
-font-size: 12px;
-color: #BDBDBD;
-}`
+  &::placeholder {
+    font-weight: ${p => p.theme.fontWeights.regular};
+    font-size:${p => p.theme.fontSizes.xs};
+    line-height: 18px;
+    color: ${p => p.theme.colors.greyTextColor};
+    @media (${p => p.theme.media.medium}){
+        font-size: ${p => p.theme.fontSizes.m};
+        line-height: 24px;
+    }
+  }`
 
 export const Button = styled.button`
 position: absolute;
-right: 0;
-top: 0;
+display: block;
+width: 113px;
+height: 52px;
+top: -0.5px;
+right: -0.5px;
 
-clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
-padding: 50px 42px;
+border-top-left-radius: 30px;
+border-top-right-radius: 80px;
+border-bottom-left-radius: 80px;
+border-bottom-right-radius: 30px;
 
-font-weight: 400;
-font-size: 14px;
+font-weight: ${p => p.theme.fontWeights.regular};
+font-size: ${p => p.theme.fontSizes.s};
 line-height: 21px;
 text-align: center;
 
-color: #FAFAFA;
-background: #22252A;
+color:${p => p.theme.colors.whiteTextColor};
+background:${p => p.theme.colors.footerDarckTextColor};
 
 cursor: pointer;
-border: none;
-outline: none;
+border: ${p => p.theme.borders.none};
+outline: ${p => p.theme.borders.none};
 &:hover {
-    background: #8BAA36;
-}`
+    background:${p => p.theme.colors.greenTextColor};
+}
+  @media (${p => p.theme.media.medium}) {
+    {
+      width: 161px;
+      height: 59px;
+      font-size: ${p => p.theme.fontSizes.m};
+      line-height: 24px;
+    }
+  }
+
+  @media (${p => p.theme.media.large}) {
+    {
+      width: 161px;
+      height: 70px;
+    }
+  }
+`
