@@ -4,7 +4,7 @@ import { SearchForm, Input, Error } from './FooterForm.styled';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { FiMail } from 'react-icons/fi';
-import logoMail from '../../images/mail/mail.svg';
+import logoMail from 'images/mail/mail.svg';
 
 // const placeHolder = () => {
 //   return (
