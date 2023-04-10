@@ -25,7 +25,7 @@ import sprite from 'images/registrationLogin/spriteRegister.svg';
 
 const registerSchema = object({
   name: string().required(),
-  email: string().required().email(),
+  email: string().required().email('Email is not valid'),
   password: string().min(6).required(),
 });
 

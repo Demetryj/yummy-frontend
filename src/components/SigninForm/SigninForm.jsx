@@ -29,7 +29,7 @@ import sprite from 'images/registrationLogin/spriteRegister.svg';
 console.log();
 
 const signinSchema = object({
-  email: string().required().email(),
+  email: string().required().email('Email is not valid'),
   password: string().min(6).required(),
 });
 
