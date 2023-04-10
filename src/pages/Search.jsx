@@ -32,7 +32,7 @@ const Search = () => {
           searchType === 'title'
             ? await dispatch(fetchSearchRecipes(searchQuery))
             : await dispatch(fetchRecipesByIngredient(searchQuery));
-        console.log('data:', data);
+        // console.log('data:', data);
         setRecipes(data.payload[0].recipeData);
         // setRecipes(data);
       } catch (error) {

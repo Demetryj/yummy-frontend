@@ -1,16 +1,11 @@
-import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { selectRecipesPopular, selectIsLoading } from 'redux/recipes/selectors';
-import { fetchRecipesMainPage } from 'redux/recipes/operations';
-import { Link } from 'react-router-dom';
-import { Loader } from 'components/Loader';
-import { MainTitle } from '../../MainTitle/MainTitle';
-import { SearchItem } from "components/SearchFragments/SearchItem";
-
-import { List, ListCard, BtnRecipe, Button } from './PreviewCategories.styled';
 import { useEffect } from 'react';
 import { useMedia } from 'hooks/useMedia';
+import { selectRecipesPopular, selectIsLoading } from 'redux/recipes/selectors';
+import { fetchRecipesMainPage } from 'redux/recipes/operations';
+import { Loader } from 'components/Loader';
+import { SearchItem } from "components/SearchFragments/SearchItem";
+import { List, ListCard, ButtonCard, ButtonDown, LinkRecipe, MainTitle,LinkDown } from './PreviewCategories.styled';
 
 export const PreviewCategories = () => {
   const { isMobile, isTablet } = useMedia();
@@ -36,25 +31,23 @@ export const PreviewCategories = () => {
 
       <List>
         {recipesPopular && !isLoading ? (
-          Object.keys(recipesPopular).map(keyRecipe => {
-            const recipes = recipesPopular[keyRecipe];
+          Object.keys(recipesPopular).map(category => {
+            const recipes = recipesPopular[category];
             return (
-              <li key={uuidv4()}>
-                <MainTitle title={keyRecipe} />   
+              <li key={category}>
+                <MainTitle>{category}</MainTitle>  
                 <ListCard>
                   {recipes.slice(0, numCard).map(({_id, title,  thumb}) => {
                     return (
-                      <BtnRecipe to={`/recipe/${_id}`}>
+                      <LinkRecipe to={`/recipe/${_id}`}>
                         <li key={_id}>
                           <SearchItem title={title} img={thumb}></SearchItem>
                         </li>
-                      </BtnRecipe>
+                      </LinkRecipe>
                     );
                   })}
                 </ListCard>
-                <Link to={`/categories/${recipesPopular[keyRecipe].category}`}>
-                  <Button>See all</Button>
-                </Link>
+                  <ButtonCard to={`/categories/${recipesPopular[category].category}`}>See all</ButtonCard>
               </li>
             );
           })
@@ -62,9 +55,9 @@ export const PreviewCategories = () => {
           <Loader />
         )}
       </List>
-      <Link to="/categories">
-        <Button>Other categories</Button>
-      </Link>
+      <LinkDown to="/categories">
+        <ButtonDown>Other categories</ButtonDown>
+      </LinkDown>
 
     </>
   );

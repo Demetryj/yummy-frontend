@@ -3,6 +3,7 @@ import { Search } from "./Search/Search";
 import { PreviewCategories } from "./PreviewCategories/PreviewCategories";
 import {
 Container,
+ContainerP,
 ContainerHero,
 TextMain,
 TextSub,
@@ -10,6 +11,7 @@ TextSub,
 import { Selected } from "./СhooseYourBreakfast/СhooseYourBreakfast.styled";
 
 export const StartMainPage = () => {
+  
     return ( 
       <>
       <ContainerHero>
@@ -18,9 +20,9 @@ export const StartMainPage = () => {
       <Container><СhooseYourBreakfast/></Container>
       <Container><Search/></Container>
       </ContainerHero>
-      <Container>
+      <ContainerP>
         <PreviewCategories/>
-        </Container>
+        </ContainerP>
       </> 
       )
 }
