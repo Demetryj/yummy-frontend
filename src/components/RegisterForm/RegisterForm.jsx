@@ -39,6 +39,7 @@ export const RegisterForm = () => {
     dispatch(register(values));
     actions.resetForm();
   };
+
   return (
     <>
       {isLoading && <p>component loading</p>}
