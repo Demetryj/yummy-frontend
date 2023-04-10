@@ -8,7 +8,7 @@ import { Loader } from 'components/Loader';
 import { MainTitle } from '../../MainTitle/MainTitle';
 import { SearchItem } from "components/SearchFragments/SearchItem";
 
-import { List, BtnRecipe, Button } from './PreviewCategories.styled';
+import { List, ListCard, BtnRecipe, Button } from './PreviewCategories.styled';
 import { useEffect } from 'react';
 import { useMedia } from 'hooks/useMedia';
 
@@ -41,7 +41,7 @@ export const PreviewCategories = () => {
             return (
               <li key={uuidv4()}>
                 <MainTitle title={keyRecipe} />   
-                <List>
+                <ListCard>
                   {recipes.slice(0, numCard).map(({_id, title,  thumb}) => {
                     return (
                       <BtnRecipe to={`/recipe/${_id}`}>
@@ -51,7 +51,7 @@ export const PreviewCategories = () => {
                       </BtnRecipe>
                     );
                   })}
-                </List>
+                </ListCard>
                 <Link to={`/categories/${recipesPopular[keyRecipe].category}`}>
                   <Button>See all</Button>
                 </Link>
