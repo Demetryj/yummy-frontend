@@ -13,7 +13,14 @@ import {
   BoxTitle,
   Form,
   PageTitle,
+  AddRecipePage,
+  AddRecipeWrap,
+  FollowSPopular,
+  ButtonAdd,
 } from './AddRecipeForm.styled';
+import FollowUs from 'components/FollowUs/FollowUs';
+import PopularRecipe from 'components/PopularRecipe/PopularRecipe';
+
 import IngredientsFilter from 'components/IngredientsFilter/IngredientsFilter';
 import plug from '../../images/addRecipesPages/green-plug-desk.png';
 const AddRecipeForm = () => {
@@ -44,70 +51,78 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <div>
-      <PageTitle>Add recipe</PageTitle>
-      <Form onSubmit={handleSubmit} autoComplete="off">
-        <FormImageContainer>
-          <div>
-            <label htmlFor="file-input">
-              <img
-                src={preview}
-                alt="Receipe img"
-                style={{
-                  // display: 'none',
-                  maxWidth: '350px',
-                  maxHeight: '340px',
-                }}
-              />
-            </label>
-            <input
-              id="file-input"
-              type="file"
-              accept="image/*"
-              onChange={handleChangePhoto}
-              style={{
-                display: 'none',
-                width: '350px',
-                height: '340px',
-              }}
-            />
-          </div>
+    <AddRecipePage>
+      <div>
+        <PageTitle>Add recipe</PageTitle>
 
-          <AboutRecipe>
-            <Input type="text" placeholder="Enter item title" />
-            <Input type="text" placeholder="Enter about recipe" />
-            <InputSelect>
-              <div>Category</div>
-              <Select name="" id="">
-                <option value="">fdsagvdsg</option>
-                <option value="">creahv</option>
-              </Select>
-            </InputSelect>
-            <InputSelect>
-              <div>Cooking time</div>
-              <Select name="" id="">
-                <option value="">fdsagvdsg</option>
-                <option value="">creahv</option>
-              </Select>
-            </InputSelect>
-          </AboutRecipe>
-        </FormImageContainer>
+        <AddRecipeWrap>
+          <Form onSubmit={handleSubmit} autoComplete="off">
+            <FormImageContainer>
+              <div>
+                <label htmlFor="file-input">
+                  <img
+                    src={preview}
+                    alt="Receipe img"
+                    style={{
+                      // display: 'none',
+                      maxWidth: '350px',
+                      maxHeight: '340px',
+                    }}
+                  />
+                </label>
+                <input
+                  id="file-input"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleChangePhoto}
+                  style={{
+                    display: 'none',
+                    width: '350px',
+                    height: '340px',
+                  }}
+                />
+              </div>
 
-        <IngredientsFilter />
+              <AboutRecipe>
+                <Input type="text" placeholder="Enter item title" />
+                <Input type="text" placeholder="Enter about recipe" />
+                <InputSelect>
+                  <div>Category</div>
+                  <Select name="" id="">
+                    <option value="">fdsagvdsg</option>
+                    <option value="">creahv</option>
+                  </Select>
+                </InputSelect>
+                <InputSelect>
+                  <div>Cooking time</div>
+                  <Select name="" id="">
+                    <option value="">fdsagvdsg</option>
+                    <option value="">creahv</option>
+                  </Select>
+                </InputSelect>
+              </AboutRecipe>
+            </FormImageContainer>
 
-        <TextAreaContainer>
-          <BoxTitle>Recipe Preparation</BoxTitle>
-          <TextArea
-            name=""
-            id=""
-            placeholder="Enter recipe"
-            scroll={true}
-          ></TextArea>
-        </TextAreaContainer>
-        
-        <button type="submit">Add</button>
-      </Form>
-    </div>
+            <IngredientsFilter />
+
+            <TextAreaContainer>
+              <BoxTitle>Recipe Preparation</BoxTitle>
+              <TextArea
+                name=""
+                id=""
+                placeholder="Enter recipe"
+                scroll={true}
+              ></TextArea>
+            </TextAreaContainer>
+            <ButtonAdd type="submit">Add</ButtonAdd>
+          </Form>
+          <FollowSPopular>
+            <FollowUs />
+            <PopularRecipe />
+          </FollowSPopular>
+        </AddRecipeWrap>
+      </div>
+    </AddRecipePage>
   );
 };
 export default AddRecipeForm;

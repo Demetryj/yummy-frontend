@@ -3,51 +3,77 @@ import {
   Container,
   AboutRecipe,
   RecipeList,
+  BoxTitle,
+  CardTitle,
+  CardText,
+  Image,
+  ImageDiv,
 } from './PopularRecipe.styled';
 
 const PopularRecipe = () => {
   return (
     <Container>
-      <h2>Popular recipe</h2>
+      <div><BoxTitle>Popular recipe</BoxTitle>
       <RecipeList>
         <li>
           <Card>
-            <img src="" alt="" />
+            <ImageDiv>
+              <Image src="" alt="" />
+            </ImageDiv>
+
             <AboutRecipe>
-              <h4>Title</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              <CardTitle>Title</CardTitle>
+              <CardText>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              </CardText>
             </AboutRecipe>
           </Card>
         </li>
         <li>
           <Card>
-            <img src="" alt="" />
+            <ImageDiv>
+              <Image src="" alt="" />
+            </ImageDiv>
+
             <AboutRecipe>
-              <h4>Title</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              <CardTitle>Title</CardTitle>
+              <CardText>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              </CardText>
             </AboutRecipe>
           </Card>
         </li>
         <li>
           <Card>
-            <img src="" alt="" />
+            <ImageDiv>
+              <Image src="" alt="" />
+            </ImageDiv>
+
             <AboutRecipe>
-              <h4>Title</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              <CardTitle>Title</CardTitle>
+              <CardText>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              </CardText>
             </AboutRecipe>
           </Card>
         </li>
         <li>
           <Card>
-            <img src="" alt="" />
+            <ImageDiv>
+              <Image src="" alt="" />
+            </ImageDiv>
+
             <AboutRecipe>
-              <h4>Title</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              <CardTitle>Title</CardTitle>
+              <CardText>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              </CardText>
             </AboutRecipe>
           </Card>
         </li>
       </RecipeList>
-    </Container>
+</div>
+          </Container>
   );
 };
 

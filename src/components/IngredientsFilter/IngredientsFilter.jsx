@@ -5,14 +5,17 @@ import {
   IngListSetting,
   FlexContainer,
   SelectCustomisation,
+  BoxTitle,
+  InputFieldsContainer,
+  SelectUnit,
+  Input,
 } from './IngredientsFilter.styled';
 import Select from 'react-select';
 
 const IngredientsFilter = () => {
-  const [ingredient, setIngredient] = useState([{ ingredient: '' }]);
-
-  const [serviceList, setServiceList] = useState([{ service: '' }]);
-console.log(serviceList)
+  const [serviceList, setServiceList] = useState([
+    { service: '', ingredient: '', size: '' },
+  ]);
 
   const options = [
     { value: 'jack', label: 'Jack' },
@@ -23,58 +26,55 @@ console.log(serviceList)
     { value: 'rudy', label: 'Rudy' },
     { value: 'ikra', label: 'Ikra' },
   ];
-  const handleServiceChange = (e, index) => {
-    const { name, value } = e.target;
-    const list = [...serviceList];
-    list[index][name] = value;
-    setServiceList(list);
-  };
-  const handleIngredientChange = selectedOption => {
-    console.log('handleChange', selectedOption);
-    setIngredient(ingredient);
+
+  const handleIngredientChange = (selectedOption, index, key) => {
+    const newServiceList = serviceList.map((item, idx) => {
+      if (index === idx) {
+        item[key] = selectedOption;
+      }
+      return item;
+    });
+    setServiceList(newServiceList);
   };
 
-  const hamdleServiceAdd = () => {
-    setServiceList([...serviceList, { service: '' }]);
+  const handleServiceAdd = () => {
+    setServiceList([...serviceList, { service: '', ingredient: '', size: '' }]);
   };
-  const handleServiceRemove = (index) => {
-    console.log(index)
+
+  const handleServiceRemove = index => {
     const list = [...serviceList];
     list.splice(index, 1);
     setServiceList(list);
-
-
-
   };
+
+  console.log('serviceList', serviceList);
   return (
     <IngredientsContainet>
       <IngListSetting>
-        <div>
-          <h2>Ingredients</h2>
-        </div>
-
-        <Buttons>
-          <button
-            type="button"
-            onClick={handleServiceRemove}
-            // onClick={() => handleServiceRemove()}
-            disabled={serviceList.length < 2}
-          >
-            -
-          </button>
-          <p>{serviceList.length}</p>
-          <button
-            type="button"
-            onClick={hamdleServiceAdd}
-            disabled={serviceList.length > 9}
-          >
-            +
-          </button>
-        </Buttons>
+        <BoxTitle>Ingredients</BoxTitle>
+        {serviceList.length > 0 && (
+          <Buttons>
+            <button
+              type="button"
+              onClick={handleServiceRemove}
+              disabled={serviceList.length < 2}
+            >
+              -
+            </button>
+            <p>{serviceList.length}</p>
+            <button
+              type="button"
+              onClick={handleServiceAdd}
+              disabled={serviceList.length > 9}
+            >
+              +
+            </button>
+          </Buttons>
+        )}
       </IngListSetting>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-        {serviceList.map((singleService, index) => (
+      <InputFieldsContainer>
+        {serviceList.map((field, index) => (
           <FlexContainer key={index}>
             <SelectCustomisation>
               <Select
@@ -82,32 +82,29 @@ console.log(serviceList)
                 maxMenuHeight={150}
                 isClearable={true}
                 placeholder="Type ingredent"
-                onChange={handleIngredientChange}
+                onChange={e =>
+                  handleIngredientChange(e.value, index, 'ingredient')
+                }
               />
             </SelectCustomisation>
             <div>
-              <input
+              <Input
                 type="text"
-                maxLength={5}
+                maxLength={4}
+                length={10}
                 name="service"
                 id="service"
-                value={singleService.service}
-                onChange={e => handleServiceChange(e, index)}
-                style={{
-                  width: 'auto',
-                  maxWidth: '70px',
-                  height: '100%',
-                  border: 'none',
-                  padding: '5px',
-                }}
+                value={field.service}
+                onChange={e =>
+                  handleIngredientChange(e.target.value, index, 'service')
+                }
               />
-              <select
+              <SelectUnit
                 name=""
                 id=""
-                style={{
-                  height: '100%',
-                  padding: '5px',
-                }}
+                onChange={e =>
+                  handleIngredientChange(e.target.value, index, 'size')
+                }
               >
                 <option value=""></option>
                 <option value="tbs">tbs</option>
@@ -116,24 +113,17 @@ console.log(serviceList)
                 <option value="g">g</option>
                 <option value="l">l</option>
                 <option value="mllt">mllt</option>
-              </select>
+              </SelectUnit>
             </div>
-
 
             {serviceList.length > 1 && (
               <button type="button" onClick={() => handleServiceRemove(index)}>
                 <span>X</span>
               </button>
             )}
-
-
-
-
-
-
           </FlexContainer>
         ))}
-      </div>
+      </InputFieldsContainer>
     </IngredientsContainet>
   );
 };
