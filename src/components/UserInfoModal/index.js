@@ -1,1 +1,1 @@
-export * from './UserInfoModal';
+export { default } from './UserInfoModal';

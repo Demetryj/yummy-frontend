@@ -11,11 +11,11 @@ export const ModalBackdrop = styled.div`
 
 export const ModalContent = styled.div`
   position: absolute;
-  width: ${p => p.theme.spacing(80)};
-  height: ${p => p.theme.spacing(65)};
-  left: ${p => p.theme.spacing(115)};
-  top: ${p => p.theme.spacing(66)};
-  transform: translate(-50%, -50%);
+  width: ${p => p.theme.spacing(165)};
+  padding-bottom: ${p => p.theme.spacing(16)};
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
 
   border: 1px solid #8baa36;
   border-radius: ${p => p.theme.radii.normal};
