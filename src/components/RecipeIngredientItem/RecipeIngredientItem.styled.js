@@ -62,6 +62,9 @@ export const TextContainer = styled.div`
   height: 52px;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 
   @media screen and (min-width: 768px) {
     max-width: 208px;
@@ -102,15 +105,13 @@ export const IngDescr = styled.p`
   }
 `;
 export const IngQuantity = styled.p`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   text-align: center;
   margin-left: auto;
   padding: ${p => p.theme.spacing(2)};
-
-  max-width: 70px;
   min-width: 47px;
+  max-width: 100px;
+
   border-radius: 4px;
   background: ${p => p.theme.colors.greenBgColor};
   font-weight: ${p => p.theme.fontWeights.semiBold};
@@ -123,5 +124,50 @@ export const IngQuantity = styled.p`
     min-width: 68px;
     font-size: ${p => p.theme.fontSizes.xm};
     line-height: 1.5;
+  }
+`;
+export const CustomCheckbox = styled.span`
+  margin-left: 16px;
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border: 1px solid rgba(126, 126, 126, 0.5);
+  border-radius: 4px;
+  & svg {
+    display: block;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+
+    @media screen and (min-width: 768px) {
+      width: 18px;
+      height: 18px;
+    }
+
+    @media screen and (min-width: 1440px) {
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    border: 2px solid rgba(126, 126, 126, 0.5);
+    width: 35px;
+    height: 35px;
+    margin-left: 78px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 151px;
+  }
+`;
+
+export const RealCheckbox = styled.input`
+  display: none;
+  &:checked + ${CustomCheckbox} svg {
+    transform: translate(-50%, -50%) scale(1);
   }
 `;

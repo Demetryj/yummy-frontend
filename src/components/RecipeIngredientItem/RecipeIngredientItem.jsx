@@ -6,7 +6,10 @@ import {
   IngName,
   IngDescr,
   IngQuantity,
+  CustomCheckbox,
+  RealCheckbox,
 } from './RecipeIngredientItem.styled';
+import sprite from '../../images/symbol-defs.svg';
 export const RecipeIngredientItem = ({ ingredient }) => {
   console.log(ingredient);
   const { thb, ttl, measure, _id, desc } = ingredient;
@@ -16,18 +19,27 @@ export const RecipeIngredientItem = ({ ingredient }) => {
         <ImageBlock>
           <img src={thb} alt="poster" />
         </ImageBlock>
-        <TextContainer>
-          <IngName>{ttl}</IngName>
-          <IngDescr>{desc}</IngDescr>
-        </TextContainer>
+        {/* <TextContainer> */}
+        <IngName>{ttl}</IngName>
+        {/* <IngDescr>{desc}</IngDescr> */}
+        {/* </TextContainer> */}
         <IngQuantity>{measure}</IngQuantity>
-        <input
+        <RealCheckbox
           type="checkbox"
-          name="ingridient"
-          value={ttl}
-          id="ingridient"
+
           // onChange={handleToggle}
         />
+        {/* //    <RealCheckbox
+      //   type="checkbox"
+      //   onChange={addToShoppingList}
+      //   checked={obj.inShoppingList}
+      // /> */}
+
+        <CustomCheckbox>
+          <svg>
+            <use href={sprite + '#icon-checkbox'} />
+          </svg>
+        </CustomCheckbox>
       </Label>
     </RecipeContainer>
   );
