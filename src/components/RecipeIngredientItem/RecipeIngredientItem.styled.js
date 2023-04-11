@@ -21,17 +21,17 @@ export const ImageBlock = styled.div`
 
   & img {
     border-radius: ${p => p.theme.radii.normal};
-    width: 57px;
-    height: 57px;
+    width: ${p => p.theme.spacing(29)};
+    height: ${p => p.theme.spacing(29)};
 
     @media screen and (min-width: 768px) {
-      width: 136px;
-      height: 136px;
+      width: ${p => p.theme.spacing(68)};
+      height: ${p => p.theme.spacing(68)};
     }
 
     @media screen and (min-width: 1440px) {
-      width: 172px;
-      height: 172px;
+      width: ${p => p.theme.spacing(86)};
+      height: ${p => p.theme.spacing(86)};
     }
   }
 `;
@@ -58,8 +58,8 @@ export const Label = styled.label`
 `;
 
 export const TextContainer = styled.div`
-  max-width: 114px;
-  height: 52px;
+  max-width: ${p => p.theme.spacing(57)};
+  height: ${p => p.theme.spacing(27)};
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -67,19 +67,19 @@ export const TextContainer = styled.div`
   -webkit-box-orient: vertical;
 
   @media screen and (min-width: 768px) {
-    max-width: 208px;
-    height: 114px;
+    max-width: ${p => p.theme.spacing(104)};
+    height: ${p => p.theme.spacing(57)};
   }
 
   @media screen and (min-width: 1440px) {
-    max-width: 547px;
-    height: 104px;
+    max-width: ${p => p.theme.spacing(274)};
+    height: ${p => p.theme.spacing(52)};
   }
 `;
 
 export const IngName = styled.p`
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: ${p => p.theme.spacing(2)};
   font-weight: ${p => p.theme.fontWeights.semiBold};
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: 1.17;
@@ -94,7 +94,7 @@ export const IngName = styled.p`
 
 export const IngDescr = styled.p`
   font-weight: ${p => p.theme.fontWeights.regular};
-  font-size: 8px;
+  font-size: ${p => p.theme.fontSizes.xxs};
   line-height: 1.38;
   letter-spacing: -0.24px;
   color: ${p => p.theme.colors.subtitleTextColor};
@@ -109,44 +109,44 @@ export const IngQuantity = styled.p`
   text-align: center;
   margin-left: auto;
   padding: ${p => p.theme.spacing(2)};
-  min-width: 47px;
-  max-width: 100px;
+  min-width: ${p => p.theme.spacing(23)};
+  max-width: ${p => p.theme.spacing(50)};
 
-  border-radius: 4px;
+  border-radius: ${p => p.theme.radii.superLight};
   background: ${p => p.theme.colors.greenBgColor};
   font-weight: ${p => p.theme.fontWeights.semiBold};
-  font-size: 10px;
+  font-size: ${p => p.theme.fontSizes.x};
   line-height: 1.5;
   color: ${p => p.theme.colors.whiteTextColor};
 
   @media screen and (min-width: 768px) {
-    max-width: 150px;
-    min-width: 68px;
+    max-width: ${p => p.theme.spacing(75)};
+    min-width: ${p => p.theme.spacing(34)};
     font-size: ${p => p.theme.fontSizes.xm};
     line-height: 1.5;
   }
 `;
 export const CustomCheckbox = styled.span`
-  margin-left: 16px;
+  margin-left: ${p => p.theme.spacing(8)};
   position: relative;
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: ${p => p.theme.spacing(9)};
+  height: ${p => p.theme.spacing(9)};
   background: transparent;
   border: 1px solid rgba(126, 126, 126, 0.5);
-  border-radius: 4px;
+  border-radius: ${p => p.theme.radii.superLight};
   & svg {
     display: block;
-    width: 9px;
-    height: 9px;
+    width: ${p => p.theme.spacing(4)};
+    height: ${p => p.theme.spacing(4)};
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) scale(0);
 
     @media screen and (min-width: 768px) {
-      width: 18px;
-      height: 18px;
+      width: ${p => p.theme.spacing(9)};
+      height: ${p => p.theme.spacing(9)};
     }
 
     @media screen and (min-width: 1440px) {
@@ -155,13 +155,13 @@ export const CustomCheckbox = styled.span`
 
   @media screen and (min-width: 768px) {
     border: 2px solid rgba(126, 126, 126, 0.5);
-    width: 35px;
-    height: 35px;
-    margin-left: 78px;
+    width: ${p => p.theme.spacing(18)};
+    height: ${p => p.theme.spacing(18)};
+    margin-left: ${p => p.theme.spacing(39)};
   }
 
   @media screen and (min-width: 1440px) {
-    margin-left: 151px;
+    margin-left: ${p => p.theme.spacing(75)};
   }
 `;
 

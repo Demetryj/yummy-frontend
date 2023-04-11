@@ -1,25 +1,28 @@
 import styled from 'styled-components';
 export const Container = styled.div`
   align-items: center;
-  margin-left: 0 auto;
+  margin: 0 auto;
   padding-top: ${p => p.theme.spacing(16)};
   /* padding-bottom: ${p => p.theme.spacing(45)}; */
-  padding-left: ${p => p.theme.spacing(8)};
-  padding-right: ${p => p.theme.spacing(8)};
+  /* padding-left: ${p => p.theme.spacing(8)};
+  padding-right: ${p => p.theme.spacing(8)}; */
   width: 100%;
 
   @media screen and (min-width: 768px) {
     /* padding-bottom: ${p => p.theme.spacing(16)}; */
-    padding-left: ${p => p.theme.spacing(16)};
-    padding-right: ${p => p.theme.spacing(16)};
+    /* padding-left: ${p => p.theme.spacing(16)};
+    padding-right: ${p => p.theme.spacing(16)}; */
     padding-top: ${p => p.theme.spacing(25)};
-    max-width: 768px;
+    /* max-width: ${p => p.theme.spacing(384)}; */
+    width: 768px;
   }
-  @media screen and (min-width: 1440px) {
-    padding-left: ${p => p.theme.spacing(50)};
-    padding-right: ${p => p.theme.spacing(50)};
 
-    max-width: 1600px;
+  @media screen and (min-width: 1440px) {
+    /* padding-left: ${p => p.theme.spacing(50)};
+    padding-right: ${p => p.theme.spacing(50)}; */
+
+    /* max-width: ${p => p.theme.spacing(800)}; */
+    width: 1440px;
   }
 `;
 export const Table = styled.div`
@@ -27,20 +30,20 @@ export const Table = styled.div`
   align-items: center;
   justify-content: space-between;
   border-radius: ${p => p.theme.radii.normal};
-  height: 42px;
-  padding: 0 14px;
-  margin-bottom: 24px;
+  height: ${p => p.theme.spacing(21)};
+  padding: 0 ${p => p.theme.spacing(7)};
+  margin-bottom: ${p => p.theme.spacing(12)};
   color: ${p => p.theme.colors.whiteTextColor};
   background-color: ${p => p.theme.colors.greenBgColor};
 
   @media screen and (min-width: 768px) {
-    height: 58px;
+    height: ${p => p.theme.spacing(29)};
     padding: 0 ${p => p.theme.spacing(16)};
     margin-bottom: ${p => p.theme.spacing(25)};
   }
 
   @media screen and (min-width: 1440px) {
-    height: 60px;
+    height: ${p => p.theme.spacing(30)};
     padding: 0 ${p => p.theme.spacing(20)};
     margin-bottom: ${p => p.theme.spacing(25)};
   }
@@ -71,14 +74,11 @@ export const Label = styled.span`
 export const InngredientsList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: ${p => p.theme.spacing(25)};
+  gap: ${p => p.theme.spacing(8)};
 
   @media screen and (min-width: 768px) {
-    gap: 24px;
-    margin-bottom: ${p => p.theme.spacing(48)};
+    gap: ${p => p.theme.spacing(12)};
   }
   @media screen and (min-width: 1440px) {
-    margin-bottom: ${p => p.theme.spacing(50)};
   }
 `;

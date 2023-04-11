@@ -1,7 +1,7 @@
-export const getPoster = poster => {
-  if (!poster) {
-    return 'https://upload.wikimedia.org/wikipedia/commons/6/64/Poster_not_available.jpg';
+export const getPoster = (image, plug) => {
+  if (!image) {
+    return `${plug}`;
   } else {
-    return `https://image.tmdb.org/t/p/w300/${poster}`;
+    return `${image}`;
   }
 };

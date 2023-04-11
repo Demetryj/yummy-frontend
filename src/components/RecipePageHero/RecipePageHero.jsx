@@ -1,9 +1,11 @@
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
+import { selectIsLoading } from 'redux/recipes/selectors';
 import { addToFavorites, removeFromFavorites } from 'redux/recipes/operations';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { RoundButton } from 'components/Button/RoundButton';
+import { LoaderSmall } from 'components/LoaderSmall/LoaderSmall';
+
 import {
   Container,
   Title,
@@ -11,12 +13,14 @@ import {
   Clock,
   Time,
   ClockBlock,
+  BtnFavorite,
 } from './RecipePageHero.styled';
 
 export const RecipePageHero = ({ recipe }) => {
   const { title, description, time, favorites, _id, owner } = recipe;
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const isLoading = useSelector(selectIsLoading);
   const [inFavorites, setInFavorites] = useState(() => {
     favorites.includes(user._id);
   });
@@ -30,6 +34,7 @@ export const RecipePageHero = ({ recipe }) => {
   const handleRemove = () => {
     dispatch(removeFromFavorites(_id));
     setInFavorites(false);
+
     return;
   };
 
@@ -38,16 +43,14 @@ export const RecipePageHero = ({ recipe }) => {
       <Title>{title}</Title>
       <Text>{description}</Text>
       {inFavorites && !isOwner && (
-        <RoundButton
-          onClick={handleRemove}
-          text={'Remove from favorites recipes'}
-        ></RoundButton>
+        <BtnFavorite disabled={isLoading} onClick={handleRemove}>
+          Remove from favorites recipes {isLoading && <LoaderSmall />}
+        </BtnFavorite>
       )}
       {!inFavorites && !isOwner && (
-        <RoundButton
-          onClick={handleAdd}
-          text={'Add to favorite recipes'}
-        ></RoundButton>
+        <BtnFavorite disabled={isLoading} onClick={handleAdd}>
+          Add to favorite recipes {isLoading && <LoaderSmall />}
+        </BtnFavorite>
       )}
       <ClockBlock>
         <Clock size={14} />

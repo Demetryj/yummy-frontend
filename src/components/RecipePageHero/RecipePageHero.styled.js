@@ -6,10 +6,11 @@ import recipeTable2 from 'images/recipePage/recipe_tabl@2x.jpg';
 import recipeDesk from 'images/recipePage/recipe_desk.jpg';
 import recipeDesk2 from 'images/recipePage/recipe_desk@2x.jpg';
 import { FiClock } from 'react-icons/fi';
+import { Loader } from 'components/Loader';
 
 export const Container = styled.div`
   align-items: center;
-  margin-left: 0 auto;
+  margin: 0 auto;
   padding-top: ${p => p.theme.spacing(72)};
   padding-bottom: ${p => p.theme.spacing(45)};
   padding-left: ${p => p.theme.spacing(19)};
@@ -29,7 +30,7 @@ export const Container = styled.div`
     padding-left: ${p => p.theme.spacing(66)};
     padding-right: ${p => p.theme.spacing(66)};
     padding-top: ${p => p.theme.spacing(68)};
-    max-width: 768px;
+    width: 768px;
     background-image: url(${recipeTable});
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
@@ -42,7 +43,7 @@ export const Container = styled.div`
     padding-left: ${p => p.theme.spacing(196)};
     padding-right: ${p => p.theme.spacing(196)};
     padding-top: ${p => p.theme.spacing(82)};
-    max-width: 1600px;
+    width: 1440px;
     background-image: url(${recipeDesk});
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
@@ -99,10 +100,55 @@ export const Time = styled.p`
   }
 `;
 export const Clock = styled(FiClock)`
+  width: ${p => p.theme.spacing(7)};
+  height: ${p => p.theme.spacing(7)};
+  @media screen and (min-width: 768px) {
+    width: ${p => p.theme.spacing(10)};
+    height: ${p => p.theme.spacing(10)};
+  }
+`;
+export const BtnFavorite = styled.button`
+  padding: ${p => p.theme.spacing(5)} ${p => p.theme.spacing(9)};
+  font-weight: ${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes.s};
+  line-height: 1.5;
+  text-align: center;
+  color: ${p => p.theme.colors.greenColor};
+  border: ${p => p.theme.borders.medium};
+  margin: 0 auto;
+  display: block;
+  border-color: ${p => p.theme.colors.greenColor};
+  /* clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%); */
+  border-radius: 35px 70px;
+  background-color: transparent;
+  transition: color 250ms, border-color 250ms;
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.whiteColor};
+    border-color: ${p => p.theme.colors.greenColor};
+    background-color: ${p => p.theme.colors.greenColor};
+  }
+  @media screen and ${p => p.theme.media.medium} {
+    padding: ${p => p.theme.spacing(9)} ${p => p.theme.spacing(22)};
+    font-size: ${p => p.theme.fontSizes.m};
+  }
+`;
+
+export const LoaderFav = styled(Loader)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 14px;
   height: 14px;
-  @media screen and (min-width: 768px) {
-    width: 20px;
-    height: 20px;
-  }
+  color: ${p => p.theme.colors.greenBgColor};
+  background-color: transparent;
+`;
+export const LoaderUnFav = styled(Loader)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  color: ${p => p.theme.colors.whiteColor};
+  background-color: transparent;
 `;

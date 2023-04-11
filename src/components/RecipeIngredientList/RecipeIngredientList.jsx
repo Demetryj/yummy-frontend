@@ -20,7 +20,7 @@ export const RecipeIngredientList = ({ recipe }) => {
       </Table>
       <InngredientsList>
         {ingredients.map(item => (
-          <li key={nanoid(6)}>
+          <li key={item.id}>
             <RecipeIngredientItem ingredient={item} />
           </li>
         ))}
