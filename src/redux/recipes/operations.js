@@ -16,13 +16,14 @@ export const fetchRecipesMainPage = createAsyncThunk(
 );
 
 export const fetchSearchRecipes = createAsyncThunk(
-'recipes/fetchSearch',
-async (query, thunkAPI) => {
-  try {
-    const response = await axios.get(`/search?keyword=${query}`);
-    return response.data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e.message);
+  'recipes/fetchSearch',
+  async (query, thunkAPI) => {
+    try {
+      console.log('query:', query);
+      const response = await axios.get(`/search?keyword=${query}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
   }
-}
 );

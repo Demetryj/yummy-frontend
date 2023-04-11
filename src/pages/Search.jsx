@@ -1,17 +1,26 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
-import { SearchBar, SearchList } from 'components/SearchFragments';
 import { fetchSearchRecipes } from 'redux/recipes/operations';
 import { fetchRecipesByIngredient } from 'redux/ingredients/operations';
-import { Title } from 'components/SearchFragments/SearchFragments.styled';
+import { selectIsLoading } from 'redux/ingredients/selectors';
+import { selectIsLoading as recipesLoading } from 'redux/recipes/selectors';
+
+import { MainTitle } from 'components/MainTitle/MainTitle';
+import { SearchBar } from 'components/SearchBar';
+import { Loader } from 'components/Loader';
+import { SearchedRecipesList } from 'components/SearchedRecipesList';
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [recipes, setRecipes] = useState([]);
-  const searchQuery = searchParams.get('searchQuery') ?? '';
+  const searchQuery =
+    searchParams.get('searchQuery') ?? localStorage.getItem('query') ?? '';
   const searchType = searchParams.get('searchType') ?? 'title';
+
+  const ingredientsAreLoading = useSelector(selectIsLoading);
+  const ingredientsByRecipesAreLoading = useSelector(recipesLoading);
+
   const dispatch = useDispatch();
 
   const handleOnSubmit = (query, type) => {
@@ -24,35 +33,29 @@ const Search = () => {
   };
 
   useEffect(() => {
-    if (searchQuery === '' || searchType === '') return;
+    if (searchQuery === '') return;
 
-    const fetchRecipes = async () => {
-      try {
-        const data =
-          searchType === 'title'
-            ? await dispatch(fetchSearchRecipes(searchQuery))
-            : await dispatch(fetchRecipesByIngredient(searchQuery));
-        // console.log('data:', data);
-        setRecipes(data.payload[0].recipeData);
-        // setRecipes(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    if (searchType === 'title') dispatch(fetchSearchRecipes(searchQuery));
 
-    fetchRecipes();
+    if (searchType === 'ingredient')
+      dispatch(fetchRecipesByIngredient(searchQuery));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, searchQuery, searchType]);
 
   return (
-    <main>
-      <Title>Search</Title>
+    <>
+      <MainTitle title="Search" />
       <SearchBar
         handleOnSubmit={handleOnSubmit}
         searchQuery={searchQuery}
         searchType={searchType}
       />
-      <SearchList recipes={recipes} />
-    </main>
+      {ingredientsAreLoading || ingredientsByRecipesAreLoading ? (
+        <Loader />
+      ) : (
+        <SearchedRecipesList type={searchType} />
+      )}
+    </>
   );
 };
 

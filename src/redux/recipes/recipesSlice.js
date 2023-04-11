@@ -28,7 +28,7 @@ const recipesSlice = createSlice({
 
     builder
       .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
-        state.items = action.payload;
+        state.items = action.payload[0].recipeData;
         state.isLoading = false;
         state.error = null;
       })
