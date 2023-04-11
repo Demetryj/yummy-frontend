@@ -1,14 +1,17 @@
 import React from 'react';
 import { Formik } from 'formik';
+import { object, string } from 'yup';
 import {
   SearchForm,
   Input,
-  // Error
+  Error,
+  IconMail,
+  InputContainer,
 } from './FooterForm.styled';
 import { Box } from '../Box';
 import { Button } from '../Button';
-// import { FiMail } from 'react-icons/fi';
-// import logoMail from 'images/mail/mail.svg';
+import logoMail from 'images/mail/mail.svg';
+
 
 // const placeHolder = () => {
 //   return (
@@ -19,13 +22,18 @@ import { Button } from '../Button';
 //   );
 // };
 
-// const mail = <img src={logoMail} alt="mail" />;
+const Mail = <img src={logoMail} alt="mail" />;
 
 // const holder = `${FiMail} Enter your email address`;
+
+const Schema = object({
+  email: string().required().email('Email is not valid'),
+});
 
 export const FootForm = () => (
   <Box>
     <Formik
+      validationSchema={Schema}
       initialValues={{ email: '' }}
       validate={values => {
         const errors = {};
@@ -58,17 +66,19 @@ export const FootForm = () => (
         isSubmitting,
       }) => (
         <SearchForm onSubmit={handleSubmit}>
-          <Input
-            type="email"
-            name="email"
-            placeholder={`Enter your email address`}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.email}
-          />
+          <InputContainer>
+            <IconMail />
+            <Input
+              type="email"
+              name="email"
+              placeholder={`Enter your email address`}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.email}
+            />
 
-          {errors.email && touched.email && errors.email}
-
+            {errors.email && touched.email && errors.email}
+          </InputContainer>
           <Button type="submit" disabled={isSubmitting}>
             Subscribe
           </Button>
