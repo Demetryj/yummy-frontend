@@ -1,14 +1,24 @@
+import * as React from 'react';
 import { useState } from 'react';
 import { Box } from '../Box';
 import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
-import { BiRestaurant } from 'react-icons/bi';
 import { FiSearch, FiUser } from 'react-icons/fi';
+
 import { BsToggleOff,
   //  BsToggleOn
    } from 'react-icons/bs';
+
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
-import { RxCrossCircled } from 'react-icons/rx';
+import logoDark from '../../images/logo/logoDark.png';
+import cross from '../../images/logo/cross-header.svg';
+import switchBodyOff from '../../images/logo/switch-body-off.png';
+import switchOff from '../../images/logo/switch-off.png';
+import { UserLogoModal } from '../UserLogoModal';
+import { UserInfoModal } from '../UserInfoModal';
+import { LogoutModal } from '../LogoutModal';
+import { useSelector, useDispatch } from 'react-redux';
+import { openLogo } from '../../redux/modal';
 
 
 const navItems = [
@@ -35,6 +45,10 @@ const navItems = [
 
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
+  const isOpenLogo = useSelector(state => state.modal.isOpenLogo);
+  const isOpenInfo = useSelector(state => state.modal.isOpenInfo);
+  const isOpenLogout = useSelector(state => state.modal.isOpenLogout);
+  const dispatch = useDispatch();
 
   const toggleModal = () => {
     setOpen(!open);
@@ -49,6 +63,7 @@ export const AppBar = () => {
         justifyContent="space-between"
         py={{ xs: '3px' }}
       >
+
         <Box
           display="flex"
           justifyContent="center"
@@ -61,6 +76,7 @@ export const AppBar = () => {
           <NavItem to={'/'}>
             {<BiRestaurant color="whiteColor" size={30} />}
           </NavItem>
+
         </Box>
         <Box as="nav" display={{ xs: 'none', lg: 'flex' }}>
           <List>
@@ -72,7 +88,17 @@ export const AppBar = () => {
           </List>
         </Box>
         <Box display="flex" alignItems="center">
-          <Box display="flex" alignItems="center" mr={{ xs: 24, md: 50 }}>
+          <Box
+            display="flex"
+            alignItems="center"
+            mr={{ xs: 24, md: 50 }}
+            onClick={() => {
+              dispatch(openLogo());
+            }}
+          >
+            <Box>{isOpenLogo && <UserLogoModal />}</Box>
+            <Box>{isOpenInfo && <UserInfoModal />}</Box>
+            <Box>{isOpenLogout && <LogoutModal />}</Box>
             <Box
               mr={{
                 xs: 14,
@@ -83,15 +109,31 @@ export const AppBar = () => {
               overflow="hidden"
               bg="greenBgColor"
             >
-              <FiUser size={{ xs: 34, md: 44 }} />
+              <FiUser size={{ xs: 34, md: 44 }} cursor="pointer" />
               {/* <Avatar alt="Avatar" src="" /> */}
             </Box>
             <Box>
               <Paragraph>User</Paragraph>
             </Box>
           </Box>
-          <Box display={{ xs: 'none', lg: 'flex' }}>
-            <BsToggleOff size={32} />
+          <Box
+            display={{ xs: 'none', lg: 'flex' }}
+            width={{ xs: 61 }}
+            height={{ xs: 27 }}
+            position="relative"
+          >
+            {<img src={switchBodyOff} alt="switchBodyOff" />}
+            <Box
+              width={{ xs: 28 }}
+              height={{ xs: 28 }}
+              position="absolute"
+              left={{ xs: '5%', md: '0%' }}
+              right={{ xs: '60%', md: '0%' }}
+              top={{ xs: '3%', md: '0%' }}
+              bottom={{ xs: '11.11%', md: '0%' }}
+            >
+              {<img src={switchOff} alt="switchOff" />}
+            </Box>
           </Box>
           <Box onClick={toggleModal} display={{ xs: 'flex', lg: 'none' }}>
             <HiOutlineMenuAlt2 size={28} />
@@ -116,21 +158,20 @@ export const AppBar = () => {
             >
               <Box
                 onClick={toggleModal}
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
                 width={{ xs: 40, md: 44 }}
                 height={{ xs: 40, md: 44 }}
+
                 borderRadius={12}
                 bg="greenBgColor"
               >
                 <NavItem to={'/'}>
                   {<BiRestaurant color="whiteColor" />}
+
                 </NavItem>
               </Box>
 
-              <Box onClick={toggleModal}>
-                <RxCrossCircled size={32} />
+              <Box onClick={toggleModal} width={{ xs: 13 }} height={{ xs: 13 }}>
+                {<img src={cross} alt="cross" />}
               </Box>
             </Box>
             <Box
@@ -148,8 +189,19 @@ export const AppBar = () => {
                 ))}
               </List>
             </Box>
-            <Box>
-              <BsToggleOff size={32} />
+            <Box width={{ xs: 61 }} height={{ xs: 27 }} position="relative">
+              {<img src={switchBodyOff} alt="switchBodyOff" />}
+              <Box
+                width={{ xs: 28 }}
+                height={{ xs: 28 }}
+                position="absolute"
+                left={{ xs: '5%', md: '0%' }}
+                right={{ xs: '60%', md: '0%' }}
+                top={{ xs: '3%', md: '0%' }}
+                bottom={{ xs: '11.11%', md: '0%' }}
+              >
+                {<img src={switchOff} alt="switchOff" />}
+              </Box>
             </Box>
           </Box>
         </HeaderModal>
