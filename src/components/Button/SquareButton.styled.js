@@ -6,23 +6,22 @@ export const Button = styled.button`
     font-weight: ${p => p.theme.fontWeights.regular};
 
     color: ${p =>
-        p.theme === 'black'
-            ? p.theme.colors.btnDarckBgColor
-            : p.styled === 'olive'
-                ? p.theme.colors.greenColor
-                : p.styled === 'white'
-                    ? p.theme.colors.whiteColor
-                : ""
-    };
+      p.theme === 'black'
+        ? p.theme.colors.btnDarckBgColor
+        : p.styled === 'olive'
+        ? p.theme.colors.greenColor
+        : p.styled === 'white'
+        ? p.theme.colors.whiteColor
+        : ''};
 
     background-color: ${p =>
-        p.theme === 'black'
-            ? p.theme.colors.btnDarckBgColor
-            : p.styled === 'olive'
-            ? p.theme.colors.greenColor
-                    : p.styled === 'transparent'
-                        ? 'transparent'
-                : ""},
+      p.theme === 'black'
+        ? p.theme.colors.btnDarckBgColor
+        : p.styled === 'olive'
+        ? p.theme.colors.greenColor
+        : p.styled === 'transparent'
+        ? 'transparent'
+        : ''},
                       "grey": D9D9D9;
 
 
@@ -32,27 +31,25 @@ export const Button = styled.button`
 
     &:hover {
      color: ${p =>
-        p.theme === 'black'
-            ? p.theme.colors.btnDarckBgColor
-            : p.styled === 'olive'
-                ? p.theme.colors.greenColor
-                : p.styled === 'white'
-                    ? p.theme.colors.whiteColor
-                    : ""
-    };
+       p.theme === 'black'
+         ? p.theme.colors.btnDarckBgColor
+         : p.styled === 'olive'
+         ? p.theme.colors.greenColor
+         : p.styled === 'white'
+         ? p.theme.colors.whiteColor
+         : ''};
 
      background-color: ${p =>
-        p.theme === 'black'
-            ? p.theme.colors.btnDarckBgColor
-            : p.styled === 'olive'
-                ? p.theme.colors.greenColor
-                : p.styled === 'white'
-                    ? p.theme.colors.whiteColor
-                    : p.styled === 'transparent'
-                        ? 'transparent'
-                        : ""
-    };
-    
+       p.theme === 'black'
+         ? p.theme.colors.btnDarckBgColor
+         : p.styled === 'olive'
+         ? p.theme.colors.greenColor
+         : p.styled === 'white'
+         ? p.theme.colors.whiteColor
+         : p.styled === 'transparent'
+         ? 'transparent'
+         : ''};
+}
     padding: 
     // 28px 170px,
     ${p => p.theme.spacing(14)} ${p => p.theme.spacing(85)},

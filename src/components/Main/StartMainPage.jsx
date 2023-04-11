@@ -1,6 +1,6 @@
-import { СhooseYourBreakfast } from "./СhooseYourBreakfast/СhooseYourBreakfast";
-import { Search } from "./Search/Search";
-import { PreviewCategories } from "./PreviewCategories/PreviewCategories";
+import { СhooseYourBreakfast } from './СhooseYourBreakfast/СhooseYourBreakfast';
+import { Search } from './Search/Search';
+import { PreviewCategories } from './PreviewCategories/PreviewCategories';
 import {
 ContainerHero,
 MainBox, 
@@ -44,4 +44,4 @@ export const StartMainPage = () => {
       ) : (<Loader/>) }
       </> 
   )
-}
+};

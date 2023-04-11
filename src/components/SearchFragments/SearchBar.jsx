@@ -41,14 +41,15 @@ const customStyles = {
     cursor: 'pointer',
     opacity: 0.5,
 
-    '&:hover': {
-      borderColor: '#F0F0F0',
-    },
+    // '&:hover': {
+    //   borderColor: '#F0F0F0',
+    // },
     '&:focus': {
       outline: 'none',
       boxShadow: 'none',
     },
     '&:hover': {
+      borderColor: '#F0F0F0',
       '& svg': {
         color: '#8BAA36',
       },

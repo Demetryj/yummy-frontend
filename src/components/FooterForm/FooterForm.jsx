@@ -1,10 +1,14 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { SearchForm, Input, Error } from './FooterForm.styled';
+import {
+  SearchForm,
+  Input,
+  // Error
+} from './FooterForm.styled';
 import { Box } from '../Box';
 import { Button } from '../Button';
-import { FiMail } from 'react-icons/fi';
-import logoMail from 'images/mail/mail.svg';
+// import { FiMail } from 'react-icons/fi';
+// import logoMail from 'images/mail/mail.svg';
 
 // const placeHolder = () => {
 //   return (
@@ -15,7 +19,7 @@ import logoMail from 'images/mail/mail.svg';
 //   );
 // };
 
-const mail = <img src={logoMail} alt="mail" />;
+// const mail = <img src={logoMail} alt="mail" />;
 
 // const holder = `${FiMail} Enter your email address`;
 
