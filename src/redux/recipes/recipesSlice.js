@@ -73,9 +73,8 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipesMainPage.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-
-      }).addCase(fetchSearchRecipes.fulfilled, (state, action) => {
-        state.items = action.payload;
+      .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
+        state.items = action.payload[0].recipeData;
         state.isLoading = false;
         state.error = null;
       })
