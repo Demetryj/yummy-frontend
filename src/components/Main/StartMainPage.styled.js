@@ -7,6 +7,8 @@ import plateImgDesk from 'images/mainPage/mainpage1x_desk.png';
 import plateImgDesk2 from 'images/mainPage/mainpage2x_desk.png';
 
 export const ContainerHero = styled.div`
+  padding: 0 16px;
+
   background-image: url(${plateImgMob});
   background-repeat: no-repeat;
   background-position: center;
@@ -24,6 +26,8 @@ export const ContainerHero = styled.div`
     }
 
   @media (${p => p.theme.media.medium}) {
+    padding: 0 32px;
+
     background-image: url(${plateImgTab});
     height: ${p => p.theme.spacing(320)};
     margin-bottom: ${p => p.theme.spacing(36)};
@@ -37,6 +41,8 @@ export const ContainerHero = styled.div`
   }
 
   @media (${p => p.theme.media.large}) {
+    padding: 0 100px;
+
     background-image: url(${plateImgDesk});
     height: ${p => p.theme.spacing(400)};
     margin-bottom: ${p => p.theme.spacing(50)};
@@ -49,6 +55,19 @@ export const ContainerHero = styled.div`
     }
   }`
 
+  export const Container = styled.div`
+  padding: 0 16px;
+
+  @media screen and (${p => p.theme.media.medium}) {
+    padding: 0 32px;
+  }
+  
+   @media screen and (${p => p.theme.media.large}) {
+    padding: 0 99px;
+  }
+  `;
+ 
+
 export const MainBox = styled.div`
   @media (${p => p.theme.media.medium}) {
     display: flex;
@@ -60,13 +79,6 @@ export const MainBox = styled.div`
   @media (${p => p.theme.media.large}) {
     margin-right: ${p => p.theme.spacing(415)};
   }`
-
-export const ContainerP = styled.div`
-@media (min-width: 768px) and (max-width: 1439px) {
-    max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
-}`
 
 export const TextMain = styled.h1`
   margin: 132px 12px 0px 12px;

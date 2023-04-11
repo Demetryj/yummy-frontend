@@ -40,7 +40,7 @@ gap: ${p => p.theme.spacing(14)};
 
 @media screen and (${p => p.theme.media.large}) {
   grid-template-columns: repeat(4, 300px);
-  gap: ${p => p.theme.spacing(50)} ${p => p.theme.spacing(7)};
+  gap: ${p => p.theme.spacing(50)} ${p => p.theme.spacing(25)};
   margin-bottom:${p => p.theme.spacing(25)};
 }
   }`
