@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 export const Image = styled.img`
   border-radius: 2px;
-  padding: 40px;
   width: 124px;
   heigth: 124px;
         @media screen and ${(p) => p.theme.media.medium} {
@@ -23,26 +22,34 @@ export const Card = styled.div`
   background-color: ${p => p.theme.colors.whiteColor};
   width: 343px;
   heigth: 152px;
+  padding: 14px 9px;
         @media screen and ${(p) => p.theme.media.medium} {
             width: 704px;
             heigth: 288px;
+            padding: 28px 24px;
         }
     
         @media screen and ${(p) => p.theme.media.large} {
              width: 1240px;
              heigth: 404px;
+             padding: 40px 40px;
         }
 `;
 
 export const Information = styled.div`
-margin: 14px 0px;
+  margin-left: 14px;
         @media screen and ${(p) => p.theme.media.medium} {
-            margin: 28px 0px;
+              margin-left: 24px;
         }
     
         @media screen and ${(p) => p.theme.media.large} {
-            margin: 40px 0px;
+               margin-left: 54px;
         }
+`;
+
+export const Top = styled.image`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const Title = styled.h3`
@@ -58,6 +65,25 @@ export const Title = styled.h3`
     
         @media screen and ${(p) => p.theme.media.large} {
             font-size: ${p => p.theme.fontSizes.l};
+        }
+`;
+
+export const ButtonClose = styled.button`
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  padding: ${p => p.theme.spacing(2)};
+     @media screen and ${(p) => p.theme.media.medium} {
+            width: 38px;
+            height: 38px;
+            padding: ${p => p.theme.spacing(4)};
+        }
+    
+     @media screen and ${(p) => p.theme.media.large} {
+            width: 44px;
+            height: 44px;
+            padding: ${p => p.theme.spacing(5)};
         }
 `;
 
@@ -97,5 +123,30 @@ export const Item = styled.li`
 
 export const Button = styled.button`
   cursor: pointer;
+  text-align: center;
+  font-weight: ${p => p.theme.fontWeights.regular};
+  border-radius: 35px 70px;
+  width: 87px;
+  height: 27px;
+  padding: ${p => p.theme.spacing(3)} ${p => p.theme.spacing(7)};
+  font-size: ${p => p.theme.fontSizes.x};
+        @media screen and ${(p) => p.theme.media.medium} {
+            width: 138px;
+            height: 45px;
+            padding: ${p => p.theme.spacing(6)} ${p => p.theme.spacing(16)};
+            font-size: ${p => p.theme.fontSizes.s};
+        }
+        @media screen and ${(p) => p.theme.media.large} {
+            width: 172px;
+            height: 59px;
+            padding: ${p => p.theme.spacing(9)} ${p => p.theme.spacing(22)};
+            font-size: ${p => p.theme.fontSizes.m};
+        }
+
 `;
+
+
+
+
+
 

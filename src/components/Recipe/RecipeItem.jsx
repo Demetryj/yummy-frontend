@@ -10,8 +10,11 @@ import {
     Button,
     Paragraph,
     Title,
+    ButtonClose,
+    Top,
 } from './RecipeItem.styled';
 
+import { CgTrash } from 'react-icons/cg';
 
 
 export const RecipeItem = ({ img, title, description, instructions, time}) => {
@@ -23,8 +26,13 @@ export const RecipeItem = ({ img, title, description, instructions, time}) => {
           alt={title}
           width="100"
         />
-    <Information>
+      <Information>
+         <Top>
         <Title>{title}</Title>
+        <ButtonClose>
+            <CgTrash size='huge'></CgTrash>
+        </ButtonClose>
+          </Top>
         <Paragraph>{description}</Paragraph>
         <Paragraph>{instructions}</Paragraph>
     <List>
