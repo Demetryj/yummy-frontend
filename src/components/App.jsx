@@ -37,9 +37,9 @@ export const App = () => {
   ) : (
     <Routes>
       <>
-        <Route path="/" element={<WelcomePage />} />
+        {/* <Route path="/" element={<WelcomePage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/signin" element={<SigninPage />} />
+        <Route path="/signin" element={<SigninPage />} /> */}
       </>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<MainPage />} />
