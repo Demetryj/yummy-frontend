@@ -1,6 +1,12 @@
 import { createPortal } from 'react-dom';
-import { useDispatch } from 'react-redux';
-import { closeLogo, openInfo, openLogout } from '../../redux/modal';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  closeLogo,
+  openInfo,
+  openLogout,
+  closeInfo,
+  closeLogout,
+} from '../../redux/modal';
 import { Box } from '../Box';
 import {
   Backdrop,
@@ -16,6 +22,7 @@ import { HiOutlinePencil } from 'react-icons/hi';
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserLogoModal = () => {
+  const isOpenLogo = useSelector(state => state.modal.isOpenLogo);
   const dispatch = useDispatch();
 
   function closeModal() {
