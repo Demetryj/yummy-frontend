@@ -26,7 +26,6 @@ import { Loader } from 'components/Loader';
 import { actionErrRefr } from 'redux/auth/actionErrRefr';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-// navigate('/profile', { replace: true });
 
 const registerSchema = object({
   name: string().required(),
