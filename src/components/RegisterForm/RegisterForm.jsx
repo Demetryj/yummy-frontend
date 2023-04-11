@@ -24,6 +24,9 @@ import { getColor } from 'utils/authColors';
 import sprite from 'images/registrationLogin/spriteRegister.svg';
 import { Loader } from 'components/Loader';
 import { actionErrRefr } from 'redux/auth/actionErrRefr';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+// navigate('/profile', { replace: true });
 
 const registerSchema = object({
   name: string().required(),
@@ -33,9 +36,17 @@ const registerSchema = object({
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { isLoading } = useAuth();
   const { errorMessage } = useAuth();
+  const { isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  });
 
   const handleSubmit = (values, actions) => {
     dispatch(register(values));
@@ -50,7 +61,6 @@ export const RegisterForm = () => {
     <>
       {isLoading && <Loader />}
       <Container>
-        <BgBottom></BgBottom>
         <FormBoxStyled>
           <Formik
             validationSchema={registerSchema}

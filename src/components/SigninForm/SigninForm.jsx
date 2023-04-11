@@ -21,8 +21,8 @@ import { getColor } from 'utils/authColors';
 import sprite from 'images/registrationLogin/spriteRegister.svg';
 import { actionErrRefr } from 'redux/auth/actionErrRefr';
 import { Loader } from 'components/Loader';
-
-console.log();
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const signinSchema = object({
   email: string().required().email('Email is not valid'),
@@ -31,9 +31,16 @@ const signinSchema = object({
 
 export const SigninForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { isLoading } = useAuth();
   const { errorMessage } = useAuth();
+  const { isLoggedIn } = useAuth();
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  });
 
   const handleSubmit = (values, actions) => {
     dispatch(signIn(values));

@@ -14,7 +14,6 @@ import registerBottomMob from 'images/registrationLogin/auth-bg-mob.png';
 import registerBottomTab from 'images/registrationLogin/auth-bg-tab.png';
 import registerBottomDesk from 'images/registrationLogin/auth-bg-desk.png';
 
-
 export const FormStyled = styled(Form)`
   display: flex;
   flex-direction: column;
