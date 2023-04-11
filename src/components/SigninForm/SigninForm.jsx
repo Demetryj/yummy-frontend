@@ -1,5 +1,4 @@
-import { Formik, ErrorMessage } from 'formik';
-import { Link } from 'react-router-dom';
+import { Formik } from 'formik';
 import { object, string } from 'yup';
 import {
   FieldWrapperStyled,
@@ -7,8 +6,6 @@ import {
   ButtonStyled,
   FormBoxStyled,
   Title,
-  ButtonTemp,
-  ErrorMessageStyled,
   Container,
   IconEmail,
   ErrorText,
@@ -18,12 +15,9 @@ import {
 } from '../RegisterForm/RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/auth/operations';
-
-import { logout } from 'redux/auth/operations';
 import { FieldStyled } from '../RegisterForm/RegisterForm.styled';
 import { useAuth } from 'hooks/useAuth';
 import { getColor } from 'utils/authColors';
-
 import sprite from 'images/registrationLogin/spriteRegister.svg';
 import { actionErrRefr } from 'redux/auth/actionErrRefr';
 import { Loader } from 'components/Loader';
@@ -136,9 +130,6 @@ export const SigninForm = () => {
               </FormStyled>
             )}
           </Formik>
-          {/* <ButtonTemp type="button" onClick={onLogout}>
-            temp log out
-          </ButtonTemp> */}
           <LinkStyled to="/register" onClick={handleClick}>
             Registration
           </LinkStyled>
