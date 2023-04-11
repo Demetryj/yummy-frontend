@@ -46,7 +46,7 @@ export const RegisterForm = () => {
     if (isLoggedIn) {
       navigate('/');
     }
-  });
+  }, [isLoggedIn, navigate]);
 
   const handleSubmit = (values, actions) => {
     dispatch(register(values));
