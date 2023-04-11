@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/yummy-frontend/static/css/main.c3d5249d.css",
-    "main.js": "/yummy-frontend/static/js/main.69eb48e7.js",
-    "static/js/188.cee106f3.chunk.js": "/yummy-frontend/static/js/188.cee106f3.chunk.js",
+    "main.js": "/yummy-frontend/static/js/main.0847eb87.js",
+    "static/js/188.237b2bea.chunk.js": "/yummy-frontend/static/js/188.237b2bea.chunk.js",
     "static/js/211.3fc1651f.chunk.js": "/yummy-frontend/static/js/211.3fc1651f.chunk.js",
     "static/js/404.130ff2a8.chunk.js": "/yummy-frontend/static/js/404.130ff2a8.chunk.js",
     "static/js/415.c60052d1.chunk.js": "/yummy-frontend/static/js/415.c60052d1.chunk.js",
@@ -17,12 +17,17 @@
     "static/js/265.c01c3ba4.chunk.js": "/yummy-frontend/static/js/265.c01c3ba4.chunk.js",
     "static/js/805.2e9192e8.chunk.js": "/yummy-frontend/static/js/805.2e9192e8.chunk.js",
     "static/js/213.0ff63b35.chunk.js": "/yummy-frontend/static/js/213.0ff63b35.chunk.js",
+    "static/media/mainpage2x_desk.png": "/yummy-frontend/static/media/mainpage2x_desk.906cdb4f2d00194ec785.png",
     "static/media/welcome-desk@2x.jpg": "/yummy-frontend/static/media/welcome-desk@2x.0c944c21b18acf06bf26.jpg",
+    "static/media/mainpage2x_tab.png": "/yummy-frontend/static/media/mainpage2x_tab.1e3f8e77edef9f06bd13.png",
+    "static/media/mainpage2x_mob.png": "/yummy-frontend/static/media/mainpage2x_mob.d48be9cc28c1dcdfd6b1.png",
     "static/media/welcome-tablet@2x.jpg": "/yummy-frontend/static/media/welcome-tablet@2x.5ce77743028206c1f7fe.jpg",
+    "static/media/mainpage1x_desk.png": "/yummy-frontend/static/media/mainpage1x_desk.7c9ba1d121fa87c3fbc3.png",
     "static/media/welcome-mob@2x.jpg": "/yummy-frontend/static/media/welcome-mob@2x.9d6457d12a59f0b4ddb6.jpg",
+    "static/media/mainpage1x_tab.png": "/yummy-frontend/static/media/mainpage1x_tab.a72e2a0525816c730bc6.png",
     "static/media/welcome-desk.jpg": "/yummy-frontend/static/media/welcome-desk.ca00237b03118b12874a.jpg",
+    "static/media/mainpage1x_mob.png": "/yummy-frontend/static/media/mainpage1x_mob.65dcf270532f0a855f41.png",
     "static/media/welcome-tablet.jpg": "/yummy-frontend/static/media/welcome-tablet.37c9489c48bd385deeee.jpg",
-    "static/media/vegetable-plate-mob.png": "/yummy-frontend/static/media/vegetable-plate-mob.b443036a66abe440b337.png",
     "static/media/Order-food-pana-1tabl@2x.png": "/yummy-frontend/static/media/Order-food-pana-1tabl@2x.4bc4b7ea3add22487197.png",
     "static/media/Order-food-pana-desk@2x.png": "/yummy-frontend/static/media/Order-food-pana-desk@2x.c11814123439a2c8e379.png",
     "static/media/404-desk-tab@2x.png": "/yummy-frontend/static/media/404-desk-tab@2x.5940a614bd147a5358b9.png",
@@ -40,8 +45,8 @@
     "static/media/logo-footer.svg": "/yummy-frontend/static/media/logo-footer.12d03cba3372122e1f2a3135313185cc.svg",
     "static/media/cross-header.svg": "/yummy-frontend/static/media/cross-header.33c9e86a83d60b27db6c30ec52b9825f.svg",
     "main.c3d5249d.css.map": "/yummy-frontend/static/css/main.c3d5249d.css.map",
-    "main.69eb48e7.js.map": "/yummy-frontend/static/js/main.69eb48e7.js.map",
-    "188.cee106f3.chunk.js.map": "/yummy-frontend/static/js/188.cee106f3.chunk.js.map",
+    "main.0847eb87.js.map": "/yummy-frontend/static/js/main.0847eb87.js.map",
+    "188.237b2bea.chunk.js.map": "/yummy-frontend/static/js/188.237b2bea.chunk.js.map",
     "211.3fc1651f.chunk.js.map": "/yummy-frontend/static/js/211.3fc1651f.chunk.js.map",
     "404.130ff2a8.chunk.js.map": "/yummy-frontend/static/js/404.130ff2a8.chunk.js.map",
     "415.c60052d1.chunk.js.map": "/yummy-frontend/static/js/415.c60052d1.chunk.js.map",
@@ -59,6 +64,6 @@
   },
   "entrypoints": [
     "static/css/main.c3d5249d.css",
-    "static/js/main.69eb48e7.js"
+    "static/js/main.0847eb87.js"
   ]
 }
