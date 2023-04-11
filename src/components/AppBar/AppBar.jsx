@@ -3,6 +3,11 @@ import { useState } from 'react';
 import { Box } from '../Box';
 import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
 import { FiSearch, FiUser } from 'react-icons/fi';
+
+import { BsToggleOff,
+  //  BsToggleOn
+   } from 'react-icons/bs';
+
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
 import logoDark from '../../images/logo/logoDark.png';
@@ -15,11 +20,12 @@ import { LogoutModal } from '../LogoutModal';
 import { useSelector, useDispatch } from 'react-redux';
 import { openLogo } from '../../redux/modal';
 
+
 const navItems = [
   { href: 'categories', item: 'Categories' },
   { href: 'add', item: 'Add recipes' },
   { href: 'my', item: 'My recipes' },
-  { href: 'favorite', item: 'Favorites' },
+  { href: 'favorites', item: 'Favorites' },
   { href: 'shopping-list', item: 'Shopping List' },
   {
     href: 'search',
@@ -36,6 +42,7 @@ const navItems = [
   },
 ];
 
+
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
   const isOpenLogo = useSelector(state => state.modal.isOpenLogo);
@@ -48,6 +55,7 @@ export const AppBar = () => {
   };
 
   return (
+
     <Box as="section">
       <Box
         as="header"
@@ -55,8 +63,20 @@ export const AppBar = () => {
         justifyContent="space-between"
         py={{ xs: '3px' }}
       >
-        <Box width={{ xs: 40, md: 44 }} height={{ xs: 40, md: 44 }}>
-          <NavItem to={'/'}>{<img src={logoDark} alt="logoLight" />}</NavItem>
+
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          width={{ xs: 40, md: 44 }}
+          height={{ xs: 40, md: 44 }}
+          borderRadius={12}
+          bg="greenBgColor"
+        >
+          <NavItem to={'/'}>
+            {<BiRestaurant color="whiteColor" size={30} />}
+          </NavItem>
+
         </Box>
         <Box as="nav" display={{ xs: 'none', lg: 'flex' }}>
           <List>
@@ -87,7 +107,7 @@ export const AppBar = () => {
               width={{ xs: 34 }}
               height={{ xs: 34 }}
               overflow="hidden"
-              bg="lightgrey"
+              bg="greenBgColor"
             >
               <FiUser size={{ xs: 34, md: 44 }} cursor="pointer" />
               {/* <Avatar alt="Avatar" src="" /> */}
@@ -140,9 +160,13 @@ export const AppBar = () => {
                 onClick={toggleModal}
                 width={{ xs: 40, md: 44 }}
                 height={{ xs: 40, md: 44 }}
+
+                borderRadius={12}
+                bg="greenBgColor"
               >
                 <NavItem to={'/'}>
-                  {<img src={logoDark} alt="logoDark" />}
+                  {<BiRestaurant color="whiteColor" />}
+
                 </NavItem>
               </Box>
 
@@ -183,5 +207,6 @@ export const AppBar = () => {
         </HeaderModal>
       )}
     </Box>
+
   );
 };

@@ -13,17 +13,54 @@ export const theme = {
     lightTextColor: '#333333',
     paginationColor: '#656565',
     footerDarckTextColor: '#22252A',
+    greySelectColor: '#F5F5F5',
 
     lightBgColor: '#ECECEC',
     lightDarckBgColor: '#2A2C36',
     darckBgColor: '#1E1F28',
+    btnDarckBgColor: '#22252A',
     greenBgColor: '#8BAA36',
+    footerLogoBgColor: '#EBF3D4',
 
     whiteColor: '#FAFAFA',
+    bcgWhiteColor: '#FFFFFF',
+    searchBorderColor: '#F0F0F0',
     greenColor: '#8BAA36',
+    inputBgColor: '#F5F5F5',
+    textAreaBg: '#D9D9D9',
+    popularRecBorder: '#707070',
   },
 
-  spacing: value => `${2 * value}px`,
+  spacing: n => `${2 * n}px`,
+
+  media: {
+    medium: '(min-width: 768px)',
+    large: '(min-width: 1440px)',
+  },
+
+  /* usage
+   @media screen and (${(p) => p.theme.media.large}) {
+    height: ;
+    color: ;
+    ...
+  }
+  */
+  breakpoints: {
+    xs: '0px',
+    md: '768px',
+    lg: '1440px',
+  },
+
+  /*
+   usage
+   <Box
+        width={{ xs: 375, md: 768, lg: 1440 }}
+        height={200}
+        p={{ xs: 10, md: 25, lg: 50 }}
+        bg="greenBgColor"
+      >
+        <h1>Main Page</h1>
+  </Box> */
 
   fonts: {
     body: "'Roboto', sans-serif",
@@ -31,6 +68,7 @@ export const theme = {
   },
 
   fontSizes: {
+    x: '10px',
     xs: '12px',
     s: '14px',
     m: '16px',
@@ -54,6 +92,7 @@ export const theme = {
   borders: {
     none: 'none',
     normal: '1px solid',
+    medium: '2px solid',
   },
 
   radii: {
@@ -61,34 +100,13 @@ export const theme = {
     light: '6px',
     normal: '8px',
     pagination: '26px',
+    modalProfile: '30px',
+    switch: '50px',
   },
 
   shadows: {
     pagination: '0px 4px 4px rgba(135, 135, 135, 0.2)',
-  },
-
-  media: {
-    medium: '(min-width: 768px)',
-    large: '(min-width: 1440px)',
-  },
-
-  breakpoints: {
-    xs: '0',
-    md: '768px',
-    lg: '1440px',
+    switch: 'inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);',
+    modalProfile: ' 0px 4px 48px rgba(0, 0, 0, 0.1);',
   },
 };
-
-// @media screen and ${(p) => p.theme.media.large} {
-//     height: ;
-//     color: ;
-//     ...
-//   }
-
-// breakpoints: {
-//   xs: '0',
-//   sm: '600px',
-//   md: '960px',
-//   lg: '1280px',
-//   xl: '1920px',
-// },
