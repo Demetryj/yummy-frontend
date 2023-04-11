@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logout, refreshUser, register, signIn } from './operations';
-import { SigninForm } from 'components/SigninForm/SigninForm';
+import { actionErrRefr } from './actionErrRefr';
 
 const initialState = {
   user: { name: null, email: null },
@@ -56,6 +56,9 @@ const authSlice = createSlice({
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
+      })
+      .addCase(actionErrRefr, (state, action) => {
+        state.errorMessage = null;
       });
   },
 });

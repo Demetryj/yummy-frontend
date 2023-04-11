@@ -30,7 +30,6 @@ export const signIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/users/signin', credentials);
-      // console.log('set auth header to axios', res.data.token);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
@@ -64,4 +63,9 @@ export const refreshUser = createAsyncThunk(
       return thunkAPI.rejectWithValue(error.message);
     }
   }
+);
+
+export const RefreshError = createAsyncThunk(
+  'auth/errorrefresh',
+  async () => {}
 );

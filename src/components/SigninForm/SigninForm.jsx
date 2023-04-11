@@ -25,6 +25,7 @@ import { useAuth } from 'hooks/useAuth';
 import { getColor } from 'utils/authColors';
 
 import sprite from 'images/registrationLogin/spriteRegister.svg';
+import { actionErrRefr } from 'redux/auth/actionErrRefr';
 import { Loader } from 'components/Loader';
 
 console.log();
@@ -45,9 +46,9 @@ export const SigninForm = () => {
     actions.resetForm();
   };
 
-  // const onLogout = () => {
-  //   dispatch(logout());
-  // };
+  const handleClick = () => {
+    dispatch(actionErrRefr);
+  };
   return (
     <>
       {isLoading && <Loader />}
@@ -138,7 +139,9 @@ export const SigninForm = () => {
           {/* <ButtonTemp type="button" onClick={onLogout}>
             temp log out
           </ButtonTemp> */}
-          <LinkStyled to="/register">Registration</LinkStyled>
+          <LinkStyled to="/register" onClick={handleClick}>
+            Registration
+          </LinkStyled>
         </FormBoxStyled>
       </Container>
     </>

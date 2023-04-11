@@ -23,6 +23,7 @@ import { getColor } from 'utils/authColors';
 
 import sprite from 'images/registrationLogin/spriteRegister.svg';
 import { Loader } from 'components/Loader';
+import { actionErrRefr } from 'redux/auth/actionErrRefr';
 
 const registerSchema = object({
   name: string().required(),
@@ -41,11 +42,15 @@ export const RegisterForm = () => {
     actions.resetForm();
   };
 
+  const handleClick = () => {
+    dispatch(actionErrRefr);
+  };
+
   return (
     <>
       {isLoading && <Loader />}
       <Container>
-        {/* <BgBottom></BgBottom> */}
+        <BgBottom></BgBottom>
         <FormBoxStyled>
           <Formik
             validationSchema={registerSchema}
@@ -159,7 +164,9 @@ export const RegisterForm = () => {
               </FormStyled>
             )}
           </Formik>
-          <LinkStyled to="/signin">Sign in</LinkStyled>
+          <LinkStyled to="/signin" onClick={handleClick}>
+            Sign in
+          </LinkStyled>
         </FormBoxStyled>
       </Container>
     </>
