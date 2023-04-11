@@ -7,14 +7,14 @@ import plateImgDesk from 'images/mainPage/mainpage1x_desk.png';
 import plateImgDesk2 from 'images/mainPage/mainpage2x_desk.png';
 
 export const ContainerHero = styled.div`
-background-image: url(${plateImgMob});
+  background-image: url(${plateImgMob});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-color: ${p => p.theme.colors.whiteColor};
   display: flex;
-  height: 777px;
-  margin-bottom: 60px;
+  height: ${p => p.theme.spacing(388.5)};
+  margin-bottom: ${p => p.theme.spacing(30)};
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -22,10 +22,11 @@ background-image: url(${plateImgMob});
     screen and (min-resolution: 2dppx) {
     background-image: url(${plateImgMob2});
     }
-  @media (min-width: 768px) {
+
+  @media (${p => p.theme.media.medium}) {
     background-image: url(${plateImgTab});
-    height: 640px;
-    margin-bottom: 72px;
+    height: ${p => p.theme.spacing(320)};
+    margin-bottom: ${p => p.theme.spacing(36)};
    
     @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -35,10 +36,10 @@ background-image: url(${plateImgMob});
     }
   }
 
-  @media (min-width: 1440px) {
+  @media (${p => p.theme.media.large}) {
     background-image: url(${plateImgDesk});
-    height: 800px;
-    margin-bottom: 100px;
+    height: ${p => p.theme.spacing(400)};
+    margin-bottom: ${p => p.theme.spacing(50)};
     
     @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -48,23 +49,17 @@ background-image: url(${plateImgMob});
     }
   }`
 
-//    padding: 0 16px;
-// @media (min-width: 768px) {  padding: 0 32px; }
-//  @media (min-width: 1440px) { padding: 0 100px; }
-
 export const MainBox = styled.div`
-@media (min-width: 768px) {
+  @media (${p => p.theme.media.medium}) {
     display: flex;
-    margin-right: 368px;
+    margin-right: ${p => p.theme.spacing(184)};
     flex-wrap: wrap;
     justify-content: flex-start;
   }
 
-  @media (min-width: 1440px) {
-    margin-right: 830px;
+  @media (${p => p.theme.media.large}) {
+    margin-right: ${p => p.theme.spacing(415)};
   }`
-  
-export const Container = styled.div``
 
 export const ContainerP = styled.div`
 @media (min-width: 768px) and (max-width: 1439px) {
@@ -74,69 +69,68 @@ export const ContainerP = styled.div`
 }`
 
 export const TextMain = styled.h1`
-margin: 132px 12px 0px 12px;
+  margin: 132px 12px 0px 12px;
   color: ${p => p.theme.colors.titleTextColor};
   font-weight: 400;
-  font-size: 60px;
-  line-height: 60px;
+  font-size: ${p => p.theme.spacing(30)};
+  line-height: ${p => p.theme.spacing(30)};
   display: flex;
   text-align: center;
   letter-spacing: -0.005em;
 
-  @media (min-width: 768px) {
+  @media (${p => p.theme.media.medium}) {
     margin: 204px 0 0px ;
-    font-size: 72px;
-    line-height: 72px;
+    font-size: ${p => p.theme.spacing(36)};
+    line-height: ${p => p.theme.spacing(36)};
     text-align: left;
   }
 
-  @media (min-width: 1440px) {
-    font-size: 100px;
-    line-height: 100px;
+  @media (${p => p.theme.media.large}) {
+    font-size: ${p => p.theme.spacing(50)};
+    line-height: ${p => p.theme.spacing(50)};
   }`
 
 export const Selected = styled.span`
-color: ${p => p.theme.colors.greenTextColor};
+  color: ${p => p.theme.colors.greenTextColor};
   font-weight: 400;
-  font-size: 60px;
-  line-height: 60px;
+  font-size: ${p => p.theme.spacing(30)};
+  line-height: ${p => p.theme.spacing(30)};
   text-align: center;
   letter-spacing: -0.005em;
-  @media (min-width: 768px) {
-    font-size: 72px;
-    line-height: 72px;
+  @media (${p => p.theme.media.medium}) {
+    font-size: ${p => p.theme.spacing(36)};
+    line-height: ${p => p.theme.spacing(36)};
   }
 
-  @media (min-width: 1440px) {
-    font-size: 100px;
-    line-height: 100px;
+  @media (${p => p.theme.media.large}) {
+    font-size: ${p => p.theme.spacing(50)};
+    line-height: ${p => p.theme.spacing(50)};
   }`
 
 export const TextSub = styled.p`
-margin: 14px 40px 157px 40px;
+  margin: 14px 40px 157px 40px;
   color: ${p => p.theme.colors.secondaryDark};
   font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: ${p => p.theme.spacing(7)};
+  line-height: ${p => p.theme.spacing(9)};
   text-align: center;
   letter-spacing: ;
   & br {
     display: none;
   }
 
-  @media (min-width: 768px) {
+  @media (${p => p.theme.media.medium}) {
     margin: 24px 0 32px;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: ${p => p.theme.spacing(7)};
+    line-height: ${p => p.theme.spacing(9)};
     text-align: left;
     & br {
     display: flex;
     }
   }
 
-  @media (min-width: 1440px) {
+  @media (${p => p.theme.media.large}) {
     margin: 14px 0 50px;
-    font-size: 18px;
-    line-height: 24px;
-    
+    font-size: ${p => p.theme.spacing(9)};
+    line-height: ${p => p.theme.spacing(12)}; 
   }`

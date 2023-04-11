@@ -2,12 +2,15 @@ import { СhooseYourBreakfast } from "./СhooseYourBreakfast/СhooseYourBreakfas
 import { Search } from "./Search/Search";
 import { PreviewCategories } from "./PreviewCategories/PreviewCategories";
 import {
+<<<<<<< HEAD
 Container,
 ContainerP,
+=======
+>>>>>>> 3e5a0b2 (use p => p.theme in styling)
 ContainerHero,
-MainBox,
-Selected, 
+MainBox, 
 TextMain,
+Selected,
 TextSub,
 } from "./StartMainPage.styled"
 import { Selected } from "./СhooseYourBreakfast/СhooseYourBreakfast.styled";
@@ -40,5 +43,5 @@ export const StartMainPage = () => {
         <PreviewCategories recipes={recipesPopular}/>
         </ContainerP></>) : (<Loader/>) }
       </> 
-      )
+  )
 }
