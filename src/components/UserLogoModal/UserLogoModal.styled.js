@@ -54,9 +54,6 @@ export const ButtonContainer = styled.div`
 
 export const LogoutButton = styled.button`
   position: relative;
-  /* position: absolute; */
-  /* width: 125px;
-  height: 43px; */
   background: #8baa36;
 
   font-weight: 400;

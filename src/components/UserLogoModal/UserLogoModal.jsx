@@ -1,12 +1,6 @@
 import { createPortal } from 'react-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  closeLogo,
-  openInfo,
-  openLogout,
-  closeInfo,
-  closeLogout,
-} from '../../redux/modal';
+import { useDispatch } from 'react-redux';
+import { closeLogo, openInfo, openLogout } from '../../redux/modal';
 import { Box } from '../Box';
 import {
   Backdrop,
@@ -17,12 +11,10 @@ import {
   Arrow,
 } from './UserLogoModal.styled';
 import { HiOutlinePencil } from 'react-icons/hi';
-// import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserLogoModal = () => {
-  const isOpenLogo = useSelector(state => state.modal.isOpenLogo);
   const dispatch = useDispatch();
 
   function closeModal() {
@@ -33,8 +25,6 @@ export const UserLogoModal = () => {
     <Backdrop>
       <Content>
         <form onSubmit={closeModal}>
-          {/* <form> */}
-          {/* <input /> */}
           <Box
             display="flex"
             jusifyContent="space-between"
@@ -52,7 +42,6 @@ export const UserLogoModal = () => {
           </Box>
           <ButtonContainer>
             <LogoutButton
-              // display="flex"
               onClick={() => {
                 dispatch(openLogout());
               }}
@@ -61,9 +50,6 @@ export const UserLogoModal = () => {
             </LogoutButton>
             <Arrow size={18} />
           </ButtonContainer>
-
-          {/* <button>inside</button>
-          <button>the modal</button> */}
         </form>
       </Content>
     </Backdrop>,
