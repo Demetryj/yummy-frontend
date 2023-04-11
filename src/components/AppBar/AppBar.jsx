@@ -3,15 +3,9 @@ import { useState } from 'react';
 import { Box } from '../Box';
 import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
 import { FiSearch, FiUser } from 'react-icons/fi';
-
-// import { BsToggleOff,
-//   //  BsToggleOn
-//    } from 'react-icons/bs';
-
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
-// import logoDark from '../../images/logo/logoDark.png';
-// import logo from 'images/logo/logo-header.svg';
+import logoDark from '../../images/logo/logoDark.png';
 import cross from '../../images/logo/cross-header.svg';
 import switchBodyOff from '../../images/logo/switch-body-off.png';
 import switchOff from '../../images/logo/switch-off.png';
@@ -54,11 +48,13 @@ export const AppBar = () => {
   };
 
   return (
-    <Box as="section">
+    <Box as="section" width={'100%'}>
       <Box
         as="header"
+        position="fixed"
         display="flex"
-        justifyContent="space-between"
+        // width={'100%'}
+        // justifyContent="space-between"
         py={{ xs: '3px' }}
       >
         <Box
@@ -67,12 +63,11 @@ export const AppBar = () => {
           alignItems="center"
           width={{ xs: 40, md: 44 }}
           height={{ xs: 40, md: 44 }}
+          mr={{ xs: 180, md: 500, lg: 290 }}
           borderRadius={12}
           bg="greenBgColor"
         >
-          {/* <NavItem to={'/'}>
-            {<BiRestaurant color="whiteColor" size={30} />}
-          </NavItem> */}
+          <NavItem to={'/'}>{<img src={logoDark} alt="logoDark" />}</NavItem>
         </Box>
         <Box as="nav" display={{ xs: 'none', lg: 'flex' }}>
           <List>
@@ -159,9 +154,9 @@ export const AppBar = () => {
                 borderRadius={12}
                 bg="greenBgColor"
               >
-                {/* <NavItem to={'/'}>
-                  {<BiRestaurant color="whiteColor" />}
-                </NavItem> */}
+                <NavItem to={'/'}>
+                  {<img src={logoDark} alt="logoDark" />}
+                </NavItem>
               </Box>
 
               <Box onClick={toggleModal} width={{ xs: 13 }} height={{ xs: 13 }}>
