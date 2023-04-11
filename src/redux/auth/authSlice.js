@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logout, refreshUser, register, signIn } from './operations';
-import { SigninForm } from 'components/SigninForm/SigninForm';
+// import { SigninForm } from 'components/SigninForm/SigninForm';
 
 const initialState = {
   user: { name: null, email: null },
