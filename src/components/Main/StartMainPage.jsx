@@ -5,6 +5,8 @@ import {
 Container,
 ContainerP,
 ContainerHero,
+MainBox,
+Selected, 
 TextMain,
 TextSub,
 } from "./StartMainPage.styled"
