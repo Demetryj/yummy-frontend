@@ -7,6 +7,13 @@ background-repeat: no-repeat;`
 
 export const Container = styled.div``
 
+export const ContainerP = styled.div`
+@media (min-width: 768px) and (max-width: 1439px) {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+}`
+
 export const TextMain = styled.h1`
 font-weight: 400;
 font-size: 60px;
