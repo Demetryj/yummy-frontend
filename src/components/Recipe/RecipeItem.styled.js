@@ -22,28 +22,29 @@ export const Card = styled.div`
   background-color: ${p => p.theme.colors.whiteColor};
   width: 343px;
   heigth: 152px;
-  padding: 14px 9px;
+  padding: ${p => p.theme.spacing(7)} ${p => p.theme.spacing(5)};
+
         @media screen and ${(p) => p.theme.media.medium} {
             width: 704px;
             heigth: 288px;
-            padding: 28px 24px;
+            padding: ${p => p.theme.spacing(14)} ${p => p.theme.spacing(12)};
         }
     
         @media screen and ${(p) => p.theme.media.large} {
              width: 1240px;
              heigth: 404px;
-             padding: 40px 40px;
+             padding: ${p => p.theme.spacing(20)} ${p => p.theme.spacing(20)};
         }
 `;
 
 export const Information = styled.div`
-  margin-left: 14px;
+  margin-left: ${p => p.theme.spacing(7)};
         @media screen and ${(p) => p.theme.media.medium} {
-              margin-left: 24px;
+              margin-left: ${p => p.theme.spacing(12)};
         }
     
         @media screen and ${(p) => p.theme.media.large} {
-               margin-left: 54px;
+              margin-left: ${p => p.theme.spacing(27)};
         }
 `;
 
@@ -72,7 +73,7 @@ export const ButtonClose = styled.button`
   cursor: pointer;
   width: 24px;
   height: 24px;
-  border-radius: 4px;
+  border-radius: ${p => p.theme.radii.superLight};
   padding: ${p => p.theme.spacing(2)};
      @media screen and ${(p) => p.theme.media.medium} {
             width: 38px;
@@ -91,19 +92,19 @@ export const Paragraph = styled.p`
   font-weight: 400;
   color: ${p => p.theme.colors.mainTextColor};
   width: 173px;
-  margin-top: 14px;
-  font-size: 8px;
+  margin-top: ${p => p.theme.spacing(7)};
+  font-size: ${p => p.theme.fontSizes.xxs};
   line-height: 10px;
   letter-spacing: -0.02em;
         @media screen and ${(p) => p.theme.media.medium} {
             width: 298px;
-            margin-top: 28px;
+            margin-top: ${p => p.theme.spacing(14)};
             font-size: ${p => p.theme.fontSizes.s};
             line-height: 18px;
         }
         @media screen and ${(p) => p.theme.media.large} {
             width: 679px;
-            margin-top: 40px;
+            margin-top: ${p => p.theme.spacing(20)};
             font-size: ${p => p.theme.fontSizes.xm};
             line-height: 24px;
         }
