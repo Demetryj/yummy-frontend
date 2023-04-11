@@ -1,9 +1,7 @@
 import toast from 'react-hot-toast';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchSearchRecipes } from 'redux/recipes/operations';
-import { selectRecipes, selectIsLoading } from 'redux/recipes/selectors';
-import { Loader } from 'components/Loader';
 import {
   Input,
   Button,
@@ -15,8 +13,6 @@ import { useState } from 'react';
 export const Search = () => {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const recipes = useSelector(selectRecipes);
   const navigate = useNavigate();
 
   const changeHandleSearch = e => {
@@ -49,7 +45,6 @@ export const Search = () => {
       navigate('/search', { replace: true });
     }
     dispatch(fetchSearchRecipes(queryInput));
-    // коли recipeData.length === 0, тобто по такому запросу нічого немає в БД, тоді відрендирити інформаційний блок; ЯК ДІСТАТИ recipeData з items???
     setInput('');
   };
   return (
@@ -64,7 +59,6 @@ export const Search = () => {
           autoFocus
           placeholder="Search recipe"
         />
-        {/* {(recipes.length === 0 && isLoading) && <Loader/>} */}
         <Button type="submit">Search</Button>
       </SearchForm>
     </SearchFormContainer>
