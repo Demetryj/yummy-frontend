@@ -9,7 +9,7 @@ import {
   TextSub,
 } from './StartMainPage.styled';
 import { Selected } from './СhooseYourBreakfast/СhooseYourBreakfast.styled';
-import { SearchItemNotFound } from 'components/SearchFragments/SearchItemNotFound';
+// import { SearchItemNotFound } from 'components/SearchFragments/SearchItemNotFound';
 import { selectRecipesPopular, selectIsLoading } from 'redux/recipes/selectors';
 import { fetchRecipesMainPage } from 'redux/recipes/operations';
 import { useDispatch, useSelector } from 'react-redux';

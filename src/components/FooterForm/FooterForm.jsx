@@ -12,6 +12,7 @@ import { Box } from '../Box';
 import { Button } from '../Button';
 import logoMail from 'images/mail/mail.svg';
 
+
 // const placeHolder = () => {
 //   return (
 //     <>
