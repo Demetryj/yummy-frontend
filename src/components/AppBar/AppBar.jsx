@@ -14,6 +14,7 @@ import { UserInfoModal } from '../UserInfoModal';
 import { LogoutModal } from '../LogoutModal';
 import { useSelector, useDispatch } from 'react-redux';
 import { openLogo } from '../../redux/modal';
+import { Rectangles } from '../Rectangles';
 
 const navItems = [
   { href: 'categories', item: 'Categories' },
@@ -130,6 +131,7 @@ export const AppBar = () => {
             <HiOutlineMenuAlt2 size={28} />
           </Box>
         </Box>
+        <Rectangles />
       </Box>
       {open && (
         <HeaderModal onClose={toggleModal}>
