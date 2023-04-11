@@ -13,7 +13,7 @@ import {
   IconEmail,
   IconPass,
   IconCheck,
-  BgBottom,
+  // BgBottom,
   ErrorText,
 } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
