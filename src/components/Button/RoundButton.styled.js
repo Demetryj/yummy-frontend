@@ -109,7 +109,10 @@ export const Button = styled.button`
     // 24px 52px,
     ${p => p.theme.spacing(12)} ${p => p.theme.spacing(26)},
     // 22px 44px;
+
     ${p => p.theme.spacing(11)} ${p => p.theme.spacing(22)};
+
+
 
   font-size: ${p => p.theme.fontSizes.s}, ${p => p.theme.fontSizes.m},
     ${p => p.theme.fontSizes.xm};
@@ -124,5 +127,8 @@ export const Button = styled.button`
     // 22px,
     ${p => p.theme.spacing(11)},
     // 24px,
+
     ${p => p.theme.spacing(12)};
+
+
 `;

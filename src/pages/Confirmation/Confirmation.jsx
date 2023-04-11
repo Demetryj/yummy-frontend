@@ -2,12 +2,12 @@ import { useLocation } from 'react-router-dom';
 
 import { Main, Img, Title, Desc } from './Confirmation.styled';
 
-import GirlOnACouchDesk1x from 'images/registrationLogin/Order food-pana-desk.png';
-import GirlOnACouchTab1x from 'images/registrationLogin/Order food-pana 1-tabl.png';
-import GirlOnACouchMob1x from 'images/registrationLogin/Order food-pana 1 mob.png';
-import GirlOnACouchDesk2x from 'images/registrationLogin/Order food-pana-desk@2x.png';
-import GirlOnACouchTab2x from 'images/registrationLogin/Order food-pana 1 -tabl@2x.png';
-import GirlOnACouchMob2x from 'images/registrationLogin/Order food-pana 1 mob@2x.png';
+import GirlOnACouchDesk1x from 'images/registrationLogin/Order-food-pana-desk.png';
+import GirlOnACouchTab1x from 'images/registrationLogin/Order-food-pana-1tabl.png';
+import GirlOnACouchMob1x from 'images/registrationLogin/Order-food-pana-1mob.png';
+import GirlOnACouchDesk2x from 'images/registrationLogin/Order-food-pana-desk@2x.png';
+import GirlOnACouchTab2x from 'images/registrationLogin/Order-food-pana-1tabl@2x.png';
+import GirlOnACouchMob2x from 'images/registrationLogin/Order-food-pana-1mob@2x.png';
 
 export default function Confirmation() {
   const location = useLocation();

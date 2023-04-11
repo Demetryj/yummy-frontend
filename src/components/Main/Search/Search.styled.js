@@ -1,56 +1,123 @@
 import styled from 'styled-components';
 
 export const SearchFormContainer = styled.div`
-height: 52px;
-padding-left: 40px;
-padding-right: 40px;`
+  position: relative;
+  width:  ${p => p.theme.spacing(147.5)};
+  height: ${p => p.theme.spacing(26)};
+  background-color: ${p => p.theme.colors.whiteTextColor};
+  border-top-left-radius: ${p => p.theme.radii.modalProfile};
+  border-top-right-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: ${p => p.theme.radii.modalProfile};
+  margin: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(12)} ${p => p.theme.spacing(41.5)};
+  border: ${p => p.theme.colors.whiteTextColor};
+  color: ${p => p.theme.colors.greyTextColor};
+  font-weight:${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: ${p => p.theme.spacing(9)};
+
+  @media (${p => p.theme.media.medium}) {
+    width: ${p => p.theme.spacing(184.5)};
+    height: ${p => p.theme.spacing(29.5)};
+    font-size: ${p => p.theme.fontSizes.m};
+    line-height: ${p => p.theme.spacing(12)};
+    margin: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(0)} ${p => p.theme.spacing(97.5)};
+  }
+
+  @media (${p => p.theme.media.large}) {
+    width: ${p => p.theme.spacing(255)};
+    height: ${p => p.theme.spacing(35.5)};
+    font-size:${p => p.theme.fontSizes.m};
+    line-height:${p => p.theme.spacing(12)};
+  }`
 
 export const SearchForm = styled.form`
-position: relative;
-height: 52px;`
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 30px, 80px;
+  height: 100%;`
 
 export const Input = styled.input`
-display: inline-block;
-box-sizing: border-box;
-width: 100%;
+  width: 100%;
+  border-top-left-radius: ${p => p.theme.radii.modalProfile};
+  border-bottom-left-radius: 80px;
+  border: ${p => p.theme.borders.none};
+  background-color: transparent;
+  font-weight: ${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: ${p => p.theme.spacing(9)};
+  padding-left: ${p => p.theme.spacing(16)};
+  color: ${p => p.theme.colors.greyTextColor};
+  @media (${p => p.theme.media.medium}) {
+    font-weight: ${p => p.theme.fontWeights.regular};
+    font-size:${p => p.theme.fontSizes.m};
+    line-height:${p => p.theme.spacing(12)};
+  }
 
-clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
-padding: 50px 42px;
+  &:hover {
+    border: ${p => p.theme.borders.none};
+    outline: ${p => p.theme.borders.none};
+  }
+  &:active {
+    border: ${p => p.theme.borders.none};
+    outline: ${p => p.theme.borders.none};
+  }
+  &:focus {
+    border: ${p => p.theme.borders.none};
+    outline: ${p => p.theme.borders.none};
+  }
 
-border: none;
-outline: none;
-background-color: #FAFAFA;
-border: 1px solid #F0F0F0;
-
-font-weight: 400;
-font-size: 12px;
-line-height: 18px;
-
-&::placeholder {
-font: inherit;
-font-size: 12px;
-color: #BDBDBD;
-}`
+  &::placeholder {
+    font-weight: ${p => p.theme.fontWeights.regular};
+    font-size:${p => p.theme.fontSizes.xs};
+    line-height: ${p => p.theme.spacing(9)};
+    color: ${p => p.theme.colors.greyTextColor};
+    @media (${p => p.theme.media.medium}){
+        font-size: ${p => p.theme.fontSizes.m};
+        line-height: ${p => p.theme.spacing(12)};
+    }
+  }`
 
 export const Button = styled.button`
 position: absolute;
-right: 0;
-top: 0;
+display: block;
+width:${p => p.theme.spacing(56.5)};
+height: ${p => p.theme.spacing(26)};
+top: -0.5px;
+right: -0.5px;
 
-clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
-padding: 50px 42px;
+border-top-left-radius: ${p => p.theme.radii.modalProfile};
+border-top-right-radius: 80px;
+border-bottom-left-radius: 80px;
+border-bottom-right-radius: ${p => p.theme.radii.modalProfile};
 
-font-weight: 400;
-font-size: 14px;
-line-height: 21px;
+font-weight: ${p => p.theme.fontWeights.regular};
+font-size: ${p => p.theme.fontSizes.s};
+line-height:${p => p.theme.spacing(10.5)};
 text-align: center;
 
-color: #FAFAFA;
-background: #22252A;
+color:${p => p.theme.colors.whiteTextColor};
+background:${p => p.theme.colors.footerDarckTextColor};
 
 cursor: pointer;
-border: none;
-outline: none;
+border: ${p => p.theme.borders.none};
+outline: ${p => p.theme.borders.none};
 &:hover {
-    background: #8BAA36;
-}`
+    background:${p => p.theme.colors.greenTextColor};
+}
+  @media (${p => p.theme.media.medium}) {
+    {
+      width:${p => p.theme.spacing(80.5)};
+      height:${p => p.theme.spacing(29.5)};
+      font-size: ${p => p.theme.fontSizes.m};
+      line-height:${p => p.theme.spacing(12)};
+    }
+  }
+
+  @media (${p => p.theme.media.large}) {
+    {
+      width: ${p => p.theme.spacing(80.5)};
+      height: ${p => p.theme.spacing(35)};
+    }
+  }
+`

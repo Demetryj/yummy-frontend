@@ -1,33 +1,101 @@
 import styled from 'styled-components';
 
-export const Selected = styled.span`
-color: #8BAA36;`
-
 export const TextBox = styled.div`
-display: block;
-margin-top: 157px;
-padding: 8px;
-width: 225px;
-border-radius: 8px;
-background: #DAF7A7;
-margin-left: 116px;`
+  width: 225px;
+  height: 92px;
+  background-color: ${p => p.theme.colors.whiteColor};
+  border-radius: 8px;
+  padding: 8px;
+  margin-left: 88px;
+  margin-bottom: 115px;
+
+  @media (${p => p.theme.media.medium}) {
+    font-size: ${p => p.theme.fontSizes.s};
+    padding: 12px;
+    line-height: 20px;
+    letter-spacing: -0.24px;
+    width: 261px;
+    height: 100px;
+    position: absolute;
+    right: 32px;
+    top: 372px;
+  }
+
+  @media (${p => p.theme.media.large}) {
+    line-height: 20px;
+    padding: 16px;
+    width: 298px;
+    height: 114px;
+    position: absolute;
+    right: 122px;
+    top: 462px;
+  }
+`;
 
 export const Text = styled.p`
-font-weight: 500;
-font-size: 12px;
-line-height: 18px;
-letter-spacing: -0.24px;
-color: #3E4462;`
+  font-weight: ${p => p.theme.fontWeights.medium};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: 18px;
+  letter-spacing: -0.24px;
+  color: ${p => p.theme.colors.middleGreyTextColor};
+  @media (${p => p.theme.media.medium}) {
+    font-size: ${p => p.theme.fontSizes.s};
+    line-height: 18px;
+  }
+
+  @media (${p => p.theme.media.large}) {
+    line-height: 20px;
+  }
+`;
+
+export const Selected = styled.span`
+  font-weight: ${p => p.theme.fontWeights.medium};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: 18px;
+  letter-spacing: -0.24px;
+  color: ${p => p.theme.colors.greenColor};
+
+  @media (${p => p.theme.media.medium}) {
+    font-size: ${p => p.theme.fontSizes.s};
+  }
+
+  @media (${p => p.theme.media.large}) {
+    line-height: 20px;
+  }
+`;
 
 export const Button = styled.button`
-width: 60px;
-height: 12px;
+  margin-top: 7px;
+  margin-left: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
-font-weight: 400;
-font-size: 10px;
-line-height: 12px;
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: 0.2px;
-color: #3E4462;`
+  font-weight: ${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes.x};
+  line-height: 12px;
+  letter-spacing: 0.2px;
+  color: ${p => p.theme.colors.middleGreyTextColor};
+  &:hover {
+    color: ${p => p.theme.colors.greenColor};
+    svg path {
+      stroke: ${p => p.theme.colors.greenColor};
+    }
+  }
+
+  @media (${p => p.theme.media.medium}) {
+    font-size: ${p => p.theme.fontSizes.s};
+  }
+
+  @media (${p => p.theme.media.large}) {
+    margin-left: 164px;
+    line-height: 20px;
+  }
+`;
+
+export const BsArrowRight = styled.svg`
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+  display: flex;
+`;

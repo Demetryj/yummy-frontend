@@ -6,23 +6,22 @@ export const Button = styled.button`
     font-weight: ${p => p.theme.fontWeights.regular};
 
     color: ${p =>
-        p.theme === 'black'
-            ? p.theme.colors.btnDarckBgColor
-            : p.styled === 'olive'
-                ? p.theme.colors.greenColor
-                : p.styled === 'white'
-                    ? p.theme.colors.whiteColor
-                : ""
-    };
+      p.theme === 'black'
+        ? p.theme.colors.btnDarckBgColor
+        : p.styled === 'olive'
+        ? p.theme.colors.greenColor
+        : p.styled === 'white'
+        ? p.theme.colors.whiteColor
+        : ''};
 
     background-color: ${p =>
-        p.theme === 'black'
-            ? p.theme.colors.btnDarckBgColor
-            : p.styled === 'olive'
-            ? p.theme.colors.greenColor
-                    : p.styled === 'transparent'
-                        ? 'transparent'
-                : ""},
+      p.theme === 'black'
+        ? p.theme.colors.btnDarckBgColor
+        : p.styled === 'olive'
+        ? p.theme.colors.greenColor
+        : p.styled === 'transparent'
+        ? 'transparent'
+        : ''},
                       "grey": D9D9D9;
 
 
@@ -32,48 +31,46 @@ export const Button = styled.button`
 
     &:hover {
      color: ${p =>
-        p.theme === 'black'
-            ? p.theme.colors.btnDarckBgColor
-            : p.styled === 'olive'
-                ? p.theme.colors.greenColor
-                : p.styled === 'white'
-                    ? p.theme.colors.whiteColor
-                    : ""
-    };
+       p.theme === 'black'
+         ? p.theme.colors.btnDarckBgColor
+         : p.styled === 'olive'
+         ? p.theme.colors.greenColor
+         : p.styled === 'white'
+         ? p.theme.colors.whiteColor
+         : ''};
 
      background-color: ${p =>
-        p.theme === 'black'
-            ? p.theme.colors.btnDarckBgColor
-            : p.styled === 'olive'
-                ? p.theme.colors.greenColor
-                : p.styled === 'white'
-                    ? p.theme.colors.whiteColor
-                    : p.styled === 'transparent'
-                        ? 'transparent'
-                        : ""
-    };
-    
+       p.theme === 'black'
+         ? p.theme.colors.btnDarckBgColor
+         : p.styled === 'olive'
+         ? p.theme.colors.greenColor
+         : p.styled === 'white'
+         ? p.theme.colors.whiteColor
+         : p.styled === 'transparent'
+         ? 'transparent'
+         : ''};
+}
     padding: 
     // 28px 170px,
-    ${p => p.theme.spacsing(14)} ${p => p.theme.spacsing(85)},
+    ${p => p.theme.spacing(14)} ${p => p.theme.spacing(85)},
     // 12px 106px,
-    ${p => p.theme.spacsing(6)} ${p => p.theme.spacsing(53)},
+    ${p => p.theme.spacing(6)} ${p => p.theme.spacing(53)},
     // 18px 144px,
-    ${p => p.theme.spacsing(9)} ${p => p.theme.spacsing(72)},
+    ${p => p.theme.spacing(9)} ${p => p.theme.spacing(72)},
     // 18px 38px;
-    ${p => p.theme.spacsing(9)} ${p => p.theme.spacsing(19)},
+    ${p => p.theme.spacing(9)} ${p => p.theme.spacing(19)},
     // 22x 134px,
-    ${p => p.theme.spacsing(11)} ${p => p.theme.spacsing(67)},
+    ${p => p.theme.spacing(11)} ${p => p.theme.spacing(67)},
     // 10px 24px,
-    ${p => p.theme.spacsing(5)} ${p => p.theme.spacsing(12)},
+    ${p => p.theme.spacing(5)} ${p => p.theme.spacing(12)},
     // 16px 50px,
-    ${p => p.theme.spacsing(8)} ${p => p.theme.spacsing(25)},
+    ${p => p.theme.spacing(8)} ${p => p.theme.spacing(25)},
     // 14px 84px;
-    ${p => p.theme.spacsing(7)} ${p => p.theme.spacsing(42)},
+    ${p => p.theme.spacing(7)} ${p => p.theme.spacing(42)},
     // 14px 18px,
-    ${p => p.theme.spacsing(7)} ${p => p.theme.spacsing(9)},
+    ${p => p.theme.spacing(7)} ${p => p.theme.spacing(9)},
     // 12px 72px;
-    ${p => p.theme.spacsing(6)} ${p => p.theme.spacsing(36)},
+    ${p => p.theme.spacing(6)} ${p => p.theme.spacing(36)},
 
     font-size:
     ${p => p.theme.fontSizes.s},
@@ -84,11 +81,11 @@ export const Button = styled.button`
 
     line-height: 
     // 16px,
-    ${p => p.theme.spacsing(8)},
+    ${p => p.theme.spacing(8)},
     // 18px,
-    ${p => p.theme.spacsing(9)},
+    ${p => p.theme.spacing(9)},
     // 22px,
-    ${p => p.theme.spacsing(11)},
+    ${p => p.theme.spacing(11)},
     // 24px,
-    ${p => p.theme.spacsing(12)},
+    ${p => p.theme.spacing(12)},
 `;

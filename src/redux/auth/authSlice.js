@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logout, refreshUser, register, signIn } from './operations';
-import { SigninForm } from 'components/SigninForm/SigninForm';
+// import { SigninForm } from 'components/SigninForm/SigninForm';
 
 const initialState = {
   user: { name: null, email: null },
@@ -38,6 +38,7 @@ const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(signIn.rejected, (state, action) => {
+        state.errorMessage = action.payload;
         state.isLoading = false;
       })
       .addCase(logout.pending, (state, action) => {

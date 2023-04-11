@@ -13,6 +13,7 @@ export const theme = {
     lightTextColor: '#333333',
     paginationColor: '#656565',
     footerDarckTextColor: '#22252A',
+    greySelectColor: '#F5F5F5',
 
     lightBgColor: '#ECECEC',
     lightDarckBgColor: '#2A2C36',
@@ -22,7 +23,12 @@ export const theme = {
     footerLogoBgColor: '#EBF3D4',
 
     whiteColor: '#FAFAFA',
+    bcgWhiteColor: '#FFFFFF',
+    searchBorderColor: '#F0F0F0',
     greenColor: '#8BAA36',
+    inputBgColor: '#F5F5F5',
+    textAreaBg: '#D9D9D9',
+    popularRecBorder: '#707070',
   },
 
   spacing: n => `${2 * n}px`,
