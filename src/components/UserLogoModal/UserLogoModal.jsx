@@ -93,13 +93,16 @@
 // };
 
 import { createPortal } from 'react-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import {
+  // useSelector,
+  useDispatch,
+} from 'react-redux';
 import {
   closeLogo,
   openInfo,
   openLogout,
-  closeInfo,
-  closeLogout,
+  // closeInfo,
+  // closeLogout,
 } from '../../redux/modal';
 import { Box } from '../Box';
 import { Backdrop, Content } from './UserLogoModal.styled';
@@ -108,7 +111,7 @@ import { HiOutlinePencil } from 'react-icons/hi';
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserLogoModal = () => {
-  const isOpenLogo = useSelector(state => state.modal.isOpenLogo);
+  // const isOpenLogo = useSelector(state => state.modal.isOpenLogo);
   const dispatch = useDispatch();
 
   function closeModal() {

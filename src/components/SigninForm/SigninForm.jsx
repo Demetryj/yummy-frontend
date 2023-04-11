@@ -1,5 +1,8 @@
-import { Formik, ErrorMessage } from 'formik';
-import { Link } from 'react-router-dom';
+import {
+  Formik,
+  // ErrorMessage
+} from 'formik';
+// import { Link } from 'react-router-dom';
 import { object, string } from 'yup';
 import {
   FieldWrapperStyled,
@@ -7,8 +10,8 @@ import {
   ButtonStyled,
   FormBoxStyled,
   Title,
-  ButtonTemp,
-  ErrorMessageStyled,
+  // ButtonTemp,
+  // ErrorMessageStyled,
   Container,
   IconEmail,
   ErrorText,
@@ -19,7 +22,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/auth/operations';
 
-import { logout } from 'redux/auth/operations';
+// import { logout } from 'redux/auth/operations';
 import { FieldStyled } from '../RegisterForm/RegisterForm.styled';
 import { useAuth } from 'hooks/useAuth';
 import { getColor } from 'utils/authColors';

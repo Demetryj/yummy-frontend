@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ModalContext from '../../utils';
 import { Box } from '../Box';
 import { HiOutlinePencil } from 'react-icons/hi';
 import { P } from './ProfilePortal.styled';
 import { UserProfile } from '../UserProfile';
 // import { ReactModal } from '../ReactModal';
-import { useSelector, useDispatch } from 'react-redux';
+import {
+  // useSelector,
+  useDispatch,
+} from 'react-redux';
 import { openInfo, closeLogo, openLogout } from '../../redux/modal';
 
 export const ProfilePortal = () => {
   // const [modalIsOpen, setIsOpen] = useState(false);
-  const [userInfoModal, setUserInfoModal] = React.useState(
-    'Initial Modal State'
-  );
+  const [userInfoModal, setUserInfoModal] = useState('Initial Modal State');
   const dispatch = useDispatch();
 
   return (
