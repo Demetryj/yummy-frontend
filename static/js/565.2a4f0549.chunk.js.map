@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/565.2a4f0549.chunk.js","mappings":"0JAQA,UARe,WACb,OACE,2BACE,yCAGL,C","sources":["pages/Search.jsx"],"sourcesContent":["const Search = () => {\n  return (\n    <main>\n      <h1>Search Page</h1>\n    </main>\n  );\n};\n\nexport default Search;\n"],"names":[],"sourceRoot":""}

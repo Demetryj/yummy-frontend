@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/404.130ff2a8.chunk.js","mappings":"4JAQA,UARqB,WACnB,OACE,2BACE,+CAGL,C","sources":["pages/CategoryName.jsx"],"sourcesContent":["const CategoryName = () => {\n  return (\n    <main>\n      <h1>CategoryName Page</h1>\n    </main>\n  );\n};\n\nexport default CategoryName;\n"],"names":[],"sourceRoot":""}
