@@ -36,11 +36,11 @@ export const App = () => {
     'refreshing'
   ) : (
     <Routes>
-      {/* <>
+      <>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/signin" element={<SigninPage />} />
-      </> */}
+      </>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<MainPage />} />
         <Route path="/categories" element={<CategoriesPage />}>
