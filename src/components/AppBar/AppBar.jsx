@@ -4,13 +4,14 @@ import { Box } from '../Box';
 import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
 import { FiSearch, FiUser } from 'react-icons/fi';
 
-import { BsToggleOff,
-  //  BsToggleOn
-   } from 'react-icons/bs';
+// import { BsToggleOff,
+//   //  BsToggleOn
+//    } from 'react-icons/bs';
 
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
 import logoDark from '../../images/logo/logoDark.png';
+import logo from 'images/logo/logo-header.svg';
 import cross from '../../images/logo/cross-header.svg';
 import switchBodyOff from '../../images/logo/switch-body-off.png';
 import switchOff from '../../images/logo/switch-off.png';
@@ -19,7 +20,6 @@ import { UserInfoModal } from '../UserInfoModal';
 import { LogoutModal } from '../LogoutModal';
 import { useSelector, useDispatch } from 'react-redux';
 import { openLogo } from '../../redux/modal';
-
 
 const navItems = [
   { href: 'categories', item: 'Categories' },
@@ -42,7 +42,6 @@ const navItems = [
   },
 ];
 
-
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
   const isOpenLogo = useSelector(state => state.modal.isOpenLogo);
@@ -55,7 +54,6 @@ export const AppBar = () => {
   };
 
   return (
-
     <Box as="section">
       <Box
         as="header"
@@ -63,7 +61,6 @@ export const AppBar = () => {
         justifyContent="space-between"
         py={{ xs: '3px' }}
       >
-
         <Box
           display="flex"
           justifyContent="center"
@@ -73,10 +70,9 @@ export const AppBar = () => {
           borderRadius={12}
           bg="greenBgColor"
         >
-          <NavItem to={'/'}>
+          {/* <NavItem to={'/'}>
             {<BiRestaurant color="whiteColor" size={30} />}
-          </NavItem>
-
+          </NavItem> */}
         </Box>
         <Box as="nav" display={{ xs: 'none', lg: 'flex' }}>
           <List>
@@ -160,14 +156,12 @@ export const AppBar = () => {
                 onClick={toggleModal}
                 width={{ xs: 40, md: 44 }}
                 height={{ xs: 40, md: 44 }}
-
                 borderRadius={12}
                 bg="greenBgColor"
               >
-                <NavItem to={'/'}>
+                {/* <NavItem to={'/'}>
                   {<BiRestaurant color="whiteColor" />}
-
-                </NavItem>
+                </NavItem> */}
               </Box>
 
               <Box onClick={toggleModal} width={{ xs: 13 }} height={{ xs: 13 }}>
@@ -207,6 +201,5 @@ export const AppBar = () => {
         </HeaderModal>
       )}
     </Box>
-
   );
 };
