@@ -10,8 +10,8 @@ import { FiSearch, FiUser } from 'react-icons/fi';
 
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
-import logoDark from '../../images/logo/logoDark.png';
-import logo from 'images/logo/logo-header.svg';
+// import logoDark from '../../images/logo/logoDark.png';
+// import logo from 'images/logo/logo-header.svg';
 import cross from '../../images/logo/cross-header.svg';
 import switchBodyOff from '../../images/logo/switch-body-off.png';
 import switchOff from '../../images/logo/switch-off.png';
