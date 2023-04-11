@@ -3,15 +3,9 @@ import { useState } from 'react';
 import { Box } from '../Box';
 import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
 import { FiSearch, FiUser } from 'react-icons/fi';
-
-// import { BsToggleOff,
-//   //  BsToggleOn
-//    } from 'react-icons/bs';
-
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
 import logoDark from '../../images/logo/logoDark.png';
-import logo from 'images/logo/logo-header.svg';
 import cross from '../../images/logo/cross-header.svg';
 import switchBodyOff from '../../images/logo/switch-body-off.png';
 import switchOff from '../../images/logo/switch-off.png';
@@ -70,9 +64,7 @@ export const AppBar = () => {
           borderRadius={12}
           bg="greenBgColor"
         >
-          {/* <NavItem to={'/'}>
-            {<BiRestaurant color="whiteColor" size={30} />}
-          </NavItem> */}
+          <NavItem to={'/'}>{<img src={logoDark} alt="logoDark" />}</NavItem>
         </Box>
         <Box as="nav" display={{ xs: 'none', lg: 'flex' }}>
           <List>
@@ -159,9 +151,9 @@ export const AppBar = () => {
                 borderRadius={12}
                 bg="greenBgColor"
               >
-                {/* <NavItem to={'/'}>
-                  {<BiRestaurant color="whiteColor" />}
-                </NavItem> */}
+                <NavItem to={'/'}>
+                  {<img src={logoDark} alt="logoDark" />}
+                </NavItem>
               </Box>
 
               <Box onClick={toggleModal} width={{ xs: 13 }} height={{ xs: 13 }}>
