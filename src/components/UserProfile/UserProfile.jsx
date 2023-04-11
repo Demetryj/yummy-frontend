@@ -1,10 +1,9 @@
 import { Box } from '../Box';
-import { useSelector, useDispatch } from 'react-redux';
-import { openLogo, closeLogo, closeInfo } from '../../redux/modal';
+import { useDispatch } from 'react-redux';
+import { closeLogo, closeInfo } from '../../redux/modal';
 import cross from '../../images/logo/cross-header.svg';
 import { FiUser } from 'react-icons/fi';
-import { Input, P } from './UserProfile.styled';
-import { Button } from 'components/Button';
+import { Input, P, Button } from './UserProfile.styled';
 
 const user = 'User';
 
@@ -49,8 +48,8 @@ export const UserProfile = () => {
           bg="greenColor"
           borderRadius="50%"
           position="absolute"
-          top={65}
-          left={165}
+          top={{ xs: 65 }}
+          left={{ xs: 165, lg: 212 }}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -70,17 +69,6 @@ export const UserProfile = () => {
           <Button>Save changes</Button>
         </form>
       </Box>
-
-      {/* <Box>
-        <button
-          onClick={() => {
-            dispatch(closeInfo());
-            dispatch(closeLogo());
-          }}
-        >
-          Save changes
-        </button>
-      </Box> */}
     </Box>
   );
 };

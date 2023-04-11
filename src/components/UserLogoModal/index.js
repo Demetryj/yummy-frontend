@@ -1,1 +1,1 @@
-export { default } from './UserLogoModal';
+export * from './UserLogoModal';

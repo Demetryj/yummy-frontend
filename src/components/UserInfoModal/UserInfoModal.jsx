@@ -1,66 +1,33 @@
-import React from 'react';
-// import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
+import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { closeInfo } from '../../redux/modal';
+import {
+  isOpenLogo,
+  closeLogo,
+  openInfo,
+  closeInfo,
+  closeLogout,
+} from '../../redux/modal';
+import { Box } from '../Box';
+import { Backdrop, Content } from './UserInfoModal.styled';
+import { HiOutlinePencil } from 'react-icons/hi';
+import { UserProfile } from '../UserProfile';
 
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
+const modalRoot = document.querySelector('#modal-root');
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#modal-root');
-
-function UserInfoModal() {
-  let subtitle;
-  // const [modalIsOpen, setIsOpen] = React.useState(false);
-  const isOpenInfo = useSelector(state => state.modal.isOpenInfo);
+export const UserInfoModal = () => {
+  const isOpenLogo = useSelector(state => state.modal.isOpenLogo);
   const dispatch = useDispatch();
 
-  // function openModal() {
-  //   setIsOpen(true);
+  // function closeModal() {
+  //   dispatch(closeLogo(false));
   // }
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
-
-  function closeModal() {
-    // setIsOpen(false);
-    dispatch(closeInfo());
-  }
-
-  return (
-    <div>
-      {/* <button onClick={openModal}>Open React Modal</button> */}
-      <Modal
-        isOpen={isOpenInfo}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>Save changes</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
-      </Modal>
-    </div>
+  return createPortal(
+    <Backdrop>
+      <Content>
+        <UserProfile />
+      </Content>
+    </Backdrop>,
+    modalRoot
   );
-}
-
-export default UserInfoModal;
+};
