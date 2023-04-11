@@ -48,11 +48,13 @@ export const AppBar = () => {
   };
 
   return (
-    <Box as="section">
+    <Box as="section" width={'100%'}>
       <Box
         as="header"
+        position="fixed"
         display="flex"
-        justifyContent="space-between"
+        // width={'100%'}
+        // justifyContent="space-between"
         py={{ xs: '3px' }}
       >
         <Box
@@ -61,6 +63,7 @@ export const AppBar = () => {
           alignItems="center"
           width={{ xs: 40, md: 44 }}
           height={{ xs: 40, md: 44 }}
+          mr={{ xs: 180, md: 500, lg: 290 }}
           borderRadius={12}
           bg="greenBgColor"
         >
