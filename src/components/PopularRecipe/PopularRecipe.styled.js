@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: ${p => p.theme.spacing(175)};
-  @media screen and ${p => p.theme.media.medium} {
-    width: ${p => p.theme.spacing(350)};
+  @media screen and (${p => p.theme.media.medium}) {
   }
-  @media screen and ${p => p.theme.media.large} {
-display: flex;
-flex-direction: column ;
+  @media screen and (${p => p.theme.media.large}) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 export const BoxTitle = styled.h2`
@@ -16,7 +14,7 @@ export const BoxTitle = styled.h2`
   padding-bottom: ${p => p.theme.spacing(16)};
   font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: ${p => p.theme.fontSizes.l};
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     padding-bottom: ${p => p.theme.spacing(20)};
   }
 `;
@@ -25,30 +23,31 @@ export const RecipeList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: ${p => p.theme.spacing(12)};
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
     justify-content: center;
     gap: ${p => p.theme.spacing(16)};
   }
-  @media screen and ${p => p.theme.media.large} {
-display: flex;
-flex-direction: column ;
+  @media screen and (${p => p.theme.media.large}) {
+    display: flex;
+    flex-direction: column;
   }
+`;
 
+export const ListItem = styled.li`
+  width: ${p => p.theme.spacing(175)};
 `;
 
 export const ImageDiv = styled.div`
   border-radius: ${p => p.theme.spacing(4)};
 `;
 
-export const Image = styled.div`
+export const Image = styled.img`
   display: block;
   width: ${p => p.theme.spacing(50)};
   height: ${p => p.theme.spacing(42)};
-  /* max-width: ${p => p.theme.spacing(50)}; */
-  /* max-height: ${p => p.theme.spacing(40)}; */
 `;
 
 export const Card = styled.div`
@@ -72,7 +71,4 @@ export const CardText = styled.p`
 
 export const AboutRecipe = styled.div`
   padding: 0 10px;
-  /* display: flex;
-  flex-direction: column;
-  gap: 3px; */
 `;
