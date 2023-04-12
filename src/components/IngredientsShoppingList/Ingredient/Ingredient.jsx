@@ -1,7 +1,7 @@
+import { forwardRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteIngredientFromShoppingList } from 'redux/shoppingList/operations';
 import { RxCross2 } from 'react-icons/rx';
-
+import { deleteIngredientFromShoppingList } from 'redux/shoppingList/operations';
 import {
   Product,
   ProductPicture,
@@ -10,23 +10,23 @@ import {
   Button,
 } from './Ingredient.styled';
 
-export const Ingredient = ({ id, ttl, thb, t }) => {
+export const Ingredient = forwardRef(({ id, title, thumb, measure }, ref) => {
   const dispatch = useDispatch();
 
   function handleDelete(id) {
-    dispatch(deleteIngredientFromShoppingList(id));
+    dispatch(deleteIngredientFromShoppingList({ id, measure }));
   }
 
   return (
-    <Product>
-      <ProductPicture src={thb} alt="thb" />
-      <ProductName>{ttl}</ProductName>
+    <Product ref={ref}>
+      <ProductPicture src={thumb} alt={title} />
+      <ProductName>{title}</ProductName>
 
-      <ProductQuantity>{t} 400 g</ProductQuantity>
+      <ProductQuantity>{measure}</ProductQuantity>
 
       <Button type="button" onClick={() => handleDelete(id)}>
         <RxCross2 size={25} />
       </Button>
     </Product>
   );
-};
+});
