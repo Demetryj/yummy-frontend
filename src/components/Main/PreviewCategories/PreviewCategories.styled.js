@@ -1,7 +1,20 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'; 
 
-export const MainTitle = styled.h3`
+export const ListCategories = styled.ul`
+// min-width: max-content;
+
+width: 100%;
+display: flex;
+justify-content: start;
+flex-direction: column;
+gap: ${p => p.theme.spacing(10)}; // відступ між лішками списку
+ 
+@media screen and (${p => p.theme.media.large}) {
+    gap: ${p => p.theme.spacing(35)}  
+}`
+
+export const Categoty = styled.h3`
 margin-bottom: ${p => p.theme.spacing(16)};
 font-weight: ${p => p.theme.fontWeights.semiBold};
 color: ${p => p.theme.colors.titleTextColor};
@@ -17,60 +30,74 @@ font-size: ${p => p.theme.fontSizes.xl};
       }
 `;
 
-export const List = styled.ul`
-width: 100%;
-display: flex;
-flex-direction: column;
-gap: ${p => p.theme.spacing(10)};
-@media screen and (${p => p.theme.media.large}) {
-    gap: ${p => p.theme.spacing(35)}  
-}`
-
 export const ListCard = styled.ul`
-// width: 100%;
-margin-bottom: ${p => p.theme.spacing(12)};
-display: grid;
-grid-template-columns: repeat(auto-fit, 343px);
-justify-content: center;
-gap: ${p => p.theme.spacing(14)};
+// justify-content: center;
+
+width: 100%;
+margin-bottom: ${p => p.theme.spacing(20)};
+display: flex;
+flex-wrap: wrap;
+gap: ${p => p.theme.spacing(0)};
 
 @media screen and (${p => p.theme.media.medium}) {
-  grid-template-columns: repeat(2, 336px);
-  gap: ${p => p.theme.spacing(16)};
   margin-bottom: ${p => p.theme.spacing(20)};
+  gap: ${p => p.theme.spacing(16)};
 }
-
 @media screen and (${p => p.theme.media.large}) {
-  grid-template-columns: repeat(4, 300px);
-  gap: ${p => p.theme.spacing(50)} ${p => p.theme.spacing(7)};
   margin-bottom:${p => p.theme.spacing(25)};
-}
-  }`
+  gap: ${p => p.theme.spacing(7)};
+}`
 
-export const LinkRecipe = styled(Link)``;
+export const LinkRecipe = styled(Link)`
+width: ${p => p.theme.spacing(171.5)};
+
+@media screen and (${p => p.theme.media.medium}) {
+  width: ${p => p.theme.spacing(168)};
+}
+
+@media screen and (${p => p.theme.media.large}){
+ width: ${p => p.theme.spacing(150)};
+}`;
+
+export const ButtonCardLink = styled(Link)``
 
 export const ButtonCard = styled(Link)`
+margin-left: 239px;
+
+font-family: inherit;
 padding:${p => p.theme.spacing(5)} ${p => p.theme.spacing(12)};
 border-radius: ${p => p.theme.radii.light};
 
 color:${p => p.theme.colors.whiteColor};
 background:${p => p.theme.colors.greenTextColor};
-float: right;
-cursor: pointer;
 font-weight: ${p => p.theme.fontWeights.regular};
+cursor: pointer;
 
 &:hover,
 &:focus {
   border-color: ${p => p.theme.colors.btnDarckBgColor};
   background-color: ${p => p.theme.colors.btnDarckBgColor};
+}
+
+@media screen and (${p => p.theme.media.medium})  {
+  float: none;
+  margin-left: 606px;
+}
+
+@media screen and (${p => p.theme.media.large}){
+  float: none;
+  margin-left: 1142px;
 }`
 
 export const LinkDown = styled(Link)`
 display: block; 
-text-align:center;`
+text-align: center;`
 
 export const ButtonDown = styled.button`
-float: center;
+margin-top: 40px;
+margin-bottom: 82
+px;
+
 padding: ${p => p.theme.spacing(5)} ${p => p.theme.spacing(11)};
 
 font-weight: ${p => p.theme.fontWeights.regular};
@@ -85,7 +112,6 @@ border: ${p => p.theme.borders.medium};
   border-radius: 35px 70px;
 
   background-color: transparent;
-
   transition: color 250ms, border-color 250ms;
 
   &:hover,
@@ -96,7 +122,6 @@ border: ${p => p.theme.borders.medium};
   }
 
   @media screen and ${p => p.theme.media.medium} {
-    margin-right: ${p => p.theme.spacing(9)};
     padding: ${p => p.theme.spacing(10)} ${p => p.theme.spacing(21)};
 
     font-size: ${p => p.theme.fontSizes.m};

@@ -7,7 +7,7 @@ MainBox,
 TextMain,
 Selected,
 TextSub,
-WrapPreviewCategories
+ContainerPreviewCategories
 } from "./StartMainPage.styled";
 import { selectRecipesPopular, selectIsLoading } from 'redux/recipes/selectors';
 import { fetchRecipesMainPage } from 'redux/recipes/operations';
@@ -37,11 +37,9 @@ export const StartMainPage = () => {
               <Search/>
             </MainBox>
           </ContainerHero>
-          {/* <Wrap> */}
-          <WrapPreviewCategories>
+          <ContainerPreviewCategories>
             <PreviewCategories recipes={recipesPopular}/>
-          </WrapPreviewCategories>
-          {/* </Wrap> */}
+          </ContainerPreviewCategories>
         </>
       ) : (<Loader/>) }
       </> 

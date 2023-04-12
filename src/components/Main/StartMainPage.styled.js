@@ -7,7 +7,7 @@ import plateImgDesk from 'images/mainPage/mainpage1x_desk.png';
 import plateImgDesk2 from 'images/mainPage/mainpage2x_desk.png';
 
 export const ContainerHero = styled.div`
-  // padding: 0 16px; // те що прописано в SharedLayout, але не спрацьовує для ContainerHero
+  // padding: 0 16px; // прописано в SharedLayout, але чомусь не спрацьовує для ContainerHero
 
   width: 100%;
   background-image: url(${plateImgMob});
@@ -27,7 +27,7 @@ export const ContainerHero = styled.div`
     }
 
   @media (${p => p.theme.media.medium}) {
-    // padding: 0 32px; // те що прописано в SharedLayout, але не спрацьовує для ContainerHero
+    // padding: 0 32px; // прописано в SharedLayout, але чомусь не спрацьовує для ContainerHero
 
     background-image: url(${plateImgTab});
     height: ${p => p.theme.spacing(320)};
@@ -42,7 +42,7 @@ export const ContainerHero = styled.div`
   }
 
   @media (${p => p.theme.media.large}) {
-    // padding: 0 100px; // те що прописано в SharedLayout, але не спрацьовує для ContainerHero
+    // padding: 0 100px; // прописано в SharedLayout, але чомусь не спрацьовує для ContainerHero
 
     background-image: url(${plateImgDesk});
     height: ${p => p.theme.spacing(400)};
@@ -56,16 +56,17 @@ export const ContainerHero = styled.div`
     }
   }`
 
-  export const WrapPreviewCategories = styled.div`
-  // padding: 0px 16px; // те що прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
+  export const ContainerPreviewCategories = styled.div`
+  // padding: 0px 16px; // прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
+  
   width: 100%; 
 
   @media screen and (${p => p.theme.media.medium}) {
-  // padding: 0 32px; //те що прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
+  // padding: 0 32px; // прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
   }
   
   @media screen and (${p => p.theme.media.large}) {
-    // padding: 0 100px; //те що прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
+    // padding: 0 100px; // прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
   }`;
 
 export const MainBox = styled.div`
@@ -83,7 +84,7 @@ export const MainBox = styled.div`
 export const TextMain = styled.h1`
   margin: 132px 12px 0px 12px;
   color: ${p => p.theme.colors.titleTextColor};
-  font-weight: 400;
+  font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.spacing(30)};
   line-height: ${p => p.theme.spacing(30)};
   display: flex;
@@ -104,7 +105,7 @@ export const TextMain = styled.h1`
 
 export const Selected = styled.span`
   color: ${p => p.theme.colors.greenTextColor};
-  font-weight: 400;
+  font-weight: ${p => p.theme.fontWeights.regular};;
   font-size: ${p => p.theme.spacing(30)};
   line-height: ${p => p.theme.spacing(30)};
   text-align: center;
@@ -122,7 +123,7 @@ export const Selected = styled.span`
 export const TextSub = styled.p`
   margin: 14px 40px 157px 40px;
   color: ${p => p.theme.colors.secondaryDark};
-  font-weight: 400;
+  font-weight: ${p => p.theme.fontWeights.regular};;
   font-size: ${p => p.theme.spacing(7)};
   line-height: ${p => p.theme.spacing(9)};
   text-align: center;

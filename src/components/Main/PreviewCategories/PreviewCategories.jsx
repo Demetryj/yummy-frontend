@@ -1,6 +1,6 @@
 import { useMedia } from 'hooks/useMedia';
 import { SearchItem } from "components/SearchFragments/SearchItem";
-import { List, ListCard, ButtonCard, ButtonDown, LinkRecipe, MainTitle,LinkDown } from './PreviewCategories.styled';
+import { ListCategories, ListCard, ButtonCard, ButtonDown, LinkRecipe, Categoty,LinkDown } from './PreviewCategories.styled';
 
 export const PreviewCategories = ({recipes}) => {
   const { isMobile, isTablet } = useMedia();
@@ -16,13 +16,13 @@ export const PreviewCategories = ({recipes}) => {
 
   return (
     <>
-      <List>
+      <ListCategories>
         {
           Object.keys(recipes).map(category => {
             const recipesPopular = recipes[category];
             return (
               <li key={category}>
-                <MainTitle>{category}</MainTitle>  
+                <Categoty>{category}</Categoty>  
                 <ListCard>
                   {recipesPopular.slice(0, numCard).map(({_id, title,  thumb}) => {
                     return (
@@ -39,7 +39,7 @@ export const PreviewCategories = ({recipes}) => {
             );
           })
          }
-      </List>
+      </ListCategories>
       <LinkDown to="/categories">
         <ButtonDown>Other categories</ButtonDown>
       </LinkDown>
