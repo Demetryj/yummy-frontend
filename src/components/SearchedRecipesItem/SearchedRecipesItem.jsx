@@ -1,6 +1,11 @@
-import { ImgDesc, ImgDescWrapper, ImgWrapper, Img } from './SearchFragments.styled';
+import {
+  Img,
+  ImgDesc,
+  ImgDescWrapper,
+  ImgWrapper,
+} from './SearchedRecipesItem.styled';
 
-export const SearchItem = ({ title, img }) => {
+export const SearchedRecipesItem = ({ title, img }) => {
   return (
     <ImgWrapper>
       <Img src={img} alt="title" />
