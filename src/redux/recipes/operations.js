@@ -26,6 +26,28 @@ export const fetchSearchRecipes = createAsyncThunk(
   }
 );
 
+
+
+export const fetchCategoriesList = createAsyncThunk(
+  'recipes/fetchCategories',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/recipes/category/list');
+      return response.data.category;
+          return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const getRecipesPopular = createAsyncThunk(
+  'all/popular',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/recipes/popular-recipes`);
+
+
 export const getRecipeById = createAsyncThunk(
   'recipes/getRecipeById',
   async (_id, thunkAPI) => {
@@ -33,11 +55,26 @@ export const getRecipeById = createAsyncThunk(
     try {
       const response = await axios.get(`/recipes/${_id}`);
       return response.data;
+
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+
+
+export const fetchRecipesByCategory = createAsyncThunk(
+  'recipes/fetchRecipesBy',
+  async (category, thunkAPI) => {
+    try {
+      const response = await axios.get(`/recipes/category/${category}`);
+         return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 export const getRecipeByCategory = createAsyncThunk(
   'recipes/getRecipeByCategory',
   async (category, thunkAPI) => {
@@ -60,12 +97,10 @@ export const addRecipe = createAsyncThunk(
         description,
         ingredients,
       });
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
+
+  
+
+
 
 export const deleteRecipe = createAsyncThunk(
   'recipes/deleteRecipe',
@@ -84,12 +119,14 @@ export const fetchRecipes = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/recipes');
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+
 export const addToFavorites = createAsyncThunk(
   'recipes/addToFavorites',
   async (_id, thunkAPI) => {
@@ -112,3 +149,5 @@ export const removeFromFavorites = createAsyncThunk(
     }
   }
 );
+
+

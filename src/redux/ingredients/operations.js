@@ -16,10 +16,18 @@ export const fetchRecipesByIngredient = createAsyncThunk(
   'search/:ingredient',
   async (query, thunkAPI) => {
     try {
-      const response = await axios.get(`/search/${query}`);
-      return response.data;
+      const { data } = await axios.get(`/search/${query}`);
+      return normalizedFetchRecipesByIngredient(data[0].recipeData);
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+
+const normalizedFetchRecipesByIngredient = data =>
+  data.map(({ recipe }) => ({
+    title: recipe.title,
+    id: recipe._id,
+    img: recipe.thumb,
+    ingredients: recipe.ingredients,
+  }));

@@ -1,9 +1,10 @@
 import { useMedia } from 'hooks/useMedia';
 import { SearchItem } from "components/SearchFragments/SearchItem";
-import { ListCategory, ListCard, ButtonSeeAll, ButtonDown, WrapRecipe, Categoty, LinkDown, Wrap } from './PreviewCategories.styled';
 import { Link } from 'react-router-dom'; 
+import { ListCategory, ListCard, ButtonSeeAll, ButtonDown, WrapRecipe, Categoty, LinkDown, Wrap } from './PreviewCategories.styled';
+import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
 
-export const PreviewCategories = ({recipes}) => {
+export const PreviewCategories = ({ recipes }) => {
   const { isMobile, isTablet } = useMedia();
   let numCard;
 

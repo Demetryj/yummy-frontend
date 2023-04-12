@@ -1,15 +1,7 @@
 import { Box } from '../Box';
 import { GreenButton, CancelButton, P } from './Logout.styled';
-import {
-  // useSelector,
-  useDispatch,
-} from 'react-redux';
-import {
-  closeLogo,
-  // openInfo,
-  // closeInfo,
-  closeLogout,
-} from '../../redux/modal';
+import { useDispatch } from 'react-redux';
+import { closeLogo, closeLogout } from '../../redux/modal';
 import cross from '../../images/logo/cross-header.svg';
 
 export const Logout = () => {

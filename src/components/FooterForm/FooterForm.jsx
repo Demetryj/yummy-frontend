@@ -10,21 +10,6 @@ import {
 } from './FooterForm.styled';
 import { Box } from '../Box';
 import { Button } from '../Button';
-import logoMail from 'images/mail/mail.svg';
-
-
-// const placeHolder = () => {
-//   return (
-//     <>
-//       <FiMail size={10} color="white" />
-//       <p>Enter your email address</p>
-//     </>
-//   );
-// };
-
-const Mail = <img src={logoMail} alt="mail" />;
-
-// const holder = `${FiMail} Enter your email address`;
 
 const Schema = object({
   email: string().required().email('Email is not valid'),
@@ -47,10 +32,6 @@ export const FootForm = () => (
         return errors;
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        // setTimeout(() => {
-        //   alert(JSON.stringify(values, null, 2));
-        //   setSubmitting(false);
-        // }, 400);
         console.log(values);
         setSubmitting(false);
         resetForm();
