@@ -49,10 +49,10 @@ export const AppBar = () => {
   };
 
   return (
-    <Box as="section" width={'100%'}>
+    <Box as="section" width={'100%'} position="absolute">
       <Box
         as="header"
-        position="relative"
+        // position="relative"
         display="flex"
         // width={'100%'}
         justifyContent="space-between"
