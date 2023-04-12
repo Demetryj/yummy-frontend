@@ -18,6 +18,7 @@ font-size: ${p => p.theme.fontSizes.xl};
 `;
 
 export const List = styled.ul`
+width: 100%;
 display: flex;
 flex-direction: column;
 gap: ${p => p.theme.spacing(10)};
@@ -26,6 +27,7 @@ gap: ${p => p.theme.spacing(10)};
 }`
 
 export const ListCard = styled.ul`
+// width: 100%;
 margin-bottom: ${p => p.theme.spacing(12)};
 display: grid;
 grid-template-columns: repeat(auto-fit, 343px);
@@ -40,7 +42,7 @@ gap: ${p => p.theme.spacing(14)};
 
 @media screen and (${p => p.theme.media.large}) {
   grid-template-columns: repeat(4, 300px);
-  gap: ${p => p.theme.spacing(50)} ${p => p.theme.spacing(25)};
+  gap: ${p => p.theme.spacing(50)} ${p => p.theme.spacing(7)};
   margin-bottom:${p => p.theme.spacing(25)};
 }
   }`
