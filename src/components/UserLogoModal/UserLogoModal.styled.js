@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -35,20 +36,43 @@ export const Content = styled.div`
   }
 `;
 
-// export const ModalContent = styled.div`
-//   position: absolute;
-//   width: ${p => p.theme.spacing(80)};
-//   height: ${p => p.theme.spacing(65)};
-//   left: ${p => p.theme.spacing(115)};
-//   top: ${p => p.theme.spacing(66)};
-//   transform: translate(-50%, -50%);
+export const EditButton = styled.button`
+  background: transparent;
+  margin-right: auto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #23262a;
+`;
 
-//   border: 1px solid #8baa36;
-//   border-radius: ${p => p.theme.radii.normal};
+export const ButtonContainer = styled.div`
+  display: flex;
+  position: absolute;
+  top: 30px;
+  left: 17px;
+`;
 
-//   padding: ${p => p.theme.spacing(9)};
-//   background-color: ${p => p.theme.colors.whiteColor};
+export const LogoutButton = styled.button`
+  position: relative;
+  background: #8baa36;
 
-//   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-//     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-// `;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+
+  color: #fafafa;
+
+  clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
+  padding: 50px 42px;
+  border: none;
+
+  top: 30;
+  left: 0;
+`;
+
+export const Arrow = styled(AiOutlineArrowRight)`
+  position: absolute;
+  top: 52px;
+  right: 20px;
+  color: white;
+`;
