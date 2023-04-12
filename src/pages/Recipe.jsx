@@ -8,7 +8,7 @@ import {
   selectRecipes,
 } from 'redux/recipes/selectors';
 import { Loader } from 'components/Loader/Loader.jsx';
-import { Box } from 'components/Box';
+// import { Box } from 'components/Box';
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
