@@ -26,11 +26,13 @@ export const PreviewCategories = ({recipes}) => {
                 <ListCard>
                   {recipesPopular.slice(0, numCard).map(({_id, title,  thumb}) => {
                     return (
-                      <LinkRecipe to={`/recipe/${_id}`}>
+                      
                         <li key={_id}>
-                          <SearchItem title={title} img={thumb}></SearchItem>
+                          <LinkRecipe to={`/recipe/${_id}`}>
+                          <SearchItem title={title} img={thumb}/>
+                          </LinkRecipe>
                         </li>
-                      </LinkRecipe>
+                      
                     );
                   })}
                 </ListCard>
