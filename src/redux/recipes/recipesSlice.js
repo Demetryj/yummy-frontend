@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 import {
   fetchCategoriesList,
   fetchRecipesByCategory,
@@ -10,8 +9,7 @@ import {
 
   fetchRecipesMainPage,
   fetchSearchRecipes,
-    getRecipesPopular,
-
+  getRecipesPopular,
 } from './operations';
 
 const initialState = {
@@ -44,6 +42,19 @@ const recipesSlice = createSlice({
         state.error = action.payload;
       });
 
+    // .addCase(fetchRecipesMainPage.pending, state => {
+    //   state.isLoading = true;
+    // })
+    // .addCase(fetchRecipesMainPage.rejected, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = action.payload;
+    // });
+    // .addCase(fetchRecipesMainPage.fulfilled, (state, action) => {
+    //   state.popular = action.payload;
+    //   state.isLoading = false;
+    //   state.error = null;
+    // })
+
     builder
       .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
         state.items = action.payload;
@@ -58,9 +69,20 @@ const recipesSlice = createSlice({
         state.error = action.payload;
       });
 
-    builder
-      .addCase(getRecipesPopular.fulfilled, (state, action) => {
+    // .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
+    //   state.items = action.payload[0].recipeData;
+    //   state.isLoading = false;
+    //   state.error = null;
+    // })
+    // .addCase(fetchSearchRecipes.pending, state => {
+    //   state.isLoading = true;
+    // })
+    // .addCase(fetchSearchRecipes.rejected, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = action.payload;
+    // });
 
+    builder
       .addCase(getRecipeById.fulfilled, (state, action) => {
         state.items = action.payload;
         state.isLoading = false;
@@ -73,7 +95,8 @@ const recipesSlice = createSlice({
       .addCase(getRecipeById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
+      });
+    builder
       .addCase(addToFavorites.fulfilled, (state, action) => {
         state.items.map(item => item.id === action.payload.id);
 
@@ -87,7 +110,8 @@ const recipesSlice = createSlice({
       .addCase(addToFavorites.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
+      });
+    builder
       .addCase(removeFromFavorites.fulfilled, (state, action) => {
         state.items.map(item => item.id === action.payload.id);
         // state.items = action.payload;
@@ -101,18 +125,14 @@ const recipesSlice = createSlice({
       .addCase(removeFromFavorites.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
-      .addCase(fetchRecipesMainPage.fulfilled, (state, action) => {
-
-        state.popular = action.payload;
-        state.isLoading = false;
-        state.error = null;
-      })
-
+      });
+    builder
       .addCase(getRecipesPopular.pending, state => {
         state.isLoading = true;
       })
-      .addCase(getRecipesPopular.rejected, (state, action) => {
+
+      .addCase(getRecipesPopular.rejected, (state, action) => {});
+
 
       .addCase(fetchRecipesMainPage.pending, state => {
         state.isLoading = true;
@@ -156,6 +176,7 @@ const recipesSlice = createSlice({
           state.isLoading = false;
         state.error = action.payload;
       });
+
   },
 });
 
