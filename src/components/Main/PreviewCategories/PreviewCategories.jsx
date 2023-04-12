@@ -1,17 +1,16 @@
-import { v4 as uuidv4 } from 'uuid';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { selectRecipesPopular, selectIsLoading } from 'redux/recipes/selectors';
-import { fetchRecipesMainPage } from 'redux/recipes/operations';
-import { Link } from 'react-router-dom';
-import { Loader } from 'components/Loader';
-import { MainTitle } from '../../MainTitle/MainTitle';
-
-import { List, BtnRecipe, Button } from './PreviewCategories.styled';
-import { useEffect } from 'react';
 import { useMedia } from 'hooks/useMedia';
+import {
+  List,
+  ListCard,
+  ButtonCard,
+  ButtonDown,
+  LinkRecipe,
+  MainTitle,
+  LinkDown,
+} from './PreviewCategories.styled';
+import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
 
-export const PreviewCategories = () => {
+export const PreviewCategories = ({ recipes }) => {
   const { isMobile, isTablet } = useMedia();
   let numCard;
 
@@ -23,46 +22,40 @@ export const PreviewCategories = () => {
     numCard = 4;
   }
 
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  useEffect(() => {
-    dispatch(fetchRecipesMainPage());
-  }, [dispatch]);
-
-  const recipesPopular = useSelector(selectRecipesPopular);
   return (
     <>
-
       <List>
-        {recipesPopular && !isLoading ? (
-          Object.keys(recipesPopular).map(key => {
-            const recipes = recipesPopular[key];
-            return (
-              <li key={uuidv4()}>
-                <MainTitle title={key} />
-                <List>
-                  {recipes.slice(0, numCard).map(recipe => {
+        {Object.keys(recipes).map(category => {
+          const recipesPopular = recipes[category];
+          return (
+            <li key={category}>
+              <MainTitle>{category}</MainTitle>
+              <ListCard>
+                {recipesPopular
+                  .slice(0, numCard)
+                  .map(({ _id, title, thumb }) => {
                     return (
-                      <BtnRecipe to={`/recipe/${recipe._id}`}>
-                        <li key={recipe._id}>{recipe.title}</li>
-                      </BtnRecipe>
+                      <LinkRecipe to={`/recipe/${_id}`}>
+                        <li key={_id}>
+                          <SearchedRecipesItem
+                            title={title}
+                            img={thumb}
+                          ></SearchedRecipesItem>
+                        </li>
+                      </LinkRecipe>
                     );
                   })}
-                </List>
-                <Link to={`/categories/${recipesPopular[key].category}`}>
-                  <Button>See all</Button>
-                </Link>
-              </li>
-            );
-          })
-        ) : (
-          <Loader />
-        )}
+              </ListCard>
+              <ButtonCard to={`/categories/${recipes[category].category}`}>
+                See all
+              </ButtonCard>
+            </li>
+          );
+        })}
       </List>
-      <Link to="/categories">
-        <Button>Other categories</Button>
-      </Link>
-
+      <LinkDown to="/categories">
+        <ButtonDown>Other categories</ButtonDown>
+      </LinkDown>
     </>
   );
 };

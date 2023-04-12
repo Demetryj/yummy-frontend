@@ -68,6 +68,7 @@ export const theme = {
   },
 
   fontSizes: {
+    xxs: '8px',
     x: '10px',
     xs: '12px',
     s: '14px',
@@ -97,11 +98,13 @@ export const theme = {
 
   radii: {
     none: '0',
+    superLight: '4px',
     light: '6px',
     normal: '8px',
     pagination: '26px',
     modalProfile: '30px',
     switch: '50px',
+    round: '100px',
   },
 
   shadows: {
