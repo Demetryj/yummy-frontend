@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/211.3fc1651f.chunk.js","mappings":"2JAQA,UARmB,WACjB,OACE,2BACE,6CAGL,C","sources":["pages/Categories.jsx"],"sourcesContent":["const Categories = () => {\n  return (\n    <main>\n      <h1>Categories Page</h1>\n    </main>\n  );\n};\n\nexport default Categories;\n"],"names":[],"sourceRoot":""}
