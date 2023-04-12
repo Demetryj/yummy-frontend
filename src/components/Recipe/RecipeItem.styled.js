@@ -3,36 +3,36 @@ import styled from 'styled-components';
 
 
 export const Image = styled.img`
-  border-radius: 2px;
-  width: 124px;
-  heigth: 124px;
+  border-radius: ${p => p.theme.spacing(1)};
+  width: ${p => p.theme.spacing(62)};
+  heigth: ${p => p.theme.spacing(62)};
         @media screen and ${(p) => p.theme.media.medium} {
-            width: 228px;
-            heigth: 232px;
+            width: ${p => p.theme.spacing(114)};
+            heigth: ${p => p.theme.spacing(116)};
         }
     
         @media screen and ${(p) => p.theme.media.large} {
-             width: 318px;
-             heigth: 324px;
+             width: ${p => p.theme.spacing(159)};
+             heigth: ${p => p.theme.spacing(162)};
         }
 `;
 
 export const Card = styled.div`
   display: flex;
   background-color: ${p => p.theme.colors.whiteColor};
-  width: 343px;
-  heigth: 152px;
+  width: ${p => p.theme.spacing(172)};
+  heigth: ${p => p.theme.spacing(76)};
   padding: ${p => p.theme.spacing(7)} ${p => p.theme.spacing(5)};
 
         @media screen and ${(p) => p.theme.media.medium} {
-            width: 704px;
-            heigth: 288px;
+            width: ${p => p.theme.spacing(352)};
+            heigth: ${p => p.theme.spacing(144)};
             padding: ${p => p.theme.spacing(14)} ${p => p.theme.spacing(12)};
         }
     
         @media screen and ${(p) => p.theme.media.large} {
-             width: 1240px;
-             heigth: 404px;
+             width: ${p => p.theme.spacing(620)};
+             heigth: ${p => p.theme.spacing(202)};
              padding: ${p => p.theme.spacing(20)} ${p => p.theme.spacing(20)};
         }
 `;
@@ -71,42 +71,42 @@ export const Title = styled.h3`
 
 export const ButtonClose = styled.button`
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  width: ${p => p.theme.spacing(12)};
+  height: ${p => p.theme.spacing(12)};
   border-radius: ${p => p.theme.radii.superLight};
   padding: ${p => p.theme.spacing(2)};
      @media screen and ${(p) => p.theme.media.medium} {
-            width: 38px;
-            height: 38px;
+            width: ${p => p.theme.spacing(19)};
+            height: ${p => p.theme.spacing(19)};
             padding: ${p => p.theme.spacing(4)};
         }
     
      @media screen and ${(p) => p.theme.media.large} {
-            width: 44px;
-            height: 44px;
+            width: ${p => p.theme.spacing(22)};
+            height: ${p => p.theme.spacing(22)};
             padding: ${p => p.theme.spacing(5)};
         }
 `;
 
 export const Paragraph = styled.p`
-  font-weight: 400;
+  font-weight: ${p => p.theme.fontWeights.regular};
   color: ${p => p.theme.colors.mainTextColor};
-  width: 173px;
+  width: ${p => p.theme.spacing(87)};
   margin-top: ${p => p.theme.spacing(7)};
   font-size: ${p => p.theme.fontSizes.xxs};
-  line-height: 10px;
+  line-height: ${p => p.theme.spacing(5)};
   letter-spacing: -0.02em;
         @media screen and ${(p) => p.theme.media.medium} {
-            width: 298px;
+            width: ${p => p.theme.spacing(149)};
             margin-top: ${p => p.theme.spacing(14)};
             font-size: ${p => p.theme.fontSizes.s};
-            line-height: 18px;
+            line-height: ${p => p.theme.spacing(9)};
         }
         @media screen and ${(p) => p.theme.media.large} {
-            width: 679px;
+            width: ${p => p.theme.spacing(340)};
             margin-top: ${p => p.theme.spacing(20)};
             font-size: ${p => p.theme.fontSizes.xm};
-            line-height: 24px;
+            line-height: 2${p => p.theme.spacing(12)};
         }
 `;
 
@@ -114,8 +114,8 @@ export const List = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-between;
-  padding: 0px;
-  margin: 0px;
+  padding: ${p => p.theme.spacing(0)};
+  margin: ${p => p.theme.spacing(0)};
 `;
 
 export const Item = styled.li`
@@ -126,20 +126,20 @@ export const Button = styled.button`
   cursor: pointer;
   text-align: center;
   font-weight: ${p => p.theme.fontWeights.regular};
-  border-radius: 35px 70px;
-  width: 87px;
-  height: 27px;
+  border-radius: ${p => p.theme.spacing(18)} ${p => p.theme.spacing(35)};
+  width: ${p => p.theme.spacing(44)};
+  height: ${p => p.theme.spacing(14)};
   padding: ${p => p.theme.spacing(3)} ${p => p.theme.spacing(7)};
   font-size: ${p => p.theme.fontSizes.x};
         @media screen and ${(p) => p.theme.media.medium} {
-            width: 138px;
-            height: 45px;
+            width: ${p => p.theme.spacing(69)};
+            height: ${p => p.theme.spacing(22)};
             padding: ${p => p.theme.spacing(6)} ${p => p.theme.spacing(16)};
             font-size: ${p => p.theme.fontSizes.s};
         }
         @media screen and ${(p) => p.theme.media.large} {
-            width: 172px;
-            height: 59px;
+            width: ${p => p.theme.spacing(86)};
+            height: ${p => p.theme.spacing(30)};
             padding: ${p => p.theme.spacing(9)} ${p => p.theme.spacing(22)};
             font-size: ${p => p.theme.fontSizes.m};
         }

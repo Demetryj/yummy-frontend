@@ -18,7 +18,9 @@ import { CgTrash } from 'react-icons/cg';
 
 
 export const RecipeItem = ({ img, title, description, instructions, time}) => {
-     const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const handleDelete = () => dispatch();
+
   return (
     <Card>
         <Image
@@ -29,7 +31,10 @@ export const RecipeItem = ({ img, title, description, instructions, time}) => {
       <Information>
          <Top>
         <Title>{title}</Title>
-        <ButtonClose>
+          <ButtonClose
+            type='submit'
+            onClick={handleDelete}
+          >
             <CgTrash size='huge'></CgTrash>
         </ButtonClose>
           </Top>
