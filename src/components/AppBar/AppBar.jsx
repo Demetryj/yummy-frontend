@@ -52,10 +52,10 @@ export const AppBar = () => {
     <Box as="section" width={'100%'}>
       <Box
         as="header"
-        position="fixed"
+        position="relative"
         display="flex"
         // width={'100%'}
-        // justifyContent="space-between"
+        justifyContent="space-between"
         py={{ xs: '3px' }}
       >
         <Box
@@ -64,13 +64,17 @@ export const AppBar = () => {
           alignItems="center"
           width={{ xs: 40, md: 44 }}
           height={{ xs: 40, md: 44 }}
-          mr={{ xs: 180, md: 500, lg: 200 }}
+          // mr={{ xs: 180, md: 500, lg: 200 }}
           borderRadius={12}
           bg="greenBgColor"
         >
           <NavItem to={'/'}>{<img src={logoDark} alt="logoDark" />}</NavItem>
         </Box>
-        <Box as="nav" display={{ xs: 'none', lg: 'flex' }} mr={{ lg: 90 }}>
+        <Box
+          as="nav"
+          display={{ xs: 'none', lg: 'flex' }}
+          // mr={{ lg: 90 }}
+        >
           <List>
             {navItems.map(({ href, item }) => (
               <ListItem key={href}>

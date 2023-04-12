@@ -12,7 +12,6 @@ export const SharedLayout = () => {
         display="grid"
         gridTemplateRows="46x 1fr"
         width={{ xs: 375, md: '100%' }}
-        // width={1}
         mx="auto"
         px={{ xs: 16, md: 32, lg: 100 }}
         py={{ xs: 18 }}
