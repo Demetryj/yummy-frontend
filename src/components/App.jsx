@@ -38,7 +38,6 @@ export const App = () => {
   ) : (
     <Routes>
       <>
-<<<<<<< HEAD
         <Route
           path="/"
           element={
@@ -57,11 +56,6 @@ export const App = () => {
             <RestrictedRoute redirectTo="/main" component={<SigninPage />} />
           }
         />
-=======
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/signin" element={<SigninPage />} />
->>>>>>> d801d58 (update)
       </>
 
       <Route

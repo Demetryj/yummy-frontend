@@ -34,7 +34,7 @@ export const deleteIngredientFromShoppingList = createAsyncThunk(
       const response = await axios.delete(
         `/shopping-list/${id}?measure=${measure}`
       );
-      console.log(response.data);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
