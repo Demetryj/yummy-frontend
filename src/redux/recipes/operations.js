@@ -16,13 +16,25 @@ export const fetchRecipesMainPage = createAsyncThunk(
 );
 
 export const fetchSearchRecipes = createAsyncThunk(
-'recipes/fetchSearch',
-async (query, thunkAPI) => {
-  try {
-    const response = await axios.get(`/search?keyword=${query}`);
-    return response.data;
-  } catch (e) {
-    return thunkAPI.rejectWithValue(e.message);
+  'recipes/fetchSearch',
+  async (query, thunkAPI) => {
+    try {
+      const response = await axios.get(`/search?keyword=${query}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
   }
-}
+);
+
+export const getRecipesPopular = createAsyncThunk(
+  'all/popular',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/recipes/popular-recipes`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
 );
