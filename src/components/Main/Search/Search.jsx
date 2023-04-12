@@ -31,8 +31,6 @@ export const Search = () => {
     const queryInput = localStorage.getItem('query');
 
     if (!queryInput || input === '') {
-      console.log('in toaster');
-      console.log('queryInput: ', queryInput);
       return toast.error('Please enter title.', {
         duration: 2000,
         position: 'top-center',
