@@ -2,9 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 import {
+  fetchCategoriesList,
+  fetchRecipesByCategory,
   getRecipeById,
   addToFavorites,
   removeFromFavorites,
+
   fetchRecipesMainPage,
   fetchSearchRecipes,
     getRecipesPopular,
@@ -13,7 +16,11 @@ import {
 
 const initialState = {
   items: [],
+
+  categories: [],
+ 
   popular: [],
+
   isLoading: false,
   error: null,
 };
@@ -125,6 +132,28 @@ const recipesSlice = createSlice({
       .addCase(fetchSearchRecipes.rejected, (state, action) => {
 
         state.isLoading = false;
+        state.error = action.payload;
+      })      .addCase(fetchCategoriesList.fulfilled, (state, action) => {
+        state.categories = action.payload;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(fetchCategoriesList.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchCategoriesList.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })  .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(fetchRecipesByCategory.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchRecipesByCategory.rejected, (state, action) => {
+          state.isLoading = false;
         state.error = action.payload;
       });
   },
