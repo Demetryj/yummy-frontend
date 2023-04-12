@@ -1,4 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIngredients } from 'redux/ingredients/selectors';
+import { fetchIngredients } from 'redux/ingredients/operations';
+
 import {
   IngredientsContainet,
   Buttons,
@@ -10,22 +15,17 @@ import {
   SelectUnit,
   Input,
 } from './IngredientsFilter.styled';
-import Select from 'react-select';
 
 const IngredientsFilter = () => {
   const [serviceList, setServiceList] = useState([
     { service: '', ingredient: '', size: '' },
   ]);
+  const dispatch = useDispatch();
+  const items = useSelector(selectIngredients);
 
-  const options = [
-    { value: 'jack', label: 'Jack' },
-    { value: 'john', label: 'John' },
-    { value: 'mike', label: 'Mike' },
-    { value: 'mango', label: 'Mango' },
-    { value: 'ajax', label: 'Ajax' },
-    { value: 'rudy', label: 'Rudy' },
-    { value: 'ikra', label: 'Ikra' },
-  ];
+  useEffect(() => {
+    dispatch(fetchIngredients());
+  }, [dispatch]);
 
   const handleIngredientChange = (selectedOption, index, key) => {
     const newServiceList = serviceList.map((item, idx) => {
@@ -47,7 +47,7 @@ const IngredientsFilter = () => {
     setServiceList(list);
   };
 
-  console.log('serviceList', serviceList);
+  // console.log('serviceList', serviceList);
   return (
     <IngredientsContainet>
       <IngListSetting>
@@ -78,13 +78,14 @@ const IngredientsFilter = () => {
           <FlexContainer key={index}>
             <SelectCustomisation>
               <Select
-                options={options}
+                options={items}
                 maxMenuHeight={150}
                 isClearable={true}
                 placeholder="Type ingredent"
-                onChange={e =>
-                  handleIngredientChange(e.value, index, 'ingredient')
-                }
+                // value={ingredient}
+                // onChange={e =>
+                //   handleIngredientChange(e.value, index, 'ingredient')
+                // }
               />
             </SelectCustomisation>
             <div>

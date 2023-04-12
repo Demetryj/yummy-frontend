@@ -1,5 +1,16 @@
 import styled from 'styled-components';
+
 import { NavLink } from 'react-router-dom';
+
+export const FollowUsContainer = styled.div`
+  display: none;
+  padding-bottom: ${p => p.theme.spacing(50)};
+
+  @media screen and (${p => p.theme.media.large}) {
+    /* display: run-in; */
+    display: block;
+  }
+`;
 
 // export const Social = styled.ul`
 //   display: flex;
@@ -23,7 +34,7 @@ export const IconList = styled.ul`
   margin-top: 0;
   margin-bottom: 0;
   gap: ${p => p.theme.spacing(7)};
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     gap: ${p => p.theme.spacing(9)};
   }
 `;

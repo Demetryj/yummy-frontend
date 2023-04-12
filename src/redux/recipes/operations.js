@@ -27,6 +27,7 @@ export const fetchSearchRecipes = createAsyncThunk(
 );
 
 
+
 export const fetchCategoriesList = createAsyncThunk(
   'recipes/fetchCategories',
   async (_, thunkAPI) => {
@@ -39,6 +40,13 @@ export const fetchCategoriesList = createAsyncThunk(
     }
   }
 );
+
+export const getRecipesPopular = createAsyncThunk(
+  'all/popular',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/recipes/popular-recipes`);
+
 
 export const getRecipeById = createAsyncThunk(
   'recipes/getRecipeById',
@@ -111,12 +119,14 @@ export const fetchRecipes = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/recipes');
+
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
+
 export const addToFavorites = createAsyncThunk(
   'recipes/addToFavorites',
   async (_id, thunkAPI) => {
