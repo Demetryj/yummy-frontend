@@ -4,7 +4,7 @@ import { object, string } from 'yup';
 import {
   SearchForm,
   Input,
-  Error,
+  // Error,
   IconMail,
   InputContainer,
 } from './FooterForm.styled';
