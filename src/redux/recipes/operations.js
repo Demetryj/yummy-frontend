@@ -32,6 +32,13 @@ export const getRecipesPopular = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`/recipes/popular-recipes`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 
 export const getRecipeById = createAsyncThunk(
   'recipes/getRecipeById',
