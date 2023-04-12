@@ -3,7 +3,7 @@ export const fetchIngredientFulfilled = (state, action) => {
 };
 
 export const addIngredientFulfilled = (state, action) => {
-  state.items.push(action.payload);
+  state.items = action.payload;
 };
 
 export const deleteIngredientFulfilled = (state, action) => {

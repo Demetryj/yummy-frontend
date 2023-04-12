@@ -2,46 +2,77 @@ import {
   RecipeContainer,
   ImageBlock,
   Label,
-  // TextContainer,
   IngName,
-  // IngDescr,
+  IngDescr,
   IngQuantity,
   CustomCheckbox,
   RealCheckbox,
 } from './RecipeIngredientItem.styled';
+import {
+  addIngredientToShoppingList,
+  deleteIngredientFromShoppingList,
+} from 'redux/shoppingList/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import sprite from '../../images/symbol-defs.svg';
-// import { getPoster } from 'utils/getPlugImageIngredient';
+import plug from 'images/plugs/apple 128x128.png';
+import { getPoster } from 'utils/getPlugImageIngredient';
+import toast from 'react-hot-toast';
+import { selectError } from 'redux/shoppingList/selectors';
 export const RecipeIngredientItem = ({ ingredient }) => {
-  const {
-    thb,
-    ttl,
-    measure,
-    // _id,
-    // desc
-  } = ingredient;
+  const { thb, ttl, measure, id, desc } = ingredient;
+  const [checked, setChecked] = useState(false);
+  const dispatch = useDispatch();
+  const error = useSelector(selectError);
+  const addToShoppingList = () => {
+    if (!checked) {
+      dispatch(
+        addIngredientToShoppingList({
+          id,
+          measure,
+        })
+      );
+      setChecked(true);
+      if (!error) {
+        toast.success('Ingredient is added to shopping list', {
+          duration: 2000,
+        });
+      } else {
+        toast.error('Something is wrong. try again later', {
+          duration: 2000,
+        });
+      }
+      return;
+    } else {
+      dispatch(deleteIngredientFromShoppingList({ id: id, measure: measure }));
+      setChecked(false);
+      if (!error) {
+        toast.success('Ingredient is removed from shopping list', {
+          duration: 2000,
+        });
+      } else {
+        toast.error('Something is wrong. Try again later', {
+          duration: 2000,
+        });
+      }
+      return;
+    }
+  };
 
   return (
     <RecipeContainer>
       <Label>
         <ImageBlock>
-          <img src={thb} alt="poster" />
+          <img src={getPoster(thb, plug)} alt="poster" />
         </ImageBlock>
-        {/* <TextContainer> */}
         <IngName>{ttl}</IngName>
-        {/* <IngDescr>{desc}</IngDescr> */}
-        {/* </TextContainer> */}
+        <IngDescr>{desc}</IngDescr>
         <IngQuantity>{measure}</IngQuantity>
         <RealCheckbox
           type="checkbox"
-
-          // onChange={handleToggle}
+          onChange={addToShoppingList}
+          checked={checked}
         />
-        {/* //    <RealCheckbox
-      //   type="checkbox"
-      //   onChange={addToShoppingList}
-      //   checked={obj.inShoppingList}
-      // /> */}
-
         <CustomCheckbox>
           <svg>
             <use href={sprite + '#icon-checkbox'} />
