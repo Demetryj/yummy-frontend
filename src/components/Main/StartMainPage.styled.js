@@ -7,8 +7,8 @@ import plateImgDesk from 'images/mainPage/mainpage1x_desk.png';
 import plateImgDesk2 from 'images/mainPage/mainpage2x_desk.png';
 
 export const ContainerHero = styled.div`
-  padding: 0 16px;
-
+  // padding: 0 16px; // те що прописано в SharedLayout, але не спрацьовує для ContainerHero
+  
   background-image: url(${plateImgMob});
   background-repeat: no-repeat;
   background-position: center;
@@ -26,7 +26,7 @@ export const ContainerHero = styled.div`
     }
 
   @media (${p => p.theme.media.medium}) {
-    padding: 0 32px;
+    // padding: 0 32px; // те що прописано в SharedLayout, але не спрацьовує
 
     background-image: url(${plateImgTab});
     height: ${p => p.theme.spacing(320)};
@@ -41,7 +41,7 @@ export const ContainerHero = styled.div`
   }
 
   @media (${p => p.theme.media.large}) {
-    padding: 0 100px;
+    // padding: 0 100px; // те що прописано в SharedLayout, але не спрацьовує
 
     background-image: url(${plateImgDesk});
     height: ${p => p.theme.spacing(400)};
@@ -55,22 +55,25 @@ export const ContainerHero = styled.div`
     }
   }`
 
-  export const Container = styled.div`
-  padding: 0 16px;
+  export const WrapPreviewCategories = styled.div`
+  width: 375px; 
+  margin: 0 auto; 
+
+  // padding: 0px 16px; // те що прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
 
   @media screen and (${p => p.theme.media.medium}) {
-    padding: 0 32px;
+  width: 768px; 
+  // padding: 0 32px; //те що прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
   }
   
-   @media screen and (${p => p.theme.media.large}) {
-    padding: 0 99px;
-  }
-  `;
- 
+  @media screen and (${p => p.theme.media.large}) {
+    width: 1440px; 
+    // padding: 0 100px; //те що прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
+  }`;
 
 export const MainBox = styled.div`
   @media (${p => p.theme.media.medium}) {
-    display: flex;
+    display: flex; 
     margin-right: ${p => p.theme.spacing(184)};
     flex-wrap: wrap;
     justify-content: flex-start;
