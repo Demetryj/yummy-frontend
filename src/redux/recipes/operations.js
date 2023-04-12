@@ -26,15 +26,13 @@ export const fetchSearchRecipes = createAsyncThunk(
   }
 );
 
-
-
 export const fetchCategoriesList = createAsyncThunk(
   'recipes/fetchCategories',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/recipes/category/list');
       return response.data.category;
-          return response.data;
+      // return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -53,8 +51,6 @@ export const getRecipesPopular = createAsyncThunk(
   }
 );
 
-
-
 export const getRecipeById = createAsyncThunk(
   'recipes/getRecipeById',
   async (_id, thunkAPI) => {
@@ -62,20 +58,18 @@ export const getRecipeById = createAsyncThunk(
     try {
       const response = await axios.get(`/recipes/${_id}`);
       return response.data;
-
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
 
-
 export const fetchRecipesByCategory = createAsyncThunk(
   'recipes/fetchRecipesBy',
   async (category, thunkAPI) => {
     try {
       const response = await axios.get(`/recipes/category/${category}`);
-         return response.data;
+      return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -98,16 +92,13 @@ export const addRecipe = createAsyncThunk(
   'recipes/addRecipe',
   async (recipe, thunkAPI) => {
     const { title, description, ingredients } = recipe;
-    try {
-      const response = await axios.post('/recipes', {
-        title,
-        description,
-        ingredients,
-      });
-
-  
-
-
+    // try {
+    //   const response = await axios.post('/recipes', {
+    //     title,
+    //     description,
+    //     ingredients,
+  }
+);
 
 export const deleteRecipe = createAsyncThunk(
   'recipes/deleteRecipe',
@@ -156,5 +147,3 @@ export const removeFromFavorites = createAsyncThunk(
     }
   }
 );
-
-

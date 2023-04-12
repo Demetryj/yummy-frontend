@@ -19,9 +19,9 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     recipes: recipesReducer,
-
-
+    ingredients: ingredientsReducer,
     shoppingList: shoppingListReducer,
+    modal: modalReducer,
   },
 
   middleware: getDefaultMiddleware =>

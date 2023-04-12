@@ -6,7 +6,6 @@ import {
   getRecipeById,
   addToFavorites,
   removeFromFavorites,
-
   fetchRecipesMainPage,
   fetchSearchRecipes,
   getRecipesPopular,
@@ -16,7 +15,7 @@ const initialState = {
   items: [],
 
   categories: [],
- 
+
   popular: [],
 
   isLoading: false,
@@ -28,7 +27,6 @@ const recipesSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-
       .addCase(fetchRecipesMainPage.fulfilled, (state, action) => {
         state.popular = action.payload;
         state.isLoading = false;
@@ -40,22 +38,8 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipesMainPage.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
+      })
 
-    // .addCase(fetchRecipesMainPage.pending, state => {
-    //   state.isLoading = true;
-    // })
-    // .addCase(fetchRecipesMainPage.rejected, (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = action.payload;
-    // });
-    // .addCase(fetchRecipesMainPage.fulfilled, (state, action) => {
-    //   state.popular = action.payload;
-    //   state.isLoading = false;
-    //   state.error = null;
-    // })
-
-    builder
       .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
         state.items = action.payload;
         state.isLoading = false;
@@ -67,26 +51,11 @@ const recipesSlice = createSlice({
       .addCase(fetchSearchRecipes.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
+      })
 
-    // .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
-    //   state.items = action.payload[0].recipeData;
-    //   state.isLoading = false;
-    //   state.error = null;
-    // })
-    // .addCase(fetchSearchRecipes.pending, state => {
-    //   state.isLoading = true;
-    // })
-    // .addCase(fetchSearchRecipes.rejected, (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = action.payload;
-    // });
-
-    builder
       .addCase(getRecipeById.fulfilled, (state, action) => {
         state.items = action.payload;
         state.isLoading = false;
-
         state.error = null;
       })
       .addCase(getRecipeById.pending, state => {
@@ -95,13 +64,11 @@ const recipesSlice = createSlice({
       .addCase(getRecipeById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
-    builder
+      })
+
       .addCase(addToFavorites.fulfilled, (state, action) => {
         state.items.map(item => item.id === action.payload.id);
-
         state.isLoading = false;
-
         state.error = null;
       })
       .addCase(addToFavorites.pending, state => {
@@ -110,13 +77,12 @@ const recipesSlice = createSlice({
       .addCase(addToFavorites.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
-    builder
+      })
+
       .addCase(removeFromFavorites.fulfilled, (state, action) => {
         state.items.map(item => item.id === action.payload.id);
         // state.items = action.payload;
         state.isLoading = false;
-
         state.error = null;
       })
       .addCase(removeFromFavorites.pending, state => {
@@ -125,35 +91,37 @@ const recipesSlice = createSlice({
       .addCase(removeFromFavorites.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
-    builder
+      })
+
       .addCase(getRecipesPopular.pending, state => {
         state.isLoading = true;
       })
+      // .addCase(getRecipesPopular.rejected, (state, action) => {
+      //   state;
+      // })
 
-      .addCase(getRecipesPopular.rejected, (state, action) => {});
+      // .addCase(fetchRecipesMainPage.pending, state => {
+      //   state.isLoading = true;
+      // })
+      // .addCase(fetchRecipesMainPage.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.payload;
+      // })
 
+      // .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
+      //   state.items = action.payload[0].recipeData;
+      //   state.isLoading = false;
+      //   state.error = null;
+      // })
+      // .addCase(fetchSearchRecipes.pending, state => {
+      //   state.isLoading = true;
+      // })
+      // .addCase(fetchSearchRecipes.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.payload;
+      // })
 
-      .addCase(fetchRecipesMainPage.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(fetchRecipesMainPage.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
-        state.items = action.payload[0].recipeData;
-        state.isLoading = false;
-        state.error = null;
-      })
-      .addCase(fetchSearchRecipes.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(fetchSearchRecipes.rejected, (state, action) => {
-
-        state.isLoading = false;
-        state.error = action.payload;
-      })      .addCase(fetchCategoriesList.fulfilled, (state, action) => {
+      .addCase(fetchCategoriesList.fulfilled, (state, action) => {
         state.categories = action.payload;
         state.isLoading = false;
         state.error = null;
@@ -164,7 +132,9 @@ const recipesSlice = createSlice({
       .addCase(fetchCategoriesList.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })  .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
+      })
+
+      .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
         state.items = action.payload;
         state.isLoading = false;
         state.error = null;
@@ -173,10 +143,9 @@ const recipesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchRecipesByCategory.rejected, (state, action) => {
-          state.isLoading = false;
+        state.isLoading = false;
         state.error = action.payload;
       });
-
   },
 });
 
