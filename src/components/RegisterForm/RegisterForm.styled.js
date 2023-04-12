@@ -234,7 +234,7 @@ export const Image = styled.div`
   }
 `;
 
-export const ContainerMain = styled.div`
+export const Wrapper = styled.div`
   max-width: ${p => p.theme.spacing(573)};
   margin-left: auto;
   margin-right: auto;

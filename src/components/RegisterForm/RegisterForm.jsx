@@ -16,7 +16,7 @@ import {
   // BgBottom,
   ErrorText,
   Image,
-  ContainerMain,
+  Wrapper,
 } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
@@ -62,7 +62,7 @@ export const RegisterForm = () => {
     <>
       {isLoading && <Loader />}
       <Container>
-        <ContainerMain>
+        <Wrapper>
           <Image />
           <FormBoxStyled>
             <Formik
@@ -183,7 +183,7 @@ export const RegisterForm = () => {
               Sign in
             </LinkStyled>
           </FormBoxStyled>
-        </ContainerMain>
+        </Wrapper>
       </Container>
     </>
   );
