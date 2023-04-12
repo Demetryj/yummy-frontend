@@ -1,10 +1,9 @@
-import { PhotosList } from './RecipesPhotoList.styled';
 import { useCategories } from 'hooks';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { fetchRecipesByCategory } from 'redux/recipes';
-import { Image } from './RecipesPhotoList.styled';
+import { Lable, PhotosList, Image, ImageItem } from './RecipesPhotoList.styled';
 
 export const RecipesPhotosList = () => {
   const dispatch = useDispatch();
@@ -16,14 +15,14 @@ export const RecipesPhotosList = () => {
 
   const { recipesOfCategory } = useCategories();
 
-  console.log(recipesOfCategory);
   return (
     recipesOfCategory.length !== 0 && (
       <PhotosList>
         {recipesOfCategory[0].recipeData.map(el => (
-          <li>
+          <ImageItem ImageItem>
             <Image src={`${el.thumb}`} />
-          </li>
+            <Lable>{el.title}</Lable>
+          </ImageItem>
         ))}
       </PhotosList>
     )
