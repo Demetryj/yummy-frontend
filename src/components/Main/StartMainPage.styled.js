@@ -59,8 +59,8 @@ export const ContainerHero = styled.div`
   export const ContainerPreviewCategories = styled.div`
   // padding: 0px 16px; // прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
   
-  width: 100%; 
-
+  width: 100%;
+ 
   @media screen and (${p => p.theme.media.medium}) {
   // padding: 0 32px; // прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
   }

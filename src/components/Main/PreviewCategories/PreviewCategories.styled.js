@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'; 
 
-export const ListCategories = styled.ul`
-width: 100%;
-
+export const ListCategory = styled.ul`
 display: flex;
-justify-content: start;
 flex-direction: column;
-gap: ${p => p.theme.spacing(10)}; // відступ між лішками списку
+gap: ${p => p.theme.spacing(16)};
+
+@media screen and (${p => p.theme.media.medium}) {
+  gap: ${p => p.theme.spacing(25)}  
+}
  
 @media screen and (${p => p.theme.media.large}) {
-    gap: ${p => p.theme.spacing(35)}  
+    gap: ${p => p.theme.spacing(50)}  
 }`
 
 export const Categoty = styled.h3`
@@ -30,7 +31,6 @@ font-size: ${p => p.theme.fontSizes.xl};
 `;
 
 export const ListCard = styled.ul`
-width: 100%;
 margin-bottom: ${p => p.theme.spacing(20)};
 display: flex;
 flex-wrap: wrap;
@@ -46,7 +46,7 @@ gap: ${p => p.theme.spacing(0)};
   gap: ${p => p.theme.spacing(7)};
 }`
 
-export const LinkRecipe = styled.div`
+export const WrapRecipe = styled.div`
 width: ${p => p.theme.spacing(171.5)};
 
 @media screen and (${p => p.theme.media.medium}) {
@@ -58,22 +58,19 @@ width: ${p => p.theme.spacing(171.5)};
 }`;
 
 export const Wrap = styled.div`
-text-align: right;
-`
+text-align: right;`
 
-export const ButtonSeeAll = styled(Link)`
-font-family: inherit;
+export const ButtonSeeAll = styled.button`
 padding:${p => p.theme.spacing(5)} ${p => p.theme.spacing(12)};
 border-radius: ${p => p.theme.radii.light};
-
 color:${p => p.theme.colors.whiteColor};
 background:${p => p.theme.colors.greenTextColor};
 font-weight: ${p => p.theme.fontWeights.regular};
+font-family: inherit;
 cursor: pointer;
 
 &:hover,
 &:focus {
-  border-color: ${p => p.theme.colors.btnDarckBgColor};
   background-color: ${p => p.theme.colors.btnDarckBgColor};
 }`
 
@@ -82,8 +79,8 @@ display: block;
 text-align: center;`
 
 export const ButtonDown = styled.button`
-margin-top: 40px;
-margin-bottom: 82px;
+margin-top: ${p => p.theme.spacing(20)};
+margin-bottom: ${p => p.theme.spacing(41)};
 
 padding: ${p => p.theme.spacing(5)} ${p => p.theme.spacing(11)};
 

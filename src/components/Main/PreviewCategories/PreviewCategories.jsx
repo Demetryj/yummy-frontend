@@ -1,6 +1,6 @@
 import { useMedia } from 'hooks/useMedia';
 import { SearchItem } from "components/SearchFragments/SearchItem";
-import { ListCategories, ListCard, ButtonSeeAll, ButtonDown, LinkRecipe, Categoty, LinkDown, Wrap } from './PreviewCategories.styled';
+import { ListCategory, ListCard, ButtonSeeAll, ButtonDown, WrapRecipe, Categoty, LinkDown, Wrap } from './PreviewCategories.styled';
 import { Link } from 'react-router-dom'; 
 
 export const PreviewCategories = ({recipes}) => {
@@ -17,7 +17,7 @@ export const PreviewCategories = ({recipes}) => {
 
   return (
     <>
-      <ListCategories>
+      <ListCategory>
         {
           Object.keys(recipes).map(category => {
             const recipesPopular = recipes[category];
@@ -27,22 +27,24 @@ export const PreviewCategories = ({recipes}) => {
                 <ListCard>
                   {recipesPopular.slice(0, numCard).map(({_id, title,  thumb}) => {
                     return (              
-                        <LinkRecipe  key={_id}>
+                        <WrapRecipe  key={_id}>
                           <Link to={`/recipe/${_id}`}>
-                          <SearchItem title={title} img={thumb}/>
+                            <SearchItem title={title} img={thumb}/>
                           </Link>
-                        </LinkRecipe>  
+                        </WrapRecipe>  
                     );
                   })}
                 </ListCard>
                 <Wrap>
-                <ButtonSeeAll to={`/categories/${recipes[category].category}`}>See all</ButtonSeeAll>
+                  <Link to={`/categories/${recipes[category].category}`}>
+                    <ButtonSeeAll>See all</ButtonSeeAll>
+                  </Link>
                 </Wrap>
               </li>
             );
           })
          }
-      </ListCategories>
+      </ListCategory>
       <LinkDown to="/categories">
         <ButtonDown>Other categories</ButtonDown>
       </LinkDown>
