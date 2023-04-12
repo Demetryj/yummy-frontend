@@ -1,6 +1,5 @@
 export const fetchIngredientFulfilled = (state, action) => {
   state.items = action.payload;
-  console.log(state.items);
 };
 
 export const addIngredientFulfilled = (state, action) => {
