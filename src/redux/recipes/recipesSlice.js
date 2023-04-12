@@ -93,9 +93,19 @@ const recipesSlice = createSlice({
         state.error = action.payload;
       })
 
+      .addCase(getRecipesPopular.fulfilled, (state, action) => {
+        state.popular = action.payload;
+        state.isLoading = false;
+        state.error = null;
+      })
       .addCase(getRecipesPopular.pending, state => {
         state.isLoading = true;
       })
+      .addCase(getRecipesPopular.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
       // .addCase(getRecipesPopular.rejected, (state, action) => {
       //   state;
       // })
