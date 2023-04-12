@@ -9,24 +9,24 @@ export const Main = styled.main`
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    padding: ${p => p.theme.spacing(69)} 0 ${p => p.theme.spacing(101, 5)};
+    padding: ${p => p.theme.spacing(69)} 0 ${p => p.theme.spacing(101.5)};
   }
 `;
 
 export const Img = styled.img`
-  width: ${p => p.theme.spacing(129, 5)};
+  width: ${p => p.theme.spacing(129.5)};
   height: ${p => p.theme.spacing(85)};
   margin: 0 auto;
   margin-bottom: ${p => p.theme.spacing(7)};
 
   @media screen and (${p => p.theme.media.medium}) {
     width: ${p => p.theme.spacing(249)};
-    height: ${p => p.theme.spacing(163, 5)};
+    height: ${p => p.theme.spacing(163.5)};
     margin-bottom: ${p => p.theme.spacing(16)};
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    height: ${p => p.theme.spacing(165, 5)};
+    height: ${p => p.theme.spacing(165.5)};
   }
 `;
 

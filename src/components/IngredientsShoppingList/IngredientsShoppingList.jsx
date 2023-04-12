@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { nanoid } from 'nanoid';
 import {
   selectShoppingList,
   selectError,
@@ -17,6 +18,10 @@ export const IngredientsShoppingList = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
+  if (!shoppingList) {
+    return;
+  }
+
   return (
     <>
       <Panel>
@@ -29,9 +34,17 @@ export const IngredientsShoppingList = () => {
 
       {shoppingList.length > 0 && !error && (
         <ShoppingList>
-          {shoppingList.map(({ _id: id, ttl, thb, t }, idx) => (
-            <Ingredient key={idx} id={id} ttl={ttl} thb={thb} t={t} />
-          ))}
+          {shoppingList.map(({ productId: id, title, thumb, measure }, idx) => {
+            return (
+              <Ingredient
+                key={nanoid()}
+                id={id}
+                title={title}
+                thumb={thumb}
+                measure={measure}
+              />
+            );
+          })}
         </ShoppingList>
       )}
 

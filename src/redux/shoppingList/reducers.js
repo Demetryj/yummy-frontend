@@ -7,10 +7,13 @@ export const addIngredientFulfilled = (state, action) => {
 };
 
 export const deleteIngredientFulfilled = (state, action) => {
-  const filteredList = state.items.filter(
-    n => n._id.toString() !== action.payload.id
+  const productIndex = state.items.findIndex(
+    item =>
+      item.productId === action.payload[0].productId &&
+      item.measure === action.payload[0].measure
   );
-  state.items = filteredList;
+
+  state.items.splice(productIndex, 1);
 };
 
 export const anyPending = state => {

@@ -14,7 +14,6 @@ import registerBottomMob from 'images/registrationLogin/auth-bg-mob.png';
 import registerBottomTab from 'images/registrationLogin/auth-bg-tab.png';
 import registerBottomDesk from 'images/registrationLogin/auth-bg-desk.png';
 
-
 export const FormStyled = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -97,25 +96,22 @@ export const ErrorText = styled.p`
 `;
 
 export const FormBoxStyled = styled.div`
-  position: absolute;
+  /* position: absolute; */
   margin-left: auto;
   margin-right: auto;
-  left: 0;
-  right: 0;
-  transform: translateY(${p => p.theme.spacing(152)});
+  margin-top: -32px;
   width: ${p => p.theme.spacing(167)};
   padding: ${p => p.theme.spacing(16)} ${p => p.theme.spacing(14)}
     ${p => p.theme.spacing(20)} ${p => p.theme.spacing(14)};
   background-color: ${p => p.theme.colors.lightDarckBgColor};
   border-radius: ${p => p.theme.radii.modalProfile};
   @media screen and ${p => p.theme.media.medium} {
-    transform: translateY(${p => p.theme.spacing(222)});
+    margin-top: -12px;
     width: ${p => p.theme.spacing(250)};
     padding: ${p => p.theme.spacing(22)} ${p => p.theme.spacing(25)};
   }
   @media screen and ${p => p.theme.media.large} {
-    transform: translateY(${p => p.theme.spacing(77)});
-    margin-right: ${p => p.theme.spacing(90)};
+    /* margin-right: ${p => p.theme.spacing(90)}; */
   }
 `;
 
@@ -180,41 +176,75 @@ export const IconCheck = styled.div`
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  background-image: url(${registerMob}), url(${registerBottomMob});
+  background-image: url(${registerBottomMob});
   background-repeat: no-repeat;
-  background-size: ${p => p.theme.spacing(142)}, 100%;
-  background-position: 50% ${p => p.theme.spacing(43)}, bottom;
+  background-size: 100%;
+  background-position: bottom;
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(${registerMob2x}), url(${registerBottomMob});
+    background-image: url(${registerBottomMob});
   }
   @media screen and ${p => p.theme.media.medium} {
-    background-size: ${p => p.theme.spacing(204)}, 100%;
-    background-position: 50% ${p => p.theme.spacing(48)}, bottom;
-    background-image: url(${registerTab}), url(${registerBottomTab});
-    @media (min-device-pixel-ratio: 2),
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url(${registerTab2x}), url(${registerBottomTab});
-    }
+    background-image: url(${registerBottomTab});
   }
   @media screen and ${p => p.theme.media.large} {
-    background-position: ${p => p.theme.spacing(77)} ${p => p.theme.spacing(77)},
-      bottom;
-    background-size: ${p => p.theme.spacing(266)}, 100%;
-    background-image: url(${registerDesk}), url(${registerBottomDesk});
-    @media (min-device-pixel-ratio: 2),
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url(${registerDesk2x}), url(${registerBottomDesk});
-    }
+    background-image: url(${registerBottomDesk});
   } ;
 `;
 
-export const BgBottom = styled.div`
-  background-image: url(${registerBottomMob});
+export const Image = styled.div`
+  width: ${p => p.theme.spacing(142)};
+  height: ${p => p.theme.spacing(125)};
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url(${registerMob});
+  background-repeat: no-repeat;
+  background-size: 100%;
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${registerMob2x});
+  }
+  @media screen and ${p => p.theme.media.medium} {
+    width: ${p => p.theme.spacing(205)};
+    height: ${p => p.theme.spacing(180)};
+    background-image: url(${registerTab});
+    background-size: ${p => p.theme.spacing(204)};
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${registerTab2x});
+    }
+  }
+  @media screen and ${p => p.theme.media.large} {
+    width: ${p => p.theme.spacing(266)};
+    height: ${p => p.theme.spacing(234)};
+    background-size: ${p => p.theme.spacing(266)};
+    background-image: url(${registerDesk});
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${registerDesk2x});
+    }
+  }
+`;
+
+export const Wrapper = styled.div`
+  max-width: ${p => p.theme.spacing(573)};
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: ${p => p.theme.spacing(43)};
+  @media screen and ${p => p.theme.media.medium} {
+    margin-top: ${p => p.theme.spacing(48)};
+  }
+  @media screen and ${p => p.theme.media.large} {
+    margin-top: ${p => p.theme.spacing(77)};
+    display: flex;
+    gap: ${p => p.theme.spacing(57)};
+  }
 `;
