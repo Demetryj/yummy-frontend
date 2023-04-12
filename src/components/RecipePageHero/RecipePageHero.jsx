@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
-import { selectIsLoading } from 'redux/recipes/selectors';
+import { selectError, selectIsLoading } from 'redux/recipes/selectors';
 import { addToFavorites, removeFromFavorites } from 'redux/recipes/operations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { LoaderSmall } from 'components/LoaderSmall/LoaderSmall';
+import toast from 'react-hot-toast';
 
 import {
   Container,
@@ -20,6 +20,7 @@ export const RecipePageHero = ({ recipe }) => {
   const { title, description, time, favorites, _id, owner } = recipe;
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
   const [inFavorites, setInFavorites] = useState(() => {
     favorites.includes(user._id);
@@ -29,11 +30,29 @@ export const RecipePageHero = ({ recipe }) => {
   const handleAdd = () => {
     dispatch(addToFavorites(_id));
     setInFavorites(true);
+    if (!error) {
+      toast.success('Recipe is added to favorites', {
+        duration: 2000,
+      });
+    } else {
+      toast.error('Something is wrong. try again later', {
+        duration: 2000,
+      });
+    }
     return;
   };
   const handleRemove = () => {
     dispatch(removeFromFavorites(_id));
     setInFavorites(false);
+    if (!error) {
+      toast.success('Recipe is removed from favorites', {
+        duration: 2000,
+      });
+    } else {
+      toast.error('Something is wrong. try again later', {
+        duration: 2000,
+      });
+    }
 
     return;
   };

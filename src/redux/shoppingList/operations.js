@@ -15,9 +15,11 @@ export const fetchShoppingList = createAsyncThunk(
 
 export const addIngredientToShoppingList = createAsyncThunk(
   'shoppingList/addIngredientToShoppingList',
-  async (result, thunkAPI) => {
+  async ({ id, measure }, thunkAPI) => {
     try {
-      const response = await axios.post('/shopping-list', result);
+      const response = await axios.post(
+        `/shopping-list/${id}?measure=${measure}`
+      );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -27,9 +29,13 @@ export const addIngredientToShoppingList = createAsyncThunk(
 
 export const deleteIngredientFromShoppingList = createAsyncThunk(
   'shoppingList/deleteIngredientFromShoppingList',
-  async (id, thunkAPI) => {
+  async ({ id, measure }, thunkAPI) => {
+    console.log('________________id - createAsyncThunk', id);
     try {
-      const response = await axios.delete(`/shopping-list/${id}`);
+      const response = await axios.delete(
+        `/shopping-list/${id}?measure=${measure}`
+      );
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -8,8 +8,6 @@ import {
   fetchSearchRecipes,
 } from './operations';
 
-
-
 const initialState = {
   items: [],
   popular: null,
@@ -62,7 +60,8 @@ const recipesSlice = createSlice({
       .addCase(removeFromFavorites.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      }).addCase(fetchRecipesMainPage.fulfilled, (state, action) => {
+      })
+      .addCase(fetchRecipesMainPage.fulfilled, (state, action) => {
         state.popular = action.payload;
         state.isLoading = false;
         state.error = null;
@@ -73,6 +72,7 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipesMainPage.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
       .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
         state.items = action.payload[0].recipeData;
         state.isLoading = false;
@@ -89,4 +89,3 @@ const recipesSlice = createSlice({
 });
 
 export const recipesReducer = recipesSlice.reducer;
-

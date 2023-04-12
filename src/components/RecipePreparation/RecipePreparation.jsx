@@ -1,7 +1,6 @@
 import { nanoid } from 'nanoid';
 import {
   ImageBlock,
-  PreparationWrapper,
   InstructionWrapper,
   InstructionList,
   InstructionText,
@@ -43,11 +42,3 @@ export const RecipePreparation = ({ recipe }) => {
     </Container>
   );
 };
-// const items =
-//     instructions.includes('1)') || instructions.includes('1.', '2.')|| instructions.includes('step');
-
-//   console.log(items);
-//   if (items) {
-//     items.split('.');
-//     if(items[items.length - 1] ==='')
-//   }
