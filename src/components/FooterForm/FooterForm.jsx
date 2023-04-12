@@ -4,14 +4,12 @@ import { object, string } from 'yup';
 import {
   SearchForm,
   Input,
-  Error,
   IconMail,
   InputContainer,
 } from './FooterForm.styled';
 import { Box } from '../Box';
 import { Button } from '../Button';
-import logoMail from 'images/mail/mail.svg';
-
+// import logoMail from 'images/mail/mail.svg';
 
 // const placeHolder = () => {
 //   return (
@@ -22,7 +20,7 @@ import logoMail from 'images/mail/mail.svg';
 //   );
 // };
 
-const Mail = <img src={logoMail} alt="mail" />;
+// const Mail = <img src={logoMail} alt="mail" />;
 
 // const holder = `${FiMail} Enter your email address`;
 
