@@ -1,6 +1,7 @@
 import { useMedia } from 'hooks/useMedia';
 import { SearchItem } from "components/SearchFragments/SearchItem";
-import { ListCategories, ListCard, ButtonCard, ButtonDown, LinkRecipe, Categoty,LinkDown } from './PreviewCategories.styled';
+import { ListCategories, ListCard, ButtonSeeAll, ButtonDown, LinkRecipe, Categoty, LinkDown, Wrap } from './PreviewCategories.styled';
+import { Link } from 'react-router-dom'; 
 
 export const PreviewCategories = ({recipes}) => {
   const { isMobile, isTablet } = useMedia();
@@ -25,18 +26,18 @@ export const PreviewCategories = ({recipes}) => {
                 <Categoty>{category}</Categoty>  
                 <ListCard>
                   {recipesPopular.slice(0, numCard).map(({_id, title,  thumb}) => {
-                    return (
-                      
-                        <li key={_id}>
-                          <LinkRecipe to={`/recipe/${_id}`}>
+                    return (              
+                        <LinkRecipe  key={_id}>
+                          <Link to={`/recipe/${_id}`}>
                           <SearchItem title={title} img={thumb}/>
-                          </LinkRecipe>
-                        </li>
-                      
+                          </Link>
+                        </LinkRecipe>  
                     );
                   })}
                 </ListCard>
-                  <ButtonCard to={`/categories/${recipes[category].category}`}>See all</ButtonCard>
+                <Wrap>
+                <ButtonSeeAll to={`/categories/${recipes[category].category}`}>See all</ButtonSeeAll>
+                </Wrap>
               </li>
             );
           })

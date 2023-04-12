@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom'; 
 
 export const ListCategories = styled.ul`
-// min-width: max-content;
-
 width: 100%;
+
 display: flex;
 justify-content: start;
 flex-direction: column;
@@ -31,8 +30,6 @@ font-size: ${p => p.theme.fontSizes.xl};
 `;
 
 export const ListCard = styled.ul`
-// justify-content: center;
-
 width: 100%;
 margin-bottom: ${p => p.theme.spacing(20)};
 display: flex;
@@ -43,12 +40,13 @@ gap: ${p => p.theme.spacing(0)};
   margin-bottom: ${p => p.theme.spacing(20)};
   gap: ${p => p.theme.spacing(16)};
 }
+
 @media screen and (${p => p.theme.media.large}) {
   margin-bottom:${p => p.theme.spacing(25)};
   gap: ${p => p.theme.spacing(7)};
 }`
 
-export const LinkRecipe = styled(Link)`
+export const LinkRecipe = styled.div`
 width: ${p => p.theme.spacing(171.5)};
 
 @media screen and (${p => p.theme.media.medium}) {
@@ -59,11 +57,11 @@ width: ${p => p.theme.spacing(171.5)};
  width: ${p => p.theme.spacing(150)};
 }`;
 
-export const ButtonCardLink = styled(Link)``
+export const Wrap = styled.div`
+text-align: right;
+`
 
-export const ButtonCard = styled(Link)`
-margin-left: 239px;
-
+export const ButtonSeeAll = styled(Link)`
 font-family: inherit;
 padding:${p => p.theme.spacing(5)} ${p => p.theme.spacing(12)};
 border-radius: ${p => p.theme.radii.light};
@@ -77,16 +75,6 @@ cursor: pointer;
 &:focus {
   border-color: ${p => p.theme.colors.btnDarckBgColor};
   background-color: ${p => p.theme.colors.btnDarckBgColor};
-}
-
-@media screen and (${p => p.theme.media.medium})  {
-  float: none;
-  margin-left: 606px;
-}
-
-@media screen and (${p => p.theme.media.large}){
-  float: none;
-  margin-left: 1142px;
 }`
 
 export const LinkDown = styled(Link)`
@@ -95,8 +83,7 @@ text-align: center;`
 
 export const ButtonDown = styled.button`
 margin-top: 40px;
-margin-bottom: 82
-px;
+margin-bottom: 82px;
 
 padding: ${p => p.theme.spacing(5)} ${p => p.theme.spacing(11)};
 
