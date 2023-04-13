@@ -56,7 +56,7 @@ export const AppBar = () => {
         display="flex"
         width={'100%'}
         justifyContent="space-between"
-        py={{ xs: '3px', lg: '18px' }}
+        py={{ xs: 3, lg: 18 }}
         px={{ xs: 16, md: 32, lg: 100 }}
       >
         <Box
