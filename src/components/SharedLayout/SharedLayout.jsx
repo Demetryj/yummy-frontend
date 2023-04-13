@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast';
 export const SharedLayout = () => {
   return (
     <>
+      <AppBar />
       <Box
         display="grid"
         gridTemplateRows="46x 1fr"
@@ -16,7 +17,6 @@ export const SharedLayout = () => {
         px={{ xs: 16, md: 32, lg: 100 }}
         py={{ xs: 18 }}
       >
-        <AppBar />
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
