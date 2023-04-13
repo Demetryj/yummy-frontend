@@ -234,16 +234,16 @@ export const Image = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
+export const WrapperRegister = styled.div`
   max-width: ${p => p.theme.spacing(573)};
   margin-left: auto;
   margin-right: auto;
-  margin-top: ${p => p.theme.spacing(43)};
+  padding-top: ${p => p.theme.spacing(43)};
   @media screen and ${p => p.theme.media.medium} {
-    margin-top: ${p => p.theme.spacing(48)};
+    padding-top: ${p => p.theme.spacing(48)};
   }
   @media screen and ${p => p.theme.media.large} {
-    margin-top: ${p => p.theme.spacing(77)};
+    padding-top: ${p => p.theme.spacing(77)};
     display: flex;
     gap: ${p => p.theme.spacing(57)};
   }
