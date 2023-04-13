@@ -19,8 +19,6 @@ export const SearchedRecipesList = ({ type }) => {
   const recipes =
     type === 'title' ? selectedRecipes : selectedRecipesByIngredient;
 
-  console.log('recipes in SearchList:', recipes);
-
   const navigate = useNavigate();
 
   const onClick = id => navigate(`/recipe/${id}`, { replace: true });

@@ -40,19 +40,6 @@ const recipesSlice = createSlice({
         state.error = action.payload;
       })
 
-      .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
-        state.items = action.payload;
-        state.isLoading = false;
-        state.error = null;
-      })
-      .addCase(fetchSearchRecipes.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(fetchSearchRecipes.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-
       .addCase(getRecipeById.fulfilled, (state, action) => {
         state.items = action.payload;
         state.isLoading = false;
@@ -118,18 +105,18 @@ const recipesSlice = createSlice({
       //   state.error = action.payload;
       // })
 
-      // .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
-      //   state.items = action.payload[0].recipeData;
-      //   state.isLoading = false;
-      //   state.error = null;
-      // })
-      // .addCase(fetchSearchRecipes.pending, state => {
-      //   state.isLoading = true;
-      // })
-      // .addCase(fetchSearchRecipes.rejected, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = action.payload;
-      // })
+      .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
+        state.items = action.payload[0].recipeData;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(fetchSearchRecipes.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchSearchRecipes.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
 
       .addCase(fetchCategoriesList.fulfilled, (state, action) => {
         state.categories = action.payload;

@@ -24,6 +24,7 @@ export const SearchBar = ({
         position: 'top-center',
       });
     handleOnSubmit(value.trim().toLowerCase(), searchType);
+    localStorage.setItem('query', value);
   };
 
   const onInputChange = e => setValue(e.target.value);
