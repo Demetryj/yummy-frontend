@@ -1,21 +1,19 @@
 import styled from 'styled-components';
 
-
-
 export const Image = styled.img`
   border-radius: 2px;
   padding: 40px;
   width: 124px;
-  heigth: 124px;
-        @media screen and ${(p) => p.theme.media.medium} {
-            width: 228px;
-            heigth: 232px;
-        }
-    
-        @media screen and ${(p) => p.theme.media.large} {
-             width: 318px;
-             heigth: 324px;
-        }
+  height: 124px;
+  @media screen and ${p => p.theme.media.medium} {
+    width: 228px;
+    height: 232px;
+  }
+
+  @media screen and ${p => p.theme.media.large} {
+    width: 318px;
+    height: 324px;
+  }
 `;
 
 export const Card = styled.div`
@@ -23,26 +21,26 @@ export const Card = styled.div`
   background-color: ${p => p.theme.colors.whiteColor};
   width: 343px;
   heigth: 152px;
-        @media screen and ${(p) => p.theme.media.medium} {
-            width: 704px;
-            heigth: 288px;
-        }
-    
-        @media screen and ${(p) => p.theme.media.large} {
-             width: 1240px;
-             heigth: 404px;
-        }
+  @media screen and ${p => p.theme.media.medium} {
+    width: 704px;
+    heigth: 288px;
+  }
+
+  @media screen and ${p => p.theme.media.large} {
+    width: 1240px;
+    heigth: 404px;
+  }
 `;
 
 export const Information = styled.div`
-margin: 14px 0px;
-        @media screen and ${(p) => p.theme.media.medium} {
-            margin: 28px 0px;
-        }
-    
-        @media screen and ${(p) => p.theme.media.large} {
-            margin: 40px 0px;
-        }
+  margin: 14px 0px;
+  @media screen and ${p => p.theme.media.medium} {
+    margin: 28px 0px;
+  }
+
+  @media screen and ${p => p.theme.media.large} {
+    margin: 40px 0px;
+  }
 `;
 
 export const Title = styled.h3`
@@ -52,13 +50,13 @@ export const Title = styled.h3`
   line-height: 2.4;
   color: ${p => p.theme.colors.middleGreyTextColor};
   font-size: ${p => p.theme.fontSizes.s};
-        @media screen and ${(p) => p.theme.media.medium} {
-            font-size: ${p => p.theme.fontSizes.l};
-        }
-    
-        @media screen and ${(p) => p.theme.media.large} {
-            font-size: ${p => p.theme.fontSizes.l};
-        }
+  @media screen and ${p => p.theme.media.medium} {
+    font-size: ${p => p.theme.fontSizes.l};
+  }
+
+  @media screen and ${p => p.theme.media.large} {
+    font-size: ${p => p.theme.fontSizes.l};
+  }
 `;
 
 export const Paragraph = styled.p`
@@ -69,18 +67,18 @@ export const Paragraph = styled.p`
   font-size: 8px;
   line-height: 10px;
   letter-spacing: -0.02em;
-        @media screen and ${(p) => p.theme.media.medium} {
-            width: 298px;
-            margin-top: 28px;
-            font-size: ${p => p.theme.fontSizes.s};
-            line-height: 18px;
-        }
-        @media screen and ${(p) => p.theme.media.large} {
-            width: 679px;
-            margin-top: 40px;
-            font-size: ${p => p.theme.fontSizes.xm};
-            line-height: 24px;
-        }
+  @media screen and ${p => p.theme.media.medium} {
+    width: 298px;
+    margin-top: 28px;
+    font-size: ${p => p.theme.fontSizes.s};
+    line-height: 18px;
+  }
+  @media screen and ${p => p.theme.media.large} {
+    width: 679px;
+    margin-top: 40px;
+    font-size: ${p => p.theme.fontSizes.xm};
+    line-height: 24px;
+  }
 `;
 
 export const List = styled.ul`
@@ -98,4 +96,3 @@ export const Item = styled.li`
 export const Button = styled.button`
   cursor: pointer;
 `;
-

@@ -6,14 +6,8 @@ const Categories = () => {
   return (
     <main>
       <Title title="Categories" />
-      <div
-        style={{
-          position: 'relative',
-        }}
-      >
-        <CategoriesList />
-        <RecipesPhotosList />
-      </div>
+      <CategoriesList />
+      <RecipesPhotosList />
     </main>
   );
 };

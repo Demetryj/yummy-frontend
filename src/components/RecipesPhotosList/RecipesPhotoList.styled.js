@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const ImageItem = styled.li`
+export const ImageItemLink = styled(NavLink)`
   position: relative;
 `;
 export const Image = styled.img`
@@ -29,11 +30,12 @@ export const Lable = styled.div`
 `;
 
 export const PhotosList = styled.ul`
-  margin: 0;
+  margin: 0 auto;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(343px, 1fr));
   gap: 28px;
+  max-width: 100%;
   &:first-child {
     padding-top: 50px;
   }
@@ -42,12 +44,9 @@ export const PhotosList = styled.ul`
   }
 
   @media screen and ${p => p.theme.media.medium} {
-    gap: 14px;
-    padding-bottom: 150px;
+    gap: 32px;
+    padding: 50px 0 150px 0;
     max-width: 768px;
-    & > li {
-      padding: 50px 0;
-    }
   }
 
   @media screen and ${p => p.theme.media.large} {
