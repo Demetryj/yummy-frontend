@@ -6,17 +6,10 @@ import welcomeTablet2x from 'images/welcomePage/welcome-tablet@2x.jpg';
 import welcomeDask from 'images/welcomePage/welcome-desk.jpg';
 import welcomeDask2x from 'images/welcomePage/welcome-desk@2x.jpg';
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding: ${p => p.theme.spacing(137)} ${p => p.theme.spacing(16)}
-    ${p => p.theme.spacing(130)};
-  width: 375px;
-  height: 100vh;
+export const Section = styled.section`
+  /* width: 100vw;
+  height: 100vh; */
+
   background-image: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.6) 58.58%,
@@ -24,7 +17,7 @@ export const Container = styled.div`
       rgba(0, 0, 0, 0) 100%
     ),
     url(${welcomeMob});
-  background-size: cover;
+
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -37,9 +30,11 @@ export const Container = styled.div`
       ),
       url(${welcomeMob2x});
   }
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
   @media screen and ${p => p.theme.media.medium} {
-    padding: ${p => p.theme.spacing(171)} ${p => p.theme.spacing(62)};
-    width: 768px;
     background-image: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.6) 58.58%,
@@ -47,6 +42,7 @@ export const Container = styled.div`
         rgba(0, 0, 0, 0) 100%
       ),
       url(${welcomeTablet});
+
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -59,10 +55,7 @@ export const Container = styled.div`
         ),
         url(${welcomeTablet2x});
     }
-  }
-  @media screen and ${p => p.theme.media.large} {
-    padding: ${p => p.theme.spacing(107.5)} ${p => p.theme.spacing(220)};
-    width: 1440px;
+
     background-image: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.6) 58.58%,
@@ -82,6 +75,28 @@ export const Container = styled.div`
         ),
         url(${welcomeDask2x});
     }
+  }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: ${p => p.theme.spacing(137)} ${p => p.theme.spacing(16)}
+    ${p => p.theme.spacing(130)};
+  width: 375px;
+  height: 100vh;
+
+  @media screen and ${p => p.theme.media.medium} {
+    padding: ${p => p.theme.spacing(171)} ${p => p.theme.spacing(62)};
+    width: 768px;
+  }
+  @media screen and ${p => p.theme.media.large} {
+    padding: ${p => p.theme.spacing(107.5)} ${p => p.theme.spacing(220)};
+    width: 1440px;
   }
 `;
 
