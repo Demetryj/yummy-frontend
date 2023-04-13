@@ -1,5 +1,4 @@
 import { useMedia } from 'hooks/useMedia';
-// import { SearchItem } from 'components/SearchFragments/SearchItem';
 import { Link } from 'react-router-dom';
 import {
   ListCategory,
@@ -11,7 +10,7 @@ import {
   LinkDown,
   Wrap,
 } from './PreviewCategories.styled';
-// import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
+import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
 
 export const PreviewCategories = ({ recipes }) => {
   const { isMobile, isTablet } = useMedia();
@@ -40,7 +39,7 @@ export const PreviewCategories = ({ recipes }) => {
                     return (
                       <WrapRecipe key={_id}>
                         <Link to={`/recipe/${_id}`}>
-                          {/* <SearchItem title={title} img={thumb} /> */}
+                          <SearchedRecipesItem title={title} img={thumb} />
                         </Link>
                       </WrapRecipe>
                     );
