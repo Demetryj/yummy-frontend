@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import RegisterPage from 'pages/Register';
 import SigninPage from 'pages/Signin';
 import WelcomePage from 'pages/Welcome';
-import { SharedLayout } from 'components/SharedLayout';
+import { SharedLayout } from 'components/SharedLayout/SharedLayout';
 import { PrivateRoute, RestrictedRoute } from 'service/routes';
 
 import { useDispatch } from 'react-redux';

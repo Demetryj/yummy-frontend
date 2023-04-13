@@ -24,12 +24,10 @@ const Recipe = () => {
   }, [dispatch, recipeId]);
   return (
     <>
-      <main>
-        {recipe && <RecipePageHero recipe={recipe} />}
-        {recipe && <RecipeIngredientList recipe={recipe} />}
-        {recipe && <RecipePreparation recipe={recipe} />}
-        {isLoading && !error && !recipe && <Loader />}
-      </main>
+      {recipe && <RecipePageHero recipe={recipe} />}
+      {recipe && <RecipeIngredientList recipe={recipe} />}
+      {recipe && <RecipePreparation recipe={recipe} />}
+      {isLoading && !error && !recipe && <Loader />}
     </>
   );
 };

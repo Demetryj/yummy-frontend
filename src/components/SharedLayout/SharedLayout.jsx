@@ -4,6 +4,7 @@ import { AppBar } from 'components/AppBar';
 import { Footer } from 'components/Footer';
 import { Box } from 'components/Box';
 import { Toaster } from 'react-hot-toast';
+import { MainWrapper } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   return (
@@ -17,9 +18,11 @@ export const SharedLayout = () => {
         py={{ xs: 18 }}
       >
         <AppBar />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Outlet />
-        </Suspense>
+        <MainWrapper style={{ minHeight: '100vh' }}>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
+        </MainWrapper>
       </Box>
       <Footer />
       <Toaster />
