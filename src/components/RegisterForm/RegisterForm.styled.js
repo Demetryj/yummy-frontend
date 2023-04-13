@@ -124,16 +124,14 @@ export const LinkStyled = styled(Link)`
   text-align: center;
   text-decoration: underline;
   color: ${p => p.theme.colors.whiteTextColor};
-  /* transform: translate(98px, ${p => p.theme.spacing(33)}); */
   left: 50%;
-  transform: translate(-50%, 66px);
+  transform: translate(-50%, ${p => p.theme.spacing(33)});
   :hover {
     color: ${p => p.theme.colors.greenBgColor};
   }
   @media screen and ${p => p.theme.media.medium} {
     font-size: ${p => p.theme.fontSizes.m};
     line-height: ${p => p.theme.spacing(12)};
-    /* transform: translate(150px, ${p => p.theme.spacing(33)}); */
   }
 `;
 
@@ -246,7 +244,7 @@ export const WrapperRegister = styled.div`
   @media screen and ${p => p.theme.media.medium} {
     padding-top: ${p => p.theme.spacing(48)};
   }
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     padding-top: ${p => p.theme.spacing(77)};
     display: flex;
     align-items: center;
