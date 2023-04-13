@@ -68,7 +68,9 @@ export const AppBar = () => {
           borderRadius={12}
           bg="greenBgColor"
         >
-          <NavItem to={'/'}>{<img src={logoDark} alt="logoDark" />}</NavItem>
+          <NavItem to={'/main'}>
+            {<img src={logoDark} alt="logoDark" />}
+          </NavItem>
         </Box>
         <Box
           as="nav"
@@ -160,7 +162,7 @@ export const AppBar = () => {
                 borderRadius={12}
                 bg="greenBgColor"
               >
-                <NavItem to={'/'}>
+                <NavItem to={'/main'}>
                   {<img src={logoDark} alt="logoDark" />}
                 </NavItem>
               </Box>
