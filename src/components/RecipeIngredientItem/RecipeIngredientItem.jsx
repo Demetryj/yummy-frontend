@@ -2,17 +2,23 @@ import {
   RecipeContainer,
   ImageBlock,
   Label,
-  TextContainer,
+  // TextContainer,
   IngName,
-  IngDescr,
+  // IngDescr,
   IngQuantity,
   CustomCheckbox,
   RealCheckbox,
 } from './RecipeIngredientItem.styled';
 import sprite from '../../images/symbol-defs.svg';
-import { getPoster } from 'utils/getPlugImageIngredient';
+// import { getPoster } from 'utils/getPlugImageIngredient';
 export const RecipeIngredientItem = ({ ingredient }) => {
-  const { thb, ttl, measure, _id, desc } = ingredient;
+  const {
+    thb,
+    ttl,
+    measure,
+    // _id,
+    // desc
+  } = ingredient;
 
   return (
     <RecipeContainer>

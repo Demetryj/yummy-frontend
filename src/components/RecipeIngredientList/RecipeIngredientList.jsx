@@ -5,7 +5,7 @@ import {
   Label,
   InngredientsList,
 } from './RecipeIngredientList.styled';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { RecipeIngredientItem } from 'components/RecipeIngredientItem/RecipeIngredientItem';
 export const RecipeIngredientList = ({ recipe }) => {
   const { ingredients } = recipe;

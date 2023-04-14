@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+
 export const IngredientsContainet = styled.div`
   max-width: ${p => p.theme.spacing(175)};
   padding-bottom: ${p => p.theme.spacing(22)};
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     max-width: ${p => p.theme.spacing(350)};
   }
 
@@ -32,7 +33,7 @@ export const IngListSetting = styled.div`
   justify-content: space-between;
   padding-bottom: ${p => p.theme.spacing(12)};
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     padding-bottom: ${p => p.theme.spacing(16)};
   }
 `;
@@ -51,34 +52,34 @@ export const FlexContainer = styled.div`
 export const SelectCustomisation = styled.div`
   width: ${p => p.theme.spacing(100)};
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     width: ${p => p.theme.spacing(200)};
   }
 `;
 
 export const Input = styled.input`
   max-width: 50px;
-  height: 100%;
   border: ${p=>p.theme.borders.none};
   text-align: end;
-  padding: ${p => p.theme.spacing(2.5)};
   height: ${p => p.theme.spacing(25)};
   border-radius: 6px 0 0 6px;
   background-color: ${p => p.theme.colors.inputBgColor};
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     height: ${p => p.theme.spacing(30)};
   }
 `;
 
 export const SelectUnit = styled.select`
+  max-width: 60px;
+
   border: ${p=>p.theme.borders.none};
   height: ${p => p.theme.spacing(25)};
   padding: ${p => p.theme.spacing(2.5)};
   border-radius: 0 6px 6px 0;
   background-color: ${p => p.theme.colors.inputBgColor};
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     height: ${p => p.theme.spacing(30)};
   }
 `;

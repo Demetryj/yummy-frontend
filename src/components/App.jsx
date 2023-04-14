@@ -4,7 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import RegisterPage from 'pages/Register';
 import SigninPage from 'pages/Signin';
 import WelcomePage from 'pages/Welcome';
-import { SharedLayout } from 'components/SharedLayout';
+import { SharedLayout } from 'components/SharedLayout/SharedLayout';
+import { PrivateRoute, RestrictedRoute } from 'service/routes';
 
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
@@ -37,12 +38,31 @@ export const App = () => {
   ) : (
     <Routes>
       <>
-        {/* <Route path="/" element={<WelcomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/signin" element={<SigninPage />} /> */}
+        <Route
+          path="/"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<WelcomePage />} />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <RestrictedRoute redirectTo="/main" component={<SigninPage />} />
+          }
+        />
       </>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<MainPage />} />
+
+      <Route
+        path="/"
+        element={<PrivateRoute redirectTo="/" component={<SharedLayout />} />}
+      >
+        <Route path="/main" element={<MainPage />} />
         <Route path="/categories" element={<CategoriesPage />}>
           <Route path=":categoryName" element={<CategoryNamePage />} />
         </Route>

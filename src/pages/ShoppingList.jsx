@@ -12,10 +12,12 @@ const ShoppingList = () => {
   }, [dispatch]);
 
   return (
+
     <main>
       <MainTitle title="Shopping list" />
+
       <IngredientsShoppingList />
-    </main>
+    </>
   );
 };
 
