@@ -13,11 +13,8 @@ import {
 
 const initialState = {
   items: [],
-
   categories: [],
-
   popular: [],
-
   isLoading: false,
   error: null,
 };
@@ -92,18 +89,6 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-
-      // .addCase(getRecipesPopular.rejected, (state, action) => {
-      //   state;
-      // })
-
-      // .addCase(fetchRecipesMainPage.pending, state => {
-      //   state.isLoading = true;
-      // })
-      // .addCase(fetchRecipesMainPage.rejected, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = action.payload;
-      // })
 
       .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
         state.items = action.payload[0].recipeData;
