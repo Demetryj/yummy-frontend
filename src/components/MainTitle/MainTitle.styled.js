@@ -11,7 +11,7 @@ export const Title = styled.h3`
     font-size: ${p => p.theme.fontSizes.xxl};
   }
 
-  @media screen and( ${p => p.theme.media.large} ) {
+  @media screen and (${p => p.theme.media.large}) {
     font-size: ${p => p.theme.fontSizes.sb};
   }
 `;

@@ -1,21 +1,25 @@
-import { useSelector } from 'react-redux';
+import React from 'react';
 import { nanoid } from 'nanoid';
+import { useSelector } from 'react-redux';
+import { TbArrowBigUpLinesFilled } from 'react-icons/tb';
+import { Ingredient } from './Ingredient';
 import {
   selectShoppingList,
   selectError,
   selectIsLoading,
 } from 'redux/shoppingList/selectors';
-import { Ingredient } from './Ingredient';
 import {
   Container,
   Panel,
   PanelСontrol,
   Title,
   ShoppingList,
+  ClickToUp,
   IsEmptyImage,
   IsEmptyText,
   Wrapper,
 } from './IngredientsShoppingList.styled';
+import { MainTitle } from 'components/MainTitle/MainTitle';
 import { Loader } from 'components/Loader';
 
 export const IngredientsShoppingList = () => {
@@ -23,12 +27,22 @@ export const IngredientsShoppingList = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
+  function handlerScrollUp() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
+
   if (!shoppingList) {
     return;
   }
 
   return (
     <Container>
+      <MainTitle title="Shopping list" />
+
       <Panel>
         <Title>Products</Title>
         <PanelСontrol>
@@ -50,6 +64,9 @@ export const IngredientsShoppingList = () => {
               />
             );
           })}
+          <ClickToUp onClick={handlerScrollUp}>
+            <TbArrowBigUpLinesFilled size={50} />
+          </ClickToUp>
         </ShoppingList>
       )}
 
