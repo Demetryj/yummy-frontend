@@ -43,7 +43,7 @@ gap: ${p => p.theme.spacing(0)};
 
 @media screen and (${p => p.theme.media.large}) {
   margin-bottom:${p => p.theme.spacing(25)};
-  gap: ${p => p.theme.spacing(7)};
+  gap: ${p => p.theme.spacing(6.5)};
 }`
 
 export const WrapRecipe = styled.div`

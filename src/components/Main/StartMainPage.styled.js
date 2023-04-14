@@ -7,9 +7,11 @@ import plateImgDesk from 'images/mainPage/mainpage1x_desk.png';
 import plateImgDesk2 from 'images/mainPage/mainpage2x_desk.png';
 
 export const ContainerHero = styled.div`
-  // padding: 0 16px; // прописано в SharedLayout, але чомусь не спрацьовує для ContainerHero
-
+  padding: 0 16px; // прописано в SharedLayout, але чомусь не спрацьовує для ContainerHero
   width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: -1; // нужен ли?
   background-image: url(${plateImgMob});
   background-repeat: no-repeat;
   background-position: center;
@@ -27,7 +29,7 @@ export const ContainerHero = styled.div`
     }
 
   @media (${p => p.theme.media.medium}) {
-    // padding: 0 32px; // прописано в SharedLayout, але чомусь не спрацьовує для ContainerHero
+    padding: 0 32px; // прописано в SharedLayout, -||-
 
     background-image: url(${plateImgTab});
     height: ${p => p.theme.spacing(320)};
@@ -42,7 +44,7 @@ export const ContainerHero = styled.div`
   }
 
   @media (${p => p.theme.media.large}) {
-    // padding: 0 100px; // прописано в SharedLayout, але чомусь не спрацьовує для ContainerHero
+    padding: 0 100px; // прописано в SharedLayout, -||-
 
     background-image: url(${plateImgDesk});
     height: ${p => p.theme.spacing(400)};
@@ -58,9 +60,8 @@ export const ContainerHero = styled.div`
 
   export const ContainerPreviewCategories = styled.div`
   // padding: 0px 16px; // прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
-  
+  padding-top: ${p => p.theme.spacing(419)};
   width: 100%;
- 
   @media screen and (${p => p.theme.media.medium}) {
   // padding: 0 32px; // прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
   }
@@ -76,6 +77,11 @@ export const MainBox = styled.div`
     flex-wrap: wrap;
     justify-content: flex-start;
   }
+
+  @media (min-width: 1153px){
+    margin-right: ${p => p.theme.spacing(350)};
+  }
+  
 
   @media (${p => p.theme.media.large}) {
     margin-right: ${p => p.theme.spacing(415)};

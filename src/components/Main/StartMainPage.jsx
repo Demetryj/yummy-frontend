@@ -32,7 +32,7 @@ export const StartMainPage = () => {
           <ContainerHero>
             <MainBox>
               <TextMain><Selected>So</Selected>Yummy</TextMain>
-              <TextSub>"What to cook?" is not only a recipe app, it is, in fact, your cookbook. You can add your own recipes to save them for the future.</TextSub>  
+              <TextSub>"What to cook?" is not only a recipe app, it is, in fact, <br/> your cookbook. You can add your own recipes to <br/> save them for the future.</TextSub>  
               <СhooseYourBreakfast/>
               <Search/>
             </MainBox>
