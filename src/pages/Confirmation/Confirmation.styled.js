@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Main = styled.main`
+export const Section = styled.section`
   padding: ${p => p.theme.spacing(50)} ${p => p.theme.spacing(29)};
   text-align: center;
 

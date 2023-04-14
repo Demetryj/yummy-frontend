@@ -11,6 +11,7 @@ import { MainTitle } from 'components/MainTitle/MainTitle';
 import { SearchBar } from 'components/SearchBar';
 import { Loader } from 'components/Loader';
 import { SearchedRecipesList } from 'components/SearchedRecipesList';
+import { ListSection, SearchSection } from './Search.styled';
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -44,17 +45,21 @@ const Search = () => {
 
   return (
     <>
-      <MainTitle title="Search" />
-      <SearchBar
-        handleOnSubmit={handleOnSubmit}
-        searchQuery={searchQuery}
-        searchType={searchType}
-      />
-      {ingredientsAreLoading || ingredientsByRecipesAreLoading ? (
-        <Loader />
-      ) : (
-        <SearchedRecipesList type={searchType} />
-      )}
+      <SearchSection>
+        <MainTitle title="Search" />
+        <SearchBar
+          handleOnSubmit={handleOnSubmit}
+          searchQuery={searchQuery}
+          searchType={searchType}
+        />
+      </SearchSection>
+      <ListSection>
+        {ingredientsAreLoading || ingredientsByRecipesAreLoading ? (
+          <Loader />
+        ) : (
+          <SearchedRecipesList type={searchType} />
+        )}
+      </ListSection>
     </>
   );
 };
