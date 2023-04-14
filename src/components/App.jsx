@@ -19,7 +19,7 @@ const MyRecipesPage = React.lazy(() => import('pages/MyRecipes'));
 const FavoritesPage = React.lazy(() => import('pages/Favorites'));
 const RecipesPage = React.lazy(() => import('pages/Recipe'));
 const ShoppingListPage = React.lazy(() => import('pages/ShoppingList'));
-const SearchPage = React.lazy(() => import('pages/Search'));
+const SearchPage = React.lazy(() => import('pages/Search/Search'));
 const ErrorPage = React.lazy(() => import('pages/404/Error'));
 const ConfirmationPage = React.lazy(() =>
   import('pages/Confirmation/Confirmation')

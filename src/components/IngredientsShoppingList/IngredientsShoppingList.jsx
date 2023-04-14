@@ -7,11 +7,16 @@ import {
 } from 'redux/shoppingList/selectors';
 import { Ingredient } from './Ingredient';
 import {
+  Container,
   Panel,
   PanelСontrol,
   Title,
   ShoppingList,
+  IsEmptyImage,
+  IsEmptyText,
+  Wrapper,
 } from './IngredientsShoppingList.styled';
+import { Loader } from 'components/Loader';
 
 export const IngredientsShoppingList = () => {
   const shoppingList = useSelector(selectShoppingList);
@@ -23,7 +28,7 @@ export const IngredientsShoppingList = () => {
   }
 
   return (
-    <>
+    <Container>
       <Panel>
         <Title>Products</Title>
         <PanelСontrol>
@@ -34,7 +39,7 @@ export const IngredientsShoppingList = () => {
 
       {shoppingList.length > 0 && !error && (
         <ShoppingList>
-          {shoppingList.map(({ productId: id, title, thumb, measure }, idx) => {
+          {shoppingList.map(({ productId: id, title, thumb, measure }) => {
             return (
               <Ingredient
                 key={nanoid()}
@@ -48,11 +53,13 @@ export const IngredientsShoppingList = () => {
         </ShoppingList>
       )}
 
-      {!isLoading && shoppingList.length === 0 && (
-        <p style={{ textAlign: 'center', fontSize: 30 }}>
-          Shopping list is empty 🤔
-        </p>
+      {isLoading && <Loader />}
+      {shoppingList.length <= 0 && !isLoading && !error && (
+        <Wrapper>
+          <IsEmptyImage />
+          <IsEmptyText>Shopping list is empty...</IsEmptyText>
+        </Wrapper>
       )}
-    </>
+    </Container>
   );
 };

@@ -13,7 +13,8 @@ const ShoppingList = () => {
 
   return (
     <>
-      <MainTitle title="ShoppingList Page" />
+      <MainTitle title="Shopping list" />
+
       <IngredientsShoppingList />
     </>
   );
