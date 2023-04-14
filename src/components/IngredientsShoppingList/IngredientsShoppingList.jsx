@@ -1,27 +1,35 @@
-import { useSelector } from 'react-redux';
+import React from 'react';
 import { nanoid } from 'nanoid';
+import { useSelector } from 'react-redux';
+import { TbArrowBigUpLinesFilled } from 'react-icons/tb';
+import { Ingredient } from './Ingredient';
 import {
   selectShoppingList,
   selectError,
   selectIsLoading,
 } from 'redux/shoppingList/selectors';
-import { Ingredient } from './Ingredient';
 import {
   Container,
   Panel,
   PanelСontrol,
   Title,
   ShoppingList,
-  IsEmptyImage,
-  IsEmptyText,
-  Wrapper,
+  ClickToUp,
 } from './IngredientsShoppingList.styled';
-import { Loader } from 'components/Loader';
+import { MainTitle } from 'components/MainTitle/MainTitle';
 
 export const IngredientsShoppingList = () => {
   const shoppingList = useSelector(selectShoppingList);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+
+  function handlerScrollUp() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
 
   if (!shoppingList) {
     return;
@@ -29,6 +37,8 @@ export const IngredientsShoppingList = () => {
 
   return (
     <Container>
+      <MainTitle title="Shopping list" />
+
       <Panel>
         <Title>Products</Title>
         <PanelСontrol>
@@ -39,7 +49,7 @@ export const IngredientsShoppingList = () => {
 
       {shoppingList.length > 0 && !error && (
         <ShoppingList>
-          {shoppingList.map(({ productId: id, title, thumb, measure }) => {
+          {shoppingList.map(({ productId: id, title, thumb, measure }, idx) => {
             return (
               <Ingredient
                 key={nanoid()}
@@ -50,15 +60,16 @@ export const IngredientsShoppingList = () => {
               />
             );
           })}
+          <ClickToUp onClick={handlerScrollUp}>
+            <TbArrowBigUpLinesFilled size={50} />
+          </ClickToUp>
         </ShoppingList>
       )}
 
-      {isLoading && <Loader />}
-      {shoppingList.length <= 0 && !isLoading && !error && (
-        <Wrapper>
-          <IsEmptyImage />
-          <IsEmptyText>Shopping list is empty...</IsEmptyText>
-        </Wrapper>
+      {!isLoading && shoppingList.length === 0 && (
+        <p style={{ textAlign: 'center', fontSize: 30 }}>
+          Shopping list is empty 🤔
+        </p>
       )}
     </Container>
   );

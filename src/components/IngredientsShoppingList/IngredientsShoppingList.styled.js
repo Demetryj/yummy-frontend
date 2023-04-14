@@ -1,17 +1,9 @@
-import styled from 'styled-components';
-import PlugIsEmptyDesktop from 'images/searchPage/search_desk_tab@2x.png';
-import PlugIsEmptyMobile from 'images/searchPage/search_mob@2x.png';
+import styled, { keyframes } from 'styled-components';
+import { bounce } from 'react-animations';
 
 export const Container = styled.div`
-  padding: 0 16px;
-
-  @media screen and ${p => p.theme.media.medium} {
-    padding: 0 32px;
-  }
-
-  @media screen and ${p => p.theme.media.large} {
-    padding: 0 99px;
-  }
+  padding-top: 102px;
+  padding-bottom: 200px;
 `;
 
 export const Panel = styled.div`
@@ -56,6 +48,7 @@ export const Title = styled.div`
 `;
 
 export const ShoppingList = styled.ul`
+  position: relative;
   display: grid;
   text-align: center;
   grid-template-rows: repeat(5, 1fr);
@@ -70,37 +63,12 @@ export const ShoppingList = styled.ul`
   }
 `;
 
-export const Wrapper = styled.div`
-  margin-top: ${p => p.theme.spacing(25)};
-  @media screen and ${p => p.theme.media.medium} {
-    margin-top: ${p => p.theme.spacing(50)};
-  }
-`;
-
-export const IsEmptyText = styled.div`
-  font-size: ${p => p.theme.spacing(7)};
-  text-align: center;
-  font-weight: ${p => p.theme.fontWeights.medium};
-  line-height: 1;
-  letter-spacing: -0.02em;
-  margin-bottom: ${p => p.theme.spacing(50)};
-  opacity: 0.5;
-  @media screen and ${p => p.theme.media.medium} {
-    font-size: ${p => p.theme.spacing(12)};
-  }
-`;
-
-export const IsEmptyImage = styled.div`
-  width: ${p => p.theme.spacing(104)};
-  height: ${p => p.theme.spacing(66)};
-  margin: auto;
-  background-image: url(${PlugIsEmptyMobile});
-  background-size: contain;
-  margin-bottom: ${p => p.theme.spacing(16)};
-
-  @media screen and ${p => p.theme.media.medium} {
-    width: ${p => p.theme.spacing(208)};
-    height: ${p => p.theme.spacing(133)};
-    background-image: url(${PlugIsEmptyDesktop});
-  }
+export const ClickToUp = styled.button`
+  display: flex;
+  position: fixed;
+  bottom: ${p => p.theme.spacing(35)};
+  right: ${p => p.theme.spacing(15)};
+  color: ${p => p.theme.colors.greenColor};
+  background-color: transparent;
+  animation: 10s ${keyframes`${bounce}`} infinite;
 `;
