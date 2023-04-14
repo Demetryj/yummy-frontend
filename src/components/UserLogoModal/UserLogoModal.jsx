@@ -1,20 +1,19 @@
 import { createPortal } from 'react-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  toggleUserLogo,
-  toggleUserInfo,
-  toggleLogout,
-} from '../../redux/modal';
-import { Box } from '../Box';
+// import { useSelector, useDispatch } from 'react-redux';
+import // toggleUserLogo,
+// toggleUserInfo,
+// toggleLogout,
+'../../redux/modal';
+// import { Box } from '../Box';
 import {
   Backdrop,
   Content,
-  EditButton,
-  LogoutButton,
-  ButtonContainer,
-  Arrow,
+  // EditButton,
+  // LogoutButton,
+  // ButtonContainer,
+  // Arrow,
 } from './UserLogoModal.styled';
-import { HiOutlinePencil } from 'react-icons/hi';
+// import { HiOutlinePencil } from 'react-icons/hi';
 import { UserLogoContent } from '../UserLogoContent';
 
 const modalRoot = document.querySelector('#modal-root');

@@ -1,12 +1,16 @@
 import { Box } from '../Box';
-import { closeLogo, closeInfo } from '../../redux/modal';
+// import { closeLogo, closeInfo } from '../../redux/modal';
 import cross from '../../images/logo/cross-header.svg';
 import { FiUser } from 'react-icons/fi';
-import { Input, P, Button } from './UserProfileContent.styled';
+import {
+  // Input,
+  P,
+  Button,
+} from './UserProfileContent.styled';
 import { useDispatch } from 'react-redux';
 import { toggleUserInfo } from '../../redux/modal';
 
-const user = 'User';
+// const user = 'User';
 
 export const UserProfileContent = () => {
   const dispatch = useDispatch();

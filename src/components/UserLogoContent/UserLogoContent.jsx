@@ -1,4 +1,7 @@
-import { useSelector, useDispatch } from 'react-redux';
+import {
+  // useSelector,
+  useDispatch,
+} from 'react-redux';
 import {
   toggleUserLogo,
   toggleUserInfo,
@@ -6,8 +9,8 @@ import {
 } from '../../redux/modal';
 import { Box } from '../Box';
 import {
-  Backdrop,
-  Content,
+  // Backdrop,
+  // Content,
   EditButton,
   LogoutButton,
   ButtonContainer,
@@ -16,7 +19,7 @@ import {
 import { HiOutlinePencil } from 'react-icons/hi';
 
 export const UserLogoContent = () => {
-  const open = useSelector(state => state.modal.isUserLogoOpen);
+  // const open = useSelector(state => state.modal.isUserLogoOpen);
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserLogo());
 
