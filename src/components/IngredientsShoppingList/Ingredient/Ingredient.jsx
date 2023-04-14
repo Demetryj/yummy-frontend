@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { RxCross2 } from 'react-icons/rx';
 import { deleteIngredientFromShoppingList } from 'redux/shoppingList/operations';
 import defaultImage from 'images/plugs/apple 93x97@2x.png';
