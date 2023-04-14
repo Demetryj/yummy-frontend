@@ -10,7 +10,7 @@ import { createPortal } from 'react-dom';
 // import { Box } from '../Box';
 import { Backdrop, Content } from './UserInfoModal.styled';
 // import { HiOutlinePencil } from 'react-icons/hi';
-import { UserProfile } from '../UserProfile';
+import { UserProfileContent } from '../UserProfileContent';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -25,7 +25,7 @@ export const UserInfoModal = () => {
   return createPortal(
     <Backdrop>
       <Content>
-        <UserProfile />
+        <UserProfileContent />
       </Content>
     </Backdrop>,
     modalRoot

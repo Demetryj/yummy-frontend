@@ -57,7 +57,6 @@ export const App = () => {
           }
         />
       </>
-
       <Route path="/" element={<SharedLayout />}>
         <Route
           path="main"

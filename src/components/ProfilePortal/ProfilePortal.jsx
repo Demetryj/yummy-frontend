@@ -3,7 +3,7 @@ import ModalContext from '../../utils';
 import { Box } from '../Box';
 import { HiOutlinePencil } from 'react-icons/hi';
 import { P } from './ProfilePortal.styled';
-import { UserProfile } from '../UserProfile';
+import { UserProfile } from '../UserProfileContent';
 // import { ReactModal } from '../ReactModal';
 import {
   // useSelector,
