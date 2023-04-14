@@ -12,6 +12,8 @@ import {
   IconCheck,
   IconPass,
   LinkStyled,
+  WrapperRegister,
+  Image,
 } from '../RegisterForm/RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/auth/operations';
@@ -55,93 +57,98 @@ export const SigninForm = () => {
     <>
       {isLoading && <Loader />}
       <Container>
-        <FormBoxStyled>
-          <Formik
-            validationSchema={signinSchema}
-            initialValues={{
-              email: '',
-              password: '',
-            }}
-            onSubmit={handleSubmit}
-          >
-            {({ errors, values }) => (
-              <FormStyled autoComplete="off">
-                <Title>Signin</Title>
-                <FieldWrapperStyled>
-                  <FieldStyled
-                    name="email"
-                    type="email"
-                    placeholder="email"
-                    color={getColor(errors.email, values.email)}
-                  />
-                  <IconEmail color={getColor(errors.email, values.email)} />
-                  {values.email && (
-                    <>
-                      {errors.email && (
-                        <ErrorText color={getColor(errors.email, values.email)}>
-                          {errors.email}
-                        </ErrorText>
-                      )}
+        <WrapperRegister>
+          <Image />
+          <FormBoxStyled>
+            <Formik
+              validationSchema={signinSchema}
+              initialValues={{
+                email: '',
+                password: '',
+              }}
+              onSubmit={handleSubmit}
+            >
+              {({ errors, values }) => (
+                <FormStyled autoComplete="off">
+                  <Title>Signin</Title>
+                  <FieldWrapperStyled>
+                    <FieldStyled
+                      name="email"
+                      type="email"
+                      placeholder="email"
+                      color={getColor(errors.email, values.email)}
+                    />
+                    <IconEmail color={getColor(errors.email, values.email)} />
+                    {values.email && (
+                      <>
+                        {errors.email && (
+                          <ErrorText
+                            color={getColor(errors.email, values.email)}
+                          >
+                            {errors.email}
+                          </ErrorText>
+                        )}
 
-                      <IconCheck color={getColor(errors.email, values.email)}>
-                        <svg>
-                          <use
-                            href={`${sprite}${getColor(
-                              errors.email,
-                              values.email
-                            )}`}
-                          ></use>
-                        </svg>
-                      </IconCheck>
-                    </>
-                  )}
-                </FieldWrapperStyled>
-                <FieldWrapperStyled>
-                  <FieldStyled
-                    name="password"
-                    type="password"
-                    placeholder="password"
-                    color={getColor(errors.password, values.password)}
-                  />
-                  <IconPass
-                    color={getColor(errors.password, values.password)}
-                  />
-                  {values.password && (
-                    <>
-                      {errors.password && (
-                        <ErrorText
+                        <IconCheck color={getColor(errors.email, values.email)}>
+                          <svg>
+                            <use
+                              href={`${sprite}${getColor(
+                                errors.email,
+                                values.email
+                              )}`}
+                            ></use>
+                          </svg>
+                        </IconCheck>
+                      </>
+                    )}
+                  </FieldWrapperStyled>
+                  <FieldWrapperStyled>
+                    <FieldStyled
+                      name="password"
+                      type="password"
+                      placeholder="password"
+                      color={getColor(errors.password, values.password)}
+                    />
+                    <IconPass
+                      color={getColor(errors.password, values.password)}
+                    />
+                    {values.password && (
+                      <>
+                        {errors.password && (
+                          <ErrorText
+                            color={getColor(errors.password, values.password)}
+                          >
+                            {errors.password}
+                          </ErrorText>
+                        )}
+
+                        <IconCheck
                           color={getColor(errors.password, values.password)}
                         >
-                          {errors.password}
-                        </ErrorText>
-                      )}
-
-                      <IconCheck
-                        color={getColor(errors.password, values.password)}
-                      >
-                        <svg>
-                          <use
-                            href={`${sprite}${getColor(
-                              errors.password,
-                              values.password
-                            )}`}
-                          ></use>
-                        </svg>
-                      </IconCheck>
-                    </>
+                          <svg>
+                            <use
+                              href={`${sprite}${getColor(
+                                errors.password,
+                                values.password
+                              )}`}
+                            ></use>
+                          </svg>
+                        </IconCheck>
+                      </>
+                    )}
+                  </FieldWrapperStyled>
+                  {errorMessage && (
+                    <p style={{ color: '#E74A3B' }}>{errorMessage}</p>
                   )}
-                </FieldWrapperStyled>
-                {errorMessage && (
-                  <p style={{ color: '#E74A3B' }}>{errorMessage}</p>
-                )}
-                <ButtonStyled type="submit">Submit</ButtonStyled>
-              </FormStyled>
-            )}
-          </Formik>
-          <LinkStyled to="/register" onClick={handleClick}>
-            Registration
-          </LinkStyled>
-        </FormBoxStyled>
+                  <ButtonStyled type="submit">Submit</ButtonStyled>
+                </FormStyled>
+              )}
+            </Formik>
+            <LinkStyled to="/register" onClick={handleClick}>
+              Registration
+            </LinkStyled>
+          </FormBoxStyled>
+        </WrapperRegister>
       </Container>
     </>
   );

@@ -96,7 +96,7 @@ export const ErrorText = styled.p`
 `;
 
 export const FormBoxStyled = styled.div`
-  /* position: absolute; */
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   margin-top: -32px;
@@ -112,18 +112,20 @@ export const FormBoxStyled = styled.div`
   }
   @media screen and ${p => p.theme.media.large} {
     /* margin-right: ${p => p.theme.spacing(90)}; */
+    margin-top: 0;
   }
 `;
 
 export const LinkStyled = styled(Link)`
   font-size: ${p => p.theme.fontSizes.s};
   line-height: ${p => p.theme.spacing(10)};
-  position: relative;
+  position: absolute;
   display: block;
   text-align: center;
   text-decoration: underline;
   color: ${p => p.theme.colors.whiteTextColor};
-  transform: translateY(${p => p.theme.spacing(47)});
+  left: 50%;
+  transform: translate(-50%, ${p => p.theme.spacing(33)});
   :hover {
     color: ${p => p.theme.colors.greenBgColor};
   }
@@ -234,17 +236,18 @@ export const Image = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
+export const WrapperRegister = styled.div`
   max-width: ${p => p.theme.spacing(573)};
   margin-left: auto;
   margin-right: auto;
-  margin-top: ${p => p.theme.spacing(43)};
+  padding-top: ${p => p.theme.spacing(43)};
   @media screen and ${p => p.theme.media.medium} {
-    margin-top: ${p => p.theme.spacing(48)};
+    padding-top: ${p => p.theme.spacing(48)};
   }
-  @media screen and ${p => p.theme.media.large} {
-    margin-top: ${p => p.theme.spacing(77)};
+  @media screen and (${p => p.theme.media.large}) {
+    padding-top: ${p => p.theme.spacing(77)};
     display: flex;
+    align-items: center;
     gap: ${p => p.theme.spacing(57)};
   }
 `;
