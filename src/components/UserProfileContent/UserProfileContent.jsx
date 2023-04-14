@@ -1,14 +1,16 @@
 import { Box } from '../Box';
-import { useDispatch } from 'react-redux';
 import { closeLogo, closeInfo } from '../../redux/modal';
 import cross from '../../images/logo/cross-header.svg';
 import { FiUser } from 'react-icons/fi';
-import { Input, P, Button } from './UserProfile.styled';
+import { Input, P, Button } from './UserProfileContent.styled';
+import { useDispatch } from 'react-redux';
+import { toggleUserInfo } from '../../redux/modal';
 
 const user = 'User';
 
-export const UserProfile = () => {
+export const UserProfileContent = () => {
   const dispatch = useDispatch();
+  const handleClose = () => dispatch(toggleUserInfo());
   return (
     <Box borderRadius={24} box-shadow="0px 4px 48px rgba(0, 0, 0, 0.1)">
       <Box
@@ -17,8 +19,7 @@ export const UserProfile = () => {
         display="flex"
         ml="auto"
         onClick={() => {
-          dispatch(closeInfo());
-          dispatch(closeLogo());
+          handleClose();
         }}
       >
         {<img src={cross} alt="cross" />}
@@ -59,15 +60,13 @@ export const UserProfile = () => {
         </Box>
       </Box>
       <Box>
-        <form
-          onSubmit={() => {
-            dispatch(closeInfo());
-            dispatch(closeLogo());
+        <Button
+          onClick={() => {
+            handleClose();
           }}
         >
-          <Input placeholder={user} />
-          <Button>Save changes</Button>
-        </form>
+          Save changes
+        </Button>
       </Box>
     </Box>
   );

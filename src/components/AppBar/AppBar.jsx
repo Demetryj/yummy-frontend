@@ -1,20 +1,16 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Box } from '../Box';
-import { NavItem, List, ListItem, Paragraph } from './AppBar.styled';
-import { FiSearch, FiUser } from 'react-icons/fi';
+import { NavItem, List, ListItem } from './AppBar.styled';
+import { FiSearch } from 'react-icons/fi';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
 import logoDark from '../../images/logo/logoDark.png';
 import cross from '../../images/logo/cross-header.svg';
 import switchBodyOff from '../../images/logo/switch-body-off.png';
 import switchOff from '../../images/logo/switch-off.png';
-import { UserLogoModal } from '../UserLogoModal';
-import { UserInfoModal } from '../UserInfoModal';
-import { LogoutModal } from '../LogoutModal';
-import { useSelector, useDispatch } from 'react-redux';
-import { openLogo } from '../../redux/modal';
 import { Rectangles } from '../Rectangles';
+import { UserLogo } from '../UserLogo';
 
 const navItems = [
   { href: 'categories', item: 'Categories' },
@@ -39,10 +35,6 @@ const navItems = [
 
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
-  const isOpenLogo = useSelector(state => state.modal.isOpenLogo);
-  const isOpenInfo = useSelector(state => state.modal.isOpenInfo);
-  const isOpenLogout = useSelector(state => state.modal.isOpenLogout);
-  const dispatch = useDispatch();
 
   const toggleModal = () => {
     setOpen(!open);
@@ -87,34 +79,7 @@ export const AppBar = () => {
           </List>
         </Box>
         <Box display="flex" alignItems="center">
-          <Box
-            display="flex"
-            alignItems="center"
-            mr={{ xs: 24, md: 50 }}
-            onClick={() => {
-              dispatch(openLogo());
-            }}
-          >
-            <Box>{isOpenLogo && <UserLogoModal />}</Box>
-            <Box>{isOpenInfo && <UserInfoModal />}</Box>
-            <Box>{isOpenLogout && <LogoutModal />}</Box>
-            <Box
-              mr={{
-                xs: 14,
-              }}
-              borderRadius="50%"
-              width={{ xs: 34 }}
-              height={{ xs: 34 }}
-              overflow="hidden"
-              bg="greenBgColor"
-            >
-              <FiUser size={{ xs: 34, md: 44 }} cursor="pointer" />
-              {/* <Avatar alt="Avatar" src="" /> */}
-            </Box>
-            <Box>
-              <Paragraph>User</Paragraph>
-            </Box>
-          </Box>
+          <UserLogo />
           <Box
             display={{ xs: 'none', lg: 'flex' }}
             width={{ xs: 61 }}
