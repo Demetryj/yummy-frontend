@@ -9,20 +9,17 @@ import { MainWrapper } from './SharedLayout.styled';
 export const SharedLayout = () => {
   return (
     <>
+      <AppBar />
       <Box
         display="grid"
         gridTemplateRows="46x 1fr"
         width={{ xs: 375, md: '100%' }}
         mx="auto"
         px={{ xs: 16, md: 32, lg: 100 }}
-        py={{ xs: 18 }}
       >
-        <AppBar />
-        <MainWrapper style={{ minHeight: '100vh' }}>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Outlet />
-          </Suspense>
-        </MainWrapper>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </Box>
       <Footer />
       <Toaster />
