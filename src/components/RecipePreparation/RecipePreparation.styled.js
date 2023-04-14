@@ -19,8 +19,6 @@ export const ImageBlock = styled.div`
 `;
 
 export const Container = styled.div`
-  align-items: center;
-  margin: 0 auto;
   /* padding-top: ${p => p.theme.spacing(16)}; */
   padding-bottom: ${p => p.theme.spacing(50)};
   /* padding-left: ${p => p.theme.spacing(8)};
@@ -32,13 +30,11 @@ export const Container = styled.div`
     /* padding-left: ${p => p.theme.spacing(16)};
     padding-right: ${p => p.theme.spacing(16)}; */
     padding-top: ${p => p.theme.spacing(25)};
-    width: ${p => p.theme.spacing(384)};
   }
   @media screen and (min-width: 1440px) {
     /* padding-left: ${p => p.theme.spacing(50)};
     padding-right: ${p => p.theme.spacing(50)}; */
 
-    width: ${p => p.theme.spacing(720)};
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
