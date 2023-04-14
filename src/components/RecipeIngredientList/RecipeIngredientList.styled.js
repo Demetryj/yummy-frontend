@@ -3,13 +3,13 @@ export const Container = styled.div`
   align-items: center;
   margin: 0 auto;
   padding-top: ${p => p.theme.spacing(16)};
-  /* padding-bottom: ${p => p.theme.spacing(45)}; */
+  padding-bottom: ${p => p.theme.spacing(25)};
   /* padding-left: ${p => p.theme.spacing(8)};
   padding-right: ${p => p.theme.spacing(8)}; */
   width: 100%;
 
   @media screen and (min-width: 768px) {
-    /* padding-bottom: ${p => p.theme.spacing(16)}; */
+    padding-bottom: ${p => p.theme.spacing(16)};
     /* padding-left: ${p => p.theme.spacing(16)};
     padding-right: ${p => p.theme.spacing(16)}; */
     padding-top: ${p => p.theme.spacing(25)};

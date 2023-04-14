@@ -39,6 +39,7 @@ export const ImageBlock = styled.div`
 export const Label = styled.label`
   display: flex;
   align-items: center;
+  position: relative;
   padding: ${p => p.theme.spacing(7)} ${p => p.theme.spacing(15)}
     ${p => p.theme.spacing(7)} ${p => p.theme.spacing(7)};
 
@@ -47,13 +48,13 @@ export const Label = styled.label`
   }
 
   @media screen and (min-width: 768px) {
-    padding: ${p => p.theme.spacing(15)} ${p => p.theme.spacing(29)}
-      ${p => p.theme.spacing(11)} ${p => p.theme.spacing(14)};
+    padding: ${p => p.theme.spacing(16)} ${p => p.theme.spacing(29)}
+      ${p => p.theme.spacing(16)} ${p => p.theme.spacing(20)};
   }
 
   @media screen and (min-width: 1440px) {
-    padding: ${p => p.theme.spacing(3)} ${p => p.theme.spacing(35)}
-      ${p => p.theme.spacing(3)} ${p => p.theme.spacing(18)};
+    padding: ${p => p.theme.spacing(14)} ${p => p.theme.spacing(35)}
+      ${p => p.theme.spacing(14)} ${p => p.theme.spacing(29)};
   }
 `;
 
@@ -76,15 +77,50 @@ export const TextContainer = styled.div`
     height: ${p => p.theme.spacing(52)};
   }
 `;
+export const IngDescr = styled.p`
+  font-weight: ${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: 1.38;
+  letter-spacing: -0.24px;
+  color: ${p => p.theme.colors.subtitleTextColor};
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 25%;
+  left: 30%;
+  padding: ${p => p.theme.spacing(5)};
+  background-color: white;
+  border: 1px solid ${p => p.theme.colors.greenBgColor};
+  width: ${p => p.theme.spacing(70)};
+  border-radius: ${p => p.theme.radii.normal};
 
+  @media screen and (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.m};
+    line-height: 1.17;
+    top: 25%;
+    left: 40%;
+    width: ${p => p.theme.spacing(80)};
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: ${p => p.theme.fontSizes.xm};
+    line-height: 1.17;
+    top: 25%;
+    left: 30%;
+    width: ${p => p.theme.spacing(120)};
+  }
+`;
 export const IngName = styled.p`
   display: block;
+  padding: 20px;
   margin-bottom: ${p => p.theme.spacing(2)};
   font-weight: ${p => p.theme.fontWeights.semiBold};
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: 1.17;
   letter-spacing: -0.24px;
   color: ${p => p.theme.colors.subtitleTextColor};
+  &:hover ~ ${IngDescr} {
+    display: block;
+  }
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes.l};
     line-height: 1.17;
@@ -92,18 +128,6 @@ export const IngName = styled.p`
   }
 `;
 
-export const IngDescr = styled.p`
-  font-weight: ${p => p.theme.fontWeights.regular};
-  font-size: ${p => p.theme.fontSizes.xxs};
-  line-height: 1.38;
-  letter-spacing: -0.24px;
-  color: ${p => p.theme.colors.subtitleTextColor};
-
-  @media screen and (min-width: 768px) {
-    font-size: ${p => p.theme.fontSizes.s};
-    line-height: 1.17;
-  }
-`;
 export const IngQuantity = styled.p`
   display: block;
   text-align: center;

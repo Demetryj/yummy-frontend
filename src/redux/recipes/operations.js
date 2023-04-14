@@ -54,7 +54,7 @@ export const getRecipesPopular = createAsyncThunk(
 export const getRecipeById = createAsyncThunk(
   'recipes/getRecipeById',
   async (_id, thunkAPI) => {
-    // console.log(_id);
+
     try {
       const response = await axios.get(`/recipes/${_id}`);
       return response.data;
