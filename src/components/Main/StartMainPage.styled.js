@@ -11,7 +11,7 @@ export const ContainerHero = styled.div`
   width: 100%;
   position: absolute;
   left: 0;
-  z-index: -1; // нужен ли?
+  z-index: -1; // нужен ли
   background-image: url(${plateImgMob});
   background-repeat: no-repeat;
   background-position: center;
