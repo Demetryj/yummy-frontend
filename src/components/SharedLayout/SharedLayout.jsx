@@ -17,9 +17,11 @@ export const SharedLayout = () => {
         mx="auto"
         px={{ xs: 16, md: 32, lg: 100 }}
       >
-        <Suspense fallback={<div>Loading...</div>}>
-          <Outlet />
-        </Suspense>
+        <MainWrapper>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
+        </MainWrapper>
       </Box>
       <Footer />
       <Toaster />
