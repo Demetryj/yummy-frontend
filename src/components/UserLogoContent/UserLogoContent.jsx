@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   toggleUserLogo,
   toggleUserInfo,
@@ -6,8 +6,6 @@ import {
 } from '../../redux/modal';
 import { Box } from '../Box';
 import {
-  Backdrop,
-  Content,
   EditButton,
   LogoutButton,
   ButtonContainer,
@@ -16,13 +14,11 @@ import {
 import { HiOutlinePencil } from 'react-icons/hi';
 
 export const UserLogoContent = () => {
-  const open = useSelector(state => state.modal.isUserLogoOpen);
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserLogo());
 
   return (
-    // <form onSubmit={closeModal}>
-    <>
+    <Box display="flex" flexDirection="column" jusifyContent="space-between">
       <Box
         display="flex"
         jusifyContent="space-between"
@@ -47,11 +43,10 @@ export const UserLogoContent = () => {
           }}
         >
           Log out
+          <Arrow size={18} />
         </LogoutButton>
-        <Arrow size={18} />
+        {/* <Arrow size={18} /> */}
       </ButtonContainer>
-    </>
-
-    // </form>
+    </Box>
   );
 };

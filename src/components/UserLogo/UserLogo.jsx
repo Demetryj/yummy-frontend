@@ -13,7 +13,7 @@ export const UserLogo = () => {
   const dispatch = useDispatch();
 
   return (
-    <Box as="div" display="flex">
+    <Box as="div" display="flex" justifyContent="center" alignItems="center">
       <Box
         onClick={() => {
           dispatch(toggleUserLogo());

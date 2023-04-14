@@ -1,12 +1,10 @@
 import { Box } from '../Box';
-import { closeLogo, closeInfo } from '../../redux/modal';
 import cross from '../../images/logo/cross-header.svg';
 import { FiUser } from 'react-icons/fi';
-import { Input, P, Button } from './UserProfileContent.styled';
+import { P } from './UserProfileContent.styled';
 import { useDispatch } from 'react-redux';
 import { toggleUserInfo } from '../../redux/modal';
-
-const user = 'User';
+import { UserProfileForm } from 'components/UserProfileForm';
 
 export const UserProfileContent = () => {
   const dispatch = useDispatch();
@@ -60,13 +58,7 @@ export const UserProfileContent = () => {
         </Box>
       </Box>
       <Box>
-        <Button
-          onClick={() => {
-            handleClose();
-          }}
-        >
-          Save changes
-        </Button>
+        <UserProfileForm />
       </Box>
     </Box>
   );

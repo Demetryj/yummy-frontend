@@ -84,6 +84,7 @@ export const AppBar = () => {
             display={{ xs: 'none', lg: 'flex' }}
             width={{ xs: 61 }}
             height={{ xs: 27 }}
+            ml={{ lg: 50 }}
             position="relative"
           >
             {<img src={switchBodyOff} alt="switchBodyOff" />}
@@ -99,7 +100,11 @@ export const AppBar = () => {
               {<img src={switchOff} alt="switchOff" />}
             </Box>
           </Box>
-          <Box onClick={toggleModal} display={{ xs: 'flex', lg: 'none' }}>
+          <Box
+            onClick={toggleModal}
+            display={{ xs: 'flex', lg: 'none' }}
+            ml={{ xs: 14, md: 50 }}
+          >
             <HiOutlineMenuAlt2 size={28} />
           </Box>
         </Box>

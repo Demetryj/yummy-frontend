@@ -11,7 +11,7 @@ export const Backdrop = styled.div`
 
 export const Content = styled.div`
   position: absolute;
-  padding: ${p => p.theme.spacing(9)};
+  padding: 32px 24px;
   width: ${p => p.theme.spacing(163)};
   height: ${p => p.theme.spacing(163)};
   background: ${p => p.theme.colors.whiteColor};
