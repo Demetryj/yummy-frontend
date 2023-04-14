@@ -12,10 +12,11 @@ const ShoppingList = () => {
   }, [dispatch]);
 
   return (
-    <main>
-      <MainTitle title="ShoppingList Page" />
+    <>
+      <MainTitle title="Shopping list" />
+
       <IngredientsShoppingList />
-    </main>
+    </>
   );
 };
 

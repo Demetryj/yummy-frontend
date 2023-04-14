@@ -4,6 +4,7 @@ import { AppBar } from 'components/AppBar';
 import { Footer } from 'components/Footer';
 import { Box } from 'components/Box';
 import { Toaster } from 'react-hot-toast';
+import { MainWrapper } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   return (

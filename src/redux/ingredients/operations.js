@@ -17,7 +17,9 @@ export const fetchRecipesByIngredient = createAsyncThunk(
   async (query, thunkAPI) => {
     try {
       const { data } = await axios.get(`/search/${query}`);
-      return normalizedFetchRecipesByIngredient(data[0].recipeData);
+      return data.length === 0
+        ? data
+        : normalizedFetchRecipesByIngredient(data[0].recipeData);
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

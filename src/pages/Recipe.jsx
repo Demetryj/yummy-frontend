@@ -8,7 +8,6 @@ import {
   selectRecipes,
 } from 'redux/recipes/selectors';
 import { Loader } from 'components/Loader/Loader.jsx';
-// import { Box } from 'components/Box';
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -22,14 +21,13 @@ const Recipe = () => {
   useEffect(() => {
     dispatch(getRecipeById(recipeId));
   }, [dispatch, recipeId]);
+
   return (
     <>
-      <main>
-        {recipe && <RecipePageHero recipe={recipe} />}
-        {recipe && <RecipeIngredientList recipe={recipe} />}
-        {recipe && <RecipePreparation recipe={recipe} />}
-        {isLoading && !error && !recipe && <Loader />}
-      </main>
+      {recipe && <RecipePageHero recipe={recipe} />}
+      {recipe && <RecipeIngredientList recipe={recipe} />}
+      {recipe && <RecipePreparation recipe={recipe} />}
+      {isLoading && !error && !recipe && <Loader />}
     </>
   );
 };

@@ -21,8 +21,8 @@ export const ImageBlock = styled.div`
 export const Container = styled.div`
   align-items: center;
   margin: 0 auto;
-  padding-top: ${p => p.theme.spacing(16)};
-  padding-bottom: ${p => p.theme.spacing(41)};
+  /* padding-top: ${p => p.theme.spacing(16)}; */
+  padding-bottom: ${p => p.theme.spacing(50)};
   /* padding-left: ${p => p.theme.spacing(8)};
   padding-right: ${p => p.theme.spacing(8)}; */
   width: 100%;

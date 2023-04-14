@@ -1,5 +1,5 @@
 const MyRecipes = () => {
-  return <main>MyRecipes Page</main>;
+  return <>MyRecipes Page</>;
 };
 
 export default MyRecipes;

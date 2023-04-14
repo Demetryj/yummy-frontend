@@ -4,7 +4,7 @@ import { RecipesPhotosList } from 'components/RecipesPhotosList';
 
 const Categories = () => {
   return (
-    <main>
+    <>
       <Title title="Categories" />
       <div
         style={{
@@ -14,7 +14,7 @@ const Categories = () => {
         <CategoriesList />
         <RecipesPhotosList />
       </div>
-    </main>
+    </>
   );
 };
 

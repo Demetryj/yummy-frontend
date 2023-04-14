@@ -30,7 +30,7 @@ export const Container = styled.div`
     padding-left: ${p => p.theme.spacing(66)};
     padding-right: ${p => p.theme.spacing(66)};
     padding-top: ${p => p.theme.spacing(68)};
-    width: 768px;
+
     background-image: url(${recipeTable});
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
@@ -43,8 +43,8 @@ export const Container = styled.div`
     padding-left: ${p => p.theme.spacing(196)};
     padding-right: ${p => p.theme.spacing(196)};
     padding-top: ${p => p.theme.spacing(82)};
-    width: 1440px;
     background-image: url(${recipeDesk});
+    min-height: 493px;
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),

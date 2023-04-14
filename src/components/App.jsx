@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import RegisterPage from 'pages/Register';
 import SigninPage from 'pages/Signin';
 import WelcomePage from 'pages/Welcome';
-import { SharedLayout } from 'components/SharedLayout';
+import { SharedLayout } from 'components/SharedLayout/SharedLayout';
 import { PrivateRoute, RestrictedRoute } from 'service/routes';
 
 import { useDispatch } from 'react-redux';
@@ -19,7 +19,7 @@ const MyRecipesPage = React.lazy(() => import('pages/MyRecipes'));
 const FavoritesPage = React.lazy(() => import('pages/Favorites'));
 const RecipesPage = React.lazy(() => import('pages/Recipe'));
 const ShoppingListPage = React.lazy(() => import('pages/ShoppingList'));
-const SearchPage = React.lazy(() => import('pages/Search'));
+const SearchPage = React.lazy(() => import('pages/Search/Search'));
 const ErrorPage = React.lazy(() => import('pages/404/Error'));
 const ConfirmationPage = React.lazy(() =>
   import('pages/Confirmation/Confirmation')
@@ -41,25 +41,28 @@ export const App = () => {
         <Route
           path="/"
           element={
-            <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
+            <RestrictedRoute redirectTo="/main" component={<WelcomePage />} />
           }
         />
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/" component={<RegisterPage />} />
+            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
           }
         />
         <Route
           path="/signin"
           element={
-            <RestrictedRoute redirectTo="/" component={<SigninPage />} />
+            <RestrictedRoute redirectTo="/main" component={<SigninPage />} />
           }
         />
       </>
 
-      <Route path="/" element={<PrivateRoute component={<SharedLayout />} />}>
-        <Route index element={<MainPage />} />
+      <Route
+        path="/"
+        element={<PrivateRoute redirectTo="/" component={<SharedLayout />} />}
+      >
+        <Route path="/main" element={<MainPage />} />
         <Route path="/categories" element={<CategoriesPage />}>
           <Route path=":categoryName" element={<CategoryNamePage />} />
         </Route>
