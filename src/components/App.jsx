@@ -39,31 +39,22 @@ export const App = () => {
       <>
         <Route
           path="/welcome"
-          element={
-            <RestrictedRoute redirectTo="/main" component={<WelcomePage />} />
-          }
+          element={<RestrictedRoute component={<WelcomePage />} />}
         />
         <Route
           path="/register"
-          element={
-            <RestrictedRoute redirectTo="/main" component={<RegisterPage />} />
-          }
+          element={<RestrictedRoute component={<RegisterPage />} />}
         />
         <Route
           path="/signin"
-          element={
-            <RestrictedRoute redirectTo="/main" component={<SigninPage />} />
-          }
+          element={<RestrictedRoute component={<SigninPage />} />}
         />
       </>
+
       <Route path="/" element={<SharedLayout />}>
+        <Route index element={<PrivateRoute component={<MainPage />} />} />
         <Route
-          path="main"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
-          }
-        />
-        <Route
+
           path="categories/:categoryName"
           element={
             <PrivateRoute
@@ -73,65 +64,38 @@ export const App = () => {
           }
         />
 
+
         <Route
           path="add"
-          element={
-            <PrivateRoute
-              redirectTo="/welcome"
-              component={<AddRecipesPage />}
-            />
-          }
+          element={<PrivateRoute component={<AddRecipesPage />} />}
         />
         <Route
           path="my"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<MyRecipesPage />} />
-          }
+          element={<PrivateRoute component={<MyRecipesPage />} />}
         />
         <Route
           path="favorites"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<FavoritesPage />} />
-          }
+          element={<PrivateRoute component={<FavoritesPage />} />}
         />
         <Route
           path="shopping-list"
-          element={
-            <PrivateRoute
-              redirectTo="/welcome"
-              component={<ShoppingListPage />}
-            />
-          }
+          element={<PrivateRoute component={<ShoppingListPage />} />}
         />
         <Route
           path="search"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<SearchPage />} />
-          }
+          element={<PrivateRoute component={<SearchPage />} />}
         />
         <Route
           path="recipe/:recipeId"
-          element={
-            <PrivateRoute redirectTo="/welcome" component={<RecipesPage />} />
-          }
+          element={<PrivateRoute component={<RecipesPage />} />}
         />
         <Route
           path="verify/:verificationToken"
-          element={
-            <PrivateRoute
-              redirectTo="/welcome"
-              component={<ConfirmationPage />}
-            />
-          }
+          element={<PrivateRoute component={<ConfirmationPage />} />}
         />
         <Route
           path="/current/subscribe/:subscribedToken"
-          element={
-            <PrivateRoute
-              redirectTo="/welcome"
-              component={<ConfirmationPage />}
-            />
-          }
+          element={<PrivateRoute component={<ConfirmationPage />} />}
         />
         <Route path="*" element={<ErrorPage />} />
       </Route>
