@@ -15,6 +15,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getRecipeById } from 'redux/recipes/operations';
 const Recipe = () => {
   const { recipeId } = useParams();
+  console.log(recipeId);
   const [recipe, setRecipe] = useState({});
   const recipeData = useSelector(selectRecipes);
   const dispatch = useDispatch();
@@ -22,8 +23,10 @@ const Recipe = () => {
     dispatch(getRecipeById(recipeId));
     onScrollUp();
   }, [dispatch, recipeId]);
+  console.log(recipeId);
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
+  console.log(recipeData);
 
   useEffect(() => {
     setRecipe({ ...recipeData[0] });
