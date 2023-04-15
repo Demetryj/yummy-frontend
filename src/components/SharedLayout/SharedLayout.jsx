@@ -13,7 +13,7 @@ export const SharedLayout = () => {
       <Box
         display="grid"
         gridTemplateRows="46x 1fr"
-        width={{ xs: 375, md: '100%' }}
+        width={{ xs: 375, md: 768, lg: 1440 }}
         mx="auto"
         px={{ xs: 16, md: 32, lg: 100 }}
       >
