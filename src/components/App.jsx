@@ -54,7 +54,6 @@ export const App = () => {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<PrivateRoute component={<MainPage />} />} />
         <Route
-
           path="categories/:categoryName"
           element={
             <PrivateRoute
@@ -63,7 +62,6 @@ export const App = () => {
             />
           }
         />
-
 
         <Route
           path="add"
