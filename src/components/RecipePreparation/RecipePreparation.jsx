@@ -6,6 +6,8 @@ import {
   InstructionText,
   Container,
 } from './RecipePreparation.styled';
+import plug from 'images/plugs/image 300x323@2x.png';
+import { getPoster } from 'utils/getPlugImageIngredient';
 export const RecipePreparation = ({ recipe }) => {
   const { instructions, preview } = recipe;
   const items = instructions
@@ -37,7 +39,7 @@ export const RecipePreparation = ({ recipe }) => {
         <InstructionList>{items}</InstructionList>
       </InstructionWrapper>
       <ImageBlock>
-        <img src={preview} alt="poster" />
+        <img src={getPoster(preview, plug)} alt="poster" />
       </ImageBlock>
     </Container>
   );

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const RectOne = styled.div`
   position: absolute;
+  z-index: -10;
   width: 8px;
   height: 8px;
   left: 120px;
@@ -26,6 +27,7 @@ export const RectOne = styled.div`
 
 export const RectTwo = styled.div`
   position: absolute;
+  z-index: -10;
   width: 6px;
   height: 6px;
   left: 247px;
@@ -50,6 +52,7 @@ export const RectTwo = styled.div`
 
 export const RectThree = styled.div`
   position: absolute;
+  z-index: -10;
   width: 8px;
   height: 8px;
   left: 335px;

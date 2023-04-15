@@ -14,6 +14,7 @@ import {
   Time,
   ClockBlock,
   BtnFavorite,
+  Wrapper,
 } from './RecipePageHero.styled';
 
 export const RecipePageHero = ({ recipe }) => {
@@ -59,6 +60,7 @@ export const RecipePageHero = ({ recipe }) => {
 
   return (
     <Container>
+      {/* <Wrapper> */}
       <Title>{title}</Title>
       <Text>{description}</Text>
       {inFavorites && !isOwner && (
@@ -75,6 +77,7 @@ export const RecipePageHero = ({ recipe }) => {
         <Clock size={14} />
         <Time>{time} min</Time>
       </ClockBlock>
+      {/* </Wrapper> */}
     </Container>
   );
 };
