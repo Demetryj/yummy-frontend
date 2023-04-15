@@ -25,7 +25,7 @@ export const UserProfileForm = () => {
     name: Yup.string().required('Name is required'),
   });
 
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
     dispatch(updateProfile(values));
     setSubmitting(false);
     resetForm();

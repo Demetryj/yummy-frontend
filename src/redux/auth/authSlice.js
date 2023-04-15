@@ -80,7 +80,6 @@ const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(updateProfile.pending, (state, action) => {
-        console.log('pending action.payload', action.payload);
         state.isLoading = true;
       })
       .addCase(updateProfile.fulfilled, (state, action) => {

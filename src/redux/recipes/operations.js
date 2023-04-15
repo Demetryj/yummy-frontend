@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://soyummy-pg-2.onrender.com/api';
+// axios.defaults.baseURL = 'https://soyummy-pg-2.onrender.com/api';
+
 export const fetchRecipesMainPage = createAsyncThunk(
   'recipes/fetchPopular',
   async (_, thunkAPI) => {
@@ -54,7 +55,6 @@ export const getRecipesPopular = createAsyncThunk(
 export const getRecipeById = createAsyncThunk(
   'recipes/getRecipeById',
   async (_id, thunkAPI) => {
-
     try {
       const response = await axios.get(`/recipes/${_id}`);
       return response.data;
