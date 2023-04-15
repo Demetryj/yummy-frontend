@@ -1,5 +1,5 @@
 import { Box } from '../Box';
-import { GreenButton, CancelButton, P } from './LogoutContent.styled';
+import { Cross, GreenButton, CancelButton, P } from './LogoutContent.styled';
 import { useDispatch } from 'react-redux';
 import { toggleLogout } from '../../redux/modal';
 import cross from '../../images/logo/cross-header.svg';
@@ -9,18 +9,20 @@ export const Logout = () => {
   const handleClose = () => dispatch(toggleLogout());
 
   return (
-    <Box>
-      <Box
-        display="flex"
-        ml="auto"
-        mr={0}
-        mb="6px"
-        width={{ xs: 13 }}
-        height={{ xs: 13 }}
+    <Box position="relative">
+      {/* <Box
+        // display="flex"
+        // ml="auto"
+        // mr={0}
+        // mb="6px"
+        position="relative"
+        width={{ xs: 20 }}
+        height={{ xs: 20 }}
         onClick={handleClose}
       >
-        {<img src={cross} alt="cross" />}
-      </Box>
+        <Cross />
+      </Box> */}
+      <Cross onClick={handleClose} />
       <P>Are you sure you want to log out?</P>
       <Box display="flex">
         <GreenButton onClick={handleClose}>Log out</GreenButton>

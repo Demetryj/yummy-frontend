@@ -1,4 +1,20 @@
 import styled from 'styled-components';
+import { RxCross2 } from 'react-icons/rx';
+
+export const Cross = styled(RxCross2)`
+  position: absolute;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  top: -27px;
+  right: -7px;
+  @media screen and ${p => p.theme.media.medium} {
+    width: 24px;
+    height: 24px;
+    top: -27px;
+    right: -18px;
+  }
+`;
 
 export const GreenButton = styled.button`
   display: inline-flex;
