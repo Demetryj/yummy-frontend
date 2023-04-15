@@ -3,7 +3,7 @@ import { Image, ImageItemLink, Lable } from './RecipesPhotoList.styled';
 
 export const RecipeCard = forwardRef(({ recipe }, ref) => {
   const ItemBody = (
-    <ImageItemLink to={`../recipe/${recipe._id}`}>
+    <ImageItemLink to={`/recipe/${recipe._id}`}>
       <Image src={`${recipe.thumb}`} />
       <Lable>{recipe.title}</Lable>
     </ImageItemLink>
