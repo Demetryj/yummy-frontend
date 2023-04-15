@@ -14,7 +14,7 @@ import { UserLogo } from '../UserLogo';
 import { ToastContainer } from 'react-toastify';
 
 const navItems = [
-  { href: 'categories', item: 'Categories' },
+  { href: 'categories/Beef', item: 'Categories' },
   { href: 'add', item: 'Add recipes' },
   { href: 'my', item: 'My recipes' },
   { href: 'favorites', item: 'Favorites' },
@@ -62,9 +62,7 @@ export const AppBar = () => {
           borderRadius={12}
           bg="greenBgColor"
         >
-          <NavItem to={'/main'}>
-            {<img src={logoDark} alt="logoDark" />}
-          </NavItem>
+          <NavItem to={'/'}>{<img src={logoDark} alt="logoDark" />}</NavItem>
         </Box>
         <Box
           as="nav"
@@ -134,7 +132,7 @@ export const AppBar = () => {
                 borderRadius={12}
                 bg="greenBgColor"
               >
-                <NavItem to={'/main'}>
+                <NavItem to={'/'}>
                   {<img src={logoDark} alt="logoDark" />}
                 </NavItem>
               </Box>
