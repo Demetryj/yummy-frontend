@@ -1,7 +1,5 @@
 import { Box } from '../Box';
-import cross from '../../images/logo/cross-header.svg';
-import { FiUser } from 'react-icons/fi';
-import { P } from './UserProfileContent.styled';
+import { P, Cross, UserIcon } from './UserProfileContent.styled';
 import { useDispatch } from 'react-redux';
 import { toggleUserInfo } from '../../redux/modal';
 import { UserProfileForm } from 'components/UserProfileForm';
@@ -10,27 +8,30 @@ export const UserProfileContent = () => {
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserInfo());
   return (
-    <Box borderRadius={24} box-shadow="0px 4px 48px rgba(0, 0, 0, 0.1)">
+    <Box
+      borderRadius={24}
+      box-shadow="0px 4px 48px rgba(0, 0, 0, 0.1)"
+      position={{ lg: 'relative' }}
+    >
       <Box
-        width={{ xs: 20 }}
-        height={{ xs: 20 }}
-        display="flex"
-        ml="auto"
+        display={{ xs: 'flex', lg: 'block' }}
+        justifyContent={{ xs: 'flex-end', lg: 'None' }}
         onClick={() => {
           handleClose();
         }}
       >
-        {<img src={cross} alt="cross" />}
+        <Cross />
       </Box>
       <Box
         display={{ xs: 'flex' }}
         justifyContent="center"
         alignItems="center"
         position="relative"
+        mb={{ xs: 54, lg: 52 }}
       >
         <Box
-          width={{ xs: 88 }}
-          height={{ xs: 88 }}
+          width={{ xs: 88, lg: 103 }}
+          height={{ xs: 88, lg: 103 }}
           borderRadius="50%"
           overflow="hidden"
           bg="#D9D9D9"
@@ -38,7 +39,7 @@ export const UserProfileContent = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <FiUser size={40} cursor="pointer" color="gray" />
+          <UserIcon />
           {/* <Avatar alt="Avatar" src="" /> */}
         </Box>
         <Box
@@ -47,8 +48,8 @@ export const UserProfileContent = () => {
           bg="greenColor"
           borderRadius="50%"
           position="absolute"
-          top={{ xs: 65 }}
-          left={{ xs: 165, lg: 212 }}
+          top={{ xs: 65, lg: 78 }}
+          left={{ xs: 150, md: 229, lg: 218 }}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -57,9 +58,7 @@ export const UserProfileContent = () => {
           <P>+</P>
         </Box>
       </Box>
-      <Box>
-        <UserProfileForm />
-      </Box>
+      <UserProfileForm />
     </Box>
   );
 };

@@ -1,19 +1,81 @@
 import styled from 'styled-components';
 import { Field } from 'formik';
-
+import { FiUser } from 'react-icons/fi';
+import { HiOutlinePencil } from 'react-icons/hi';
 // export const Input = styled(Field)`
 //   color: tomato;
 // `;
 
+export const Form = styled.form`
+  padding: 0;
+`;
+
+export const UserIcon = styled(FiUser)`
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+  position: absolute;
+  left: 13px;
+  top: 16px;
+  @media screen and ${p => p.theme.media.medium} {
+    width: 24px;
+    height: 24px;
+    left: 18px;
+    top: 12px;
+  }
+  @media screen and ${p => p.theme.media.large} {
+    width: 24px;
+    height: 24px;
+    left: 18px;
+    top: 18px;
+  }
+`;
+
 export const Input = styled.input`
-  border: 1px solid red;
+  border: 1px solid;
+  border-color: rgba(35, 38, 42, 0.3);
   width: 100%;
   height: 48px;
   border-radius: ${p => p.theme.radii.light};
   outline: none;
   height: ${p => p.theme.spacing(24)};
   margin-bottom: ${p => p.theme.spacing(12)};
-  margin-top: ${p => p.theme.spacing(27)};
+  padding-left: 35px;
+  @media screen and ${p => p.theme.media.medium} {
+    padding-left: 47px;
+    margin-bottom: 32px;
+  }
+  @media screen and ${p => p.theme.media.large} {
+    height: 59px;
+  }
+  ::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #23262a;
+    opacity: 0.8;
+    @media screen and ${p => p.theme.media.medium} {
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+`;
+
+export const IconPencil = styled(HiOutlinePencil)`
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 18px;
+  right: 15px;
+  @media screen and ${p => p.theme.media.medium} {
+    width: 19px;
+    height: 19px;
+    top: 16px;
+  }
+  @media screen and ${p => p.theme.media.large} {
+    top: 20px;
+  }
 `;
 
 export const Label = styled.label`
@@ -51,4 +113,14 @@ export const Button = styled.button`
   text-align: center;
 
   color: #fafafa;
+
+  @media screen and ${p => p.theme.media.medium} {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+  }
+
+  @media screen and ${p => p.theme.media.large} {
+    height: 59px;
+  }
 `;

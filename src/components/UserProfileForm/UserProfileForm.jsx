@@ -2,13 +2,19 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { toggleUserInfo } from '../../redux/modal';
-
 import { Box } from '../Box';
-import { Label, Input, P, Button } from './UserProfileForm.styled';
+import {
+  Form,
+  Label,
+  UserIcon,
+  Input,
+  IconPencil,
+  P,
+  Button,
+} from './UserProfileForm.styled';
 
 export const UserProfileForm = () => {
   const dispatch = useDispatch();
-  // dispatch(toggleUserInfo());
 
   const formik = useFormik({
     initialValues: {
@@ -17,21 +23,27 @@ export const UserProfileForm = () => {
 
     onSubmit: values => {
       console.log(values);
+      dispatch(toggleUserInfo());
     },
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <Label htmlFor="name">Name</Label>
-      <Input
-        id="name"
-        name="name"
-        type="name"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
+    <Form onSubmit={formik.handleSubmit}>
+      {/* <Label htmlFor="name">Name</Label> */}
+      <Box display="flex" position="relative">
+        <UserIcon />
+        <Input
+          id="name"
+          name="name"
+          type="name"
+          placeholder="User"
+          onChange={formik.handleChange}
+          value={formik.values.name}
+        />
+        <IconPencil />
+      </Box>
 
-      <button type="submit">Save changes</button>
-    </form>
+      <Button type="submit">Save changes</Button>
+    </Form>
   );
 };

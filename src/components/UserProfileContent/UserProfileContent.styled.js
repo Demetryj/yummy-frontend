@@ -1,4 +1,29 @@
 import styled from 'styled-components';
+import { FiUser } from 'react-icons/fi';
+import { RxCross2 } from 'react-icons/rx';
+
+export const Cross = styled(RxCross2)`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  @media screen and ${p => p.theme.media.large} {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: -36px;
+    right: -32px;
+  }
+`;
+
+export const UserIcon = styled(FiUser)`
+  width: 40px;
+  height: 40px;
+  color: rgba(196, 196, 196, 0.8);
+  @media screen and ${p => p.theme.media.large} {
+    width: 47px;
+    height: 47px;
+  }
+`;
 
 export const Input = styled.input`
   width: 100%;
