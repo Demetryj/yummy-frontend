@@ -11,20 +11,22 @@ export const Backdrop = styled.div`
 
 export const Content = styled.div`
   position: absolute;
-  padding: ${p => p.theme.spacing(9)};
   width: 330px;
-  height: 179px;
   background: #fafafa;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
 
-  top: 2%;
+  top: 4%;
   left: 50%;
   transform: translate(-50%);
 
+  padding-top: 44px;
+  padding-bottom: 44px;
+  padding-left: 24px;
+  padding-right: 24px;
+
   @media screen and ${p => p.theme.media.medium} {
     width: ${p => p.theme.spacing(240)};
-    height: ${p => p.theme.spacing(107)};
     padding-top: ${p => p.theme.spacing(25)};
     padding-bottom: ${p => p.theme.spacing(25)};
     padding-left: ${p => p.theme.spacing(20)};
@@ -33,6 +35,5 @@ export const Content = styled.div`
 
   @media screen and ${p => p.theme.media.medium} {
     width: ${p => p.theme.spacing(250)};
-    height: ${p => p.theme.spacing(107)};
   }
 `;

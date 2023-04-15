@@ -1,42 +1,48 @@
+import * as React from 'react';
 import { Box } from '../Box';
-// import { closeLogo, closeInfo } from '../../redux/modal';
-import cross from '../../images/logo/cross-header.svg';
-import { FiUser } from 'react-icons/fi';
-import {
-  // Input,
-  P,
-  Button,
-} from './UserProfileContent.styled';
+import { P, Cross, UserIcon } from './UserProfileContent.styled';
 import { useDispatch } from 'react-redux';
 import { toggleUserInfo } from '../../redux/modal';
-
-// const user = 'User';
+import { UserProfileForm } from 'components/UserProfileForm';
 
 export const UserProfileContent = () => {
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserInfo());
+
+  React.useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        dispatch(toggleUserInfo());
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [dispatch]);
+
   return (
-    <Box borderRadius={24} box-shadow="0px 4px 48px rgba(0, 0, 0, 0.1)">
-      <Box
-        width={{ xs: 20 }}
-        height={{ xs: 20 }}
-        display="flex"
-        ml="auto"
+    <Box
+      borderRadius={24}
+      box-shadow="0px 4px 48px rgba(0, 0, 0, 0.1)"
+      position={{ sx: 'relative' }}
+    >
+      <Cross
         onClick={() => {
           handleClose();
         }}
-      >
-        {<img src={cross} alt="cross" />}
-      </Box>
+      />
       <Box
         display={{ xs: 'flex' }}
         justifyContent="center"
         alignItems="center"
         position="relative"
+        mb={{ xs: 54, lg: 52 }}
       >
         <Box
-          width={{ xs: 88 }}
-          height={{ xs: 88 }}
+          width={{ xs: 88, lg: 103 }}
+          height={{ xs: 88, lg: 103 }}
           borderRadius="50%"
           overflow="hidden"
           bg="#D9D9D9"
@@ -44,8 +50,7 @@ export const UserProfileContent = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <FiUser size={40} cursor="pointer" color="gray" />
-          {/* <Avatar alt="Avatar" src="" /> */}
+          <UserIcon />
         </Box>
         <Box
           width={{ xs: 24 }}
@@ -53,8 +58,8 @@ export const UserProfileContent = () => {
           bg="greenColor"
           borderRadius="50%"
           position="absolute"
-          top={{ xs: 65 }}
-          left={{ xs: 165, lg: 212 }}
+          top={{ xs: 65, lg: 78 }}
+          left={{ xs: 150, md: 229, lg: 218 }}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -63,15 +68,7 @@ export const UserProfileContent = () => {
           <P>+</P>
         </Box>
       </Box>
-      <Box>
-        <Button
-          onClick={() => {
-            handleClose();
-          }}
-        >
-          Save changes
-        </Button>
-      </Box>
+      <UserProfileForm />
     </Box>
   );
 };

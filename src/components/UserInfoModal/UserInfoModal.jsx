@@ -1,29 +1,22 @@
+import { useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
-// import { useSelector, useDispatch } from 'react-redux';
-// import {
-//   isOpenLogo,
-//   closeLogo,
-//   openInfo,
-//   closeInfo,
-//   closeLogout,
-// } from '../../redux/modal';
-// import { Box } from '../Box';
 import { Backdrop, Content } from './UserInfoModal.styled';
-// import { HiOutlinePencil } from 'react-icons/hi';
 import { UserProfileContent } from '../UserProfileContent';
+import { toggleUserInfo } from '../../redux/modal';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const UserInfoModal = () => {
-  // const isOpenLogo = useSelector(state => state.modal.isOpenLogo);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // function closeModal() {
-  //   dispatch(closeLogo(false));
-  // }
+  const handleClose = e => {
+    if (e.currentTarget === e.target) {
+      dispatch(toggleUserInfo());
+    }
+  };
 
   return createPortal(
-    <Backdrop>
+    <Backdrop onClick={handleClose}>
       <Content>
         <UserProfileContent />
       </Content>

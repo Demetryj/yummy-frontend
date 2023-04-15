@@ -74,3 +74,16 @@ export const RefreshError = createAsyncThunk(
   'auth/errorrefresh',
   async () => {}
 );
+
+export const updateProfile = createAsyncThunk(
+  'auth/updateProfile',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post('/users/update', credentials);
+      return res.data;
+    } catch (error) {
+      const errorMessage = error.response.data.message;
+      return thunkAPI.rejectWithValue(errorMessage);
+    }
+  }
+);

@@ -11,6 +11,7 @@ import switchBodyOff from '../../images/logo/switch-body-off.png';
 import switchOff from '../../images/logo/switch-off.png';
 import { Rectangles } from '../Rectangles';
 import { UserLogo } from '../UserLogo';
+import { ToastContainer } from 'react-toastify';
 
 const navItems = [
   { href: 'categories/Beef', item: 'Categories' },
@@ -82,6 +83,7 @@ export const AppBar = () => {
             display={{ xs: 'none', lg: 'flex' }}
             width={{ xs: 61 }}
             height={{ xs: 27 }}
+            ml={{ lg: 50 }}
             position="relative"
           >
             {<img src={switchBodyOff} alt="switchBodyOff" />}
@@ -97,7 +99,11 @@ export const AppBar = () => {
               {<img src={switchOff} alt="switchOff" />}
             </Box>
           </Box>
-          <Box onClick={toggleModal} display={{ xs: 'flex', lg: 'none' }}>
+          <Box
+            onClick={toggleModal}
+            display={{ xs: 'flex', lg: 'none' }}
+            ml={{ xs: 14, md: 50 }}
+          >
             <HiOutlineMenuAlt2 size={28} />
           </Box>
         </Box>
@@ -167,6 +173,7 @@ export const AppBar = () => {
           </Box>
         </HeaderModal>
       )}
+      <ToastContainer />
     </Box>
   );
 };
