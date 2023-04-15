@@ -3,10 +3,7 @@ import recipeMob from 'images/recipePage/recipe_mob.jpg';
 import recipeMob2 from 'images/recipePage/recipe_mob@2x.jpg';
 import recipeTable from 'images/recipePage/recipe_tabl.jpg';
 import recipeTable2 from 'images/recipePage/recipe_tabl@2x.jpg';
-import recipeDesk from 'images/recipePage/vegetables@2x (1).jpg';
-import recipeDesk2 from 'images/recipePage/vegetables@2x (1).jpg';
-import newDesk from 'images/recipePage/vegetables.jpg';
-import newDesk2 from 'images/recipePage/vegetables@2x.jpg';
+
 import recipe from 'images/recipePage/recipe_desk.jpg';
 import recipe2 from 'images/recipePage/recipe_desk@2x.jpg';
 import { FiClock } from 'react-icons/fi';

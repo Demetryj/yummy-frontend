@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 export const Container = styled.div`
   padding-top: ${p => p.theme.spacing(238)};
-  padding-bottom: ${p => p.theme.spacing(25)};
+
   width: 100%;
 
   @media screen and (min-width: 768px) {
-    padding-bottom: ${p => p.theme.spacing(16)};
     padding-top: ${p => p.theme.spacing(270)};
   }
 
@@ -62,6 +61,8 @@ export const InngredientsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: ${p => p.theme.spacing(8)};
+  margin-top: 0;
+  margin-bottom: 0;
 
   @media screen and (min-width: 768px) {
     gap: ${p => p.theme.spacing(12)};

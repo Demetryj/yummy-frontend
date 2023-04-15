@@ -19,22 +19,15 @@ export const ImageBlock = styled.div`
 `;
 
 export const Container = styled.div`
-  /* padding-top: ${p => p.theme.spacing(16)}; */
+  padding-top: ${p => p.theme.spacing(25)};
   padding-bottom: ${p => p.theme.spacing(50)};
-  /* padding-left: ${p => p.theme.spacing(8)};
-  padding-right: ${p => p.theme.spacing(8)}; */
   width: 100%;
 
   @media screen and (min-width: 768px) {
     padding-bottom: ${p => p.theme.spacing(100)};
-    /* padding-left: ${p => p.theme.spacing(16)};
-    padding-right: ${p => p.theme.spacing(16)}; */
-    padding-top: ${p => p.theme.spacing(25)};
+    padding-top: ${p => p.theme.spacing(50)};
   }
   @media screen and (min-width: 1440px) {
-    /* padding-left: ${p => p.theme.spacing(50)};
-    padding-right: ${p => p.theme.spacing(50)}; */
-
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -48,7 +41,8 @@ export const InstructionWrapper = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    width: ${p => p.theme.spacing(284)};
+    /* width: ${p => p.theme.spacing(284)}; */
+    margin-right: 50px;
     margin-bottom: 0;
   }
 `;
@@ -123,7 +117,7 @@ export const InstructionText = styled.li`
     }
 
     @media screen and (min-width: 1440px) {
-      width: ${p => p.theme.spacing(217)};
+      width: 100%;
     }
   }
 `;

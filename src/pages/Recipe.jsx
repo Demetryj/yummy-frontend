@@ -8,6 +8,7 @@ import {
   selectRecipes,
 } from 'redux/recipes/selectors';
 import { Loader } from 'components/Loader/Loader.jsx';
+import { onScrollUp } from 'utils/scrollUp';
 
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,7 +19,8 @@ const Recipe = () => {
   const recipeData = useSelector(selectRecipes);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getRecipeById({ recipeId }));
+    dispatch(getRecipeById(recipeId));
+    onScrollUp();
   }, [dispatch, recipeId]);
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
@@ -37,6 +39,7 @@ const Recipe = () => {
         </>
       )}
       {isLoading && !error && !recipe && <Loader />}
+      {error && <p>Something is wrong. Please try again later.</p>}
     </>
   );
 };
