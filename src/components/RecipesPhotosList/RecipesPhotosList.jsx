@@ -6,14 +6,12 @@ import { nanoid } from 'nanoid';
 import { fetchRecipesByCategory } from 'redux/recipes';
 import { PhotosList } from './RecipesPhotoList.styled';
 import { RecipeCard } from './RecipeCard';
-import { NotifyError } from 'components/CategoriesList/Notify';
-import { Loader } from 'components/Loader';
 
 export const RecipesPhotosList = () => {
   const dispatch = useDispatch();
   const intObserver = useRef();
   const { categoryName } = useParams();
-  const { recipesOfCategory, isLoading, isError } = useCategories();
+  const { recipesOfCategory, isLoading } = useCategories();
   const [page, setPage] = useState(1);
   const [category, setCategory] = useState('');
   const [recipes, setRecipes] = useState([]);
@@ -35,9 +33,6 @@ export const RecipesPhotosList = () => {
       setHasNextPage(metaData.curPage < Math.ceil(metaData.total / limit));
     }
   }, [recipesOfCategory]);
-  useEffect(() => {
-    if (isError) NotifyError('...somethin going wrong');
-  }, [isError]);
 
   const lastCardRef = useCallback(
     recipe => {
@@ -56,7 +51,6 @@ export const RecipesPhotosList = () => {
   return (
     <>
       {' '}
-      {isLoading && <Loader />}
       {recipes && recipes.length !== 0 && (
         <PhotosList>
           {recipes.map((recipe, i) =>

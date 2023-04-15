@@ -10,6 +10,6 @@ export const useCategories = () => {
   const categoriesList = useSelector(selectCategories);
   const recipesOfCategory = useSelector(selectRecipes);
   const isLoading = useSelector(selectIsLoading);
-  const isError = useSelector(selectError);
-  return { categoriesList, recipesOfCategory, isLoading, isError };
+  const Error = useSelector(selectError);
+  return { categoriesList, recipesOfCategory, isLoading, Error };
 };
