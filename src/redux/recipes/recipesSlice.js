@@ -115,7 +115,6 @@ const recipesSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-
       .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
         state.items = action.payload;
         state.isLoading = false;

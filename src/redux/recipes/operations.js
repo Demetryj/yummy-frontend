@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://soyummy-pg-2.onrender.com/api';
+
 export const fetchRecipesMainPage = createAsyncThunk(
   'recipes/fetchPopular',
   async (_, thunkAPI) => {
@@ -32,7 +33,6 @@ export const fetchCategoriesList = createAsyncThunk(
     try {
       const response = await axios.get('/recipes/category/list');
       return response.data.category;
-      // return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -53,10 +53,9 @@ export const getRecipesPopular = createAsyncThunk(
 
 export const getRecipeById = createAsyncThunk(
   'recipes/getRecipeById',
-  async (_id, thunkAPI) => {
-
+  async ({ recipeId }, thunkAPI) => {
     try {
-      const response = await axios.get(`/recipes/${_id}`);
+      const response = await axios.get(`/recipes/${recipeId}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -66,10 +65,13 @@ export const getRecipeById = createAsyncThunk(
 
 export const fetchRecipesByCategory = createAsyncThunk(
   'recipes/fetchRecipesBy',
-  async (category, thunkAPI) => {
+  async ({ category = 'Beef', page = 1, limit = 8 }, thunkAPI) => {
     try {
-      const response = await axios.get(`/recipes/category/${category}`);
-      return response.data;
+      const response = await axios.get(
+        `/recipes/category/${category}?page=${page}&limit=${limit}`
+      );
+
+      return response.data[0];
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
