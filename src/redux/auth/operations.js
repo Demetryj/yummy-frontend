@@ -1,11 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://soyummy-pg-2.onrender.com/api';
-
-// const { BASE_URL } = process.env;
-// axios.defaults.baseURL = BASE_URL;
-axios.defaults.baseURL = 'http://localhost:3001/api';
+axios.defaults.baseURL = 'https://soyummy-pg-2.onrender.com/api';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -84,7 +80,6 @@ export const updateProfile = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/users/update', credentials);
-      // setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
       const errorMessage = error.response.data.message;
