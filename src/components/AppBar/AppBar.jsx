@@ -42,12 +42,20 @@ export const AppBar = () => {
   };
 
   return (
-    <Box as="section" width={'100%'} display="flex" position="absolute">
+    <Box
+      as="section"
+      width={'100%'}
+      display="flex"
+      // position="absolute"
+    >
       <Box
         as="header"
-        // position="relative"
+        // position="absolute"
+        position="relative"
         display="flex"
-        width={'100%'}
+        ml="auto"
+        mr="auto"
+        width={{ xs: 375, md: 768, lg: 1440 }}
         justifyContent="space-between"
         py={{ xs: 3, lg: 18 }}
         px={{ xs: 16, md: 32, lg: 100 }}
