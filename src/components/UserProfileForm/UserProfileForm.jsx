@@ -1,9 +1,9 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { toggleUserInfo } from '../../redux/modal';
+import { updateProfile } from 'redux/auth/operations';
 import { Box } from '../Box';
 import {
   ProfileForm,
@@ -16,7 +16,6 @@ import {
 
 export const UserProfileForm = () => {
   const dispatch = useDispatch();
-  // const notify = () => toast(<Error name="name" />);
 
   const initialValues = {
     name: '',
@@ -27,10 +26,9 @@ export const UserProfileForm = () => {
   });
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
-    console.log(values);
+    dispatch(updateProfile(values));
     setSubmitting(false);
     resetForm();
-
     dispatch(toggleUserInfo());
   };
 

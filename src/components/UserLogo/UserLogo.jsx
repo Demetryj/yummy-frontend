@@ -5,12 +5,17 @@ import { ImageAvatar } from '../ImageAvatar';
 import { UserLogoModal } from '../UserLogoModal';
 import { UserInfoModal } from '../UserInfoModal';
 import { LogoutModal } from '../LogoutModal';
+import { useAuth } from 'hooks/useAuth';
 
 export const UserLogo = () => {
   const isUserLogoOpen = useSelector(state => state.modal.isUserLogoOpen);
   const isUserInfoOpen = useSelector(state => state.modal.isUserInfoOpen);
   const isLogoutOpen = useSelector(state => state.modal.isLogoutOpen);
   const dispatch = useDispatch();
+
+  const { user } = useAuth();
+
+  // console.log(user.name);
 
   return (
     <Box as="div" display="flex" justifyContent="center" alignItems="center">
@@ -21,7 +26,7 @@ export const UserLogo = () => {
       >
         <ImageAvatar />
       </Box>
-      <p>User</p>
+      <p>{user.name}</p>
       {isUserLogoOpen && <UserLogoModal />}
       {isUserInfoOpen && <UserInfoModal />}
       {isLogoutOpen && <LogoutModal />}
