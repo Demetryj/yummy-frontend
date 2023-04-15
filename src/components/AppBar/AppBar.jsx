@@ -13,7 +13,7 @@ import { Rectangles } from '../Rectangles';
 import { UserLogo } from '../UserLogo';
 
 const navItems = [
-  { href: 'categories', item: 'Categories' },
+  { href: 'categories/Beef', item: 'Categories' },
   { href: 'add', item: 'Add recipes' },
   { href: 'my', item: 'My recipes' },
   { href: 'favorites', item: 'Favorites' },

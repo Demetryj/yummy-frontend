@@ -46,7 +46,7 @@ export const PreviewCategories = ({ recipes }) => {
                   })}
               </ListCard>
               <Wrap>
-                <Link to={`/categories/${recipes[category].category}`}>
+                <Link to={`/categories/${category}`}>
                   <ButtonSeeAll>See all</ButtonSeeAll>
                 </Link>
               </Wrap>

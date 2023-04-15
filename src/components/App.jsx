@@ -13,7 +13,6 @@ import { useAuth } from 'hooks/useAuth';
 
 const MainPage = React.lazy(() => import('pages/Main'));
 const CategoriesPage = React.lazy(() => import('pages/Categories'));
-const CategoryNamePage = React.lazy(() => import('pages/CategoryName'));
 const AddRecipesPage = React.lazy(() => import('pages/AddRecipes'));
 const MyRecipesPage = React.lazy(() => import('pages/MyRecipes'));
 const FavoritesPage = React.lazy(() => import('pages/Favorites'));
@@ -65,24 +64,15 @@ export const App = () => {
           }
         />
         <Route
-          path="categories"
+          path="categories/:categoryName"
           element={
             <PrivateRoute
               redirectTo="/welcome"
               component={<CategoriesPage />}
             />
           }
-        >
-          <Route
-            path=":categoryName"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<CategoryNamePage />}
-              />
-            }
-          />
-        </Route>
+        />
+
         <Route
           path="add"
           element={

@@ -1,20 +1,17 @@
 import { CategoriesList } from 'components/CategoriesList';
-import { Title } from 'components/CategoriesList/Title';
 import { RecipesPhotosList } from 'components/RecipesPhotosList';
+import { CategoriesSection } from 'components/CategoriesList/CategoriesSection.styled';
+import { MainTitle } from 'components/MainTitle/MainTitle';
 
 const Categories = () => {
   return (
-    <>
-      <Title title="Categories" />
-      <div
-        style={{
-          position: 'relative',
-        }}
-      >
+    <main>
+      <CategoriesSection>
+        <MainTitle title="Categories" />
         <CategoriesList />
         <RecipesPhotosList />
-      </div>
-    </>
+      </CategoriesSection>
+    </main>
   );
 };
 

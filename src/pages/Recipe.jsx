@@ -9,24 +9,33 @@ import {
 } from 'redux/recipes/selectors';
 import { Loader } from 'components/Loader/Loader.jsx';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipeById } from 'redux/recipes/operations';
 const Recipe = () => {
   const { recipeId } = useParams();
-  const [recipe] = useSelector(selectRecipes);
-  const error = useSelector(selectError);
-  const isLoading = useSelector(selectIsLoading);
+  const [recipe, setRecipe] = useState({});
+  const recipeData = useSelector(selectRecipes);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getRecipeById(recipeId));
+    dispatch(getRecipeById({ recipeId }));
   }, [dispatch, recipeId]);
+  const error = useSelector(selectError);
+  const isLoading = useSelector(selectIsLoading);
+
+  useEffect(() => {
+    setRecipe({ ...recipeData[0] });
+  }, [recipeData]);
 
   return (
     <>
-      {recipe && <RecipePageHero recipe={recipe} />}
-      {recipe && <RecipeIngredientList recipe={recipe} />}
-      {recipe && <RecipePreparation recipe={recipe} />}
+      {Object.keys(recipe).length !== 0 && (
+        <>
+          <RecipePageHero recipe={recipe} />
+          <RecipeIngredientList recipe={recipe} />
+          <RecipePreparation recipe={recipe} />
+        </>
+      )}
       {isLoading && !error && !recipe && <Loader />}
     </>
   );

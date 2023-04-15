@@ -10,12 +10,14 @@ export const List = styled.ul`
   gap: 28px;
   min-width: 100%;
   max-width: 359px;
+  padding-top: 50px;
   @media screen and ${p => p.theme.media.medium} {
     gap: 55px;
     min-width: 100%;
     max-width: 736px;
   }
   @media screen and ${p => p.theme.media.large} {
+    padding-top: 100px;
     min-width: 100%;
     max-width: 1440px;
   }
