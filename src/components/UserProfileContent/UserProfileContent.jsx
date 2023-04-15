@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Box } from '../Box';
 import { P, Cross, UserIcon } from './UserProfileContent.styled';
 import { useDispatch } from 'react-redux';
@@ -7,21 +8,26 @@ import { UserProfileForm } from 'components/UserProfileForm';
 export const UserProfileContent = () => {
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserInfo());
+
+  React.useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        dispatch(toggleUserInfo());
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [dispatch]);
+
   return (
     <Box
       borderRadius={24}
       box-shadow="0px 4px 48px rgba(0, 0, 0, 0.1)"
       position={{ sx: 'relative' }}
     >
-      {/* <Box
-        display={{ xs: 'flex', lg: 'block' }}
-        justifyContent={{ xs: 'flex-end', lg: 'None' }}
-        onClick={() => {
-          handleClose();
-        }}
-      >
-        <Cross />
-      </Box> */}
       <Cross
         onClick={() => {
           handleClose();
@@ -45,7 +51,6 @@ export const UserProfileContent = () => {
           alignItems="center"
         >
           <UserIcon />
-          {/* <Avatar alt="Avatar" src="" /> */}
         </Box>
         <Box
           width={{ xs: 24 }}

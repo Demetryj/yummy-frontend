@@ -59,7 +59,6 @@ export const UserLogoContent = () => {
           Log out
           <Arrow size={18} />
         </LogoutButton>
-        {/* <Arrow size={18} /> */}
       </ButtonContainer>
     </Box>
   );
