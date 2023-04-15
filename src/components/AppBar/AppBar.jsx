@@ -11,6 +11,7 @@ import switchBodyOff from '../../images/logo/switch-body-off.png';
 import switchOff from '../../images/logo/switch-off.png';
 import { Rectangles } from '../Rectangles';
 import { UserLogo } from '../UserLogo';
+import { ToastContainer } from 'react-toastify';
 
 const navItems = [
   { href: 'categories', item: 'Categories' },
@@ -174,6 +175,7 @@ export const AppBar = () => {
           </Box>
         </HeaderModal>
       )}
+      <ToastContainer />
     </Box>
   );
 };

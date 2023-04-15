@@ -6,8 +6,16 @@ export const Cross = styled(RxCross2)`
   width: 20px;
   height: 20px;
   cursor: pointer;
+  position: absolute;
+  top: -18px;
+  right: -12px;
+  @media screen and ${p => p.theme.media.medium} {
+    width: 24px;
+    height: 24px;
+    top: -16px;
+    right: -9px;
+  }
   @media screen and ${p => p.theme.media.large} {
-    position: absolute;
     width: 24px;
     height: 24px;
     top: -36px;

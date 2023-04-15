@@ -1,37 +1,13 @@
 import styled from 'styled-components';
-import { Field } from 'formik';
+import { Field, Form, ErrorMessage } from 'formik';
 import { FiUser } from 'react-icons/fi';
 import { HiOutlinePencil } from 'react-icons/hi';
-// export const Input = styled(Field)`
-//   color: tomato;
-// `;
 
-export const Form = styled.form`
+export const ProfileForm = styled(Form)`
   padding: 0;
 `;
 
-export const UserIcon = styled(FiUser)`
-  width: 18px;
-  height: 18px;
-  opacity: 0.8;
-  position: absolute;
-  left: 13px;
-  top: 16px;
-  @media screen and ${p => p.theme.media.medium} {
-    width: 24px;
-    height: 24px;
-    left: 18px;
-    top: 12px;
-  }
-  @media screen and ${p => p.theme.media.large} {
-    width: 24px;
-    height: 24px;
-    left: 18px;
-    top: 18px;
-  }
-`;
-
-export const Input = styled.input`
+export const Input = styled(Field)`
   border: 1px solid;
   border-color: rgba(35, 38, 42, 0.3);
   width: 100%;
@@ -62,6 +38,39 @@ export const Input = styled.input`
   }
 `;
 
+export const Error = styled(ErrorMessage)`
+  position: absolute;
+  color: red;
+  top: 49px;
+  @media screen and ${p => p.theme.media.medium} {
+    top: 50px;
+  }
+  @media screen and ${p => p.theme.media.large} {
+    top: 63px;
+  }
+`;
+
+export const UserIcon = styled(FiUser)`
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+  position: absolute;
+  left: 13px;
+  top: 16px;
+  @media screen and ${p => p.theme.media.medium} {
+    width: 24px;
+    height: 24px;
+    left: 18px;
+    top: 12px;
+  }
+  @media screen and ${p => p.theme.media.large} {
+    width: 24px;
+    height: 24px;
+    left: 18px;
+    top: 18px;
+  }
+`;
+
 export const IconPencil = styled(HiOutlinePencil)`
   position: absolute;
   width: 15px;
@@ -76,10 +85,6 @@ export const IconPencil = styled(HiOutlinePencil)`
   @media screen and ${p => p.theme.media.large} {
     top: 20px;
   }
-`;
-
-export const Label = styled.label`
-  border: 1px solid green;
 `;
 
 export const P = styled.p`

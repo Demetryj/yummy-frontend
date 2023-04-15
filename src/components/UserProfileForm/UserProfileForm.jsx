@@ -1,49 +1,57 @@
 import React from 'react';
-import { useFormik } from 'formik';
+import { Formik } from 'formik';
+import { toast } from 'react-toastify';
+import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { toggleUserInfo } from '../../redux/modal';
 import { Box } from '../Box';
 import {
-  Form,
-  Label,
-  UserIcon,
+  ProfileForm,
   Input,
+  Error,
+  UserIcon,
   IconPencil,
-  P,
   Button,
 } from './UserProfileForm.styled';
 
 export const UserProfileForm = () => {
   const dispatch = useDispatch();
+  // const notify = () => toast(<Error name="name" />);
 
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-    },
+  const initialValues = {
+    name: '',
+  };
 
-    onSubmit: values => {
-      console.log(values);
-      dispatch(toggleUserInfo());
-    },
+  const validationSchema = Yup.object({
+    name: Yup.string().required('Name is required'),
   });
 
-  return (
-    <Form onSubmit={formik.handleSubmit}>
-      {/* <Label htmlFor="name">Name</Label> */}
-      <Box display="flex" position="relative">
-        <UserIcon />
-        <Input
-          id="name"
-          name="name"
-          type="name"
-          placeholder="User"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-        />
-        <IconPencil />
-      </Box>
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
+    console.log(values);
+    setSubmitting(false);
+    resetForm();
 
-      <Button type="submit">Save changes</Button>
-    </Form>
+    dispatch(toggleUserInfo());
+  };
+
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      {formik => (
+        <ProfileForm onSubmit={formik.handleSubmit}>
+          {/* <Label htmlFor="name">Name</Label> */}
+          <Box display="flex" position="relative">
+            <UserIcon />
+            <Input name="name" type="text" placeholder="User" />
+            <Error component="div" name="name" />
+            <IconPencil />
+          </Box>
+          <Button type="submit">Save changes</Button>
+        </ProfileForm>
+      )}
+    </Formik>
   );
 };

@@ -11,9 +11,9 @@ export const UserProfileContent = () => {
     <Box
       borderRadius={24}
       box-shadow="0px 4px 48px rgba(0, 0, 0, 0.1)"
-      position={{ lg: 'relative' }}
+      position={{ sx: 'relative' }}
     >
-      <Box
+      {/* <Box
         display={{ xs: 'flex', lg: 'block' }}
         justifyContent={{ xs: 'flex-end', lg: 'None' }}
         onClick={() => {
@@ -21,7 +21,12 @@ export const UserProfileContent = () => {
         }}
       >
         <Cross />
-      </Box>
+      </Box> */}
+      <Cross
+        onClick={() => {
+          handleClose();
+        }}
+      />
       <Box
         display={{ xs: 'flex' }}
         justifyContent="center"
