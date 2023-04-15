@@ -39,15 +39,13 @@ const Categories = () => {
   };
 
   return (
-    <main>
-      <CategoriesSection>
-        {isLoading && <Loader />}
-        <MainTitle title="Categories" />
-        <CategoriesList />
-        <RecipesPhotosList />
-        {buttonVisible && <ScrollUpButton handleClick={handleClick} />}
-      </CategoriesSection>
-    </main>
+    <CategoriesSection>
+      {isLoading && <Loader />}
+      <MainTitle title="Categories" />
+      <CategoriesList />
+      <RecipesPhotosList />
+      {buttonVisible && <ScrollUpButton handleClick={handleClick} />}
+    </CategoriesSection>
   );
 };
 
