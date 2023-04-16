@@ -192,9 +192,11 @@ export const RegisterForm = () => {
             ) : (
               <Title>Please verify your email</Title>
             )}
-            <LinkStyled to="/signin" onClick={handleClick}>
-              Sign in
-            </LinkStyled>
+            {!isRegistered && (
+              <LinkStyled to="/signin" onClick={handleClick}>
+                Sign in
+              </LinkStyled>
+            )}
           </FormBoxStyled>
         </WrapperRegister>
       </Container>
