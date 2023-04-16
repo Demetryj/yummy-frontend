@@ -1,11 +1,11 @@
 import * as React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { updateProfile } from 'redux/auth/operations';
+// import { updateProfile } from 'redux/auth/operations';
 import { toggleAvatarUpdate } from '../../redux/modal';
 import { passAvatar } from '../../redux/avatar';
 
-const { BASE_URL } = process.env;
+// const { BASE_URL } = process.env;
 
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
 

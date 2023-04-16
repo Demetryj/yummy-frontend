@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleUserLogo } from '../../redux/modal';
-import { FiUser } from 'react-icons/fi';
+// import { FiUser } from 'react-icons/fi';
 import Avatar from 'react-avatar';
 import { useAuth } from 'hooks/useAuth';
 import { Container } from './ImageAvatar.styled';
