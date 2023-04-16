@@ -19,6 +19,7 @@ const initialState = {
   isRefreshing: true,
   isLoading: false,
   errorMessage: null,
+  isRegistered: false,
 };
 
 const authSlice = createSlice({
@@ -31,8 +32,9 @@ const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
+        state.isRegistered = true;
+        // state.token = action.payload.token;
+        // state.isLoggedIn = true;
         state.isLoading = false;
       })
       .addCase(register.rejected, (state, action) => {
