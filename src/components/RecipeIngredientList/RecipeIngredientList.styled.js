@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 export const Container = styled.div`
-  padding-top: ${p => p.theme.spacing(238)};
-
+  /* padding-top: ${p => p.theme.spacing(260)}; */
+  padding-top: ${p => p.heightHero + 32}px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
-    padding-top: ${p => p.theme.spacing(270)};
+    padding-top: ${p => p.heightHero + 50}px;
   }
 
   @media screen and (min-width: 1440px) {

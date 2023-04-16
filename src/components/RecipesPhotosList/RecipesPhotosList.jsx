@@ -15,6 +15,7 @@ export const RecipesPhotosList = () => {
   const [page, setPage] = useState(1);
   const [category, setCategory] = useState('');
   const [recipes, setRecipes] = useState([]);
+  console.log(recipes);
   const [hasNextPage, setHasNextPage] = useState(false);
   const limit = 8;
 

@@ -10,14 +10,18 @@ import { FiClock } from 'react-icons/fi';
 import { Loader } from 'components/Loader';
 
 export const Container = styled.div`
-  align-items: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: center;
+  justify-content: center; */
   padding-top: ${p => p.theme.spacing(72)};
   padding-bottom: ${p => p.theme.spacing(45)};
-  padding-left: ${p => p.theme.spacing(19)};
-  padding-right: ${p => p.theme.spacing(19)};
+  /* padding-left: ${p => p.theme.spacing(19)};
+  padding-right: ${p => p.theme.spacing(19)}; */
   width: 100%;
-  height: 455px;
+  min-height: 455px;
   position: absolute;
   top: 0;
   left: 0;
@@ -35,10 +39,10 @@ export const Container = styled.div`
   }
   @media screen and (min-width: 768px) {
     padding-bottom: ${p => p.theme.spacing(16)};
-    padding-left: ${p => p.theme.spacing(66)};
-    padding-right: ${p => p.theme.spacing(66)};
+    /* padding-left: ${p => p.theme.spacing(66)};
+    padding-right: ${p => p.theme.spacing(66)}; */
     padding-top: ${p => p.theme.spacing(68)};
-    height: 495px;
+    min-height: 495px;
 
     background-image: url(${recipeTable});
     @media (min-device-pixel-ratio: 2),
@@ -49,12 +53,12 @@ export const Container = styled.div`
     }
   }
   @media screen and (min-width: 1440px) {
-    padding-left: ${p => p.theme.spacing(196)};
-    padding-right: ${p => p.theme.spacing(196)};
+    /* padding-left: ${p => p.theme.spacing(196)};
+    padding-right: ${p => p.theme.spacing(196)}; */
     padding-top: ${p => p.theme.spacing(82)};
     padding-bottom: ${p => p.theme.spacing(16)};
     background-image: url(${recipe});
-    height: 493px;
+    min-height: 493px;
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -171,11 +175,11 @@ export const LoaderUnFav = styled(Loader)`
 export const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 303px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 300px;
   @media screen and (min-width: 768px) {
     width: 506px;
   }

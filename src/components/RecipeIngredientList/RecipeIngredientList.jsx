@@ -6,11 +6,11 @@ import {
   InngredientsList,
 } from './RecipeIngredientList.styled';
 import { RecipeIngredientItem } from 'components/RecipeIngredientItem/RecipeIngredientItem';
-export const RecipeIngredientList = ({ recipe }) => {
+export const RecipeIngredientList = ({ recipe, heightHero }) => {
   const { ingredients } = recipe;
 
   return (
-    <Container>
+    <Container heightHero={heightHero}>
       <Table>
         <Text>Ingredients</Text>
         <Text>

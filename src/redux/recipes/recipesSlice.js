@@ -117,6 +117,7 @@ const recipesSlice = createSlice({
       })
       .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
         state.items = action.payload;
+        console.log(action.payload);
         state.isLoading = false;
         state.error = null;
       })
