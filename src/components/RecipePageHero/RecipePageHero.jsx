@@ -14,6 +14,7 @@ import {
   Time,
   ClockBlock,
   BtnFavorite,
+  Wrapper,
 } from './RecipePageHero.styled';
 
 export const RecipePageHero = ({ recipe, getHeightHero }) => {
