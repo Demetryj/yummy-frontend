@@ -27,7 +27,7 @@ import sprite from 'images/registrationLogin/spriteRegister.svg';
 import { Loader } from 'components/Loader';
 import { actionErrRefr } from 'redux/auth/actionErrRefr';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const registerSchema = object({
   name: string().required(),
@@ -38,7 +38,6 @@ const registerSchema = object({
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [validation, setValidation] = useState(false);
 
   const { isLoading } = useAuth();
   const { errorMessage } = useAuth();
