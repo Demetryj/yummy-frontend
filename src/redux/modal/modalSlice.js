@@ -4,6 +4,7 @@ const initialState = {
   isUserLogoOpen: false,
   isUserInfoOpen: false,
   isLogoutOpen: false,
+  isAvatarUpdateOpen: false,
 };
 
 export const modalSlice = createSlice({
@@ -19,11 +20,18 @@ export const modalSlice = createSlice({
     toggleLogout: state => {
       state.isLogoutOpen = !state.isLogoutOpen;
     },
+    toggleAvatarUpdate: state => {
+      state.isAvatarUpdateOpen = !state.isAvatarUpdateOpen;
+    },
   },
 });
 
-export const { toggleUserLogo, toggleUserInfo, toggleLogout } =
-  modalSlice.actions;
+export const {
+  toggleUserLogo,
+  toggleUserInfo,
+  toggleLogout,
+  toggleAvatarUpdate,
+} = modalSlice.actions;
 
 // export default modalSlice.reducer;
 export const modalReducer = modalSlice.reducer;

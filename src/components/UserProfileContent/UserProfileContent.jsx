@@ -1,13 +1,25 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+import Avatar from 'react-avatar';
 import { Box } from '../Box';
 import { P, Cross, UserIcon } from './UserProfileContent.styled';
 import { useDispatch } from 'react-redux';
-import { toggleUserInfo } from '../../redux/modal';
+import { toggleUserInfo, toggleAvatarUpdate } from '../../redux/modal';
+import { useAuth } from 'hooks/useAuth';
 import { UserProfileForm } from 'components/UserProfileForm';
 
 export const UserProfileContent = () => {
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserInfo());
+  const fileData = useSelector(state => state);
+
+  console.log('fileData', fileData);
+
+  const path = '../../images/avatar/64078473abf4d1c4a914e088_avatar.jpg';
+
+  const { user } = useAuth();
+
+  // console.log('user', user);
 
   React.useEffect(() => {
     const handleKeyDown = e => {
@@ -50,7 +62,11 @@ export const UserProfileContent = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <UserIcon />
+          {path ? (
+            <Avatar size="100%" round={true} name={user.name} src={path} />
+          ) : (
+            <UserIcon />
+          )}
         </Box>
         <Box
           width={{ xs: 24 }}
@@ -65,7 +81,14 @@ export const UserProfileContent = () => {
           alignItems="center"
           color="whiteColor"
         >
-          <P>+</P>
+          <P
+            onClick={() => {
+              dispatch(toggleAvatarUpdate());
+              handleClose();
+            }}
+          >
+            +
+          </P>
         </Box>
       </Box>
       <UserProfileForm />
