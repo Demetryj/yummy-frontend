@@ -9,7 +9,6 @@ import {
 } from 'redux/recipes/selectors';
 import { Loader } from 'components/Loader/Loader.jsx';
 import { onScrollUp } from 'utils/scrollUp';
-
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipeById } from 'redux/recipes/operations';

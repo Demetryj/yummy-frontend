@@ -2,13 +2,13 @@ import { СhooseYourBreakfast } from './СhooseYourBreakfast/СhooseYourBreakfas
 import { Search } from './Search/Search';
 import { PreviewCategories } from './PreviewCategories/PreviewCategories';
 import {
-HeroContainer,
-HeroBox, 
-HeroText,
-Selected,
-HeroSubText,
-PreviewCategoriesContainer
-} from "./StartMainPage.styled";
+  HeroContainer,
+  HeroBox,
+  HeroText,
+  Selected,
+  HeroSubText,
+  PreviewCategoriesContainer,
+} from './StartMainPage.styled';
 import { selectRecipesPopular, selectIsLoading } from 'redux/recipes/selectors';
 import { fetchRecipesMainPage } from 'redux/recipes/operations';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,25 +23,32 @@ export const StartMainPage = () => {
   }, [dispatch]);
 
   const recipesPopular = useSelector(selectRecipesPopular);
-
-    return ( 
-      <>
-      {recipesPopular && !isLoading ? 
-      (
+  console.log(recipesPopular);
+  return (
+    <>
+      {recipesPopular && !isLoading ? (
         <>
           <HeroContainer>
             <HeroBox>
-              <HeroText><Selected>So</Selected>Yummy</HeroText>
-              <HeroSubText>"What to cook?" is not only a recipe app, it is, in fact, <br/> your cookbook. You can add your own recipes to <br/> save them for the future.</HeroSubText>  
-              <СhooseYourBreakfast/>
-              <Search/>
+              <HeroText>
+                <Selected>So</Selected>Yummy
+              </HeroText>
+              <HeroSubText>
+                "What to cook?" is not only a recipe app, it is, in fact, <br />{' '}
+                your cookbook. You can add your own recipes to <br /> save them
+                for the future.
+              </HeroSubText>
+              <СhooseYourBreakfast />
+              <Search />
             </HeroBox>
           </HeroContainer>
           <PreviewCategoriesContainer>
-            <PreviewCategories recipes={recipesPopular}/>
+            <PreviewCategories recipes={recipesPopular} />
           </PreviewCategoriesContainer>
         </>
-      ) : (<Loader/>) }
-      </> 
-  )
+      ) : (
+        <Loader />
+      )}
+    </>
+  );
 };

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Box } from '../Box';
+import { useLocation } from 'react-router-dom';
 import { NavItem, List, ListItem } from './AppBar.styled';
 import { FiSearch } from 'react-icons/fi';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
@@ -65,6 +66,7 @@ export const AppBar = () => {
       <Box
         as="header"
         // position="absolute"
+        zIndex={'10'}
         position="relative"
         display="flex"
         ml="auto"

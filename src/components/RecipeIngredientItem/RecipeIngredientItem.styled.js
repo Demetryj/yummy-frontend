@@ -11,11 +11,11 @@ export const ImageBlock = styled.div`
   align-items: center;
   margin-right: ${p => p.theme.spacing(4)};
 
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     margin-right: ${p => p.theme.spacing(12)};
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and ${p => p.theme.media.large} {
     margin-right: ${p => p.theme.spacing(20)};
   }
 
@@ -24,12 +24,12 @@ export const ImageBlock = styled.div`
     width: ${p => p.theme.spacing(29)};
     height: ${p => p.theme.spacing(29)};
 
-    @media screen and (min-width: 768px) {
+    @media screen and ${p => p.theme.media.medium} {
       width: ${p => p.theme.spacing(68)};
       height: ${p => p.theme.spacing(68)};
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and ${p => p.theme.media.large} {
       width: ${p => p.theme.spacing(86)};
       height: ${p => p.theme.spacing(86)};
     }
@@ -47,12 +47,12 @@ export const Label = styled.label`
     cursor: pointer;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     padding: ${p => p.theme.spacing(16)} ${p => p.theme.spacing(29)}
       ${p => p.theme.spacing(16)} ${p => p.theme.spacing(20)};
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and ${p => p.theme.media.large} {
     padding: ${p => p.theme.spacing(14)} ${p => p.theme.spacing(35)}
       ${p => p.theme.spacing(14)} ${p => p.theme.spacing(29)};
   }
@@ -67,12 +67,12 @@ export const TextContainer = styled.div`
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     max-width: ${p => p.theme.spacing(104)};
     height: ${p => p.theme.spacing(57)};
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and ${p => p.theme.media.medium} {
     max-width: ${p => p.theme.spacing(274)};
     height: ${p => p.theme.spacing(52)};
   }
@@ -94,14 +94,14 @@ export const IngDescr = styled.p`
   width: ${p => p.theme.spacing(70)};
   border-radius: ${p => p.theme.radii.normal};
 
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     font-size: ${p => p.theme.fontSizes.m};
     line-height: 1.17;
     top: 25%;
     left: 40%;
     width: ${p => p.theme.spacing(80)};
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and ${p => p.theme.media.large} {
     font-size: ${p => p.theme.fontSizes.xm};
     line-height: 1.17;
     top: 25%;
@@ -121,7 +121,7 @@ export const IngName = styled.p`
   &:hover ~ ${IngDescr} {
     display: block;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     font-size: ${p => p.theme.fontSizes.l};
     line-height: 1.17;
     margin-bottom: ${p => p.theme.spacing(4)};
@@ -143,7 +143,7 @@ export const IngQuantity = styled.p`
   line-height: 1.5;
   color: ${p => p.theme.colors.whiteTextColor};
 
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     max-width: ${p => p.theme.spacing(75)};
     min-width: ${p => p.theme.spacing(34)};
     font-size: ${p => p.theme.fontSizes.xm};
@@ -168,23 +168,23 @@ export const CustomCheckbox = styled.span`
     top: 50%;
     transform: translate(-50%, -50%) scale(0);
 
-    @media screen and (min-width: 768px) {
+    @media screen and ${p => p.theme.media.medium} {
       width: ${p => p.theme.spacing(9)};
       height: ${p => p.theme.spacing(9)};
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and ${p => p.theme.media.large} {
     }
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     border: 2px solid rgba(126, 126, 126, 0.5);
     width: ${p => p.theme.spacing(18)};
     height: ${p => p.theme.spacing(18)};
     margin-left: ${p => p.theme.spacing(39)};
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and ${p => p.theme.media.large} {
     margin-left: ${p => p.theme.spacing(75)};
   }
 `;

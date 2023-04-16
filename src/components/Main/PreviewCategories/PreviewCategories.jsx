@@ -15,6 +15,7 @@ import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
 
 export const PreviewCategories = ({ recipes }) => {
   const { isMobile, isTablet } = useMedia();
+  // const recipesPopular = recipes[category];
   let numCard;
 
   if (isMobile) {
