@@ -3,9 +3,19 @@ import { bounce } from 'react-animations';
 import PlugIsEmptyDesktop from 'images/searchPage/search_desk_tab@2x.png';
 import PlugIsEmptyMobile from 'images/searchPage/search_mob@2x.png';
 
-export const Container = styled.div`
-  padding-top: 102px;
-  padding-bottom: 200px;
+export const Container = styled.section`
+  padding-top: ${p => p.theme.spacing(26)};
+  padding-bottom: ${p => p.theme.spacing(62)};
+
+  @media screen and ${p => p.theme.media.medium} {
+    padding-top: ${p => p.theme.spacing(37)};
+    padding-bottom: ${p => p.theme.spacing(125)};
+  }
+
+  @media screen and ${p => p.theme.media.large} {
+    padding-top: ${p => p.theme.spacing(51)};
+    padding-bottom: ${p => p.theme.spacing(118)};
+  }
 `;
 
 export const Panel = styled.div`

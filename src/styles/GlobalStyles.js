@@ -50,5 +50,5 @@ img {
 }
 input {
   all: unset;
-}s
+}
 `;
