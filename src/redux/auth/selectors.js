@@ -10,3 +10,5 @@ export const selectToken = state => state.auth.token;
 export const selectIsLoading = state => state.auth.isLoading;
 
 export const selectError = state => state.auth.errorMessage;
+
+export const selectisRegistered = state => state.auth.isRegistered;
