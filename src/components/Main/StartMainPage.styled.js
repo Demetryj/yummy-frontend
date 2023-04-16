@@ -6,21 +6,20 @@ import plateImgTab2 from 'images/mainPage/mainpage2x_tab.png';
 import plateImgDesk from 'images/mainPage/mainpage1x_desk.png';
 import plateImgDesk2 from 'images/mainPage/mainpage2x_desk.png';
 
-export const ContainerHero = styled.div`
-  padding: 0 16px; // прописано в SharedLayout, але чомусь не спрацьовує для ContainerHero
+export const HeroContainer = styled.section`
   width: 100%;
+  padding: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(8)};
+  height: ${p => p.theme.spacing(388.5)};
   position: absolute;
-  left: 0;
-  z-index: -1; // нужен ли
+  left: ${p => p.theme.spacing(0)};
+  top: ${p => p.theme.spacing(0)};
+
   background-image: url(${plateImgMob});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-color: ${p => p.theme.colors.whiteColor};
-  display: flex;
-  height: ${p => p.theme.spacing(388.5)};
-  margin-bottom: ${p => p.theme.spacing(30)};
-
+ 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     (-webkit-min-device-pixel-ratio: 2),
@@ -29,11 +28,10 @@ export const ContainerHero = styled.div`
     }
 
   @media (${p => p.theme.media.medium}) {
-    padding: 0 32px; // прописано в SharedLayout, -||-
+    padding: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(16)}; 
 
-    background-image: url(${plateImgTab});
     height: ${p => p.theme.spacing(320)};
-    margin-bottom: ${p => p.theme.spacing(36)};
+    background-image: url(${plateImgTab});
    
     @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -44,11 +42,10 @@ export const ContainerHero = styled.div`
   }
 
   @media (${p => p.theme.media.large}) {
-    padding: 0 100px; // прописано в SharedLayout, -||-
+    padding: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(50)};
 
-    background-image: url(${plateImgDesk});
     height: ${p => p.theme.spacing(400)};
-    margin-bottom: ${p => p.theme.spacing(50)};
+    background-image: url(${plateImgDesk});
     
     @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -58,22 +55,26 @@ export const ContainerHero = styled.div`
     }
   }`
 
-  export const ContainerPreviewCategories = styled.div`
-  // padding: 0px 16px; // прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
-  padding-top: ${p => p.theme.spacing(419)};
+export const PreviewCategoriesContainer = styled.section`
   width: 100%;
+  padding-top: ${p => p.theme.spacing(419)};
+  margin: 0px auto;
+  
   @media screen and (${p => p.theme.media.medium}) {
-  // padding: 0 32px; // прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
+    // width: 768px; // потрібно для margin: 0px auto;
+    padding-top:${p => p.theme.spacing(356)};  
   }
   
   @media screen and (${p => p.theme.media.large}) {
-    // padding: 0 100px; // прописано в SharedLayout, але не спрацьовує для WrapPreviewCategories
+    // width: 1440px; // потрібно для margin: 0px auto;
+    padding-top: ${p => p.theme.spacing(450)};  
   }`;
 
-export const MainBox = styled.div`
-  @media (${p => p.theme.media.medium}) {
-    display: flex; 
+export const HeroBox = styled.div`
+  
+@media (${p => p.theme.media.medium}) {
     margin-right: ${p => p.theme.spacing(184)};
+    display: flex; 
     flex-wrap: wrap;
     justify-content: flex-start;
   }
@@ -87,15 +88,14 @@ export const MainBox = styled.div`
     margin-right: ${p => p.theme.spacing(415)};
   }`
 
-export const TextMain = styled.h1`
+export const HeroText = styled.h1`
   margin: 132px 12px 0px 12px;
   color: ${p => p.theme.colors.titleTextColor};
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.spacing(30)};
   line-height: ${p => p.theme.spacing(30)};
-  display: flex;
-  text-align: center;
   letter-spacing: -0.005em;
+  text-align: center;
 
   @media (${p => p.theme.media.medium}) {
     margin: 204px 0 0px ;
@@ -116,6 +116,7 @@ export const Selected = styled.span`
   line-height: ${p => p.theme.spacing(30)};
   text-align: center;
   letter-spacing: -0.005em;
+
   @media (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.spacing(36)};
     line-height: ${p => p.theme.spacing(36)};
@@ -126,7 +127,7 @@ export const Selected = styled.span`
     line-height: ${p => p.theme.spacing(50)};
   }`
 
-export const TextSub = styled.p`
+export const HeroSubText = styled.p`
   margin: 14px 40px 157px 40px;
   color: ${p => p.theme.colors.secondaryDark};
   font-weight: ${p => p.theme.fontWeights.regular};;

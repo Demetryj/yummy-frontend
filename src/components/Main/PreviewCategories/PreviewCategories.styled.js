@@ -7,6 +7,7 @@ flex-direction: column;
 gap: ${p => p.theme.spacing(16)};
 
 @media screen and (${p => p.theme.media.medium}) {
+  width: ${p => p.theme.spacing(384)};
   gap: ${p => p.theme.spacing(25)}  
 }
  
@@ -14,34 +15,26 @@ gap: ${p => p.theme.spacing(16)};
     gap: ${p => p.theme.spacing(50)}  
 }`
 
-export const Categoty = styled.h3`
-margin-bottom: ${p => p.theme.spacing(16)};
-font-weight: ${p => p.theme.fontWeights.semiBold};
-color: ${p => p.theme.colors.titleTextColor};
-font-size: ${p => p.theme.fontSizes.xl};
-      @media screen and ${(p) => p.theme.media.medium} {
-        margin-bottom:${p => p.theme.spacing(20)};
-          font-size: ${p => p.theme.fontSizes.xxl};
-      }
-  
-      @media screen and ${(p) => p.theme.media.large} {
-        margin-bottom: ${p => p.theme.spacing(25)};
-          font-size: ${p => p.theme.fontSizes.sb};
-      }
-`;
+export const WrapCategory = styled.div`
+@media screen and (${p => p.theme.media.medium}) {
+  width: ${p => p.theme.spacing(384)};
+}`
 
 export const ListCard = styled.ul`
+margin-top: ${p => p.theme.spacing(16)};
 margin-bottom: ${p => p.theme.spacing(20)};
 display: flex;
 flex-wrap: wrap;
 gap: ${p => p.theme.spacing(0)};
 
 @media screen and (${p => p.theme.media.medium}) {
+  margin-top:${p => p.theme.spacing(20)};
   margin-bottom: ${p => p.theme.spacing(20)};
   gap: ${p => p.theme.spacing(16)};
 }
 
 @media screen and (${p => p.theme.media.large}) {
+  margin-top: ${p => p.theme.spacing(25)};
   margin-bottom:${p => p.theme.spacing(25)};
   gap: ${p => p.theme.spacing(6.5)};
 }`

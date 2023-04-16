@@ -2,12 +2,12 @@ import { СhooseYourBreakfast } from './СhooseYourBreakfast/СhooseYourBreakfas
 import { Search } from './Search/Search';
 import { PreviewCategories } from './PreviewCategories/PreviewCategories';
 import {
-ContainerHero,
-MainBox, 
-TextMain,
+HeroContainer,
+HeroBox, 
+HeroText,
 Selected,
-TextSub,
-ContainerPreviewCategories
+HeroSubText,
+PreviewCategoriesContainer
 } from "./StartMainPage.styled";
 import { selectRecipesPopular, selectIsLoading } from 'redux/recipes/selectors';
 import { fetchRecipesMainPage } from 'redux/recipes/operations';
@@ -29,17 +29,17 @@ export const StartMainPage = () => {
       {recipesPopular && !isLoading ? 
       (
         <>
-          <ContainerHero>
-            <MainBox>
-              <TextMain><Selected>So</Selected>Yummy</TextMain>
-              <TextSub>"What to cook?" is not only a recipe app, it is, in fact, <br/> your cookbook. You can add your own recipes to <br/> save them for the future.</TextSub>  
+          <HeroContainer>
+            <HeroBox>
+              <HeroText><Selected>So</Selected>Yummy</HeroText>
+              <HeroSubText>"What to cook?" is not only a recipe app, it is, in fact, <br/> your cookbook. You can add your own recipes to <br/> save them for the future.</HeroSubText>  
               <СhooseYourBreakfast/>
               <Search/>
-            </MainBox>
-          </ContainerHero>
-          <ContainerPreviewCategories>
+            </HeroBox>
+          </HeroContainer>
+          <PreviewCategoriesContainer>
             <PreviewCategories recipes={recipesPopular}/>
-          </ContainerPreviewCategories>
+          </PreviewCategoriesContainer>
         </>
       ) : (<Loader/>) }
       </> 
