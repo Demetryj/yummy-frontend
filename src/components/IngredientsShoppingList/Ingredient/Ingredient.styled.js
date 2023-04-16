@@ -54,19 +54,20 @@ export const ProductName = styled.p`
 `;
 
 export const ProductQuantity = styled.div`
-  width: ${p => p.theme.spacing(18)};
+  min-width: ${p => p.theme.spacing(18)};
   height: ${p => p.theme.spacing(11)};
   margin-left: auto;
+  padding: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(3)};
   background: ${p => p.theme.colors.greenTextColor};
-  border-radius: 4px;
+  border-radius: ${p => p.theme.radii.superLight};
   text-align: center;
   line-height: 2.3;
   font-weight: ${p => p.theme.fontWeights.semiBold};
-  font-size: 10px;
+  font-size: ${p => p.theme.fontSizes.x};
   text-align: center;
   color: ${p => p.theme.colors.whiteTextColor};
   @media screen and ${p => p.theme.media.medium} {
-    width: ${p => p.theme.spacing(34)};
+    min-width: ${p => p.theme.spacing(34)};
     height: ${p => p.theme.spacing(17)};
     font-size: ${p => p.theme.fontSizes.xm};
     line-height: 1.9;
