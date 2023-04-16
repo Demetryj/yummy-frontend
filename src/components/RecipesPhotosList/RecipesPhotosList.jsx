@@ -15,7 +15,7 @@ export const RecipesPhotosList = () => {
   const [page, setPage] = useState(1);
   const [category, setCategory] = useState('');
   const [recipes, setRecipes] = useState([]);
-  console.log(recipes);
+ 
   const [hasNextPage, setHasNextPage] = useState(false);
   const limit = 8;
 
@@ -51,7 +51,7 @@ export const RecipesPhotosList = () => {
 
   return (
     <>
-      {' '}
+      
       {recipes && recipes.length !== 0 && (
         <PhotosList>
           {recipes.map((recipe, i) =>
