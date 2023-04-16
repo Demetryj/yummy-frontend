@@ -66,7 +66,7 @@ export const PreviewCategoriesContainer = styled.section`
   }
   
   @media screen and (${p => p.theme.media.large}) {
-    // width: 1440px; // потрібно для margin: 0px auto;
+    // owidth: 1440px; // потрібно для margin: 0px auto;
     padding-top: ${p => p.theme.spacing(450)};  
   }`;
 
