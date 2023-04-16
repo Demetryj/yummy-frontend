@@ -6,10 +6,11 @@ import {
   ButtonSeeAll,
   ButtonDown,
   WrapRecipe,
-  Categoty,
   LinkDown,
   Wrap,
+  WrapCategory,
 } from './PreviewCategories.styled';
+import { MainTitle } from "components/MainTitle/MainTitle"
 import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
 
 export const PreviewCategories = ({ recipes }) => {
@@ -30,8 +31,8 @@ export const PreviewCategories = ({ recipes }) => {
         {Object.keys(recipes).map(category => {
           const recipesPopular = recipes[category];
           return (
-            <li key={category}>
-              <Categoty>{category}</Categoty>
+            <WrapCategory key={category}>
+              <MainTitle title={category}/>
               <ListCard>
                 {recipesPopular
                   .slice(0, numCard)
@@ -50,7 +51,7 @@ export const PreviewCategories = ({ recipes }) => {
                   <ButtonSeeAll>See all</ButtonSeeAll>
                 </Link>
               </Wrap>
-            </li>
+            </WrapCategory>
           );
         })}
       </ListCategory>
