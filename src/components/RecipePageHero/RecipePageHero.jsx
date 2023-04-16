@@ -2,7 +2,7 @@ import { selectUser } from 'redux/auth/selectors';
 import { selectError, selectIsLoading } from 'redux/recipes/selectors';
 import { addToFavorites, removeFromFavorites } from 'redux/recipes/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { LoaderSmall } from 'components/LoaderSmall/LoaderSmall';
 import toast from 'react-hot-toast';
 
@@ -16,7 +16,7 @@ import {
   BtnFavorite,
 } from './RecipePageHero.styled';
 
-export const RecipePageHero = ({ recipe }) => {
+export const RecipePageHero = ({ recipe, getHeightHero }) => {
   const { title, description, time, favorites, _id, owner } = recipe;
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
@@ -26,7 +26,11 @@ export const RecipePageHero = ({ recipe }) => {
     favorites.includes(user._id);
   });
   const isOwner = owner && owner._id === user._id ? true : false;
-
+  const refComponent = useRef();
+  useEffect(() => {
+    const height = refComponent.current.getBoundingClientRect().height;
+    getHeightHero(height);
+  }, [refComponent, getHeightHero]);
   const handleAdd = () => {
     dispatch(addToFavorites(_id));
     setInFavorites(true);
@@ -58,25 +62,25 @@ export const RecipePageHero = ({ recipe }) => {
   };
 
   return (
-    <Container>
-      {/* <Wrapper> */}
-      <Title>{title}</Title>
-      <Text>{description}</Text>
-      {inFavorites && !isOwner && (
-        <BtnFavorite disabled={isLoading} onClick={handleRemove}>
-          Remove from favorites recipes {isLoading && <LoaderSmall />}
-        </BtnFavorite>
-      )}
-      {!inFavorites && !isOwner && (
-        <BtnFavorite disabled={isLoading} onClick={handleAdd}>
-          Add to favorite recipes {isLoading && <LoaderSmall />}
-        </BtnFavorite>
-      )}
-      <ClockBlock>
-        <Clock size={14} />
-        <Time>{time} min</Time>
-      </ClockBlock>
-      {/* </Wrapper> */}
+    <Container ref={refComponent}>
+      <Wrapper>
+        <Title>{title}</Title>
+        <Text>{description}</Text>
+        {inFavorites && !isOwner && (
+          <BtnFavorite disabled={isLoading} onClick={handleRemove}>
+            Remove from favorites recipes {isLoading && <LoaderSmall />}
+          </BtnFavorite>
+        )}
+        {!inFavorites && !isOwner && (
+          <BtnFavorite disabled={isLoading} onClick={handleAdd}>
+            Add to favorite recipes {isLoading && <LoaderSmall />}
+          </BtnFavorite>
+        )}
+        <ClockBlock>
+          <Clock size={14} />
+          <Time>{time} min</Time>
+        </ClockBlock>
+      </Wrapper>
     </Container>
   );
 };

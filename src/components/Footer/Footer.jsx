@@ -56,7 +56,7 @@ const benefits = [
 
 export const Footer = () => {
   return (
-    <Box as="section">
+    <Box as="section" >
       <Box
         as="footer"
         pt={{ xs: 28, md: 50 }}

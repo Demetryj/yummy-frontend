@@ -10,18 +10,13 @@ import { FiClock } from 'react-icons/fi';
 import { Loader } from 'components/Loader';
 
 export const Container = styled.div`
-  align-items: center;
-  margin: 0 auto;
   padding-top: ${p => p.theme.spacing(72)};
   padding-bottom: ${p => p.theme.spacing(45)};
-  padding-left: ${p => p.theme.spacing(19)};
-  padding-right: ${p => p.theme.spacing(19)};
   width: 100%;
-  height: 455px;
+  min-height: ${p => p.theme.spacing(228)};
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -5;
 
   background-image: url(${recipeMob});
 
@@ -33,12 +28,10 @@ export const Container = styled.div`
     (min-resolution: 2dppx) {
     background-image: url(${recipeMob2});
   }
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     padding-bottom: ${p => p.theme.spacing(16)};
-    padding-left: ${p => p.theme.spacing(66)};
-    padding-right: ${p => p.theme.spacing(66)};
     padding-top: ${p => p.theme.spacing(68)};
-    height: 495px;
+    min-height: ${p => p.theme.spacing(248)};
 
     background-image: url(${recipeTable});
     @media (min-device-pixel-ratio: 2),
@@ -48,13 +41,11 @@ export const Container = styled.div`
       background-image: url(${recipeTable2});
     }
   }
-  @media screen and (min-width: 1440px) {
-    padding-left: ${p => p.theme.spacing(196)};
-    padding-right: ${p => p.theme.spacing(196)};
+  @media screen and ${p => p.theme.media.large} {
     padding-top: ${p => p.theme.spacing(82)};
     padding-bottom: ${p => p.theme.spacing(16)};
     background-image: url(${recipe});
-    height: 493px;
+    min-height: ${p => p.theme.spacing(247)};
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -68,11 +59,11 @@ export const Title = styled.h3`
   color: ${p => p.theme.colors.greenTextColor};
   font-size: ${p => p.theme.fontSizes.l};
   text-align: center;
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     font-size: ${p => p.theme.fontSizes.sb};
   }
 
-  @media screen and(min-width: 1440px) {
+  @media screen and ${p => p.theme.media.large} {
     font-size: ${p => p.theme.fontSizes.sb};
   }
 `;
@@ -83,18 +74,15 @@ export const Text = styled.p`
   line-height: 1.33;
   text-align: center;
   margin-top: ${p => p.theme.spacing(9)};
-  /* width: 300px; */
   margin-left: auto;
   margin-right: auto;
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     margin-top: ${p => p.theme.spacing(12)};
     font-size: ${p => p.theme.fontSizes.xm};
-    /* width: 506px; */
   }
 
-  @media screen and(min-width: 1440px) {
+  @media screen and ${p => p.theme.media.large} {
     font-size: ${p => p.theme.fontSizes.xm};
-    /* width: 656px; */
   }
 `;
 export const ClockBlock = styled.div`
@@ -116,7 +104,7 @@ export const Time = styled.p`
 export const Clock = styled(FiClock)`
   width: ${p => p.theme.spacing(7)};
   height: ${p => p.theme.spacing(7)};
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     width: ${p => p.theme.spacing(10)};
     height: ${p => p.theme.spacing(10)};
   }
@@ -134,7 +122,6 @@ export const BtnFavorite = styled.button`
   margin-right: auto;
   display: block;
   border-color: ${p => p.theme.colors.greenColor};
-  /* clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%); */
   border-radius: 35px 70px;
   background-color: transparent;
   transition: color 250ms, border-color 250ms;
@@ -154,8 +141,8 @@ export const LoaderFav = styled(Loader)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 14px;
-  height: 14px;
+  width: ${p => p.theme.spacing(7)};
+  height: ${p => p.theme.spacing(7)};
   color: ${p => p.theme.colors.greenBgColor};
   background-color: transparent;
 `;
@@ -163,25 +150,25 @@ export const LoaderUnFav = styled(Loader)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 14px;
-  height: 14px;
+  width: ${p => p.theme.spacing(7)};
+  height: ${p => p.theme.spacing(7)};
   color: ${p => p.theme.colors.whiteColor};
   background-color: transparent;
 `;
 export const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 303px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @media screen and (min-width: 768px) {
-    width: 506px;
+  width: ${p => p.theme.spacing(150)};
+  @media screen and ${p => p.theme.media.medium} {
+    width: ${p => p.theme.spacing(253)};
   }
 
-  @media screen and(min-width: 1440px) {
+  @media screen and ${p => p.theme.media.large} {
     font-size: ${p => p.theme.fontSizes.xm};
-    width: 656px;
+    width: ${p => p.theme.spacing(328)};
   }
 `;

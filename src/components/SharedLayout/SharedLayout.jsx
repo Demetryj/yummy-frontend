@@ -5,6 +5,7 @@ import { Footer } from 'components/Footer';
 import { Box } from 'components/Box';
 import { Toaster } from 'react-hot-toast';
 import { MainWrapper } from './SharedLayout.styled';
+import { SpinatComponent } from 'components/SpinatComponent/SpinatComponent';
 
 export const SharedLayout = () => {
   return (
@@ -25,6 +26,7 @@ export const SharedLayout = () => {
         </MainWrapper>
       </Box>
       <Footer />
+      <SpinatComponent />
       <Toaster />
     </>
   );
