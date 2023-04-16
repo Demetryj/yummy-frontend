@@ -44,7 +44,7 @@ export const LogoutButton = styled.button`
   gap: 4px;
 
   color: #fafafa;
-  border-radius: 6px;
+  border-radius: 35px 70px;
   /* clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%); */
   /* padding: 50px 42px; */
   /* border: none; */
