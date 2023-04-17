@@ -1,1 +1,1 @@
-export { default } from './AvatarUpdateForm';
+export * from './AvatarUpdateForm';
