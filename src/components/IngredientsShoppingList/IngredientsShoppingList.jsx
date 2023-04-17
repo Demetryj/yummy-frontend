@@ -1,33 +1,46 @@
-import React from 'react';
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
-import { TbArrowBigUpLinesFilled } from 'react-icons/tb';
-import { Ingredient } from './Ingredient';
 import {
   selectShoppingList,
   selectError,
   selectIsLoading,
 } from 'redux/shoppingList/selectors';
+
+import { Ingredient } from './Ingredient';
+import { MainTitle } from 'components/MainTitle/MainTitle';
+import { Loader } from 'components/Loader';
+import { ScrollUpButton } from 'components/Button/ScrollUpButton';
+
 import {
   Container,
   Panel,
   PanelСontrol,
   Title,
   ShoppingList,
-  ClickToUp,
   IsEmptyImage,
   IsEmptyText,
   Wrapper,
 } from './IngredientsShoppingList.styled';
-import { MainTitle } from 'components/MainTitle/MainTitle';
-import { Loader } from 'components/Loader';
 
 export const IngredientsShoppingList = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const shoppingList = useSelector(selectShoppingList);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  function handlerScrollUp() {
+  if (!shoppingList) {
+    return;
+  }
+
+  function toggleVisibility() {
+    if (window.pageYOffset > 300) {
+      return setIsVisible(true);
+    }
+    setIsVisible(false);
+  }
+
+  function scrollToTop() {
     window.scrollTo({
       top: 0,
       left: 0,
@@ -35,9 +48,7 @@ export const IngredientsShoppingList = () => {
     });
   }
 
-  if (!shoppingList) {
-    return;
-  }
+  window.addEventListener('scroll', toggleVisibility);
 
   return (
     <Container>
@@ -64,9 +75,7 @@ export const IngredientsShoppingList = () => {
               />
             );
           })}
-          <ClickToUp onClick={handlerScrollUp}>
-            <TbArrowBigUpLinesFilled size={50} />
-          </ClickToUp>
+          {isVisible && <ScrollUpButton handleClick={scrollToTop} />}
         </ShoppingList>
       )}
 
