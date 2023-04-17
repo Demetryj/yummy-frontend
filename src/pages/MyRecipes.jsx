@@ -32,6 +32,7 @@ const MyRecipes = () => {
   const isLoading = useSelector(selectIsLoading);
 
   const perPage = 4;
+
   const [page, setPage] = useState(1);
 
   useEffect(() => {
