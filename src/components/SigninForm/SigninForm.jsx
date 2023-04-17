@@ -70,7 +70,7 @@ export const SigninForm = () => {
             >
               {({ errors, values }) => (
                 <FormStyled autoComplete="off">
-                  <Title>Signin</Title>
+                  <Title>Sign In</Title>
                   <FieldWrapperStyled>
                     <FieldStyled
                       name="email"

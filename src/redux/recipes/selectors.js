@@ -10,3 +10,5 @@ export const selectRecipesPopular = state => state.recipes.popular;
 
 export const selectCategories = state => state.recipes.categories;
 
+export const selectStaticRecipes = state => state.recipes.staticRecipes;
+
