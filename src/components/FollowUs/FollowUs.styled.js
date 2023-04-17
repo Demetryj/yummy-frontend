@@ -7,19 +7,9 @@ export const FollowUsContainer = styled.div`
   padding-bottom: ${p => p.theme.spacing(50)};
 
   @media screen and (${p => p.theme.media.large}) {
-    /* display: run-in; */
     display: block;
   }
 `;
-
-// export const Social = styled.ul`
-//   display: flex;
-//   gap: 20px;
-// `;
-// export const Links = styled.li`
-//   width: 25px;
-//   height: 25px;
-// `;
 
 export const BoxTitle = styled.h2`
   display: inline-block;
