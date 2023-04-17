@@ -61,6 +61,7 @@ export const CardTitle = styled.h4`
   font-weight: ${p => p.theme.fontWeights.medium};
   font-size: ${p => p.theme.fontSizes.m};
   line-height: 20px;
+  color: ${p=>p.theme.colors.subtitleTextColor}
 `;
 export const CardText = styled.p`
   font-weight: ${p => p.theme.fontWeights.regular};

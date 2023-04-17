@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import {
   AboutRecipe,
   Input,
@@ -21,10 +22,14 @@ import FollowUs from 'components/FollowUs/FollowUs';
 import PopularRecipe from 'components/PopularRecipe/PopularRecipe';
 import plug from 'images/addRecipesPages/green-plug-desk.png';
 import IngredientsFilter from 'components/IngredientsFilter/IngredientsFilter';
-import { selectIngredients } from 'redux/ingredients/selectors';
-import { fetchIngredients } from 'redux/ingredients/operations';
+import { selectCategories } from 'redux/recipes/selectors';
+import { fetchCategoriesList } from 'redux/recipes';
+import { addRecipe } from 'redux/recipes/operations';
+import { selectUser } from 'redux/auth/selectors';
+// import { addRecipe } from 'redux/recipes/operations';
 const AddRecipeForm = () => {
   const cookingTime = [
+    { value: '' },
     { value: '10' },
     { value: '20' },
     { value: '30' },
@@ -38,30 +43,24 @@ const AddRecipeForm = () => {
     { value: '120' },
   ];
 
-  // const [category, setCategory] = useState();
   const [preview, setPreview] = useState(plug);
-  // const [ingredient, setIngredient] = useState()
-  // const [selectedFile, setselectedFile] = useState(null)
+  const [recipes, setRecipes] = useState({
+    title: '',
+    description: '',
+    category: '',
+    time: '',
+    instructions: '',
+    ingredients: [],
+  });
+
+  const { _id } = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
-  const ingredient = useSelector(selectIngredients);
-
+  const categories = useSelector(selectCategories);
   useEffect(() => {
-    dispatch(fetchIngredients());
+    dispatch(fetchCategoriesList());
   }, [dispatch]);
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    // dispatch();
-    // register({
-    //   name: form.elements.name.value,
-    //   email: form.elements.email.value,
-    //   password: form.elements.password.value,
-    // })
-    form.reset();
-  };
 
   const handleChangePhoto = event => {
     const fileUploaded = event.target.files[0];
@@ -70,6 +69,24 @@ const AddRecipeForm = () => {
     setPreview(objectUrl);
     file.append(`recipeImgUrl`, fileUploaded);
   };
+  const handleChange = event => {
+    const uuidId = uuidv4();
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setRecipes(values => ({ ...values, preview, uuidId, [name]: value }));
+  };
+
+  const resetForm = () => {
+    setRecipes('');
+    setPreview(plug);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(addRecipe({ recipes, _id }));
+    resetForm();
+  };
 
   return (
     <AddRecipePage>
@@ -77,7 +94,7 @@ const AddRecipeForm = () => {
         <PageTitle>Add recipe</PageTitle>
 
         <AddRecipeWrap>
-          <Form onSubmit={handleSubmit} autoComplete="off">
+          <Form autoComplete="off" onSubmit={handleSubmit}>
             <FormImageContainer>
               <div>
                 <label htmlFor="file-input">
@@ -102,21 +119,42 @@ const AddRecipeForm = () => {
                   }}
                 />
               </div>
-
               <AboutRecipe>
-                <Input type="text" placeholder="Enter item title" />
-                <Input type="text" placeholder="Enter about recipe" />
+                <Input
+                  type="text"
+                  name="title"
+                  value={recipes.title || ''}
+                  placeholder="Enter item title"
+                  onChange={handleChange}
+                />
+                <Input
+                  type="text"
+                  placeholder="Enter about recipe"
+                  name="description"
+                  onChange={handleChange}
+                  value={recipes.description || ''}
+                />
                 <InputSelect>
                   <div>Category</div>
-                  <SelectCategory name="" id="">
-                    {ingredient.map(({ _id, ttl }) => (
-                      <option key={_id}>{ttl}</option>
+                  <SelectCategory
+                    name="category"
+                    onChange={handleChange}
+                    value={recipes.category || ''}
+                  >
+                    <option></option>
+
+                    {categories.map(category => (
+                      <option key={category}>{category}</option>
                     ))}
                   </SelectCategory>
                 </InputSelect>
                 <InputSelect>
                   <div>Cooking time</div>
-                  <SelectCooking name="" id="">
+                  <SelectCooking
+                    name="time"
+                    value={recipes.time || ''}
+                    onChange={handleChange}
+                  >
                     {cookingTime.map(({ value }) => {
                       return <option key={value}>{value}</option>;
                     })}
@@ -125,15 +163,16 @@ const AddRecipeForm = () => {
               </AboutRecipe>
             </FormImageContainer>
 
-            <IngredientsFilter />
+            <IngredientsFilter setRecipes={setRecipes} recipes={recipes} />
 
             <TextAreaContainer>
               <BoxTitle>Recipe Preparation</BoxTitle>
               <TextArea
-                name=""
-                id=""
+                name="instructions"
+                value={recipes.instructions || ''}
                 placeholder="Enter recipe"
                 scroll={true}
+                onChange={handleChange}
               ></TextArea>
             </TextAreaContainer>
             <ButtonAdd type="submit">Add</ButtonAdd>

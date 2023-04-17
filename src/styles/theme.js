@@ -37,7 +37,6 @@ export const theme = {
     medium: '(min-width: 768px)',
     large: '(min-width: 1440px)',
   },
-
   /* usage
    @media screen and (${(p) => p.theme.media.large}) {
     height: ;

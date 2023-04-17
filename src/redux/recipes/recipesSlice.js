@@ -9,6 +9,7 @@ import {
   fetchRecipesMainPage,
   fetchSearchRecipes,
   getRecipesPopular,
+  addRecipe,
 } from './operations';
 
 const initialState = {
@@ -125,6 +126,18 @@ const recipesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchRecipesByCategory.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(addRecipe.fulfilled, (state, action) => {
+        state.items.push(action.payload);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(addRecipe.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(addRecipe.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
