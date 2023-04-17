@@ -124,7 +124,6 @@ export const AppBar = () => {
       {open && (
         <HeaderModal onClose={toggleModal}>
           <Box
-            border="1px solid red"
             mx="auto"
             maxWidth={{ xs: 375, md: '100%' }}
             px={{ xs: 16, md: 32 }}
