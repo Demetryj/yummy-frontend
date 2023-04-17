@@ -49,3 +49,9 @@ export const Paragraph = styled.p`
     font-size: ${p => p.theme.fontSizes.s};
   }
 `;
+
+export const CrossContainer = styled.div`
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+`;

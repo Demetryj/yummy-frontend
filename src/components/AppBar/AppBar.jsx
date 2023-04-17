@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Box } from '../Box';
-import { NavItem, List, ListItem } from './AppBar.styled';
+import { NavItem, List, ListItem, CrossContainer } from './AppBar.styled';
 import { FiSearch } from 'react-icons/fi';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
@@ -116,7 +116,7 @@ export const AppBar = () => {
             display={{ xs: 'flex', lg: 'none' }}
             ml={{ xs: 14, md: 50 }}
           >
-            <HiOutlineMenuAlt2 size={28} />
+            <HiOutlineMenuAlt2 size={28} cursor="pointer" />
           </Box>
         </Box>
         {isImgPage && <Rectangles />}
@@ -124,7 +124,6 @@ export const AppBar = () => {
       {open && (
         <HeaderModal onClose={toggleModal}>
           <Box
-            border="1px solid red"
             mx="auto"
             maxWidth={{ xs: 375, md: '100%' }}
             px={{ xs: 16, md: 32 }}
@@ -151,9 +150,9 @@ export const AppBar = () => {
                 </NavItem>
               </Box>
 
-              <Box onClick={toggleModal} width={{ xs: 13 }} height={{ xs: 13 }}>
+              <CrossContainer onClick={toggleModal}>
                 {<img src={cross} alt="cross" />}
-              </Box>
+              </CrossContainer>
             </Box>
             <Box
               as="nav"
