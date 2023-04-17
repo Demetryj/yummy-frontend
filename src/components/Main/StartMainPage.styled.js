@@ -57,22 +57,19 @@ export const HeroContainer = styled.section`
 
 export const PreviewCategoriesContainer = styled.section`
   width: 100%;
-  padding-top: ${p => p.theme.spacing(419)};
+  padding-top: ${p => p.theme.spacing(390)};
   margin: 0px auto;
   
   @media screen and (${p => p.theme.media.medium}) {
-    // width: 768px; // потрібно для margin: 0px auto;
-    padding-top:${p => p.theme.spacing(356)};  
+    padding-top:${p => p.theme.spacing(324.5)};  
   }
   
   @media screen and (${p => p.theme.media.large}) {
-    // owidth: 1440px; // потрібно для margin: 0px auto;
-    padding-top: ${p => p.theme.spacing(450)};  
+    padding-top: ${p => p.theme.spacing(419)};  
   }`;
 
 export const HeroBox = styled.div`
-  
-@media (${p => p.theme.media.medium}) {
+  @media (${p => p.theme.media.medium}) {
     margin-right: ${p => p.theme.spacing(184)};
     display: flex; 
     flex-wrap: wrap;
@@ -83,7 +80,6 @@ export const HeroBox = styled.div`
     margin-right: ${p => p.theme.spacing(350)};
   }
   
-
   @media (${p => p.theme.media.large}) {
     margin-right: ${p => p.theme.spacing(415)};
   }`

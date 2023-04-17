@@ -8,14 +8,12 @@ import {
   WrapRecipe,
   LinkDown,
   Wrap,
-  WrapCategory,
 } from './PreviewCategories.styled';
 import { MainTitle } from "components/MainTitle/MainTitle"
 import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
 
 export const PreviewCategories = ({ recipes }) => {
   const { isMobile, isTablet } = useMedia();
-  // const recipesPopular = recipes[category];
   let numCard;
 
   if (isMobile) {
@@ -32,7 +30,7 @@ export const PreviewCategories = ({ recipes }) => {
         {Object.keys(recipes).map(category => {
           const recipesPopular = recipes[category];
           return (
-            <WrapCategory key={category}>
+            <li key={category}>
               <MainTitle title={category}/>
               <ListCard>
                 {recipesPopular
@@ -52,7 +50,7 @@ export const PreviewCategories = ({ recipes }) => {
                   <ButtonSeeAll>See all</ButtonSeeAll>
                 </Link>
               </Wrap>
-            </WrapCategory>
+            </li>
           );
         })}
       </ListCategory>

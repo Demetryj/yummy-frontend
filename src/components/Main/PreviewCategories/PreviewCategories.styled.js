@@ -2,88 +2,82 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom'; 
 
 export const ListCategory = styled.ul`
-display: flex;
-flex-direction: column;
-gap: ${p => p.theme.spacing(16)};
+  display: flex;
+  flex-direction: column;
+  gap: ${p => p.theme.spacing(16)};
 
-@media screen and (${p => p.theme.media.medium}) {
-  width: ${p => p.theme.spacing(384)};
-  gap: ${p => p.theme.spacing(25)}  
+  @media screen and (${p => p.theme.media.medium}) {
+    gap: ${p => p.theme.spacing(25)}  
 }
- 
-@media screen and (${p => p.theme.media.large}) {
+
+  @media screen and (${p => p.theme.media.large}) {
     gap: ${p => p.theme.spacing(50)}  
 }`
 
-export const WrapCategory = styled.div`
-@media screen and (${p => p.theme.media.medium}) {
-  width: ${p => p.theme.spacing(384)};
-}`
-
 export const ListCard = styled.ul`
-margin-top: ${p => p.theme.spacing(16)};
-margin-bottom: ${p => p.theme.spacing(20)};
-display: flex;
-flex-wrap: wrap;
-gap: ${p => p.theme.spacing(0)};
+  margin-top: ${p => p.theme.spacing(16)};
+  margin-bottom: ${p => p.theme.spacing(12)};
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${p => p.theme.spacing(0)};
 
-@media screen and (${p => p.theme.media.medium}) {
-  margin-top:${p => p.theme.spacing(20)};
-  margin-bottom: ${p => p.theme.spacing(20)};
-  gap: ${p => p.theme.spacing(16)};
+  @media screen and (${p => p.theme.media.medium}) {
+    margin-top:${p => p.theme.spacing(20)};
+    margin-bottom: ${p => p.theme.spacing(20)};
+    gap: ${p => p.theme.spacing(16)};
 }
 
-@media screen and (${p => p.theme.media.large}) {
-  margin-top: ${p => p.theme.spacing(25)};
-  margin-bottom:${p => p.theme.spacing(25)};
-  gap: ${p => p.theme.spacing(6.5)};
+  @media screen and (${p => p.theme.media.large}) {
+    margin-top: ${p => p.theme.spacing(25)};
+    margin-bottom:${p => p.theme.spacing(25)};
+    gap: ${p => p.theme.spacing(6.5)};
 }`
 
 export const WrapRecipe = styled.div`
-width: ${p => p.theme.spacing(171.5)};
+  width: ${p => p.theme.spacing(171.5)};
 
-@media screen and (${p => p.theme.media.medium}) {
-  width: ${p => p.theme.spacing(168)};
+  @media screen and (${p => p.theme.media.medium}) {
+    width: ${p => p.theme.spacing(168)};
 }
 
-@media screen and (${p => p.theme.media.large}){
- width: ${p => p.theme.spacing(150)};
-}`;
+  @media screen and (${p => p.theme.media.large}){
+    width: ${p => p.theme.spacing(150)};
+}`
 
 export const Wrap = styled.div`
 text-align: right;`
 
 export const ButtonSeeAll = styled.button`
-padding:${p => p.theme.spacing(5)} ${p => p.theme.spacing(12)};
-border-radius: ${p => p.theme.radii.light};
-color:${p => p.theme.colors.whiteColor};
-background:${p => p.theme.colors.greenTextColor};
-font-weight: ${p => p.theme.fontWeights.regular};
-font-family: inherit;
-cursor: pointer;
+  padding:${p => p.theme.spacing(5)} ${p => p.theme.spacing(12)};
+  border-radius: ${p => p.theme.radii.light};
+  color:${p => p.theme.colors.whiteColor};
+  background:${p => p.theme.colors.greenTextColor};
+  font-weight: ${p => p.theme.fontWeights.regular};
+  font-family: inherit;
+  cursor: pointer;
 
-&:hover,
-&:focus {
-  background-color: ${p => p.theme.colors.btnDarckBgColor};
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.btnDarckBgColor};
 }`
 
 export const LinkDown = styled(Link)`
-display: block; 
-text-align: center;`
+  display: block; 
+  text-align: center;`
 
 export const ButtonDown = styled.button`
-margin-top: ${p => p.theme.spacing(20)};
-margin-bottom: ${p => p.theme.spacing(41)};
+  margin-top: ${p => p.theme.spacing(20)};
+  margin-bottom: ${p => p.theme.spacing(41)};
 
-padding: ${p => p.theme.spacing(5)} ${p => p.theme.spacing(11)};
+  padding: ${p => p.theme.spacing(5)} ${p => p.theme.spacing(11)};
 
-font-weight: ${p => p.theme.fontWeights.regular};
-font-size: ${p => p.theme.fontSizes.s};
-line-height: 1.5;
+  font-weight: ${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes.s};
+  line-height: 1.5;
 
-color: ${p => p.theme.colors.yummyColor};
+  color: ${p => p.theme.colors.yummyColor};
 
-border: ${p => p.theme.borders.medium};
+  border: ${p => p.theme.borders.medium};
   border-color: ${p => p.theme.colors.greenTextColor};
   /* clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%); */
   border-radius: 35px 70px;
