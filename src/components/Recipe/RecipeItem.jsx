@@ -1,49 +1,75 @@
-import { useDispatch } from 'react-redux';
-import React from 'react';
 import {
-    Image,
-    Information,
-    Card,
-    NavLink,
-    List,
-    Item,
-    Button,
-    Paragraph,
-    Title,
+  Image,
+  Information,
+  Card,
+  Description,
+  Title,
+  TitleWrapper,
+  TimeWrapper,
+  Time,
 } from './RecipeItem.styled';
+import { NavLinkSkew } from 'components/NavLinkSkew/NavLinkSkew';
 
+import { DeleteBtn } from '../Button/DeleteBtn/DeleteBtn';
+import { useMedia } from 'hooks/useMedia';
+import { useNavigate } from 'react-router-dom';
 
-
-export const RecipeItem = ({ img, title, description, instructions, time}) => {
-     const dispatch = useDispatch();
+export const RecipeItem = ({ img, title, text, time, location, id }) => {
+  const { isTablet } = useMedia();
+  const navigate = useNavigate();
+  const onClick = id => navigate(`/recipe/${id}`, { replace: true });
   return (
-    <Card>
-        <Image
-          src={img}
-          alt={title}
-          width="100"
-        />
-    <Information>
-        <Title>{title}</Title>
-        <Paragraph>{description}</Paragraph>
-        <Paragraph>{instructions}</Paragraph>
-    <List>
-        <Item>
-          <Paragraph>{time}</Paragraph>
-        </Item>
-        <Item>
-          <Button
-            onClick={() => dispatch()}
-            as={NavLink}
-            to="/"
-          >
-            See recipe
-          </Button>
-        </Item>   
-    </List>
-    </Information>
+    <Card location={location}>
+      {!isTablet && location === 'favorite' ? (
+        <Image location={location} onClick={() => onClick(id)}>
+          <img src={img} alt={title} />
+        </Image>
+      ) : (
+        <Image location={location} onClick={() => onClick(id)}>
+          <img src={img} alt={title} />
+        </Image>
+      )}
+
+      <Information location={location}>
+        <TitleWrapper>
+          <Title>{title}</Title>
+
+          {isTablet && location === 'favorite' && (
+            <DeleteBtn location={location} id={id} />
+          )}
+          {location === 'recipes' && <DeleteBtn location={location} id={id} />}
+        </TitleWrapper>
+
+        <Description>
+          {text.length > 80 ? `${text.substring(0, 80)}...` : text}
+        </Description>
+
+        <TimeWrapper>
+          <Time>{time}</Time>
+
+          {!isTablet && location === 'recipes' && (
+            <NavLinkSkew
+              navigate={`/recipe/${id}`}
+              location={location}
+              text="See recipe"
+              styled="olive"
+            />
+          )}
+
+          {!isTablet && location === 'favorite' && (
+            <DeleteBtn location={location} id={id} />
+          )}
+
+          {isTablet && (
+            <NavLinkSkew
+              navigate={`/recipe/${id}`}
+              location={location}
+              text="See recipe"
+              styled={location === 'favorite' ? 'black' : 'olive'}
+            />
+          )}
+        </TimeWrapper>
+      </Information>
     </Card>
   );
-}
-
-
+};
