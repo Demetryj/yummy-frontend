@@ -9,7 +9,7 @@ import {
   HeroSubText,
   PreviewCategoriesContainer,
 } from './StartMainPage.styled';
-import { selectRecipesPopular, selectIsLoading } from 'redux/recipes/selectors';
+import { selectStaticRecipes, selectIsLoading } from 'redux/recipes/selectors';
 import { fetchRecipesMainPage } from 'redux/recipes/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -22,11 +22,11 @@ export const StartMainPage = () => {
     dispatch(fetchRecipesMainPage());
   }, [dispatch]);
 
-  const recipesPopular = useSelector(selectRecipesPopular);
-  console.log(recipesPopular);
+  const recipesStatic = useSelector(selectStaticRecipes);
+
   return (
     <>
-      {recipesPopular && !isLoading ? (
+      {recipesStatic && !isLoading ? (
         <>
           <HeroContainer>
             <HeroBox>
@@ -43,7 +43,7 @@ export const StartMainPage = () => {
             </HeroBox>
           </HeroContainer>
           <PreviewCategoriesContainer>
-            <PreviewCategories recipes={recipesPopular} />
+            <PreviewCategories recipes={recipesStatic} />
           </PreviewCategoriesContainer>
         </>
       ) : (
