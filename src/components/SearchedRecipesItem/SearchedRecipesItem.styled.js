@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const ImgWrapper = styled.div`
   position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 export const Img = styled.img`
   border-radius: ${p => p.theme.radii.normal};
