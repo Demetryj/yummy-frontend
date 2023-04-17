@@ -57,8 +57,6 @@ function AvatarUpdateForm() {
 
     formData.append('avatar', file, file.name);
 
-    // console.log(file);
-
     dispatch(passAvatar(formData));
     // dispatch(updateProfile(formData));
     dispatch(toggleAvatarUpdate());
