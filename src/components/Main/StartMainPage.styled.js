@@ -82,6 +82,10 @@ export const HeroBox = styled.div`
   
   @media (${p => p.theme.media.large}) {
     margin-right: ${p => p.theme.spacing(415)};
+  }
+  
+  @media (min-width: 1900px){
+    margin-right: 65vw;
   }`
 
 export const HeroText = styled.h1`
