@@ -15,8 +15,8 @@ import smallDesk2 from 'images/spinach/desktop/spinach-down-right-desk@2x.png';
 export const SpinatLeft = styled.div`
   background-image: url(${bigMob1});
   background-repeat: no-repeat;
-  background-size: 315px 487px;
-  background-position: bottom 245px left;
+  background-size: ${p => p.theme.spacing(158)} ${p => p.theme.spacing(244)};
+  background-position: bottom ${p => p.theme.spacing(123)} left;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -31,8 +31,8 @@ export const SpinatLeft = styled.div`
   @media screen and ${p => p.theme.media.medium} {
     background-image: url(${bigTab1});
     background-repeat: no-repeat;
-    background-size: 500px 790px;
-    background-position: bottom 220px left;
+    background-size: ${p => p.theme.spacing(250)} ${p => p.theme.spacing(395)};
+    background-position: bottom ${p => p.theme.spacing(110)} left;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -44,8 +44,8 @@ export const SpinatLeft = styled.div`
   @media screen and ${p => p.theme.media.large} {
     background-image: url(${bigDesk1});
     background-repeat: no-repeat;
-    background-size: 696px 1037px;
-    background-position: bottom 15px left;
+    background-size: ${p => p.theme.spacing(348)} ${p => p.theme.spacing(519)};
+    background-position: bottom ${p => p.theme.spacing(8)} left;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -59,7 +59,7 @@ export const SpinatLeft = styled.div`
 export const SpinatRight = styled.div`
   background-image: url(${smallMob1});
   background-repeat: no-repeat;
-  background-size: 179px 155px;
+  background-size: ${p => p.theme.spacing(90)} ${p => p.theme.spacing(78)};
   background-position: bottom right;
   position: absolute;
   z-index: -5;

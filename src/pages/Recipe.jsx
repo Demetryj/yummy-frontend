@@ -12,6 +12,7 @@ import { onScrollUp } from 'utils/scrollUp';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipeById } from 'redux/recipes/operations';
+import { ScrollUpButton } from 'components/Button/ScrollUpButton';
 
 const Recipe = () => {
   const [heightHero, setHeightHero] = useState(0);
@@ -25,7 +26,25 @@ const Recipe = () => {
     dispatch(getRecipeById(recipeId));
     onScrollUp();
   }, [dispatch, recipeId]);
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHandler);
+    return () => window.removeEventListener('scroll', scrollHandler);
+  });
+  const [buttonVisible, setButtonVisible] = useState(false);
 
+  const scrollHandler = e => {
+    const tg = e.target;
+    if (tg.documentElement.scrollTop >= 700) {
+      setButtonVisible(true);
+    } else if (tg.documentElement.scrollTop < 200) setButtonVisible(false);
+  };
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
     <>
 
@@ -38,6 +57,7 @@ const Recipe = () => {
 
       {recipe && <RecipePreparation recipe={recipe} />}
       {isLoading && !error && !recipe && <Loader />}
+      {buttonVisible && <ScrollUpButton handleClick={handleClick} />}
     </>
   );
 };
