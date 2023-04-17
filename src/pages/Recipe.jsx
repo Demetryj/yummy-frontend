@@ -9,16 +9,14 @@ import {
 } from 'redux/recipes/selectors';
 import { Loader } from 'components/Loader/Loader.jsx';
 import { onScrollUp } from 'utils/scrollUp';
-
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipeById } from 'redux/recipes/operations';
 
 const Recipe = () => {
+  const [heightHero, setHeightHero] = useState(0);
   const { recipeId } = useParams();
-
   const [recipe] = useSelector(selectRecipes);
-
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
@@ -30,8 +28,14 @@ const Recipe = () => {
 
   return (
     <>
-      {recipe && <RecipePageHero recipe={recipe} />}
-      {recipe && <RecipeIngredientList recipe={recipe} />}
+
+      {recipe && (
+        <RecipePageHero getHeightHero={setHeightHero} recipe={recipe} />
+      )}
+      {recipe && (
+        <RecipeIngredientList heightHero={heightHero} recipe={recipe} />
+      )}
+
       {recipe && <RecipePreparation recipe={recipe} />}
       {isLoading && !error && !recipe && <Loader />}
     </>

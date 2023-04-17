@@ -3,7 +3,6 @@ import { Image, ImageItemLink, Lable } from './RecipesPhotoList.styled';
 import defaultImage from 'images/plugs/image 300x323.png';
 
 export const RecipeCard = forwardRef(({ recipe }, ref) => {
-  console.log();
   const ItemBody = (
     <ImageItemLink to={`/recipe/${recipe._id}`}>
       <Image

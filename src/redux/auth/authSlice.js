@@ -9,12 +9,17 @@ import {
 import { actionErrRefr } from './actionErrRefr';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: {
+    name: null,
+    email: null,
+    avatarURL: null,
+  },
   token: null,
   isLoggedIn: false,
   isRefreshing: true,
   isLoading: false,
   errorMessage: null,
+  isRegistered: false,
 };
 
 const authSlice = createSlice({
@@ -27,8 +32,9 @@ const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
+        state.isRegistered = true;
+        // state.token = action.payload.token;
+        // state.isLoggedIn = true;
         state.isLoading = false;
       })
       .addCase(register.rejected, (state, action) => {
@@ -81,6 +87,7 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(updateProfile.fulfilled, (state, action) => {
+        // console.log('action.payload: ', action.payload);
         state.user = action.payload;
         state.isLoading = false;
       })

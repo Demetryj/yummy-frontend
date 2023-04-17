@@ -7,12 +7,12 @@ export const ImageBlock = styled.div`
     height: ${p => p.theme.spacing(125)};
     object-fit: cover;
 
-    @media screen and (min-width: 768px) {
+    @media screen and ${p => p.theme.media.medium} {
       height: ${p => p.theme.spacing(166)};
       width: ${p => p.theme.spacing(217)};
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and ${p => p.theme.media.large} {
       width: ${p => p.theme.spacing(217)};
     }
   }
@@ -23,11 +23,11 @@ export const Container = styled.div`
   padding-bottom: ${p => p.theme.spacing(50)};
   width: 100%;
 
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     padding-bottom: ${p => p.theme.spacing(100)};
     padding-top: ${p => p.theme.spacing(50)};
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and ${p => p.theme.media.large} {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -36,11 +36,11 @@ export const Container = styled.div`
 export const InstructionWrapper = styled.div`
   margin-bottom: ${p => p.theme.spacing(20)};
 
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     margin-bottom: ${p => p.theme.spacing(22)};
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and ${p => p.theme.media.large} {
     /* width: ${p => p.theme.spacing(284)}; */
     margin-right: 50px;
     margin-bottom: 0;
@@ -55,7 +55,7 @@ export const InstructionTitle = styled.title`
   line-height: 1;
   letter-spacing: -0.02em;
   color: ${p => p.theme.colors.subtitleTextColor};
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     margin-bottom: ${p => p.theme.spacing(16)};
     letter-spacing: -0.24px;
   }
@@ -71,7 +71,7 @@ export const InstructionList = styled.ul`
   letter-spacing: -0.02em;
   gap: 14px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.media.medium} {
     gap: ${p => p.theme.spacing(9)};
     font-size: ${p => p.theme.fontSizes.s};
     line-height: 1.29;
@@ -101,7 +101,7 @@ export const InstructionText = styled.li`
     border-radius: ${p => p.theme.radii.round};
     flex: none;
 
-    @media screen and (min-width: 768px) {
+    @media screen and ${p => p.theme.media.medium} {
       padding: 0 ${p => p.theme.spacing(4)} ${p => p.theme.spacing(1)};
       font-size: ${p => p.theme.fontSizes.s};
       line-height: 1.5;
@@ -112,11 +112,11 @@ export const InstructionText = styled.li`
     padding-top: ${p => p.theme.spacing(1)};
     color: ${p => p.theme.colors.blackTextColor};
     width: ${p => p.theme.spacing(155)};
-    @media screen and (min-width: 768px) {
+    @media screen and ${p => p.theme.media.medium} {
       width: ${p => p.theme.spacing(330)};
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and ${p => p.theme.media.large} {
       width: 100%;
     }
   }

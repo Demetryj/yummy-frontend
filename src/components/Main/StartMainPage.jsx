@@ -2,14 +2,14 @@ import { СhooseYourBreakfast } from './СhooseYourBreakfast/СhooseYourBreakfas
 import { Search } from './Search/Search';
 import { PreviewCategories } from './PreviewCategories/PreviewCategories';
 import {
-ContainerHero,
-MainBox, 
-TextMain,
-Selected,
-TextSub,
-ContainerPreviewCategories
-} from "./StartMainPage.styled";
-import { selectRecipesPopular, selectIsLoading } from 'redux/recipes/selectors';
+  HeroContainer,
+  HeroBox,
+  HeroText,
+  Selected,
+  HeroSubText,
+  PreviewCategoriesContainer,
+} from './StartMainPage.styled';
+import { selectStaticRecipes, selectIsLoading } from 'redux/recipes/selectors';
 import { fetchRecipesMainPage } from 'redux/recipes/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -22,26 +22,33 @@ export const StartMainPage = () => {
     dispatch(fetchRecipesMainPage());
   }, [dispatch]);
 
-  const recipesPopular = useSelector(selectRecipesPopular);
+  const recipesStatic = useSelector(selectStaticRecipes);
 
-    return ( 
-      <>
-      {recipesPopular && !isLoading ? 
-      (
+  return (
+    <>
+      {recipesStatic && !isLoading ? (
         <>
-          <ContainerHero>
-            <MainBox>
-              <TextMain><Selected>So</Selected>Yummy</TextMain>
-              <TextSub>"What to cook?" is not only a recipe app, it is, in fact, your cookbook. You can add your own recipes to save them for the future.</TextSub>  
-              <СhooseYourBreakfast/>
-              <Search/>
-            </MainBox>
-          </ContainerHero>
-          <ContainerPreviewCategories>
-            <PreviewCategories recipes={recipesPopular}/>
-          </ContainerPreviewCategories>
+          <HeroContainer>
+            <HeroBox>
+              <HeroText>
+                <Selected>So</Selected>Yummy
+              </HeroText>
+              <HeroSubText>
+                "What to cook?" is not only a recipe app, it is, in fact, <br />{' '}
+                your cookbook. You can add your own recipes to <br /> save them
+                for the future.
+              </HeroSubText>
+              <СhooseYourBreakfast />
+              <Search />
+            </HeroBox>
+          </HeroContainer>
+          <PreviewCategoriesContainer>
+            <PreviewCategories recipes={recipesStatic} />
+          </PreviewCategoriesContainer>
         </>
-      ) : (<Loader/>) }
-      </> 
-  )
+      ) : (
+        <Loader />
+      )}
+    </>
+  );
 };

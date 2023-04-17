@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Box } from '../Box';
 import { NavItem, List, ListItem } from './AppBar.styled';
 import { FiSearch } from 'react-icons/fi';
@@ -36,6 +37,19 @@ const navItems = [
 
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  const routesArr = [
+    'categories',
+    'add',
+    'favorites',
+    'my',
+    'search',
+    'shopping-list',
+    '*',
+  ];
+
+  const isImgPage = routesArr.some(route => location.pathname.includes(route));
 
   const toggleModal = () => {
     setOpen(!open);
@@ -51,6 +65,7 @@ export const AppBar = () => {
       <Box
         as="header"
         // position="absolute"
+        zIndex={'10'}
         position="relative"
         display="flex"
         ml="auto"
@@ -115,7 +130,7 @@ export const AppBar = () => {
             <HiOutlineMenuAlt2 size={28} />
           </Box>
         </Box>
-        <Rectangles />
+        {isImgPage && <Rectangles />}
       </Box>
       {open && (
         <HeaderModal onClose={toggleModal}>

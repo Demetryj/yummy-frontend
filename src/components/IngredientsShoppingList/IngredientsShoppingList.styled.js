@@ -1,5 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-import { bounce } from 'react-animations';
+import styled from 'styled-components';
 import PlugIsEmptyDesktop from 'images/searchPage/search_desk_tab@2x.png';
 import PlugIsEmptyMobile from 'images/searchPage/search_mob@2x.png';
 
@@ -107,14 +106,4 @@ export const IsEmptyImage = styled.div`
     height: ${p => p.theme.spacing(133)};
     background-image: url(${PlugIsEmptyDesktop});
   }
-`;
-
-export const ClickToUp = styled.button`
-  display: flex;
-  position: fixed;
-  bottom: ${p => p.theme.spacing(35)};
-  right: ${p => p.theme.spacing(15)};
-  color: ${p => p.theme.colors.greenColor};
-  background-color: transparent;
-  animation: 10s ${keyframes`${bounce}`} infinite;
 `;
