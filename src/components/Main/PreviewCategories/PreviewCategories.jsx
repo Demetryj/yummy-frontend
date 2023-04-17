@@ -8,7 +8,6 @@ import {
   WrapRecipe,
   LinkDown,
   Wrap,
-  WrapCategory,
 } from './PreviewCategories.styled';
 import { MainTitle } from "components/MainTitle/MainTitle"
 import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
@@ -31,7 +30,7 @@ export const PreviewCategories = ({ recipes }) => {
         {Object.keys(recipes).map(category => {
           const recipesStatic = recipes[category];
           return (
-            <WrapCategory key={category}>
+            <li key={category}>
               <MainTitle title={category}/>
               <ListCard>
                 {recipesStatic
@@ -51,7 +50,7 @@ export const PreviewCategories = ({ recipes }) => {
                   <ButtonSeeAll>See all</ButtonSeeAll>
                 </Link>
               </Wrap>
-            </WrapCategory>
+            </li>
           );
         })}
       </ListCategory>
