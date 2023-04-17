@@ -30,6 +30,7 @@ const MyRecipes = () => {
   const total = useSelector(selectOwnTotalRecipes);
 
   const isLoading = useSelector(selectIsLoading);
+
   const perPage = 4;
   const [page, setPage] = useState(1);
 
