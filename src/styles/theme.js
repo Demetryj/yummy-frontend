@@ -104,11 +104,36 @@ export const theme = {
     modalProfile: '30px',
     switch: '50px',
     round: '100px',
+    bordeTopLeft: '30px',
+    bordeTopRight: '80px',
+    bordeBotLeft: '80px',
+    bordeBotRight: '30px',
+    image: '8px',
+    btnIcon: '4px',
   },
 
   shadows: {
     pagination: '0px 4px 4px rgba(135, 135, 135, 0.2)',
     switch: 'inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1);',
     modalProfile: ' 0px 4px 48px rgba(0, 0, 0, 0.1);',
+  },
+
+  lineHeights: {
+    subheader: '1',
+    content: '1.33',
+    extraContent: '1.29',
+    btnText: '1.12',
+    description: '1.25',
+    time: '1.43',
+    headerLinks: '1.6',
+    userLink: '1.7',
+    searchSelect: '1.5',
+  },
+  letterSpacings: {
+    subheader: '-0.24px',
+    content: '-0.02em',
+  },
+  transitions: {
+    main: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
   },
 };

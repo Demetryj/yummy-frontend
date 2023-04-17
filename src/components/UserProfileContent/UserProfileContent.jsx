@@ -13,13 +13,13 @@ export const UserProfileContent = () => {
   const handleClose = () => dispatch(toggleUserInfo());
   const fileData = useSelector(state => state);
 
-  console.log('fileData', fileData);
+
 
   const path = '../../images/avatar/64078473abf4d1c4a914e088_avatar.jpg';
 
   const { user } = useAuth();
 
-  // console.log('user', user);
+
 
   React.useEffect(() => {
     const handleKeyDown = e => {

@@ -19,25 +19,25 @@ export const HeroContainer = styled.section`
   background-position: center;
   background-size: cover;
   background-color: ${p => p.theme.colors.whiteColor};
- 
+
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     (-webkit-min-device-pixel-ratio: 2),
     screen and (min-resolution: 2dppx) {
     background-image: url(${plateImgMob2});
-    }
+  }
 
   @media (${p => p.theme.media.medium}) {
-    padding: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(16)}; 
+    padding: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(16)};
 
     height: ${p => p.theme.spacing(320)};
     background-image: url(${plateImgTab});
-   
+
     @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    (-webkit-min-device-pixel-ratio: 2),
-    screen and (min-resolution: 2dppx) {
-    background-image: url(${plateImgTab2});
+      screen and (min-resolution: 192dpi),
+      (-webkit-min-device-pixel-ratio: 2),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(${plateImgTab2});
     }
   }
 
@@ -46,27 +46,29 @@ export const HeroContainer = styled.section`
 
     height: ${p => p.theme.spacing(400)};
     background-image: url(${plateImgDesk});
-    
+
     @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    (-webkit-min-device-pixel-ratio: 2),
-    screen and (min-resolution: 2dppx) {
-    background-image: url(${plateImgDesk2});
+      screen and (min-resolution: 192dpi),
+      (-webkit-min-device-pixel-ratio: 2),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(${plateImgDesk2});
     }
-  }`
+  }
+`;
 
 export const PreviewCategoriesContainer = styled.section`
   width: 100%;
   padding-top: ${p => p.theme.spacing(390)};
   margin: 0px auto;
-  
+
   @media screen and (${p => p.theme.media.medium}) {
-    padding-top:${p => p.theme.spacing(324.5)};  
+    padding-top: ${p => p.theme.spacing(324.5)};
   }
-  
+
   @media screen and (${p => p.theme.media.large}) {
-    padding-top: ${p => p.theme.spacing(419)};  
-  }`;
+    padding-top: ${p => p.theme.spacing(419)};
+  }
+`;
 
 export const HeroBox = styled.div`
   @media (${p => p.theme.media.medium}) {
@@ -79,7 +81,7 @@ export const HeroBox = styled.div`
   @media (min-width: ${p => p.theme.spacing(700)}){
     margin-right: 50vw;
   }
-  
+
   @media (${p => p.theme.media.large}) {
     margin-right: ${p => p.theme.spacing(390)}; 
   }
@@ -105,7 +107,7 @@ export const HeroText = styled.h1`
 
   @media (${p => p.theme.media.medium}) {
     width: ${p => p.theme.spacing(182)};
-    margin: 204px 0px 24px 0px ;
+    margin: 204px 0px 24px 0px;
     font-size: ${p => p.theme.spacing(36)};
     line-height: ${p => p.theme.spacing(36)};
     text-align: left;
@@ -115,11 +117,12 @@ export const HeroText = styled.h1`
     width: ${p => p.theme.spacing(252.5)};
     font-size: ${p => p.theme.spacing(50)};
     line-height: ${p => p.theme.spacing(50)};
-  }`
+  }
+`;
 
 export const Selected = styled.span`
   color: ${p => p.theme.colors.greenTextColor};
-  font-weight: ${p => p.theme.fontWeights.regular};;
+  font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.spacing(30)};
   line-height: ${p => p.theme.spacing(30)};
   text-align: center;
@@ -133,18 +136,19 @@ export const Selected = styled.span`
   @media (${p => p.theme.media.large}) {
     font-size: ${p => p.theme.spacing(50)};
     line-height: ${p => p.theme.spacing(50)};
-  }`
+  }
+`;
 
 export const HeroSubText = styled.p`
   width: ${p => p.theme.spacing(126)};
   margin: 0 auto;
   margin-bottom: ${p => p.theme.spacing(78.5)};
   color: ${p => p.theme.colors.secondaryDark};
-  font-weight: ${p => p.theme.fontWeights.regular};;
+  font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.spacing(7)};
   line-height: ${p => p.theme.spacing(9)};
   text-align: center;
-  letter-spacing: ;
+
   & br {
     display: none;
   }
@@ -156,7 +160,7 @@ export const HeroSubText = styled.p`
     line-height: ${p => p.theme.spacing(9)};
     text-align: left;
     & br {
-    display: flex;
+      display: flex;
     }
   }
 
@@ -164,5 +168,6 @@ export const HeroSubText = styled.p`
     width: ${p => p.theme.spacing(232.5)};
     margin-bottom: ${p => p.theme.spacing(7)};
     font-size: ${p => p.theme.spacing(9)};
-    line-height: ${p => p.theme.spacing(12)}; 
-  }`
+    line-height: ${p => p.theme.spacing(12)};
+  }
+`;
