@@ -44,7 +44,7 @@ export const RegisterForm = () => {
   const { isLoggedIn } = useAuth();
   const { isRegistered } = useAuth();
 
-  console.log(isRegistered);
+  // console.log(isRegistered);
 
   useEffect(() => {
     if (isLoggedIn) {
