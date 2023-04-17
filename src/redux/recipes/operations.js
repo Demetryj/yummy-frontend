@@ -88,17 +88,35 @@ export const getRecipeByCategory = createAsyncThunk(
   }
 );
 
-// export const addRecipe = createAsyncThunk(
-//   'recipes/addRecipe',
-//   async (recipe, thunkAPI) => {
-//     const { title, description, ingredients } = recipe;
-//     // try {
-//     //   const response = await axios.post('/recipes', {
-//     //     title,
-//     //     description,
-//     //     ingredients,
-//   }
-// );
+export const addRecipe = createAsyncThunk(
+  'recipes/addRecipe',
+  async ({ recipes, _id }, thunkAPI) => {
+    const {
+      title,
+      category,
+      instructions,
+      description,
+      preview,
+      time,
+      ingredients,
+    } = recipes;
+    try {
+      const response = await axios.post(`users/${_id}/own-recipes`, {
+        title,
+        category,
+        instructions,
+        description,
+        preview,
+        time,
+        ingredients,
+      });
+
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
 export const deleteRecipe = createAsyncThunk(
   'recipes/deleteRecipe',

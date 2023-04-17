@@ -16,17 +16,30 @@ import {
   Input,
 } from './IngredientsFilter.styled';
 
-const IngredientsFilter = () => {
+const IngredientsFilter = ({ setRecipes, recipes }) => {
+  const units = [
+    { value: '' },
+    { value: 'tbs' },
+    { value: 'tsp' },
+    { value: 'kg' },
+    { value: 'g' },
+    { value: 'l' },
+    { value: 'mllt' },
+  ];
+
   const [serviceList, setServiceList] = useState([
-    { service: '', ingredient: '', size: '' },
+    { ingredient: '', measure: '' },
   ]);
   const dispatch = useDispatch();
-  const items = useSelector(selectIngredients);
-
   useEffect(() => {
     dispatch(fetchIngredients());
   }, [dispatch]);
 
+  const ingredientsList = useSelector(selectIngredients);
+  const ingredients = ingredientsList.map(item => ({
+    label: item.ttl,
+    value: item.ttl,
+  }));
   const handleIngredientChange = (selectedOption, index, key) => {
     const newServiceList = serviceList.map((item, idx) => {
       if (index === idx) {
@@ -34,11 +47,20 @@ const IngredientsFilter = () => {
       }
       return item;
     });
+
+    const ingredients = newServiceList.map(el => ({
+      ingredient: el.ingredient,
+      measure: el.size + el.service,
+    }));
     setServiceList(newServiceList);
+    setRecipes(prevState => ({
+      ...prevState,
+      ingredients: ingredients
+    }));
   };
 
   const handleServiceAdd = () => {
-    setServiceList([...serviceList, { service: '', ingredient: '', size: '' }]);
+    setServiceList([...serviceList, { ingredient: '', measure: '' }]);
   };
 
   const handleServiceRemove = index => {
@@ -47,7 +69,6 @@ const IngredientsFilter = () => {
     setServiceList(list);
   };
 
-  // console.log('serviceList', serviceList);
   return (
     <IngredientsContainet>
       <IngListSetting>
@@ -78,14 +99,12 @@ const IngredientsFilter = () => {
           <FlexContainer key={index}>
             <SelectCustomisation>
               <Select
-                options={items}
+                options={ingredients}
                 maxMenuHeight={150}
-                isClearable={true}
                 placeholder="Type ingredent"
-                // value={ingredient}
-                // onChange={e =>
-                //   handleIngredientChange(e.value, index, 'ingredient')
-                // }
+                onChange={e =>
+                  handleIngredientChange(e.value, index, 'ingredient')
+                }
               />
             </SelectCustomisation>
             <div>
@@ -93,27 +112,22 @@ const IngredientsFilter = () => {
                 type="text"
                 maxLength={4}
                 length={10}
-                name="service"
-                id="service"
-                value={field.service}
-                onChange={e =>
-                  handleIngredientChange(e.target.value, index, 'service')
-                }
-              />
-              <SelectUnit
-                name=""
-                id=""
+                name="size"
+                id="size"
                 onChange={e =>
                   handleIngredientChange(e.target.value, index, 'size')
                 }
+              />
+              <SelectUnit
+                name="service"
+                id="service"
+                onChange={e =>
+                  handleIngredientChange(e.target.value, index, 'service')
+                }
               >
-                <option value=""></option>
-                <option value="tbs">tbs</option>
-                <option value="tsp">tsp</option>
-                <option value="kg">kg</option>
-                <option value="g">g</option>
-                <option value="l">l</option>
-                <option value="mllt">mllt</option>
+                {units.map(({ value }) => (
+                  <option key={value}>{value}</option>
+                ))}
               </SelectUnit>
             </div>
 
