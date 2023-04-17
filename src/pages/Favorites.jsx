@@ -27,7 +27,7 @@ const Favorites = () => {
 
   const total = useSelector(selectTotalFavoriteRecipes);
 
-  const isFetching = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoading);
   const perPage = 4;
   const [page, setPage] = useState(1);
 
@@ -44,7 +44,7 @@ const Favorites = () => {
     <Wrapper>
       <Container>
         <Title>Favorites</Title>
-        {isFetching ? (
+        {isLoading ? (
           <Loader />
         ) : (
           <>
