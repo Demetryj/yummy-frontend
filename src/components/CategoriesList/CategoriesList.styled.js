@@ -1,25 +1,20 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { theme } from 'styles';
 
 export const List = styled.ul`
   position: relative;
-  z-index: 757657;
   margin: 0;
   list-style: none;
   display: flex;
-  gap: 28px;
-  min-width: 100%;
-  max-width: 359px;
-  padding-top: 50px;
+  gap: ${p => theme.spacing(14)};
+  max-width: 100%;
+  padding-top: ${p => theme.spacing(25)};
   @media screen and ${p => p.theme.media.medium} {
-    gap: 55px;
-    min-width: 100%;
-    max-width: 736px;
+    gap: ${p => theme.spacing(25.5)};
   }
   @media screen and ${p => p.theme.media.large} {
-    padding-top: 100px;
-    min-width: 100%;
-    max-width: 1440px;
+    padding-top: ${p => theme.spacing(50)};
   }
   overflow: scroll;
   border-bottom: ${p => p.theme.borders.normal} #e0e0e0;
@@ -28,15 +23,18 @@ export const List = styled.ul`
   }
 `;
 export const CategoryItem = styled(NavLink)`
+  color: ${p => p.theme.colors.greyTextColor};
   position: relative;
   display: inline-block;
-  padding: 10px 0 32px;
+  padding-top: ${p => theme.spacing(5)};
+  padding-bottom: ${p => theme.spacing(16)};
   font-family: 'Poppins';
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes.s};
   line-height: 14px;
   @media screen and ${p => p.theme.media.medium} {
-    padding: 10px 0 28px;
+    padding-top: ${p => theme.spacing(5)};
+    padding-bottom: ${p => theme.spacing(14)};
     font-size: ${p => p.theme.fontSizes.xm};
     line-height: 18px;
   }

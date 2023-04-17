@@ -14,6 +14,7 @@ import {
 
 const initialState = {
   items: [],
+  paginationData: null,
   categories: [],
   popular: [],
   staticRecipes: {},
@@ -118,7 +119,8 @@ const recipesSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
-        state.items = action.payload;
+        state.items = action.payload.recipeData;
+        state.paginationData = action.payload.metaData;
         state.isLoading = false;
         state.error = null;
       })

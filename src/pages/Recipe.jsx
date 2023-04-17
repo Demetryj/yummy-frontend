@@ -28,12 +28,14 @@ const Recipe = () => {
 
   return (
     <>
+
       {recipe && (
         <RecipePageHero getHeightHero={setHeightHero} recipe={recipe} />
       )}
       {recipe && (
         <RecipeIngredientList heightHero={heightHero} recipe={recipe} />
       )}
+
       {recipe && <RecipePreparation recipe={recipe} />}
       {isLoading && !error && !recipe && <Loader />}
     </>

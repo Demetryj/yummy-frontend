@@ -10,5 +10,6 @@ export const selectRecipesPopular = state => state.recipes.popular;
 
 export const selectCategories = state => state.recipes.categories;
 
-export const selectStaticRecipes = state => state.recipes.staticRecipes;
+export const selectPagination = state => state.recipes.paginationData;
 
+export const selectStaticRecipes = state => state.recipes.staticRecipes;
