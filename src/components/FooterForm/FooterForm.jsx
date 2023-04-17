@@ -32,7 +32,6 @@ export const FootForm = () => (
         return errors;
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        // console.log(values);
         setSubmitting(false);
         resetForm();
       }}
