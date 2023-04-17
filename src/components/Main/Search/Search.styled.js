@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const SearchFormContainer = styled.div`
+margin: 0 auto;
   position: relative;
   width:  ${p => p.theme.spacing(147.5)};
   height: ${p => p.theme.spacing(26)};
@@ -9,7 +10,7 @@ export const SearchFormContainer = styled.div`
   border-top-right-radius: 80px;
   border-bottom-left-radius: 80px;
   border-bottom-right-radius: ${p => p.theme.radii.modalProfile};
-  margin: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(12)} ${p => p.theme.spacing(41.5)};
+  // margin: ${p => p.theme.spacing(0)} ${p => p.theme.spacing(12)} ${p => p.theme.spacing(41.5)};
   border: ${p => p.theme.colors.whiteTextColor};
   color: ${p => p.theme.colors.greyTextColor};
   font-weight:${p => p.theme.fontWeights.regular};
