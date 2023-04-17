@@ -13,3 +13,12 @@ export const selectCategories = state => state.recipes.categories;
 export const selectPagination = state => state.recipes.paginationData;
 
 export const selectStaticRecipes = state => state.recipes.staticRecipes;
+
+export const selectFavoriteRecipes = state => state.recipes.favorites.recipes;
+
+export const selectTotalFavoriteRecipes = state =>
+  state.recipes.favorites.total;
+
+export const selectOwnRecipes = state => state.recipes.ownRecipes.recipes;
+
+export const selectOwnTotalRecipes = state => state.recipes.ownRecipes.total;
