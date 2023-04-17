@@ -44,6 +44,7 @@ const Favorites = () => {
     <Wrapper>
       <Container>
         <Title>Favorites</Title>
+
         {isLoading ? (
           <Loader />
         ) : (
