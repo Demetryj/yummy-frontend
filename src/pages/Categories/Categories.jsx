@@ -1,5 +1,5 @@
 import { useCategories } from 'hooks/useCategories';
-import { CategoriesList } from 'components/CategoriesList';
+import { CategoriesList } from 'components/CategoriesList/CategoriesList';
 import { RecipesPhotosList } from 'components/RecipesPhotosList';
 import { CategoriesSection } from './CategoriesSection.styled';
 import { MainTitle } from 'components/MainTitle/MainTitle';

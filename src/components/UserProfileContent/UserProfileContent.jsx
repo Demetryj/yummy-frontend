@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import Avatar from 'react-avatar';
 import { Box } from '../Box';
 import { P, Cross, UserIcon } from './UserProfileContent.styled';
@@ -11,15 +11,11 @@ import { UserProfileForm } from 'components/UserProfileForm';
 export const UserProfileContent = () => {
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserInfo());
-  const fileData = useSelector(state => state);
-
-
+  // const fileData = useSelector(state => state);
 
   const path = '../../images/avatar/64078473abf4d1c4a914e088_avatar.jpg';
 
   const { user } = useAuth();
-
-
 
   React.useEffect(() => {
     const handleKeyDown = e => {
