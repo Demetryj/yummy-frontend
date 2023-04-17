@@ -70,34 +70,43 @@ export const PreviewCategoriesContainer = styled.section`
 
 export const HeroBox = styled.div`
   @media (${p => p.theme.media.medium}) {
-    margin-right: ${p => p.theme.spacing(184)};
+    margin-right: 45vw;
     display: flex; 
     flex-wrap: wrap;
     justify-content: flex-start;
   }
 
-  @media (min-width: 1153px){
-    margin-right: ${p => p.theme.spacing(350)};
+  @media (min-width: ${p => p.theme.spacing(700)}){
+    margin-right: 50vw;
   }
   
   @media (${p => p.theme.media.large}) {
-    margin-right: ${p => p.theme.spacing(415)};
+    margin-right: ${p => p.theme.spacing(390)}; 
   }
   
-  @media (min-width: 1900px){
-    margin-right: 65vw;
+  @media (min-width: ${p => p.theme.spacing(950)}){
+    margin-right: 60vw;
+  }
+  
+  @media (min-width: ${p => p.theme.spacing(1450)}){
+    margin-right: 70vw;
   }`
 
 export const HeroText = styled.h1`
-  margin: 132px 12px 0px 12px;
+width: 303px;
+margin: 0 auto;
+margin-top: 132px;
+margin-bottom: 14px;
+  // margin: 132px 12px 14px 12px;
   color: ${p => p.theme.colors.titleTextColor};
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.spacing(30)};
   line-height: ${p => p.theme.spacing(30)};
   letter-spacing: -0.005em;
-  text-align: center;
+  // text-align: center;
 
   @media (${p => p.theme.media.medium}) {
+    width: 364px;
     margin: 204px 0 0px ;
     font-size: ${p => p.theme.spacing(36)};
     line-height: ${p => p.theme.spacing(36)};
@@ -128,7 +137,10 @@ export const Selected = styled.span`
   }`
 
 export const HeroSubText = styled.p`
-  margin: 14px 40px 157px 40px;
+  width: 260px;
+  margin: 0 auto;
+  margin-bottom: 157px;
+  // margin: 14px 40px 157px 40px;
   color: ${p => p.theme.colors.secondaryDark};
   font-weight: ${p => p.theme.fontWeights.regular};;
   font-size: ${p => p.theme.spacing(7)};
@@ -140,6 +152,7 @@ export const HeroSubText = styled.p`
   }
 
   @media (${p => p.theme.media.medium}) {
+    width: 362px;
     margin: 24px 0 32px;
     font-size: ${p => p.theme.spacing(7)};
     line-height: ${p => p.theme.spacing(9)};
@@ -150,7 +163,8 @@ export const HeroSubText = styled.p`
   }
 
   @media (${p => p.theme.media.large}) {
-    margin: 14px 0 50px;
+    width: 465px;
+    // margin: 14px 0 50px;
     font-size: ${p => p.theme.spacing(9)};
     line-height: ${p => p.theme.spacing(12)}; 
   }`
