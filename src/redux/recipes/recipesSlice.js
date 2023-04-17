@@ -12,6 +12,9 @@ import {
   addRecipe,
 } from './operations';
 
+import { getFavorite, removeFavorite } from './favoritesOperations';
+import { getOwnRecipes, removeOwnRecipe } from './ownRecipesOperations';
+
 const initialState = {
   items: [],
   paginationData: null,
@@ -20,6 +23,8 @@ const initialState = {
   staticRecipes: {},
   isLoading: false,
   error: null,
+  favorites: { recipes: [], total: 0 },
+  ownRecipes: { recipes: [], total: 0 },
 };
 
 const recipesSlice = createSlice({
@@ -140,6 +145,55 @@ const recipesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addRecipe.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getOwnRecipes.fulfilled, (state, { payload }) => {
+        state.ownRecipes.recipes = payload[0].recipeData;
+        state.ownRecipes.total = payload[0].metaData.total;
+        state.isLoading = false;
+      })
+      .addCase(getOwnRecipes.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(getOwnRecipes.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(removeOwnRecipe.fulfilled, (state, { payload }) => {
+        state.ownRecipes.recipes = payload[0].recipeData;
+        state.ownRecipes.total = payload[0].metaData.total;
+        state.isLoading = false;
+      })
+      .addCase(removeOwnRecipe.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(removeOwnRecipe.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getFavorite.fulfilled, (state, { payload }) => {
+        state.favorites.recipes = payload[0].recipeData;
+        state.favorites.total = payload[0].metaData.total;
+        state.isLoading = false;
+      })
+      .addCase(getFavorite.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(getFavorite.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(removeFavorite.fulfilled, (state, { payload }) => {
+        state.favorites.recipes = payload[0].recipeData;
+        state.favorites.total = payload[0].metaData.total;
+        state.isLoading = false;
+      })
+      .addCase(removeFavorite.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(removeFavorite.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
