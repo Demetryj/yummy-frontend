@@ -77,10 +77,12 @@ export const RecipePageHero = ({ recipe, getHeightHero }) => {
             Add to favorite recipes {isLoading && <LoaderSmall />}
           </BtnFavorite>
         )}
-        <ClockBlock>
-          <Clock size={14} />
-          <Time>{time} min</Time>
-        </ClockBlock>
+        {time && (
+          <ClockBlock>
+            <Clock size={14} />
+            <Time>{time} min</Time>
+          </ClockBlock>
+        )}
       </Wrapper>
     </Container>
   );

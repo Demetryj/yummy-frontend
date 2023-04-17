@@ -1,0 +1,1 @@
+export { SpinatComponent } from './SpinatComponent';
