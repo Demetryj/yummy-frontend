@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Card = styled.div`
   display: flex;
 
-  width: 100%;
+  width: 343px;
   height: 152px;
 
   gap: ${p => (p.location === 'favorite' ? '14px' : '14px')};
@@ -20,12 +20,14 @@ export const Card = styled.div`
 
   @media screen and (${p => p.theme.media.medium}) {
     height: 288px;
+    width: 704px;
     gap: ${p => (p.location === 'favorite' ? '24px' : '24px')};
     padding: ${p => (p.location === 'favorite' ? '28px 24px' : '28px 24px')};
   }
 
   @media screen and (${p => p.theme.media.large}) {
     height: 404px;
+    width: 1240px;
 
     gap: ${p => (p.location === 'favorite' ? '40px' : '40px')};
     padding: ${p => (p.location === 'favorite' ? '40px' : '40px')};
@@ -39,20 +41,18 @@ export const Image = styled.div`
 
     border-radius: ${p => p.theme.radii.image};
 
-    /* margin-right: 14px; */
+    &:hover {
+      cursor: pointer;
+    }
 
     @media screen and (${p => p.theme.media.medium}) {
       width: ${p => (p.location === 'favorite' ? '228px' : '228px')};
       height: ${p => (p.location === 'favorite' ? '232px' : '232px')};
-
-      /* margin-right: 24px; */
     }
 
     @media screen and (${p => p.theme.media.large}) {
       width: ${p => (p.location === 'favorite' ? '318px' : '318px')};
       height: ${p => (p.location === 'favorite' ? '324px' : '324px')};
-
-      /* margin-right: 40px; */
     }
   }
 `;
@@ -69,8 +69,6 @@ export const Information = styled.div`
 
   background-color: ${p =>
     p.location === 'recipes' ? p.theme.colors.bcgWhiteColor : 'transparent'};
-
-  /* padding: ${p => (p.location === 'recipes' ? '14px' : '0px')}; */
 
   @media screen and (${p => p.theme.media.medium}) {
     padding: ${p => (p.location === 'recipes' ? '28px' : '0px')};
