@@ -15,7 +15,7 @@ export const RecipesPhotosList = () => {
   const [page, setPage] = useState(1);
   const [category, setCategory] = useState('');
   const [recipes, setRecipes] = useState([]);
- 
+
   const [hasNextPage, setHasNextPage] = useState(false);
   const isFirstRender = useRef(category);
   const limit = 8;
@@ -33,7 +33,7 @@ export const RecipesPhotosList = () => {
   useEffect(() => {
     if (recipesOfCategory.length !== 0) {
       setRecipes(prvR =>
-        pagination.curPage === 1
+        pagination?.curPage === 1
           ? [...recipesOfCategory]
           : [...prvR, ...recipesOfCategory]
       );
@@ -58,7 +58,6 @@ export const RecipesPhotosList = () => {
 
   return (
     <>
-      
       {recipes && recipes.length !== 0 && (
         <PhotosList>
           {recipes.map((recipe, i) =>
