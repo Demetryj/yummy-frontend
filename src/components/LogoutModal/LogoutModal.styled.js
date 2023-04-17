@@ -16,9 +16,9 @@ export const Content = styled.div`
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
 
-  top: 4%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
 
   padding-top: 44px;
   padding-bottom: 44px;
