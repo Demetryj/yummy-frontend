@@ -10,3 +10,4 @@ export const selectRecipesPopular = state => state.recipes.popular;
 
 export const selectCategories = state => state.recipes.categories;
 
+export const selectPagination = state => state.recipes.paginationData;

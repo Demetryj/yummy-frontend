@@ -11,10 +11,4 @@ export const TitleStyled = styled(Title)`
     line-height: 44px;
   }
 `;
-export const TitleWrapper = styled.div`
-  width: 100%;
-  padding: 50px 0;
-  @media screen and ${p => p.theme.media.large} {
-    padding: 100px 0;
-  }
-`;
+

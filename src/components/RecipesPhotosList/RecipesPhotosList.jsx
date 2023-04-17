@@ -11,41 +11,48 @@ export const RecipesPhotosList = () => {
   const dispatch = useDispatch();
   const intObserver = useRef();
   const { categoryName } = useParams();
-  const { recipesOfCategory, isLoading } = useCategories();
+  const { recipesOfCategory, pagination, isLoading } = useCategories();
   const [page, setPage] = useState(1);
   const [category, setCategory] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [hasNextPage, setHasNextPage] = useState(false);
+  const isFirstRender = useRef(category);
   const limit = 8;
-
   useEffect(() => {
-    setCategory(categoryName);
-    setRecipes([]);
-    setPage(1);
+    if (isFirstRender.current !== categoryName) {
+      setCategory(categoryName);
+      setPage(1);
+      return;
+    }
   }, [categoryName]);
   useEffect(() => {
-    dispatch(fetchRecipesByCategory({ category, page, limit }));
+    const queryOptions = page === 1 ? { category } : { category, page, limit };
+    dispatch(fetchRecipesByCategory(queryOptions));
   }, [category, page, dispatch]);
   useEffect(() => {
-    const { recipeData, metaData } = recipesOfCategory;
-    if (recipeData !== undefined) {
-      setRecipes(prvR => [...prvR, ...recipeData]);
-      setHasNextPage(metaData.curPage < Math.ceil(metaData.total / limit));
+    if (recipesOfCategory.length !== 0) {
+      setRecipes(prvR =>
+        pagination.curPage === 1
+          ? [...recipesOfCategory]
+          : [...prvR, ...recipesOfCategory]
+      );
+      setHasNextPage(
+        pagination?.curPage < Math.ceil(pagination?.total / limit)
+      );
     }
-  }, [recipesOfCategory]);
-
+  }, [recipesOfCategory, pagination]);
   const lastCardRef = useCallback(
     recipe => {
       if (isLoading) return;
       if (intObserver.current) intObserver.current.disconnect();
       intObserver.current = new IntersectionObserver(recipes => {
         if (recipes[recipes.length - 1].isIntersecting && hasNextPage) {
-          setPage(prevPage => prevPage + 1);
+          setPage(pagination.curPage + 1);
         }
       });
       if (recipe) intObserver.current.observe(recipe);
     },
-    [isLoading, hasNextPage]
+    [isLoading, hasNextPage, pagination]
   );
 
   return (

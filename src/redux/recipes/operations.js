@@ -64,17 +64,17 @@ export const getRecipeById = createAsyncThunk(
   }
 );
 
-export const fetchRecipesByCategory = createAsyncThunk(
-  'recipes/fetchRecipesBy',
-  async (category, thunkAPI) => {
-    try {
-      const response = await axios.get(`/recipes/category/${category}`);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
+// export const fetchRecipesByCategory = createAsyncThunk(
+//   'recipes/fetchRecipesBy',
+//   async (category, thunkAPI) => {
+//     try {
+//       const response = await axios.get(`/recipes/category/${category}`);
+//       return response.data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
 
 export const getRecipeByCategory = createAsyncThunk(
   'recipes/getRecipeByCategory',
@@ -142,6 +142,20 @@ export const removeFromFavorites = createAsyncThunk(
     try {
       const response = await axios.patch(`/recipes/${_id}/favorites/false`);
       return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const fetchRecipesByCategory = createAsyncThunk(
+  'recipes/fetchRecipesBy',
+  async ({ category = 'Beef', page = 1, limit = 8 }, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        `/recipes/category/${category}?page=${page}&limit=${limit}`
+      );
+      return response.data[0];
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
