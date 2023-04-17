@@ -29,7 +29,7 @@ const MyRecipes = () => {
 
   const total = useSelector(selectOwnTotalRecipes);
 
-  const isFetching = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoading);
   const perPage = 4;
   const [page, setPage] = useState(1);
 
@@ -46,7 +46,7 @@ const MyRecipes = () => {
     <Wrapper>
       <Container>
         <Title>My recipes</Title>
-        {isFetching ? (
+        {isLoading ? (
           <Loader />
         ) : (
           <>
