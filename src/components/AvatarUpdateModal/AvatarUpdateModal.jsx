@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
 import { Backdrop, Content } from './AvatarUpdateModal.styled';
-import AvatarUpdateForm from '../AvatarUpdateForm';
+import { AvatarUpdateForm } from '../AvatarUpdateForm';
 import { toggleUserInfo } from '../../redux/modal';
 
 const modalRoot = document.querySelector('#modal-root');
