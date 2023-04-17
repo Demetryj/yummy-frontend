@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Box } from '../Box';
-import { NavItem, List, ListItem } from './AppBar.styled';
+import { NavItem, List, ListItem, CrossContainer } from './AppBar.styled';
 import { FiSearch } from 'react-icons/fi';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
@@ -56,15 +56,9 @@ export const AppBar = () => {
   };
 
   return (
-    <Box
-      as="section"
-      width={'100%'}
-      display="flex"
-      // position="absolute"
-    >
+    <Box as="section" width={'100%'} display="flex">
       <Box
         as="header"
-        // position="absolute"
         zIndex={'10'}
         position="relative"
         display="flex"
@@ -81,17 +75,12 @@ export const AppBar = () => {
           alignItems="center"
           width={{ xs: 40, md: 44 }}
           height={{ xs: 40, md: 44 }}
-          // mr={{ xs: 180, md: 500, lg: 200 }}
           borderRadius={12}
           bg="greenBgColor"
         >
           <NavItem to={'/'}>{<img src={logoDark} alt="logoDark" />}</NavItem>
         </Box>
-        <Box
-          as="nav"
-          display={{ xs: 'none', lg: 'flex' }}
-          // mr={{ lg: 90 }}
-        >
+        <Box as="nav" display={{ xs: 'none', lg: 'flex' }}>
           <List>
             {navItems.map(({ href, item }) => (
               <ListItem key={href}>
@@ -127,7 +116,7 @@ export const AppBar = () => {
             display={{ xs: 'flex', lg: 'none' }}
             ml={{ xs: 14, md: 50 }}
           >
-            <HiOutlineMenuAlt2 size={28} />
+            <HiOutlineMenuAlt2 size={28} cursor="pointer" />
           </Box>
         </Box>
         {isImgPage && <Rectangles />}
@@ -136,7 +125,7 @@ export const AppBar = () => {
         <HeaderModal onClose={toggleModal}>
           <Box
             mx="auto"
-            width={{ xs: 375, md: '100%' }}
+            maxWidth={{ xs: 375, md: '100%' }}
             px={{ xs: 16, md: 32 }}
             py={{ xs: 18 }}
             display="flex"
@@ -147,6 +136,7 @@ export const AppBar = () => {
               display="flex"
               justifyContent="space-between"
               alignItems="center"
+              width="100%"
             >
               <Box
                 onClick={toggleModal}
@@ -160,9 +150,9 @@ export const AppBar = () => {
                 </NavItem>
               </Box>
 
-              <Box onClick={toggleModal} width={{ xs: 13 }} height={{ xs: 13 }}>
+              <CrossContainer onClick={toggleModal}>
                 {<img src={cross} alt="cross" />}
-              </Box>
+              </CrossContainer>
             </Box>
             <Box
               as="nav"
