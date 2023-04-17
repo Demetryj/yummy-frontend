@@ -93,27 +93,26 @@ export const HeroBox = styled.div`
   }`
 
 export const HeroText = styled.h1`
-width: 303px;
-margin: 0 auto;
-margin-top: 132px;
-margin-bottom: 14px;
-  // margin: 132px 12px 14px 12px;
+  width: ${p => p.theme.spacing(151.5)};
+  margin: 0 auto;
+  margin-top: ${p => p.theme.spacing(66)};
+  margin-bottom: ${p => p.theme.spacing(7)};
   color: ${p => p.theme.colors.titleTextColor};
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.spacing(30)};
   line-height: ${p => p.theme.spacing(30)};
   letter-spacing: -0.005em;
-  // text-align: center;
 
   @media (${p => p.theme.media.medium}) {
-    width: 364px;
-    margin: 204px 0 0px ;
+    width: ${p => p.theme.spacing(182)};
+    margin: 204px 0px 24px 0px ;
     font-size: ${p => p.theme.spacing(36)};
     line-height: ${p => p.theme.spacing(36)};
     text-align: left;
   }
 
   @media (${p => p.theme.media.large}) {
+    width: ${p => p.theme.spacing(252.5)};
     font-size: ${p => p.theme.spacing(50)};
     line-height: ${p => p.theme.spacing(50)};
   }`
@@ -137,10 +136,9 @@ export const Selected = styled.span`
   }`
 
 export const HeroSubText = styled.p`
-  width: 260px;
+  width: ${p => p.theme.spacing(126)};
   margin: 0 auto;
-  margin-bottom: 157px;
-  // margin: 14px 40px 157px 40px;
+  margin-bottom: ${p => p.theme.spacing(78.5)};
   color: ${p => p.theme.colors.secondaryDark};
   font-weight: ${p => p.theme.fontWeights.regular};;
   font-size: ${p => p.theme.spacing(7)};
@@ -152,7 +150,7 @@ export const HeroSubText = styled.p`
   }
 
   @media (${p => p.theme.media.medium}) {
-    width: 362px;
+    width: ${p => p.theme.spacing(181)};
     margin: 24px 0 32px;
     font-size: ${p => p.theme.spacing(7)};
     line-height: ${p => p.theme.spacing(9)};
@@ -163,8 +161,8 @@ export const HeroSubText = styled.p`
   }
 
   @media (${p => p.theme.media.large}) {
-    width: 465px;
-    // margin: 14px 0 50px;
+    width: ${p => p.theme.spacing(232.5)};
+    margin-bottom: ${p => p.theme.spacing(7)};
     font-size: ${p => p.theme.spacing(9)};
     line-height: ${p => p.theme.spacing(12)}; 
   }`
