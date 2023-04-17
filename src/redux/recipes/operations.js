@@ -166,10 +166,10 @@ export const removeFromFavorites = createAsyncThunk(
 
 export const fetchRecipesByCategory = createAsyncThunk(
   'recipes/fetchRecipesBy',
-  async ({ category = 'Beef', page = 1, limit = 8 }, thunkAPI) => {
+  async ({ alias = 'Beef', page = 1, limit = 8 }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `/recipes/category/${category}?page=${page}&limit=${limit}`
+        `/recipes/category/${alias}?page=${page}&limit=${limit}`
       );
       return response.data[0];
     } catch (e) {
