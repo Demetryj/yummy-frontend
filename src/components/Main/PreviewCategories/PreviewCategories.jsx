@@ -25,6 +25,7 @@ export const PreviewCategories = ({ recipes }) => {
   }
 
   return (
+    
     <>
       <ListCategory>
         {Object.keys(recipes).map(category => {
@@ -54,7 +55,7 @@ export const PreviewCategories = ({ recipes }) => {
           );
         })}
       </ListCategory>
-      <LinkDown to="/categories">
+      <LinkDown to={`/categories/beef`}>
         <ButtonDown>Other categories</ButtonDown>
       </LinkDown>
     </>
