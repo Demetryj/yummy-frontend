@@ -15,6 +15,7 @@ const initialState = {
   items: [],
   categories: [],
   popular: [],
+  staticRecipes: {},
   isLoading: false,
   error: null,
 };
@@ -25,7 +26,7 @@ const recipesSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchRecipesMainPage.fulfilled, (state, action) => {
-        state.popular = action.payload;
+        state.staticRecipes = action.payload;
         state.isLoading = false;
         state.error = null;
       })

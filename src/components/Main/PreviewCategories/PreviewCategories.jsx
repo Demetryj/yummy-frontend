@@ -15,7 +15,6 @@ import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
 
 export const PreviewCategories = ({ recipes }) => {
   const { isMobile, isTablet } = useMedia();
-  // const recipesPopular = recipes[category];
   let numCard;
 
   if (isMobile) {
@@ -30,12 +29,12 @@ export const PreviewCategories = ({ recipes }) => {
     <>
       <ListCategory>
         {Object.keys(recipes).map(category => {
-          const recipesPopular = recipes[category];
+          const recipesStatic = recipes[category];
           return (
             <WrapCategory key={category}>
               <MainTitle title={category}/>
               <ListCard>
-                {recipesPopular
+                {recipesStatic
                   .slice(0, numCard)
                   .map(({ _id, title, thumb }) => {
                     return (
