@@ -31,7 +31,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const registerSchema = object({
-  name: string().required(),
+  name: string().min(2).required(),
   email: string().required().email('Email is not valid'),
   password: string()
     .min(6)
