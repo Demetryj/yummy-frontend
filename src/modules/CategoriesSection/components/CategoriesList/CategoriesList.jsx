@@ -1,13 +1,16 @@
-import { useCategories } from 'hooks/useCategories';
+import { useCategories } from '../../hooks';
 import { CategoryItem, List } from './CategoriesList.styled';
-import { fetchCategoriesList } from 'redux/recipes';
+import { getCategoriesList } from '../../redux';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 export const CategoriesList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCategoriesList());
+    dispatch(getCategoriesList());
+    window.scrollTo({
+      top: 0,
+    });
   }, [dispatch]);
   const { categoriesList } = useCategories();
   return (

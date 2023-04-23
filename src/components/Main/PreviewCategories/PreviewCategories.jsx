@@ -9,7 +9,7 @@ import {
   LinkDown,
   Wrap,
 } from './PreviewCategories.styled';
-import { MainTitle } from "components/MainTitle/MainTitle"
+import { MainTitle } from 'components/MainTitle/MainTitle';
 import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
 
 export const PreviewCategories = ({ recipes }) => {
@@ -25,14 +25,13 @@ export const PreviewCategories = ({ recipes }) => {
   }
 
   return (
-    
     <>
       <ListCategory>
         {Object.keys(recipes).map(category => {
           const recipesStatic = recipes[category];
           return (
             <li key={category}>
-              <MainTitle title={category}/>
+              <MainTitle title={category} />
               <ListCard>
                 {recipesStatic
                   .slice(0, numCard)

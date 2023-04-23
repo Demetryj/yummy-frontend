@@ -12,15 +12,15 @@ export const ButtonScrSt = styled.button`
   background-color: rgba(139, 170, 54, 0.3);
   font-size: 50px;
   box-shadow: 0px 0px 22px -5px rgba(139, 170, 54, 0.75) inset;
-  animation: bounce-in-bottom 1.1s both;
+  /* animation: bounce-in-bottom 1.1s both; */
   & > svg {
     color: rgb(139, 170, 54);
     text-shadow: 0px 0px 24px rgba(0, 0, 0);
   }
-  &:hover {
+  /* &:hover {
     animation: shadow-drop-2-lr 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-  @keyframes shadow-drop-2-lr {
+  } */
+  /* @keyframes shadow-drop-2-lr {
     0% {
       transform: translateZ(0);
       box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
@@ -30,8 +30,20 @@ export const ButtonScrSt = styled.button`
       box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35),
         12px 0 20px -12px rgba(0, 0, 0, 0.35);
     }
-  }
+  } */
 
+  /* @-webkit-keyframes shadow-drop-2-lr {
+    0% {
+      transform: translateZ(0);
+      box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+    }
+    100% {
+      transform: translateZ(50px);
+      box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35),
+        12px 0 20px -12px rgba(0, 0, 0, 0.35);
+    }
+  } */
+  /* 
   @-webkit-keyframes bounce-in-bottom {
     0% {
       transform: translateY(500px);
@@ -103,5 +115,5 @@ export const ButtonScrSt = styled.button`
       transform: translateY(0);
       animation-timing-function: ease-out;
     }
-  }
+  }*/
 `;
