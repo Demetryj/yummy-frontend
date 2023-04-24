@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CategoriesSection = styled.section`
+export const CategoriesSectionStyled = styled.section`
   width: 100%;
   max-width: 343px;
   padding-top: ${p => p.theme.spacing(57)};

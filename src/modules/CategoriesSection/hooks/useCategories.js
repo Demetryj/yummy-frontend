@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
-import { selectCategories } from 'redux/recipes';
 import {
+  selectCategories,
   selectError,
   selectIsLoading,
   selectPagination,
   selectRecipes,
-} from 'redux/recipes/selectors';
+} from 'modules/CategoriesSection/redux';
 
 export const useCategories = () => {
   const categoriesList = useSelector(selectCategories);

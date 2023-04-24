@@ -1,9 +1,9 @@
-import { useCategories } from 'hooks/useCategories';
+import { useCategories } from '../../hooks';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { nanoid } from 'nanoid';
-import { fetchRecipesByCategory } from 'redux/recipes';
+import { getRecipesByCategory } from '../../redux';
 import { PhotosList } from './RecipesPhotoList.styled';
 import { RecipeCard } from './RecipeCard';
 
@@ -27,7 +27,7 @@ export const RecipesPhotosList = () => {
   }, [categoryName]);
   useEffect(() => {
     const queryOptions = page === 1 ? { category } : { category, page, limit };
-    dispatch(fetchRecipesByCategory(queryOptions));
+    dispatch(getRecipesByCategory(queryOptions));
   }, [category, page, dispatch]);
   useEffect(() => {
     if (recipesOfCategory.length !== 0) {
