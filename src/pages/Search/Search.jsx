@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom'; 
 
 import { fetchSearchRecipes } from 'redux/recipes/operations';
 import { fetchRecipesByIngredient } from 'redux/ingredients/operations';
@@ -15,8 +15,14 @@ import { ListSection, SearchSection } from './Search.styled';
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const location = useLocation();
+  const searchParamsAlla = new URLSearchParams(location.search);
+  const allaQuery = searchParamsAlla.get('query');
+
   const searchQuery =
-    searchParams.get('searchQuery') ?? localStorage.getItem('query') ?? '';
+    // searchParams.get('searchQuery') ?? localStorage.getItem('query') ?? ''; 
+    searchParams.get('searchQuery') ?? allaQuery ?? ''; 
   const searchType = searchParams.get('searchType') ?? 'title';
 
   const ingredientsAreLoading = useSelector(selectIsLoading);
@@ -49,7 +55,7 @@ const Search = () => {
         <MainTitle title="Search" />
         <SearchBar
           handleOnSubmit={handleOnSubmit}
-          searchQuery={searchQuery}
+          searchQuery={searchQuery} 
           searchType={searchType}
         />
       </SearchSection>
