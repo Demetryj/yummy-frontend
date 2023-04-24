@@ -22,6 +22,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 import { getColor } from 'utils/authColors';
+import { getCharacterValidationError } from 'utils/getCharacterValidationError';
 
 import sprite from 'images/registrationLogin/spriteRegister.svg';
 import { Loader } from 'components/Loader';
@@ -30,9 +31,14 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const registerSchema = object({
-  name: string().required(),
+  name: string().min(2).max(25).required(),
   email: string().required().email('Email is not valid'),
-  password: string().min(6).required(),
+  password: string()
+    .min(6)
+    .required()
+    .matches(/[0-9]/, getCharacterValidationError('digit'))
+    .matches(/[a-z]/, getCharacterValidationError('lowercase'))
+    .matches(/[A-Z]/, getCharacterValidationError('uppercase')),
 });
 
 export const RegisterForm = () => {
@@ -43,8 +49,6 @@ export const RegisterForm = () => {
   const { errorMessage } = useAuth();
   const { isLoggedIn } = useAuth();
   const { isRegistered } = useAuth();
-
-
 
   useEffect(() => {
     if (isLoggedIn) {
