@@ -40,7 +40,7 @@ export const Search = () => {
     if (input === '') {
       return;
     } else {
-      navigate('/search', { replace: true });
+      navigate(`/search?query=${input}`, { replace: true });
     }
     dispatch(fetchSearchRecipes(queryInput));
     setInput('');
