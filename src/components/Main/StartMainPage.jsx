@@ -18,6 +18,7 @@ import { Loader } from 'components/Loader';
 export const StartMainPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
+  
   useEffect(() => {
     dispatch(fetchRecipesMainPage());
   }, [dispatch]);
