@@ -11,10 +11,7 @@ export const Backdrop = styled.div`
 
 export const Content = styled.div`
   position: absolute;
-  padding-top: 32px;
-  padding-bottom: 32px;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 32px 24px;
   width: ${p => p.theme.spacing(163)};
   background: ${p => p.theme.colors.whiteColor};
   border-radius: 24px;
@@ -24,6 +21,7 @@ export const Content = styled.div`
   transform: translate(-50%, -50%);
 
   @media screen and ${p => p.theme.media.medium} {
+    padding: 50px 40px;
     width: ${p => p.theme.spacing(240)};
   }
 

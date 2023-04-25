@@ -15,6 +15,7 @@ import {
 } from './UserProfileForm.styled';
 
 import { useAuth } from 'hooks/useAuth';
+import { Cross } from 'components/UserProfileContent/UserProfileContent.styled';
 
 export const UserProfileForm = () => {
   const dispatch = useDispatch();
@@ -37,9 +38,6 @@ export const UserProfileForm = () => {
     let formData = new FormData();
     formData.append('name', values.name);
     formData.append('avatar', file);
-    // for (let property of formData.entries()) {
-    //   console.log(property[0], property[1]);
-    // }
     dispatch(updateProfile(formData));
     setSubmitting(false);
     resetForm();
@@ -48,18 +46,8 @@ export const UserProfileForm = () => {
 
   const uploadFile = event => {
     if (!event.target.files?.length) return;
-    const fileReader = new FileReader();
     const file = event.target.files[0];
-    console.log(file);
     setFile(file);
-    // fileReader.readAsDataURL(file);
-
-    // fileReader.onloadend = () => {
-    //   const content = fileReader.result;
-    //   if (content) {
-    //     setFile(content);
-    //   }
-    // };
   };
 
   return (
@@ -68,21 +56,38 @@ export const UserProfileForm = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <Form>
-        <label htmlFor="avatar">
-          <img alt="ava" src={path} />
-        </label>
-
-        <Input
-          name="avatar"
-          id="avatar"
-          type="file"
-          onChange={uploadFile}
-          style={{ display: 'none' }}
-        />
-        <Input name="name" type="text" id="newName" placeholder="entername" />
-        <button type="submit">Submit</button>
-      </Form>
+      <ProfileForm>
+        <Box
+          width={{ xs: 88, lg: 103 }}
+          height={{ xs: 88, lg: 103 }}
+          mb={{ xs: 54, md: 50, lg: 52 }}
+          borderRadius="50%"
+          overflow="hidden"
+          bg="#D9D9D9"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <label htmlFor="avatar">
+            <img alt="ava" src={path} />
+          </label>
+        </Box>
+        <Box>
+          <Input
+            name="avatar"
+            id="avatar"
+            type="file"
+            onChange={uploadFile}
+            style={{ display: 'none' }}
+          />
+        </Box>
+        <Box display="flex" position="relative" width="100%">
+          <UserIcon />
+          <Input name="name" type="text" id="newName" placeholder="entername" />
+          <IconPencil />
+        </Box>
+        <Button type="submit">Submit</Button>
+      </ProfileForm>
     </Formik>
   );
 };
