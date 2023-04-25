@@ -26,22 +26,9 @@ import { selectCategories } from 'redux/recipes/selectors';
 import { fetchCategoriesList } from 'redux/recipes';
 import { addRecipe } from 'redux/recipes/operations';
 import { selectUser } from 'redux/auth/selectors';
-// import { addRecipe } from 'redux/recipes/operations';
+import cookingTime from '../AddRecipeForm/data/cookingTime.json'
 const AddRecipeForm = () => {
-  const cookingTime = [
-    { value: '' },
-    { value: '10' },
-    { value: '20' },
-    { value: '30' },
-    { value: '40' },
-    { value: '50' },
-    { value: '60' },
-    { value: '80' },
-    { value: '90' },
-    { value: '100' },
-    { value: '110' },
-    { value: '120' },
-  ];
+  
 
   const [preview, setPreview] = useState(plug);
   const [recipes, setRecipes] = useState({
@@ -52,7 +39,7 @@ const AddRecipeForm = () => {
     instructions: '',
     ingredients: [],
   });
-
+// console.log(recipes)
   const { _id } = useSelector(selectUser);
 
   const dispatch = useDispatch();

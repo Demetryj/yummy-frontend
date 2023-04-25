@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIngredients } from 'redux/ingredients/selectors';
 import { fetchIngredients } from 'redux/ingredients/operations';
+import units from '../IngredientsFilter/data/units.json';
 
 import {
   IngredientsContainet,
@@ -16,26 +17,18 @@ import {
   Input,
 } from './IngredientsFilter.styled';
 
-const IngredientsFilter = ({ setRecipes, recipes }) => {
-  const units = [
-    { value: '' },
-    { value: 'tbs' },
-    { value: 'tsp' },
-    { value: 'kg' },
-    { value: 'g' },
-    { value: 'l' },
-    { value: 'mllt' },
-  ];
-
+const IngredientsFilter = ({ setRecipes }) => {
   const [serviceList, setServiceList] = useState([
     { ingredient: '', measure: '' },
   ]);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchIngredients());
   }, [dispatch]);
 
   const ingredientsList = useSelector(selectIngredients);
+
   const ingredients = ingredientsList.map(item => ({
     label: item.ttl,
     value: item.ttl,
@@ -47,7 +40,6 @@ const IngredientsFilter = ({ setRecipes, recipes }) => {
       }
       return item;
     });
-
     const ingredients = newServiceList.map(el => ({
       ingredient: el.ingredient,
       measure: el.size + el.service,
@@ -55,7 +47,7 @@ const IngredientsFilter = ({ setRecipes, recipes }) => {
     setServiceList(newServiceList);
     setRecipes(prevState => ({
       ...prevState,
-      ingredients: ingredients
+      ingredients: ingredients,
     }));
   };
 
@@ -68,7 +60,6 @@ const IngredientsFilter = ({ setRecipes, recipes }) => {
     list.splice(index, 1);
     setServiceList(list);
   };
-
   return (
     <IngredientsContainet>
       <IngListSetting>
@@ -95,7 +86,7 @@ const IngredientsFilter = ({ setRecipes, recipes }) => {
       </IngListSetting>
 
       <InputFieldsContainer>
-        {serviceList.map((field, index) => (
+        {serviceList.map(index => (
           <FlexContainer key={index}>
             <SelectCustomisation>
               <Select
