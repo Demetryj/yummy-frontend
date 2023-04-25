@@ -3,7 +3,6 @@ import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIngredients } from 'redux/ingredients/selectors';
 import { fetchIngredients } from 'redux/ingredients/operations';
-import units from '../IngredientsFilter/data/units.json';
 
 import {
   IngredientsContainet,
@@ -17,11 +16,20 @@ import {
   Input,
 } from './IngredientsFilter.styled';
 
-const IngredientsFilter = ({ setRecipes }) => {
+const IngredientsFilter = ({ setRecipes, recipes }) => {
+  const units = [
+    { value: '' },
+    { value: 'tbs' },
+    { value: 'tsp' },
+    { value: 'kg' },
+    { value: 'g' },
+    { value: 'l' },
+    { value: 'mllt' },
+  ];
+
   const [serviceList, setServiceList] = useState([
     { ingredient: '', measure: '' },
   ]);
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchIngredients());
@@ -33,6 +41,7 @@ const IngredientsFilter = ({ setRecipes }) => {
     label: item.ttl,
     value: item.ttl,
   }));
+
   const handleIngredientChange = (selectedOption, index, key) => {
     const newServiceList = serviceList.map((item, idx) => {
       if (index === idx) {
@@ -40,10 +49,13 @@ const IngredientsFilter = ({ setRecipes }) => {
       }
       return item;
     });
+
     const ingredients = newServiceList.map(el => ({
       ingredient: el.ingredient,
       measure: el.size + el.service,
     }));
+
+    console.log(ingredients)
     setServiceList(newServiceList);
     setRecipes(prevState => ({
       ...prevState,
@@ -60,6 +72,7 @@ const IngredientsFilter = ({ setRecipes }) => {
     list.splice(index, 1);
     setServiceList(list);
   };
+
   return (
     <IngredientsContainet>
       <IngListSetting>
@@ -86,7 +99,7 @@ const IngredientsFilter = ({ setRecipes }) => {
       </IngListSetting>
 
       <InputFieldsContainer>
-        {serviceList.map(index => (
+        {serviceList.map((field, index) => (
           <FlexContainer key={index}>
             <SelectCustomisation>
               <Select
