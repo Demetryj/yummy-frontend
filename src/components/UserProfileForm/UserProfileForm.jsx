@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { Field, Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { toggleUserInfo } from '../../redux/modal';
@@ -14,22 +14,52 @@ import {
   Button,
 } from './UserProfileForm.styled';
 
+import { useAuth } from 'hooks/useAuth';
+
 export const UserProfileForm = () => {
   const dispatch = useDispatch();
+  const [file, setFile] = React.useState();
+
+  const { user } = useAuth();
+  const path = user.avatarURL;
 
   const initialValues = {
+    avatar: '',
     name: '',
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string().required('Name is required'),
+    avatar: Yup.mixed(),
+    name: Yup.string(),
   });
 
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
-    dispatch(updateProfile(values));
+    let formData = new FormData();
+    formData.append('name', values.name);
+    formData.append('avatar', file);
+    // for (let property of formData.entries()) {
+    //   console.log(property[0], property[1]);
+    // }
+    dispatch(updateProfile(formData));
     setSubmitting(false);
     resetForm();
     dispatch(toggleUserInfo());
+  };
+
+  const uploadFile = event => {
+    if (!event.target.files?.length) return;
+    const fileReader = new FileReader();
+    const file = event.target.files[0];
+    console.log(file);
+    setFile(file);
+    // fileReader.readAsDataURL(file);
+
+    // fileReader.onloadend = () => {
+    //   const content = fileReader.result;
+    //   if (content) {
+    //     setFile(content);
+    //   }
+    // };
   };
 
   return (
@@ -38,20 +68,21 @@ export const UserProfileForm = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <ProfileForm>
-        {/* <Label htmlFor="name">Name</Label> */}
-        <Box>
-          {/* <Input name="avatar" type="file" placeholder="User" />
-            <Error component="div" name="avatar" /> */}
-        </Box>
-        <Box display="flex" position="relative">
-          <UserIcon />
-          <Input name="name" type="text" placeholder="User" />
-          <Error component="div" name="name" />
-          <IconPencil />
-        </Box>
-        <Button type="submit">Save changes</Button>
-      </ProfileForm>
+      <Form>
+        <label htmlFor="avatar">
+          <img alt="ava" src={path} />
+        </label>
+
+        <Input
+          name="avatar"
+          id="avatar"
+          type="file"
+          onChange={uploadFile}
+          style={{ display: 'none' }}
+        />
+        <Input name="name" type="text" id="newName" placeholder="entername" />
+        <button type="submit">Submit</button>
+      </Form>
     </Formik>
   );
 };
