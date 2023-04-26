@@ -20,7 +20,7 @@ export const RecipeIngredientList = ({ recipe, heightHero }) => {
       <InngredientsList>
         {ingredients.map(item => (
           <li key={item.id}>
-            <RecipeIngredientItem ingredient={item} />
+            <RecipeIngredientItem ingrediento={item} />
           </li>
         ))}
       </InngredientsList>

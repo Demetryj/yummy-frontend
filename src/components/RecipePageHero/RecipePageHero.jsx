@@ -21,12 +21,12 @@ export const RecipePageHero = ({ recipe, getHeightHero }) => {
   const { title, description, time, favorites, _id, owner } = recipe;
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
-  const [inFavorites, setInFavorites] = useState(() => {
-    favorites.includes(user._id);
-  });
-  const isOwner = owner && owner._id === user._id ? true : false;
+  const [inFavorites, setInFavorites] = useState(favorites.includes(user._id));
+
+  const isOwner = owner && owner === user._id ? true : false;
   const refComponent = useRef();
   useEffect(() => {
     const height = refComponent.current.getBoundingClientRect().height;

@@ -18,6 +18,7 @@ const Recipe = () => {
   const [heightHero, setHeightHero] = useState(0);
   const { recipeId } = useParams();
   const [recipe] = useSelector(selectRecipes);
+
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
@@ -47,7 +48,6 @@ const Recipe = () => {
   };
   return (
     <>
-
       {recipe && (
         <RecipePageHero getHeightHero={setHeightHero} recipe={recipe} />
       )}

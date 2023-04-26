@@ -73,7 +73,6 @@ const recipesSlice = createSlice({
 
       .addCase(removeFromFavorites.fulfilled, (state, action) => {
         state.items.map(item => item.id === action.payload.id);
-        // state.items = action.payload;
         state.isLoading = false;
         state.error = null;
       })
@@ -137,7 +136,7 @@ const recipesSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(addRecipe.fulfilled, (state, action) => {
-        state.items.push(action.payload);
+        state.items.push(action.payload.result);
         state.isLoading = false;
         state.error = null;
       })
