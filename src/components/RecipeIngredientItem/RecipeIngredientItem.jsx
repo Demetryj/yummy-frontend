@@ -19,17 +19,20 @@ import plug from 'images/plugs/apple 128x128.png';
 import { getPoster } from 'utils/getPlugImageIngredient';
 import toast from 'react-hot-toast';
 import { selectError } from 'redux/shoppingList/selectors';
-export const RecipeIngredientItem = ({ ingredient }) => {
-  const { thb, ttl, measure, id, desc } = ingredient;
+export const RecipeIngredientItem = ({ ingrediento }) => {
+  const { thb, ttl, measure, id, desc } = ingrediento;
+
   const [checked, setChecked] = useState(false);
+
   const dispatch = useDispatch();
   const error = useSelector(selectError);
+
   const addToShoppingList = () => {
     if (!checked) {
       dispatch(
         addIngredientToShoppingList({
-          id,
-          measure,
+          id: id,
+          measure: measure,
         })
       );
       setChecked(true);
@@ -44,7 +47,12 @@ export const RecipeIngredientItem = ({ ingredient }) => {
       }
       return;
     } else {
-      dispatch(deleteIngredientFromShoppingList({ id: id, measure: measure }));
+      dispatch(
+        deleteIngredientFromShoppingList({
+          id: id,
+          measure: measure,
+        })
+      );
       setChecked(false);
       if (!error) {
         toast.success('Ingredient is removed from shopping list', {
@@ -65,6 +73,7 @@ export const RecipeIngredientItem = ({ ingredient }) => {
         <ImageBlock>
           <img src={getPoster(thb, plug)} alt="poster" />
         </ImageBlock>
+
         <IngName>{ttl}</IngName>
         <IngDescr>{desc}</IngDescr>
         <IngQuantity>{measure}</IngQuantity>

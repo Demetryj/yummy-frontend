@@ -18,19 +18,12 @@ export const Search = () => {
   const changeHandleSearch = e => {
     const { value } = e.currentTarget;
     setInput(value.trim());
-
-    if (input === '') {
-      return;
-    } else {
-      localStorage.setItem('query', value.toLowerCase());
-    }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const queryInput = localStorage.getItem('query');
-
-    if (!queryInput || input === '') {
+  
+    if ( input === '') {
       return toast.error('Please enter title.', {
         duration: 2000,
         position: 'top-center',
@@ -42,7 +35,8 @@ export const Search = () => {
     } else {
       navigate(`/search?query=${input}`, { replace: true });
     }
-    dispatch(fetchSearchRecipes(queryInput));
+    
+    dispatch(fetchSearchRecipes(input));
     setInput('');
   };
   return (
