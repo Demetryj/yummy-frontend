@@ -31,20 +31,33 @@ const IngredientsFilter = ({ setRecipes }) => {
 
   const ingredients = ingredientsList.map(item => ({
     label: item.ttl,
-    value: item.ttl,
+    value: item._id,
   }));
+
   const handleIngredientChange = (selectedOption, index, key) => {
+    const selectedIngredient = ingredientsList.find(
+      ingredient => ingredient._id === selectedOption
+    );
+
     const newServiceList = serviceList.map((item, idx) => {
       if (index === idx) {
-        item[key] = selectedOption;
+        if (selectedIngredient) {
+          item[key] = selectedIngredient;
+        } else {
+          item[key] = selectedOption;
+        }
       }
+
       return item;
     });
     const ingredients = newServiceList.map(el => ({
-      ingredient: el.ingredient,
+      ...el.ingredient,
+      id: el.ingredient._id,
       measure: el.size + el.service,
     }));
+
     setServiceList(newServiceList);
+
     setRecipes(prevState => ({
       ...prevState,
       ingredients: ingredients,
