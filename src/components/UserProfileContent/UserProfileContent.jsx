@@ -63,10 +63,10 @@ export const UserProfileContent = () => {
         color="whiteColor"
       >
         <P
-          onClick={() => {
-            dispatch(toggleAvatarUpdate());
-            handleClose();
-          }}
+        // onClick={() => {
+        //   dispatch(toggleAvatarUpdate());
+        //   handleClose();
+        // }}
         >
           +
         </P>
