@@ -13,7 +13,7 @@ export const RecipesPhotosList = () => {
   const { categoryName } = useParams();
   const { recipesOfCategory, pagination, isLoading } = useCategories();
   const [page, setPage] = useState(1);
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Beef');
   const [recipes, setRecipes] = useState([]);
   const [hasNextPage, setHasNextPage] = useState(false);
   const isFirstRender = useRef(category);
