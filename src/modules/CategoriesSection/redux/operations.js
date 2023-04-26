@@ -14,7 +14,7 @@ export const getCategoriesList = createAsyncThunk(
 );
 export const getRecipesByCategory = createAsyncThunk(
   'recipes/fetchRecipesBy',
-  async ({ category = 'Beef', page = 1, limit = 8 }, thunkAPI) => {
+  async ({ category, page = 1, limit = 8 }, thunkAPI) => {
     try {
       const response = await axios.get(
         `/recipes/category/${category}?page=${page}&limit=${limit}`
