@@ -7,6 +7,7 @@ body {
   position: relative;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
+  background-color: ${p => p.theme.colors.bgMain};
 }
 
 code {

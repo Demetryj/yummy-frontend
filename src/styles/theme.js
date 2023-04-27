@@ -14,6 +14,7 @@ export const theme = {
     paginationColor: '#656565',
     footerDarckTextColor: '#22252A',
     greySelectColor: '#F5F5F5',
+    bgMain: '#FAFAFA',
 
     lightBgColor: '#ECECEC',
     lightDarckBgColor: '#2A2C36',
