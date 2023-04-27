@@ -2,10 +2,9 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const NavLinkSkewStyled = styled(NavLink)`
-  font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontWeights.regular};
-  line-height: ${p => p.theme.lineHeights.subheader};
-  font-size: 10px;
+  font-size: ${p => p.theme.fontSizes.x};
+  line-height: ${p => p.theme.lineHeights.searchSelect};
 
   color: ${p =>
     p.styled === 'black'
