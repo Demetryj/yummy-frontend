@@ -4,6 +4,8 @@ export const ContentWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 18px;
+  margin-block-start: 0;
+  margin-block-end: 0;
 
   @media screen and (${p => p.theme.media.medium}) {
     gap: 40px;
@@ -15,7 +17,8 @@ export const ContentWrapper = styled.ul`
 `;
 
 export const Wrapper = styled.div`
-  padding-bottom: 100px;
+  padding-bottom: ${p => (p.location === 'favorite' ? '100px' : '200px')};
+  height: 100%;
 
   @media screen and (${p => p.theme.media.medium}) {
     padding-bottom: 200px;
