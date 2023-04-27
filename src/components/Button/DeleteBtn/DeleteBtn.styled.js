@@ -7,11 +7,11 @@ export const DeleteBtnWrapper = styled.button`
   justify-content: center;
   align-items: center;
 
-  border: none;
   padding: 5px;
   cursor: pointer;
 
   border-radius: ${p => p.theme.radii.btnIcon};
+
   background-color: ${p =>
     p.location === 'recipes'
       ? p.theme.colors.greenTextColor
