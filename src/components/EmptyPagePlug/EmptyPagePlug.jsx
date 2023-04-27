@@ -4,6 +4,7 @@ import searchTablet1 from '../../images/bgEmptyPage/bg_search_tablet@1x.png';
 import searchTablet2 from '../../images/bgEmptyPage/bg_search_tablet@2x.png';
 import searchDesktop1 from '../../images/bgEmptyPage/bg_search_desktop@1x.png';
 import searchDesktop2 from '../../images/bgEmptyPage/bg_search_desktop@2x.png';
+import { NavLinkSkew } from 'components/NavLinkSkew/NavLinkSkew';
 
 import {
   EmptyPlugImgWrapper,
@@ -11,7 +12,7 @@ import {
   EmptyPlugWrapper,
 } from './EmptyPagePlug.styled';
 
-export const EmptyPagePlug = ({ text }) => {
+export const EmptyPagePlug = ({ text, location }) => {
   return (
     <EmptyPlugWrapper>
       <EmptyPlugImgWrapper>
@@ -32,6 +33,14 @@ export const EmptyPagePlug = ({ text }) => {
         </picture>
       </EmptyPlugImgWrapper>
       <EmptyPlugText>{text}</EmptyPlugText>
+      {location === 'recipes' && (
+        <NavLinkSkew
+          navigate="/add"
+          location={location}
+          text="Add recipe"
+          styled="olive"
+        />
+      )}
     </EmptyPlugWrapper>
   );
 };
