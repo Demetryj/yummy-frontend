@@ -46,41 +46,38 @@ const Favorites = () => {
       <Container>
         <Title>Favorites</Title>
 
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <>
-            {favorites && favorites.length > 0 ? (
-              <ContentWrapper>
-                {favorites.map(item => {
-                  return (
-                    <li key={item._id}>
-                      <RecipeItem
-                        location="favorite"
-                        id={item._id}
-                        img={item.preview ?? img}
-                        title={item.title ?? 'No name'}
-                        text={
-                          <span>{item.description ?? 'No description'}</span>
-                        }
-                        time={item.time ? `${item.time} min` : ''}
-                      />
-                    </li>
-                  );
-                })}
-              </ContentWrapper>
-            ) : (
-              <EmptyPagePlug text="You currently don't have any favorite recipes added. Let's add some!" />
-            )}
-            {favorites && favorites.length > 0 && (
-              <PaginationComp
-                count={Math.ceil(total / perPage)}
-                page={page}
-                handleChange={handleChange}
-              />
-            )}
-          </>
-        )}
+        <>
+          {favorites && favorites.length > 0 ? (
+            <ContentWrapper>
+              {favorites.map(item => {
+                return (
+                  <li key={item._id}>
+                    <RecipeItem
+                      location="favorite"
+                      id={item._id}
+                      img={item.preview ?? img}
+                      title={item.title ?? 'No name'}
+                      text={<span>{item.description ?? 'No description'}</span>}
+                      time={item.time ? `${item.time} min` : ''}
+                    />
+                  </li>
+                );
+              })}
+            </ContentWrapper>
+          ) : (
+            <EmptyPagePlug
+              location="favorite"
+              text="You currently don't have any favorite recipes added."
+            />
+          )}
+          {favorites && favorites.length > 0 && (
+            <PaginationComp
+              count={Math.ceil(total / perPage)}
+              page={page}
+              handleChange={handleChange}
+            />
+          )}
+        </>
       </Container>
     </Wrapper>
   );
