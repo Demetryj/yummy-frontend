@@ -3,10 +3,11 @@ import styled from 'styled-components';
 export const Card = styled.div`
   display: flex;
 
-  width: 343px;
-  height: 152px;
+  width: ${p => p.theme.spacing(171.5)};
+  height: ${p => p.theme.spacing(76)};
 
-  gap: ${p => (p.location === 'favorite' ? '14px' : '14px')};
+  gap: ${p =>
+    p.location === 'favorite' ? p.theme.spacing(7) : p.theme.spacing(7)};
 
   background-color: ${p =>
     p.location === 'favorite'
@@ -18,26 +19,31 @@ export const Card = styled.div`
   border-radius: ${p => p.theme.radii.normal};
 
   @media screen and (${p => p.theme.media.medium}) {
-    height: 288px;
-    width: 704px;
+    height: ${p => p.theme.spacing(144)};
+    width: ${p => p.theme.spacing(352)};
 
-    gap: ${p => (p.location === 'favorite' ? '24px' : '24px')};
+    gap: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(12) : p.theme.spacing(12)};
     padding: ${p => (p.location === 'favorite' ? '28px 24px' : '28px 24px')};
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    height: 404px;
-    width: 1240px;
+    height: ${p => p.theme.spacing(202)};
+    width: ${p => p.theme.spacing(620)};
 
-    gap: ${p => (p.location === 'favorite' ? '40px' : '40px')};
-    padding: ${p => (p.location === 'favorite' ? '40px' : '40px')};
+    gap: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(20) : p.theme.spacing(20)};
+    padding: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(20) : p.theme.spacing(20)};
   }
 `;
 
 export const Image = styled.div`
   & img {
-    width: ${p => (p.location === 'favorite' ? '124px' : '124px')};
-    height: ${p => (p.location === 'favorite' ? '124px' : '124px')};
+    width: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(62) : p.theme.spacing(62)};
+    height: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(62) : p.theme.spacing(62)};
 
     border-radius: ${p => p.theme.radii.image};
 
@@ -46,13 +52,25 @@ export const Image = styled.div`
     }
 
     @media screen and (${p => p.theme.media.medium}) {
-      width: ${p => (p.location === 'favorite' ? '228px' : '228px')};
-      height: ${p => (p.location === 'favorite' ? '232px' : '232px')};
+      width: ${p =>
+        p.location === 'favorite'
+          ? p.theme.spacing(114)
+          : p.theme.spacing(114)};
+      height: ${p =>
+        p.location === 'favorite'
+          ? p.theme.spacing(116)
+          : p.theme.spacing(116)};
     }
 
     @media screen and (${p => p.theme.media.large}) {
-      width: ${p => (p.location === 'favorite' ? '318px' : '318px')};
-      height: ${p => (p.location === 'favorite' ? '324px' : '324px')};
+      width: ${p =>
+        p.location === 'favorite'
+          ? p.theme.spacing(159)
+          : p.theme.spacing(159)};
+      height: ${p =>
+        p.location === 'favorite'
+          ? p.theme.spacing(162)
+          : p.theme.spacing(162)};
     }
   }
 `;
@@ -62,26 +80,36 @@ export const Information = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  flex-grow: 1;
+  width: ${p => p.theme.spacing(93.5)};
+  height: ${p => p.theme.spacing(62)};
 
   @media screen and (${p => p.theme.media.medium}) {
     justify-content: unset;
+    width: ${p => p.theme.spacing(202)};
+    height: ${p => p.theme.spacing(116)};
+  }
+
+  @media screen and (${p => p.theme.media.large}) {
+    width: ${p => p.theme.spacing(414)};
+    height: ${p => p.theme.spacing(162)};
   }
 `;
 
 export const TitleWrapper = styled.div`
-  max-width: 100%;
-  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 18px;
+  align-items: ${p => (p.location === 'favorite' ? 'start' : 'center')};
+  gap: ${p => p.theme.spacing(9)};
   flex-grow: 0;
+
+  @media screen and (${p => p.theme.media.medium}) {
+    align-items: ${p => (p.location === 'favorite' ? 'center' : 'start')};
+  }
 `;
 
 export const Title = styled.h3`
   display: inline-block;
-  max-width: 130px;
+  max-width: ${p => p.theme.spacing(65)};
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -96,22 +124,26 @@ export const Title = styled.h3`
   color: ${p => p.theme.colors.subtitleTextColor};
 
   @media screen and (${p => p.theme.media.medium}) {
-    max-width: 300px;
+    max-width: ${p => p.theme.spacing(150)};
 
     font-size: ${p => p.theme.fontSizes.l};
   }
 
-  @media screen and (min-width: 1440px) {
-    max-width: 650px;
+  @media screen and (${p => p.theme.media.large}) {
+    max-width: ${p => p.theme.spacing(325)};
   }
 `;
 
 export const Description = styled.div`
-  width: ${p => (p.location === 'favorite' ? '155px' : '163px')};
-  height: ${p => (p.location === 'favorite' ? '57px' : '51px')};
+  width: ${p =>
+    p.location === 'favorite' ? p.theme.spacing(77.5) : p.theme.spacing(81.5)};
+  height: ${p =>
+    p.location === 'favorite' ? p.theme.spacing(28.5) : p.theme.spacing(25.5)};
 
-  margin-top: ${p => (p.location === 'favorite' ? '14px' : '14px')};
-  margin-bottom: ${p => (p.location === 'favorite' ? '25px' : '12px')};
+  margin-top: ${p =>
+    p.location === 'favorite' ? p.theme.spacing(2) : p.theme.spacing(5)};
+  margin-bottom: ${p =>
+    p.location === 'favorite' ? p.theme.spacing(6) : p.theme.spacing(6)};
 
   text-overflow: ellipsis;
 
@@ -132,33 +164,37 @@ export const Description = styled.div`
     white-space: pre-line;
     word-break: break-word;
     hyphens: auto;
-
-    @media screen and (${p => p.theme.media.medium}) {
-      max-width: 100%;
-    }
-
-    @media screen and (${p => p.theme.media.large}) {
-      max-width: 100%;
-    }
   }
 
   @media screen and (${p => p.theme.media.medium}) {
-    width: ${p => (p.location === 'favorite' ? '298px' : '404px')};
-    height: ${p => (p.location === 'favorite' ? '73px' : '107px')};
+    width: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(149) : p.theme.spacing(202)};
+    height: ${p =>
+      p.location === 'favorite'
+        ? p.theme.spacing(36.5)
+        : p.theme.spacing(53.5)};
 
-    margin-top: ${p => (p.location === 'favorite' ? '18px' : '14px')};
-    margin-bottom: ${p => (p.location === 'favorite' ? '58px' : '28px')};
+    margin-top: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(9) : p.theme.spacing(7)};
+    margin-bottom: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(28) : p.theme.spacing(14)};
 
     font-size: ${p => p.theme.fontSizes.s};
     line-height: ${p => p.theme.lineHeights.extraContent};
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    width: ${p => (p.location === 'favorite' ? '679px' : '100%')};
-    height: ${p => (p.location === 'favorite' ? '158px' : '134px')};
+    width: ${p =>
+      p.location === 'favorite'
+        ? p.theme.spacing(339.5)
+        : p.theme.spacing(401)};
+    height: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(79) : p.theme.spacing(67)};
 
-    margin-top: ${p => (p.location === 'favorite' ? '30px' : '20px')};
-    margin-bottom: ${p => (p.location === 'favorite' ? '38px' : '67px')};
+    margin-top: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(15) : p.theme.spacing(10)};
+    margin-bottom: ${p =>
+      p.location === 'favorite' ? p.theme.spacing(19) : p.theme.spacing(33.5)};
 
     font-size: ${p => p.theme.fontSizes.xm};
     line-height: ${p => p.theme.lineHeights.content};
@@ -166,10 +202,9 @@ export const Description = styled.div`
 `;
 
 export const TimeWrapper = styled.div`
-  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
 `;
 
 export const Time = styled.p`
