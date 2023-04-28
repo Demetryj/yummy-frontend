@@ -31,7 +31,7 @@ export const RecipeItem = ({ img, title, text, time, location, id }) => {
       )}
 
       <Information location={location}>
-        <TitleWrapper>
+        <TitleWrapper location={location}>
           <Title>{title}</Title>
 
           {location === 'favorite' && (
