@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectFavoriteRecipes,
-  selectIsLoading,
+  // selectIsLoading,
   selectTotalFavoriteRecipes,
 } from 'redux/recipes/selectors';
 
@@ -14,7 +14,7 @@ import { RecipeItem } from 'components/Recipe/RecipeItem';
 import { ContentWrapper, Wrapper } from 'components/Favorites/Favorites.styled';
 import { Container } from 'components/Container/Container';
 import { Title } from 'components/Title/Title';
-import { Loader } from 'components/Loader/Loader';
+// import { Loader } from 'components/Loader/Loader';
 import { EmptyPagePlug } from 'components/EmptyPagePlug/EmptyPagePlug';
 
 import { onScrollUp } from 'utils/scrollUp';
@@ -27,7 +27,7 @@ const Favorites = () => {
 
   const total = useSelector(selectTotalFavoriteRecipes);
 
-  const isLoading = useSelector(selectIsLoading);
+  // const isLoading = useSelector(selectIsLoading);
 
   const perPage = 4;
   const [page, setPage] = useState(1);
