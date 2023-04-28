@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const DeleteBtnWrapper = styled.button`
-  width: 24px;
-  height: 24px;
+  width: ${p => p.theme.spacing(12)};
+  height: ${p => p.theme.spacing(12)};
   display: flex;
   justify-content: center;
   align-items: center;
 
-  padding: 5px;
+  padding: ${p => p.theme.spacing(2.5)};
   cursor: pointer;
 
   border-radius: ${p => p.theme.radii.btnIcon};
@@ -29,15 +29,15 @@ export const DeleteBtnWrapper = styled.button`
   }
 
   @media screen and (${p => p.theme.media.medium}) {
-    width: 38px;
-    height: 38px;
-    padding: 8px;
+    width: ${p => p.theme.spacing(19)};
+    height: ${p => p.theme.spacing(19)};
+    padding: ${p => p.theme.spacing(4)};
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    width: 44px;
-    height: 44px;
-    padding: 10px;
+    width: ${p => p.theme.spacing(22)};
+    height: ${p => p.theme.spacing(22)};
+    padding: ${p => p.theme.spacing(5)};
   }
 
   & svg {
@@ -45,17 +45,17 @@ export const DeleteBtnWrapper = styled.button`
       p.location === 'recipes'
         ? p.theme.colors.bcgWhiteColor
         : p.theme.colors.mainTextColor};
-    width: 14px;
-    height: 14px;
+    width: ${p => p.theme.spacing(7)};
+    height: ${p => p.theme.spacing(7)};
 
     @media screen and (${p => p.theme.media.medium}) {
-      width: 22px;
-      height: 22px;
+      width: ${p => p.theme.spacing(11)};
+      height: ${p => p.theme.spacing(11)};
     }
 
     @media screen and (${p => p.theme.media.large}) {
-      width: 24px;
-      height: 24px;
+      width: ${p => p.theme.spacing(12)};
+      height: ${p => p.theme.spacing(12)};
     }
   }
 `;
