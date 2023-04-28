@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const EmptyPlugWrapper = styled.div`
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: ${p => p.theme.spacing(25)};
   width: 100%;
   height: auto;
   display: flex;
@@ -12,7 +12,7 @@ export const EmptyPlugWrapper = styled.div`
   gap: 24px;
 
   @media screen and (${p => p.theme.media.medium}) {
-    gap: 32px;
+    gap: ${p => p.theme.spacing(16)};
   }
 `;
 
@@ -33,14 +33,14 @@ export const EmptyPlugText = styled.p`
 `;
 
 export const EmptyPlugImgWrapper = styled.div`
-  width: 208px;
-  height: 133px;
+  width: ${p => p.theme.spacing(104)};
+  height: ${p => p.theme.spacing(66.5)};
   margin: 0 auto;
-  margin-bottom: 24px;
+  margin-bottom: ${p => p.theme.spacing(12)};
 
   @media screen and (${p => p.theme.media.medium}) {
-    width: 350px;
-    height: 225px;
-    margin-bottom: 32px;
+    width: ${p => p.theme.spacing(175)};
+    height: ${p => p.theme.spacing(112.5)};
+    margin-bottom: ${p => p.theme.spacing(16)};
   }
 `;
