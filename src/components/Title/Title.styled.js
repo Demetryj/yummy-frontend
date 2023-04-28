@@ -4,16 +4,16 @@ export const TitleConteiner = styled.div`
   z-index: -1;
   box-sizing: border-box;
   width: 100%;
-  padding-top: 34px;
-  margin-bottom: 50px;
+  padding-top: ${p => p.theme.spacing(17)};
+  margin-bottom: ${p => p.theme.spacing(25)};
 
   @media screen and (${p => p.theme.media.medium}) {
-    padding-top: 56px;
-    margin-bottom: 100px;
+    padding-top: ${p => p.theme.spacing(28)};
+    margin-bottom: ${p => p.theme.spacing(50)};
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    padding-top: 84px;
+    padding-top: ${p => p.theme.spacing(42)};
   }
 
   h2 {
