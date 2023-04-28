@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 import {
   selectShoppingList,
@@ -64,10 +63,10 @@ export const IngredientsShoppingList = () => {
 
       {shoppingList.length > 0 && !error && (
         <ShoppingList>
-          {shoppingList.map(({ productId: id, title, thumb, measure }) => {
+          {shoppingList.map(({ productId: id, title, thumb, measure }, idx) => {
             return (
               <Ingredient
-                key={nanoid()}
+                key={`${id}.${measure}.${idx}`}
                 id={id}
                 title={title}
                 thumb={thumb}
@@ -75,10 +74,10 @@ export const IngredientsShoppingList = () => {
               />
             );
           })}
-          {isVisible && <ScrollUpButton handleClick={scrollToTop} />}
         </ShoppingList>
       )}
 
+      {isVisible && <ScrollUpButton handleClick={scrollToTop} />}
       {isLoading && <Loader />}
       {shoppingList.length <= 0 && !isLoading && !error && (
         <Wrapper>
