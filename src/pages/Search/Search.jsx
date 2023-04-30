@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useSearchParams, useLocation } from 'react-router-dom'; 
+import { useSearchParams, useLocation, useNavigate } from 'react-router-dom';
 
 import { fetchSearchRecipes } from 'redux/recipes/operations';
 import { fetchRecipesByIngredient } from 'redux/ingredients/operations';
@@ -16,13 +16,13 @@ import { ListSection, SearchSection } from './Search.styled';
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const location = useLocation();
-  const searchParamsAlla = new URLSearchParams(location.search);
-  const allaQuery = searchParamsAlla.get('query');
+  const { search } = useLocation();
+  const searchParamsFromMain = new URLSearchParams(search);
+  const requestFromMain = searchParamsFromMain.get('query');
 
-  const searchQuery =
-    // searchParams.get('searchQuery') ?? localStorage.getItem('query') ?? ''; 
-    searchParams.get('searchQuery') ?? allaQuery ?? ''; 
+  const navigate = useNavigate();
+
+  const searchQuery = searchParams.get('searchQuery') ?? requestFromMain ?? '';
   const searchType = searchParams.get('searchType') ?? 'title';
 
   const ingredientsAreLoading = useSelector(selectIsLoading);
@@ -37,6 +37,13 @@ const Search = () => {
         searchType: type,
       })
     );
+    navigate(`?searchQuery=${query}&searchType=${type}`);
+
+    // Add the current search to the browser history
+    const currentUrl = new URL(window.location);
+    currentUrl.searchParams.set('searchQuery', query);
+    currentUrl.searchParams.set('searchType', type);
+    window.history.pushState({}, '', currentUrl.toString());
   };
 
   useEffect(() => {
@@ -55,7 +62,7 @@ const Search = () => {
         <MainTitle title="Search" />
         <SearchBar
           handleOnSubmit={handleOnSubmit}
-          searchQuery={searchQuery} 
+          searchQuery={searchQuery}
           searchType={searchType}
         />
       </SearchSection>
