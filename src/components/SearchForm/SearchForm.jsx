@@ -1,6 +1,11 @@
 import Select from 'react-select';
 
-import { Btn, Form, Input, InputWrapper } from './SearchForm.styled';
+import {
+  Btn,
+  Form,
+  // Input,
+  InputWrapper,
+} from './SearchForm.styled';
 
 const customStyles = {
   control: provided => ({
