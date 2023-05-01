@@ -6,12 +6,11 @@ import { MainTitle } from '../../../../components/MainTitle/MainTitle';
 import { useEffect, useState } from 'react';
 import { ScrollUpButton } from '../../../../components/Button';
 import { toast } from 'react-hot-toast';
-import { Loader } from '../../../../components/Loader';
+import { Loader } from 'components/Loader';
 export const CategoriesSection = () => {
   const { isLoading, error } = useCategories();
   useEffect(() => {
-    if (error === 'Request failed with status code 400') return;
-    if (error && error !== null)
+    if (error !== null)
       toast.error(error, {
         duration: 10000,
         position: 'top-center',
@@ -39,10 +38,10 @@ export const CategoriesSection = () => {
   return (
     <CategoriesSectionStyled>
       {isLoading && <Loader />}
+      {buttonVisible && <ScrollUpButton handleClick={handleClick} />}
       <MainTitle title="Categories" />
       <CategoriesList />
       <RecipesPhotosList />
-      {buttonVisible && <ScrollUpButton handleClick={handleClick} />}
     </CategoriesSectionStyled>
   );
 };

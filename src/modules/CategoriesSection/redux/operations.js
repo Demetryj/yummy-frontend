@@ -14,10 +14,10 @@ export const getCategoriesList = createAsyncThunk(
 );
 export const getRecipesByCategory = createAsyncThunk(
   'recipes/fetchRecipesBy',
-  async ({ category, page = 1, limit = 8 }, thunkAPI) => {
+  async ({ categoryName, page, limit }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `/recipes/category/${category}?page=${page}&limit=${limit}`
+        `/recipes/category/${categoryName}?page=${page}&limit=${limit}`
       );
       return response.data[0];
     } catch (e) {
