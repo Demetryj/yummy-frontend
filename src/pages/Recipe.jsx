@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipeById } from 'redux/recipes/operations';
 import { ScrollUpButton } from 'components/Button/ScrollUpButton';
+import { ErrorText } from 'components/ErrorText/ErrorText';
 
 const Recipe = () => {
   const [heightHero, setHeightHero] = useState(0);
@@ -58,6 +59,7 @@ const Recipe = () => {
       {recipe && <RecipePreparation recipe={recipe} />}
       {isLoading && !error && !recipe && <Loader />}
       {buttonVisible && <ScrollUpButton handleClick={handleClick} />}
+      {error && <ErrorText />}
     </>
   );
 };
