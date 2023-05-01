@@ -31,43 +31,31 @@ export const RecipeItem = ({ img, title, text, time, location, id }) => {
       )}
 
       <Information location={location}>
-        <TitleWrapper>
+        <TitleWrapper location={location}>
           <Title>{title}</Title>
 
-          {isTablet && location === 'favorite' && (
-            <DeleteBtn location={location} id={id} />
+          {location === 'favorite' && (
+            <DeleteBtn location={location} id={id} navigate={`/favorites`} />
           )}
-          {location === 'recipes' && <DeleteBtn location={location} id={id} />}
+          {location === 'recipes' && (
+            <DeleteBtn location={location} id={id} navigate={`/my`} />
+          )}
         </TitleWrapper>
 
-        <Description>
+        <Description location={location}>
           {text.length > 80 ? `${text.substring(0, 80)}...` : text}
         </Description>
 
         <TimeWrapper>
           <Time>{time}</Time>
 
-          {!isTablet && location === 'recipes' && (
-            <NavLinkSkew
-              navigate={`/recipe/${id}`}
-              location={location}
-              text="See recipe"
-              styled="olive"
-            />
-          )}
-
-          {!isTablet && location === 'favorite' && (
-            <DeleteBtn location={location} id={id} />
-          )}
-
-          {isTablet && (
-            <NavLinkSkew
-              navigate={`/recipe/${id}`}
-              location={location}
-              text="See recipe"
-              styled={location === 'favorite' ? 'black' : 'olive'}
-            />
-          )}
+          <NavLinkSkew
+            navigate={`/recipe/${id}`}
+            location={location}
+            text="See recipe"
+            styled={location === 'favorite' ? 'black' : 'olive'}
+          />
+          {/* )} */}
         </TimeWrapper>
       </Information>
     </Card>

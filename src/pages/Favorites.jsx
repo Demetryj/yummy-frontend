@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   selectFavoriteRecipes,
-  selectIsLoading,
+  // selectIsLoading,
   selectTotalFavoriteRecipes,
 } from 'redux/recipes/selectors';
 
@@ -14,7 +14,7 @@ import { RecipeItem } from 'components/Recipe/RecipeItem';
 import { ContentWrapper, Wrapper } from 'components/Favorites/Favorites.styled';
 import { Container } from 'components/Container/Container';
 import { Title } from 'components/Title/Title';
-import { Loader } from 'components/Loader/Loader';
+// import { Loader } from 'components/Loader/Loader';
 import { EmptyPagePlug } from 'components/EmptyPagePlug/EmptyPagePlug';
 
 import { onScrollUp } from 'utils/scrollUp';
@@ -27,7 +27,7 @@ const Favorites = () => {
 
   const total = useSelector(selectTotalFavoriteRecipes);
 
-  const isLoading = useSelector(selectIsLoading);
+  // const isLoading = useSelector(selectIsLoading);
 
   const perPage = 4;
   const [page, setPage] = useState(1);
@@ -46,41 +46,38 @@ const Favorites = () => {
       <Container>
         <Title>Favorites</Title>
 
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <>
-            {favorites && favorites.length > 0 ? (
-              <ContentWrapper>
-                {favorites.map(item => {
-                  return (
-                    <li key={item._id}>
-                      <RecipeItem
-                        location="favorite"
-                        id={item._id}
-                        img={item.preview ?? img}
-                        title={item.title ?? 'No name'}
-                        text={
-                          <span>{item.description ?? 'No description'}</span>
-                        }
-                        time={item.time ? `${item.time} min` : ''}
-                      />
-                    </li>
-                  );
-                })}
-              </ContentWrapper>
-            ) : (
-              <EmptyPagePlug text="You currently don't have any favorite recipes added. Let's add some!" />
-            )}
-            {favorites && favorites.length > 0 && (
-              <PaginationComp
-                count={Math.ceil(total / perPage)}
-                page={page}
-                handleChange={handleChange}
-              />
-            )}
-          </>
-        )}
+        <>
+          {favorites && favorites.length > 0 ? (
+            <ContentWrapper>
+              {favorites.map(item => {
+                return (
+                  <li key={item._id}>
+                    <RecipeItem
+                      location="favorite"
+                      id={item._id}
+                      img={item.preview ?? img}
+                      title={item.title ?? 'No name'}
+                      text={<span>{item.description ?? 'No description'}</span>}
+                      time={item.time ? `${item.time} min` : ''}
+                    />
+                  </li>
+                );
+              })}
+            </ContentWrapper>
+          ) : (
+            <EmptyPagePlug
+              location="favorite"
+              text="You currently don't have any favorite recipes added."
+            />
+          )}
+          {favorites && favorites.length > 0 && (
+            <PaginationComp
+              count={Math.ceil(total / perPage)}
+              page={page}
+              handleChange={handleChange}
+            />
+          )}
+        </>
       </Container>
     </Wrapper>
   );

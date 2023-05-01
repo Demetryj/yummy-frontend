@@ -17,7 +17,7 @@ export const SharedLayout = () => {
         width={{ xs: 375, md: 768, lg: 1440 }}
         mx="auto"
         px={{ xs: 16, md: 32, lg: 100 }}
-        py={{ xs: 18 }}
+        py={{ xs: 0 }}
       >
         <MainWrapper style={{ minHeight: '100vh' }}>
           <Suspense fallback={<div>Loading...</div>}>

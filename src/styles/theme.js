@@ -30,6 +30,7 @@ export const theme = {
     inputBgColor: '#F5F5F5',
     textAreaBg: '#D9D9D9',
     popularRecBorder: '#707070',
+    paginationBgColor: '#FAFAFA',
   },
 
   spacing: n => `${2 * n}px`,
@@ -67,6 +68,13 @@ export const theme = {
     heading: "'Fira Sans', sans-serif",
   },
 
+  fontWeights: {
+    regular: 400,
+    medium: 500,
+    semiBold: 600,
+    bold: 700,
+  },
+
   fontSizes: {
     xxs: '8px',
     x: '10px',
@@ -83,11 +91,21 @@ export const theme = {
     b: '100px',
   },
 
-  fontWeights: {
-    regular: 400,
-    medium: 500,
-    semiBold: 600,
-    bold: 700,
+  letterSpacings: {
+    subheader: '-0.24px',
+    content: '-0.02em',
+  },
+
+  lineHeights: {
+    subheader: '1',
+    content: '1.33',
+    extraContent: '1.29',
+    btnText: '1.12',
+    description: '1.25',
+    time: '1.4',
+    headerLinks: '1.6',
+    userLink: '1.7',
+    searchSelect: '1.5',
   },
 
   borders: {
@@ -119,21 +137,6 @@ export const theme = {
     modalProfile: ' 0px 4px 48px rgba(0, 0, 0, 0.1);',
   },
 
-  lineHeights: {
-    subheader: '1',
-    content: '1.33',
-    extraContent: '1.29',
-    btnText: '1.12',
-    description: '1.25',
-    time: '1.43',
-    headerLinks: '1.6',
-    userLink: '1.7',
-    searchSelect: '1.5',
-  },
-  letterSpacings: {
-    subheader: '-0.24px',
-    content: '-0.02em',
-  },
   transitions: {
     main: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
   },

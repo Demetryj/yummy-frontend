@@ -3,25 +3,29 @@ import styled from 'styled-components';
 export const ContentWrapper = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: ${p => p.theme.spacing(9)};
+  margin-block-start: 0;
+  margin-block-end: 0;
 
   @media screen and (${p => p.theme.media.medium}) {
-    gap: 40px;
+    gap: ${p => p.theme.spacing(20)};
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    gap: 50px;
+    gap: ${p => p.theme.spacing(25)};
   }
 `;
 
 export const Wrapper = styled.div`
-  padding-bottom: 100px;
+  padding-bottom: ${p =>
+    p.location === 'favorite' ? p.theme.spacing(50) : p.theme.spacing(100)};
+  height: 100%;
 
   @media screen and (${p => p.theme.media.medium}) {
-    padding-bottom: 200px;
+    padding-bottom: ${p => p.theme.spacing(100)};
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    padding-bottom: 100px;
+    padding-bottom: ${p => p.theme.spacing(50)};
   }
 `;
