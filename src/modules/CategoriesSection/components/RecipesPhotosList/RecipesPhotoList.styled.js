@@ -9,7 +9,8 @@ export const Image = styled.img`
   display: block;
   border-radius: ${p => theme.radii.normal};
   width: 100%;
-  height: auto;
+  min-height: 300px;
+  background-color: #8baa3655;
 `;
 
 export const Lable = styled.div`

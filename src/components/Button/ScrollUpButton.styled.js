@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const ButtonScrSt = styled.button`
   position: fixed;
   bottom: 10vh;
-  right: 5vw;
+  right: 2vw;
+  z-index: 555;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
