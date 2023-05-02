@@ -7,6 +7,7 @@ import { PhotosList } from './RecipesPhotoList.styled';
 import { RecipeCard } from './RecipeCard';
 import { RecipeImageLoader } from 'components/ContentLoader';
 
+
 export const RecipesPhotosList = () => {
   const dispatch = useDispatch();
   const { categoryName } = useParams();

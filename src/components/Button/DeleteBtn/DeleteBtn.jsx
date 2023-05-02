@@ -1,9 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { removeFavorite } from 'redux/recipes/favoritesOperations';
-import { removeOwnRecipe } from 'redux/recipes/ownRecipesOperations';
-
 import { DeleteBtnWrapper } from './DeleteBtn.styled';
 import sprite from '../../../images/symbol-defs.svg';
+import { removeRecipe, removeFavorite } from 'modules';
 
 export const DeleteBtn = ({ location, id }) => {
   const dispatch = useDispatch();
@@ -12,7 +10,7 @@ export const DeleteBtn = ({ location, id }) => {
       dispatch(removeFavorite(id));
     }
     if (location === 'recipes') {
-      dispatch(removeOwnRecipe(id));
+      dispatch(removeRecipe(id));
     }
   };
   return (

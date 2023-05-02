@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const getOwnRecipesAPI = (page = 1, per_page = 4) => {
+export const getOwnRecipesAPI = (page = 1, limit = 4) => {
   return axios
-    .get(`/users/:userId/own-recipes?page=${page}&per_page=${per_page}`)
+    .get(`/users/:userId/own-recipes?page=${page}&per_page=${limit}`)
     .then(({ data }) => {
       return data;
     });
