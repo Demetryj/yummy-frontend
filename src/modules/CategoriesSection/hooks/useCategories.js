@@ -5,7 +5,7 @@ import {
   selectIsLoading,
   selectPagination,
   selectRecipes,
-} from 'modules/CategoriesSection/redux';
+} from '../redux';
 
 export const useCategories = () => {
   const categoriesList = useSelector(selectCategories);
