@@ -1,5 +1,5 @@
-import React from 'react';
-import { Field, Formik, Form } from 'formik';
+import React, { useState } from 'react';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { toggleUserInfo } from '../../redux/modal';
@@ -8,18 +8,17 @@ import { Box } from '../Box';
 import {
   ProfileForm,
   Input,
-  Error,
   UserIcon,
   IconPencil,
   Button,
 } from './UserProfileForm.styled';
 
 import { useAuth } from 'hooks/useAuth';
-import { Cross } from 'components/UserProfileContent/UserProfileContent.styled';
 
 export const UserProfileForm = () => {
   const dispatch = useDispatch();
-  const [file, setFile] = React.useState();
+  const [file, setFile] = useState();
+  const [previw, setPreview] = useState('');
 
   const { user } = useAuth();
   const path = user.avatarURL;
@@ -47,6 +46,8 @@ export const UserProfileForm = () => {
   const uploadFile = event => {
     if (!event.target.files?.length) return;
     const file = event.target.files[0];
+    const objectUrl = URL.createObjectURL(file);
+    setPreview(objectUrl);
     setFile(file);
   };
 
@@ -69,7 +70,7 @@ export const UserProfileForm = () => {
           alignItems="center"
         >
           <label htmlFor="avatar">
-            <img alt="ava" src={path} />
+            <img alt="ava" src={previw || path} />
           </label>
         </Box>
         <Box>
