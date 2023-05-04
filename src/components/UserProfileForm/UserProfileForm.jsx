@@ -11,6 +11,8 @@ import {
   UserIcon,
   IconPencil,
   Button,
+  P,
+  AvaLabel,
 } from './UserProfileForm.styled';
 
 import { useAuth } from 'hooks/useAuth';
@@ -69,9 +71,24 @@ export const UserProfileForm = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <label htmlFor="avatar">
+          <AvaLabel htmlFor="avatar">
             <img alt="ava" src={previw || path} />
-          </label>
+            <Box
+              width={{ xs: 24 }}
+              height={{ xs: 24 }}
+              bg="greenColor"
+              borderRadius="50%"
+              position="absolute"
+              top={{ xs: 65, lg: 78 }}
+              left={{ xs: 150, md: 229, lg: 218 }}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              color="whiteColor"
+            >
+              <P>+</P>
+            </Box>
+          </AvaLabel>
         </Box>
         <Box>
           <Input

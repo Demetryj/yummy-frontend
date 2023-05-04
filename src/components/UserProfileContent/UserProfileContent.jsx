@@ -56,28 +56,7 @@ export const UserProfileContent = () => {
         mb={{ xs: 54, lg: 52 }}
       > */}
       <UserProfileForm />
-      <Box
-        width={{ xs: 24 }}
-        height={{ xs: 24 }}
-        bg="greenColor"
-        borderRadius="50%"
-        position="absolute"
-        top={{ xs: 65, lg: 78 }}
-        left={{ xs: 150, md: 229, lg: 218 }}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        color="whiteColor"
-      >
-        <P
-        // onClick={() => {
-        //   dispatch(toggleAvatarUpdate());
-        //   handleClose();
-        // }}
-        >
-          +
-        </P>
-      </Box>
+
       {/* </Box> */}
     </Box>
   );

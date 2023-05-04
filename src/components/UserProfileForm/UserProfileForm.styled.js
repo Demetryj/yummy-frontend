@@ -41,6 +41,12 @@ export const Input = styled(Field)`
   }
 `;
 
+export const AvaLabel = styled.label`
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 export const Error = styled(ErrorMessage)`
   position: absolute;
   color: red;
