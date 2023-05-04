@@ -20,11 +20,11 @@ export const Input = styled(Field)`
   height: ${p => p.theme.spacing(24)};
   margin-bottom: ${p => p.theme.spacing(12)};
   padding-left: 35px;
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     padding-left: 47px;
     margin-bottom: 32px;
   }
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     height: 59px;
   }
   ::placeholder {
@@ -34,10 +34,16 @@ export const Input = styled(Field)`
     letter-spacing: -0.02em;
     color: #23262a;
     opacity: 0.8;
-    @media screen and ${p => p.theme.media.medium} {
+    @media screen and (${p => p.theme.media.medium}) {
       font-size: 18px;
       line-height: 27px;
     }
+  }
+`;
+
+export const AvaLabel = styled.label`
+  :hover {
+    cursor: pointer;
   }
 `;
 
@@ -45,10 +51,10 @@ export const Error = styled(ErrorMessage)`
   position: absolute;
   color: red;
   top: 49px;
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     top: 50px;
   }
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     top: 63px;
   }
 `;
@@ -60,13 +66,13 @@ export const UserIcon = styled(FiUser)`
   position: absolute;
   left: 13px;
   top: 16px;
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     width: 24px;
     height: 24px;
     left: 18px;
     top: 12px;
   }
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     width: 24px;
     height: 24px;
     left: 18px;
@@ -80,12 +86,12 @@ export const IconPencil = styled(HiOutlinePencil)`
   height: 15px;
   top: 18px;
   right: 15px;
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     width: 19px;
     height: 19px;
     top: 16px;
   }
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     top: 20px;
   }
 `;
@@ -122,13 +128,13 @@ export const Button = styled.button`
 
   color: #fafafa;
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     padding-top: 18px;
     padding-bottom: 18px;
     font-size: 16px;
   }
 
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     height: 59px;
   }
 `;
