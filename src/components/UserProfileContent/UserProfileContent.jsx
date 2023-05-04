@@ -3,7 +3,6 @@ import * as React from 'react';
 // import Avatar from 'react-avatar';
 import { Box } from '../Box';
 import {
-  P,
   Cross,
   // UserIcon
 } from './UserProfileContent.styled';
