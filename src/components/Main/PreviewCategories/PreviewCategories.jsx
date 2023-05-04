@@ -54,7 +54,7 @@ export const PreviewCategories = ({ recipes }) => {
           );
         })}
       </ListCategory>
-      <LinkDown to={`/categories/beef`}>
+      <LinkDown to={`/categories/Beef`}>
         <ButtonDown>Other categories</ButtonDown>
       </LinkDown>
     </>
