@@ -1,1 +1,1 @@
-export { ImageLoader } from './ContentLoader';
+export { RecipeImageLoader } from './ContentLoader';

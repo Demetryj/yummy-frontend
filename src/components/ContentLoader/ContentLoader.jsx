@@ -1,16 +1,24 @@
 import ContentLoader from 'react-content-loader';
 
-export const ImageLoader = ({ w, h }) => (
+export const RecipeImageLoader = ({ viewBox }) => (
   <ContentLoader
-    speed={6}
-    width={w}
-    height={h}
-    viewBox="0 0 320 340"
-    backgroundColor="#8baa367e"
+    speed={5}
+    viewBox={`0 0 ${viewBox} ${viewBox}`}
+    backgroundColor="#8baa36"
     foregroundColor="#ecebeb"
+    backgroundOpacity={0.5}
+    title="Recipe"
+    style={{
+      borderRadius: '8px',
+    }}
   >
-    <rect x="0" y="60" rx="2" ry="2" width="320" height="320" />
+    <rect
+      x="0"
+      y="0"
+      rx="2"
+      ry="2"
+      width={`${viewBox}`}
+      height={`${viewBox}`}
+    />
   </ContentLoader>
 );
-
-export default ImageLoader;

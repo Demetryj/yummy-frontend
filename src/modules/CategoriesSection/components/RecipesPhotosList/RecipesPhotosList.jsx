@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom';
 import { getRecipesByCategory } from '../../redux';
 import { PhotosList } from './RecipesPhotoList.styled';
 import { RecipeCard } from './RecipeCard';
-import RecipeImageLoader from 'components/ContentLoader/ContentLoader';
+import { RecipeImageLoader } from 'components/ContentLoader';
+
 
 export const RecipesPhotosList = () => {
   const dispatch = useDispatch();
