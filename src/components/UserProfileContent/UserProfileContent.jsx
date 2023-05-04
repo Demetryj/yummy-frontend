@@ -1,11 +1,18 @@
 import * as React from 'react';
 // import { useSelector } from 'react-redux';
-import Avatar from 'react-avatar';
+// import Avatar from 'react-avatar';
 import { Box } from '../Box';
-import { P, Cross, UserIcon } from './UserProfileContent.styled';
+import {
+  P,
+  Cross,
+  // UserIcon
+} from './UserProfileContent.styled';
 import { useDispatch } from 'react-redux';
-import { toggleUserInfo, toggleAvatarUpdate } from '../../redux/modal';
-import { useAuth } from 'hooks/useAuth';
+import {
+  toggleUserInfo,
+  // toggleAvatarUpdate
+} from '../../redux/modal';
+// import { useAuth } from 'hooks/useAuth';
 import { UserProfileForm } from 'components/UserProfileForm';
 
 export const UserProfileContent = () => {
@@ -13,9 +20,9 @@ export const UserProfileContent = () => {
   const handleClose = () => dispatch(toggleUserInfo());
   // const fileData = useSelector(state => state);
 
-  const { user } = useAuth();
+  // const { user } = useAuth();
 
-  const path = user.avatarURL;
+  // const path = user.avatarURL;
 
   React.useEffect(() => {
     const handleKeyDown = e => {
