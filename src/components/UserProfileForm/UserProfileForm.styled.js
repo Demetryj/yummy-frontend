@@ -5,6 +5,9 @@ import { HiOutlinePencil } from 'react-icons/hi';
 
 export const ProfileForm = styled(Form)`
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Input = styled(Field)`

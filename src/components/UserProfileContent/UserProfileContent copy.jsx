@@ -41,37 +41,53 @@ export const UserProfileContent = () => {
           handleClose();
         }}
       />
-      {/* <Box
+      <Box
         display={{ xs: 'flex' }}
         justifyContent="center"
         alignItems="center"
         position="relative"
         mb={{ xs: 54, lg: 52 }}
-      > */}
-      <UserProfileForm />
-      <Box
-        width={{ xs: 24 }}
-        height={{ xs: 24 }}
-        bg="greenColor"
-        borderRadius="50%"
-        position="absolute"
-        top={{ xs: 65, lg: 78 }}
-        left={{ xs: 150, md: 229, lg: 218 }}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        color="whiteColor"
       >
-        <P
-        // onClick={() => {
-        //   dispatch(toggleAvatarUpdate());
-        //   handleClose();
-        // }}
+        <Box
+          width={{ xs: 88, lg: 103 }}
+          height={{ xs: 88, lg: 103 }}
+          borderRadius="50%"
+          overflow="hidden"
+          bg="#D9D9D9"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
         >
-          +
-        </P>
+          {path ? (
+            <Avatar size="100%" round={true} name={user.name} src={path} />
+          ) : (
+            <UserIcon />
+          )}
+        </Box>
+        <Box
+          width={{ xs: 24 }}
+          height={{ xs: 24 }}
+          bg="greenColor"
+          borderRadius="50%"
+          position="absolute"
+          top={{ xs: 65, lg: 78 }}
+          left={{ xs: 150, md: 229, lg: 218 }}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          color="whiteColor"
+        >
+          <P
+            onClick={() => {
+              dispatch(toggleAvatarUpdate());
+              handleClose();
+            }}
+          >
+            +
+          </P>
+        </Box>
       </Box>
-      {/* </Box> */}
+      <UserProfileForm />
     </Box>
   );
 };
