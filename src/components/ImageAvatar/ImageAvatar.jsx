@@ -13,7 +13,6 @@ export const ImageAvatar = () => {
 
   return (
     <Container>
-      {/* <FiUser size={{ xs: 34, md: 44 }} cursor="pointer" /> */}
       <Avatar
         size="100%"
         round={true}
