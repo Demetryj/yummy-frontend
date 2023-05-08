@@ -25,16 +25,10 @@ import { actionErrRefr } from 'redux/auth/actionErrRefr';
 import { Loader } from 'components/Loader';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getCharacterValidationError } from 'utils/getCharacterValidationError';
 
 const signinSchema = object({
-  email: string().required().email('Email is not valid'),
-  password: string()
-    .min(6)
-    .required()
-    .matches(/[0-9]/, getCharacterValidationError('digit'))
-    .matches(/[a-z]/, getCharacterValidationError('lowercase'))
-    .matches(/[A-Z]/, getCharacterValidationError('uppercase')),
+  email: string().required(),
+  password: string().min(6).required(),
 });
 
 export const SigninForm = () => {
