@@ -1,27 +1,13 @@
 import * as React from 'react';
-// import { useSelector } from 'react-redux';
-// import Avatar from 'react-avatar';
 import { Box } from '../Box';
-import {
-  Cross,
-  // UserIcon
-} from './UserProfileContent.styled';
+import { Cross } from './UserProfileContent.styled';
 import { useDispatch } from 'react-redux';
-import {
-  toggleUserInfo,
-  // toggleAvatarUpdate
-} from '../../redux/modal';
-// import { useAuth } from 'hooks/useAuth';
+import { toggleUserInfo } from '../../redux/modal';
 import { UserProfileForm } from 'components/UserProfileForm';
 
 export const UserProfileContent = () => {
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserInfo());
-  // const fileData = useSelector(state => state);
-
-  // const { user } = useAuth();
-
-  // const path = user.avatarURL;
 
   React.useEffect(() => {
     const handleKeyDown = e => {
@@ -47,16 +33,7 @@ export const UserProfileContent = () => {
           handleClose();
         }}
       />
-      {/* <Box
-        display={{ xs: 'flex' }}
-        justifyContent="center"
-        alignItems="center"
-        position="relative"
-        mb={{ xs: 54, lg: 52 }}
-      > */}
       <UserProfileForm />
-
-      {/* </Box> */}
     </Box>
   );
 };
