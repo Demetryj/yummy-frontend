@@ -15,25 +15,32 @@ import {
   SelectUnit,
   Input,
 } from './IngredientsFilter.styled';
+import units from './data/units.json';
+import { toast } from 'react-hot-toast';
 
-const IngredientsFilter = ({ setRecipes, recipes }) => {
-  const units = [
-    { value: '' },
-    { value: 'tbs' },
-    { value: 'tsp' },
-    { value: 'kg' },
-    { value: 'g' },
-    { value: 'l' },
-    { value: 'mllt' },
-  ];
-
-  const [serviceList, setServiceList] = useState([
-    { ingredient: '', measure: '' },
-  ]);
+const IngredientsFilter = ({
+  getFilterData,
+  setInitialList,
+  gettingFilterData,
+}) => {
+  const [serviceList, setServiceList] = useState([{}]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchIngredients());
   }, [dispatch]);
+  useEffect(() => {
+    if (setInitialList) {
+      setServiceList([{}]);
+    }
+  }, [setInitialList]);
+  useEffect(() => {
+    if (gettingFilterData) {
+      window.document.getElementById('sizeSelect').value = '';
+      window.document.getElementById('serviceSelect').value = '';
+      window.document.querySelector('.css-1dimb5e-singleValue').textContent =
+        'Type ingredent';
+    }
+  }, [gettingFilterData]);
 
   const ingredientsList = useSelector(selectIngredients);
 
@@ -41,47 +48,41 @@ const IngredientsFilter = ({ setRecipes, recipes }) => {
     label: item.ttl,
     value: item._id,
   }));
-
-  const handleIngredientChange = (selectedOption, index, key) => {
-    const selectedIngredient = ingredientsList.find(
-      ingredient => ingredient._id === selectedOption
-    );
-
-    const newServiceList = serviceList.map((item, idx) => {
-      if (index === idx) {
-        if (selectedIngredient) {
-          item[key] = selectedIngredient;
-        } else {
-          item[key] = selectedOption;
-        }
-      }
-
-      return item;
-    });
-
-    const ingredients = newServiceList.map(el => ({
-      ...el.ingredient,
-      id: el.ingredient._id,
-      measure: el.size + el.service,
-    }));
-
-
-    setServiceList(newServiceList);
-
-    setRecipes(prevState => ({
-      ...prevState,
-      ingredients: ingredients,
-    }));
-  };
-
   const handleServiceAdd = () => {
-    setServiceList([...serviceList, { ingredient: '', measure: '' }]);
+    setServiceList([...serviceList, {}]);
   };
 
   const handleServiceRemove = index => {
-    const list = [...serviceList];
-    list.splice(index, 1);
+    const list = serviceList.filter((_, idx) => idx !== index);
     setServiceList(list);
+    getFilterData(list);
+  };
+
+  const handleIngredientChange = (value, index, key) => {
+    if (serviceList.length > 1 && serviceList.find(el => el.id === value)) {
+      toast.error('You already have such an ingredient!', {
+        duration: 3000,
+        position: 'top-center',
+      });
+      return handleServiceRemove(index);
+    }
+    const selectedIngredient = ingredientsList.find(
+      ingredient => ingredient._id === value
+    );
+    const newServiceList = serviceList.map((item, idx) => {
+      if (index === idx) {
+        if (selectedIngredient) {
+          const { _id, thb, ttl } = selectedIngredient;
+          item[key] = ttl;
+          item.id = _id;
+          item.thb = thb;
+        } else {
+          item[key] = value;
+        }
+      }
+      return item;
+    });
+    getFilterData(newServiceList);
   };
 
   return (
@@ -110,32 +111,34 @@ const IngredientsFilter = ({ setRecipes, recipes }) => {
       </IngListSetting>
 
       <InputFieldsContainer>
-        {serviceList.map((field, index) => (
+        {serviceList.map((_, index) => (
           <FlexContainer key={index}>
             <SelectCustomisation>
               <Select
+                id="customSelect"
+                required
                 options={ingredients}
                 maxMenuHeight={150}
                 placeholder="Type ingredent"
-                onChange={e =>
-                  handleIngredientChange(e.value, index, 'ingredient')
-                }
+                onChange={e => handleIngredientChange(e.value, index, 'ttl')}
               />
             </SelectCustomisation>
             <div>
               <Input
+                id="sizeSelect"
+                required
                 type="text"
                 maxLength={4}
                 length={10}
                 name="size"
-                id="size"
                 onChange={e =>
                   handleIngredientChange(e.target.value, index, 'size')
                 }
               />
               <SelectUnit
+                id="serviceSelect"
+                required
                 name="service"
-                id="service"
                 onChange={e =>
                   handleIngredientChange(e.target.value, index, 'service')
                 }

@@ -94,7 +94,7 @@ export const Input = styled.input`
   border: none;
   padding: ${p => p.theme.spacing(5)} 0px;
   border-bottom: ${p => p.theme.borders.normal};
-  color: ${p => p.theme.colors.greyTextColor};
+  color: ${p => p.theme.colors.blackTextColor};
 `;
 export const InputSelect = styled.div`
   display: flex;
@@ -162,17 +162,18 @@ export const FollowSPopular = styled.div`
 
 export const ButtonAdd = styled.button`
   padding: 10px 0;
-  cursor: pointer;
+  /* cursor: pointer; */
   text-align: center;
   font-weight: ${p => p.theme.fontWeights.regular};
   color: ${p =>
     p.theme === 'black'
-      ? p.theme.colors.btnDarckBgColor
-      : p.styled === 'olive'
-      ? p.theme.colors.greenColor
-      : p.styled === 'white'
-      ? p.theme.colors.whiteColor
-      : ''};
+      // ? p.theme.colors.btnDarckBgColor
+      // : p.styled === 'olive'
+      // ? p.theme.colors.greenColor
+      // : p.styled === 'white'
+      // ? p.theme.colors.whiteColor
+      // : ''
+      };
   background-color: ${p =>
     p.theme === 'black'
       ? p.theme.colors.btnDarckBgColor
@@ -181,7 +182,7 @@ export const ButtonAdd = styled.button`
       : p.styled === 'transparent'
       ? 'transparent'
       : ''};
-  border: none;
+  /* border: none; */
   border-radius: 35px 70px;
   border: ${({ styled, theme }) => {
     switch (styled) {
@@ -196,20 +197,20 @@ export const ButtonAdd = styled.button`
   &:hover {
     color: ${p =>
       p.theme === 'black'
-        ? p.theme.colors.btnDarckBgColor
-        : p.styled === 'olive'
-        ? p.theme.colors.greenColor
-        : p.styled === 'white'
+        // ? p.theme.colors.btnDarckBgColor
+        // : p.styled === 'olive'
+        // ? p.theme.colors.greenColor
+        // : p.styled === 'white'
         ? p.theme.colors.whiteColor
         : ''};
     background-color: ${p =>
       p.theme === 'black'
-        ? p.theme.colors.btnDarckBgColor
-        : p.styled === 'olive'
-        ? p.theme.colors.greenColor
-        : p.styled === 'white'
-        ? p.theme.colors.whiteColor
-        : p.styled === 'transparent'
+        // ? p.theme.colors.btnDarckBgColor
+        // : p.styled === 'olive'
+        // ? p.theme.colors.greenColor
+        // : p.styled === 'white'
+        // ? p.theme.colors.whiteColor
+        // : p.styled === 'transparent'
         ? 'transparent'
         : ''};
     border: ${({ styled, theme }) => {
@@ -223,7 +224,7 @@ export const ButtonAdd = styled.button`
 
     border: ${p => p.theme.borders.normal} ${p => p.theme.colors.greenColor};
   }
-  padding: 
+  /* padding: 
      // 12px 24px;
     ${p => p.theme.spacing(6)} ${p => p.theme.spacing(12)},
     // 12px 72px,
@@ -261,19 +262,19 @@ export const ButtonAdd = styled.button`
     // 24px 52px,
     ${p => p.theme.spacing(12)} ${p => p.theme.spacing(26)},
     // 22px 44px;
-    ${p => p.theme.spacing(11)} ${p => p.theme.spacing(22)},
-    (
+    ${p => p.theme.spacing(11)} ${p => p.theme.spacing(22)}, */
+    /* (
       font-size: ${p => p.theme.fontSizes.s},
       ${p => p.theme.fontSizes.m},
       ${p => p.theme.fontSizes.xm}
-    );
+    ); */
   min-width: 130px;
 
-  line-height: ${p => p.theme.spacing(8)},
+  /* line-height: ${p => p.theme.spacing(8)},
     // 18px,
     ${p => p.theme.spacing(9)},
     // 22px,
     ${p => p.theme.spacing(11)},
     // 24px,
-    ${p => p.theme.spacing(12)};
+    ${p => p.theme.spacing(12)}; */
 `;
