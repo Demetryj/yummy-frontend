@@ -1,15 +1,11 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleUserLogo } from '../../redux/modal';
-// import { FiUser } from 'react-icons/fi';
 import Avatar from 'react-avatar';
-import { useAuth } from 'hooks/useAuth';
 import { Container } from './ImageAvatar.styled';
 
-export const ImageAvatar = () => {
+export const ImageAvatar = ({ user }) => {
   const dispatch = useDispatch();
-
-  const { user } = useAuth();
 
   return (
     <Container>
@@ -17,7 +13,7 @@ export const ImageAvatar = () => {
         size="100%"
         round={true}
         name={user.name}
-        src={user.avatarURL}
+        src={user.avatrUrl || user.avatarURL}
         onClick={() => {
           dispatch(toggleUserLogo());
         }}
