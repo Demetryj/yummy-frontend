@@ -2,16 +2,16 @@ import styled from 'styled-components';
 export const Container = styled.div`
   align-items: center;
   margin: 0 auto;
-  padding-top: ${p => p.heightHero - 58}px;
+  padding-top: ${p => p.heightHero - 40}px;
 
   width: 100%;
 
   @media screen and ${p => p.theme.media.medium} {
-    padding-top: ${p => p.heightHero - 44}px;
+    padding-top: ${p => p.heightHero - 26}px;
   }
 
   @media screen and ${p => p.theme.media.large} {
-    padding-top: ${p => p.heightHero - 48}px;
+    padding-top: ${p => p.heightHero - 30}px;
   }
 `;
 export const Table = styled.div`
