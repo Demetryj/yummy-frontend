@@ -36,6 +36,7 @@ export const UserLogoContent = () => {
       <Box
         display="flex"
         jusifyContent="space-between"
+        flexGrow="2"
         mb={{ xs: 28 }}
         width={{ xs: 1 }}
       >
@@ -44,10 +45,16 @@ export const UserLogoContent = () => {
             dispatch(toggleUserInfo());
             handleClose();
           }}
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
         >
           Edit Profile
+          <HiOutlinePencil />
         </EditButton>
-        <HiOutlinePencil />
       </Box>
       <ButtonContainer>
         <LogoutButton
