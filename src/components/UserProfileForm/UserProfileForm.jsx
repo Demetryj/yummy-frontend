@@ -23,7 +23,7 @@ export const UserProfileForm = () => {
   const [previw, setPreview] = useState('');
 
   const { user } = useAuth();
-  const path = user.avatarURL;
+  const path = user.avatrUrl || user.avatarURL;
 
   const initialValues = {
     avatar: '',

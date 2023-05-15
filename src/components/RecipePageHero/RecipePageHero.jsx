@@ -2,7 +2,7 @@ import { selectUser } from 'redux/auth/selectors';
 import { selectError, selectIsLoading } from 'redux/recipes/selectors';
 import { addToFavorites, removeFromFavorites } from 'redux/recipes/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useRef, useEffect } from 'react';
+import { useState, createRef, useEffect } from 'react';
 import { LoaderSmall } from 'components/LoaderSmall/LoaderSmall';
 import toast from 'react-hot-toast';
 
@@ -27,7 +27,7 @@ export const RecipePageHero = ({ recipe, getHeightHero }) => {
   const [inFavorites, setInFavorites] = useState(favorites.includes(user._id));
 
   const isOwner = owner && owner === user._id ? true : false;
-  const refComponent = useRef();
+  const refComponent = createRef();
   useEffect(() => {
     const height = refComponent.current.getBoundingClientRect().height;
     getHeightHero(height);
