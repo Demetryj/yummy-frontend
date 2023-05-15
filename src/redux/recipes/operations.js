@@ -79,16 +79,11 @@ export const addRecipe = createAsyncThunk(
   'recipes/addRecipe',
   async ({ formData, _id }, thunkAPI) => {
     try {
-      const response = await axios.post(
-        `/users/${_id}/own-recipes`,
-        formData,
-        {
-          headers: {
-            'content-type': 'multipart/form-data',
-          },
-        }
-      );
-      console.log(response)
+      const response = await axios.post(`/users/${_id}/own-recipes`, formData, {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
