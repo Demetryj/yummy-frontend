@@ -15,6 +15,9 @@ export const theme = {
     footerDarckTextColor: '#22252A',
     greySelectColor: '#F5F5F5',
     bgMain: '#FAFAFA',
+    bgMainDark: '#1E1F28',
+    bgMobileMenu: '#EBF3D4',
+    bgModalDark: '#2A2C36',
 
     lightBgColor: '#ECECEC',
     lightDarckBgColor: '#2A2C36',
@@ -31,6 +34,7 @@ export const theme = {
     textAreaBg: '#D9D9D9',
     popularRecBorder: '#707070',
     paginationBgColor: '#FAFAFA',
+    closeBtnColor: '#333333',
   },
 
   spacing: n => `${2 * n}px`,
