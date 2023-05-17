@@ -8,6 +8,8 @@ export const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
+
+  z-index: 10000;
 `;
 
 export const Content = styled.div`
