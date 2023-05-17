@@ -5,7 +5,7 @@ import { Switcher, Checkbox, Label, Ball } from './TogglerTheme.styled';
 
 export const TogglerTheme = ({ device }) => {
   const dispatch = useDispatch();
-  const { theme } = useSelector(selectTheme);
+  const theme = useSelector(selectTheme);
 
   const onChangeTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
