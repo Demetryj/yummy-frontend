@@ -1,15 +1,19 @@
 import { Suspense } from 'react';
+import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
+import { selectTheme } from 'redux/theme/selectors';
 import { AppBar } from 'components/AppBar';
 import { Footer } from 'components/Footer';
 import { Box } from 'components/Box';
 import { Toaster } from 'react-hot-toast';
-import { MainWrapper } from './SharedLayout.styled';
+import { Wrapper, MainWrapper } from './SharedLayout.styled';
 import { SpinatComponent } from 'components/SpinatComponent/SpinatComponent';
 
 export const SharedLayout = () => {
+  const theme = useSelector(selectTheme);
+
   return (
-    <>
+    <Wrapper mode={theme}>
       <AppBar />
       <Box
         display="grid"
@@ -28,6 +32,6 @@ export const SharedLayout = () => {
       <Footer />
       <SpinatComponent />
       <Toaster />
-    </>
+    </Wrapper>
   );
 };
