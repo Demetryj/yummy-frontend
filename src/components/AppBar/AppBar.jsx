@@ -8,8 +8,9 @@ import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
 import logoDark from '../../images/logo/logoDark.png';
 import cross from '../../images/logo/cross-header.svg';
-import switchBodyOff from '../../images/logo/switch-body-off.png';
-import switchOff from '../../images/logo/switch-off.png';
+import { TogglerTheme } from 'components/TogglerTheme';
+// import switchBodyOff from '../../images/logo/switch-body-off.png';
+// import switchOff from '../../images/logo/switch-off.png';
 import { Rectangles } from '../Rectangles';
 import { UserLogo } from '../UserLogo';
 import { ToastContainer } from 'react-toastify';
@@ -56,17 +57,14 @@ export const AppBar = () => {
   };
 
   return (
-    <Box as="section" width={'100%'} display="flex">
+    <Box as="section">
       <Box
         as="header"
         zIndex={'10'}
         position="relative"
         display="flex"
-        ml="auto"
-        mr="auto"
-        width={{ xs: 375, md: 768, lg: 1440 }}
         justifyContent="space-between"
-        py={{ xs: 3, lg: 18 }}
+        py={{ xs: 18 }}
         px={{ xs: 16, md: 32, lg: 100 }}
       >
         <Box
@@ -91,26 +89,7 @@ export const AppBar = () => {
         </Box>
         <Box display="flex" alignItems="center">
           <UserLogo />
-          <Box
-            display={{ xs: 'none', lg: 'flex' }}
-            width={{ xs: 61 }}
-            height={{ xs: 27 }}
-            ml={{ lg: 50 }}
-            position="relative"
-          >
-            {<img src={switchBodyOff} alt="switchBodyOff" />}
-            <Box
-              width={{ xs: 28 }}
-              height={{ xs: 28 }}
-              position="absolute"
-              left={{ xs: '5%', md: '0%' }}
-              right={{ xs: '60%', md: '0%' }}
-              top={{ xs: '3%', md: '0%' }}
-              bottom={{ xs: '11.11%', md: '0%' }}
-            >
-              {<img src={switchOff} alt="switchOff" />}
-            </Box>
-          </Box>
+          <TogglerTheme device="desktop" />
           <Box
             onClick={toggleModal}
             display={{ xs: 'flex', lg: 'none' }}
@@ -125,7 +104,7 @@ export const AppBar = () => {
         <HeaderModal onClose={toggleModal}>
           <Box
             mx="auto"
-            maxWidth={{ xs: 375, md: '100%' }}
+            maxWidth={{ xs: '100%' }}
             px={{ xs: 16, md: 32 }}
             py={{ xs: 18 }}
             display="flex"
@@ -169,20 +148,7 @@ export const AppBar = () => {
                 ))}
               </List>
             </Box>
-            <Box width={{ xs: 61 }} height={{ xs: 27 }} position="relative">
-              {<img src={switchBodyOff} alt="switchBodyOff" />}
-              <Box
-                width={{ xs: 28 }}
-                height={{ xs: 28 }}
-                position="absolute"
-                left={{ xs: '5%', md: '0%' }}
-                right={{ xs: '60%', md: '0%' }}
-                top={{ xs: '3%', md: '0%' }}
-                bottom={{ xs: '11.11%', md: '0%' }}
-              >
-                {<img src={switchOff} alt="switchOff" />}
-              </Box>
-            </Box>
+            <TogglerTheme device="mobile" />
           </Box>
         </HeaderModal>
       )}
