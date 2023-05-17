@@ -6,8 +6,9 @@ import { UserInfoModal } from '../UserInfoModal';
 import { LogoutModal } from '../LogoutModal';
 // import { AvatarUpdateModal } from 'components/AvatarUpdateModal';
 import { useAuth } from 'hooks/useAuth';
+import { UserName } from './UserLogo.styled';
 
-export const UserLogo = () => {
+export const UserLogo = ({ mode }) => {
   const isUserLogoOpen = useSelector(state => state.modal.isUserLogoOpen);
   const isUserInfoOpen = useSelector(state => state.modal.isUserInfoOpen);
   const isLogoutOpen = useSelector(state => state.modal.isLogoutOpen);
@@ -20,7 +21,7 @@ export const UserLogo = () => {
   return (
     <Box as="div" display="flex" justifyContent="center" alignItems="center">
       <ImageAvatar user={user} />
-      <p>{user.name}</p>
+      <UserName mode={mode}>{user.name}</UserName>
       {isUserLogoOpen && <UserLogoModal />}
       {isUserInfoOpen && <UserInfoModal />}
       {isLogoutOpen && <LogoutModal />}
