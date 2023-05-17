@@ -1,13 +1,19 @@
-import * as React from 'react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/theme/selectors';
 import { Box } from '../Box';
-import { NavItem, List, ListItem, CrossContainer } from './AppBar.styled';
+import {
+  MenuBtn,
+  NavItem,
+  List,
+  ListItem,
+  CrossContainer,
+  CloseBtn,
+} from './AppBar.styled';
 import { FiSearch } from 'react-icons/fi';
-import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { HeaderModal } from '../HeaderModal';
 import logoDark from '../../images/logo/logoDark.png';
-import cross from '../../images/logo/cross-header.svg';
 import { TogglerTheme } from 'components/TogglerTheme';
 import { Rectangles } from '../Rectangles';
 import { UserLogo } from '../UserLogo';
@@ -38,6 +44,8 @@ export const AppBar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
+  const theme = useSelector(selectTheme);
+
   const routesArr = [
     'categories',
     'add',
@@ -55,7 +63,7 @@ export const AppBar = () => {
   };
 
   return (
-    <Box as="section">
+    <Box as="section" mode={theme}>
       <Box
         as="header"
         zIndex={'10'}
@@ -80,20 +88,22 @@ export const AppBar = () => {
           <List>
             {navItems.map(({ href, item }) => (
               <ListItem key={href}>
-                <NavItem to={href}>{item}</NavItem>
+                <NavItem to={href} mode={theme}>
+                  {item}
+                </NavItem>
               </ListItem>
             ))}
           </List>
         </Box>
         <Box display="flex" alignItems="center">
-          <UserLogo />
+          <UserLogo mode={theme} />
           <TogglerTheme device="desktop" />
           <Box
             onClick={toggleModal}
             display={{ xs: 'flex', lg: 'none' }}
             ml={{ xs: 14, md: 50 }}
           >
-            <HiOutlineMenuAlt2 size={28} cursor="pointer" />
+            <MenuBtn mode={theme} />
           </Box>
         </Box>
         {isImgPage && <Rectangles />}
@@ -128,7 +138,7 @@ export const AppBar = () => {
               </Box>
 
               <CrossContainer onClick={toggleModal}>
-                {<img src={cross} alt="cross" />}
+                <CloseBtn mode={theme} />
               </CrossContainer>
             </Box>
             <Box
@@ -141,7 +151,9 @@ export const AppBar = () => {
               <List>
                 {navItems.map(({ href, item }) => (
                   <ListItem key={href} onClick={toggleModal}>
-                    <NavItem to={href}>{item}</NavItem>
+                    <NavItem to={href} mode={theme}>
+                      {item}
+                    </NavItem>
                   </ListItem>
                 ))}
               </List>
