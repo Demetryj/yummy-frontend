@@ -29,7 +29,10 @@ export const RectTwo = styled.div`
   height: 6px;
   left: 247px;
   top: 144.54px;
-  background: #22252a;
+  background-color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.btnDarckBgColor
+      : p.theme.colors.whiteColor};
   border-radius: 3px;
   transform: rotate(-25deg);
   @media screen and ${p => p.theme.media.medium} {
