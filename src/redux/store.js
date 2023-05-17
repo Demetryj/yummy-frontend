@@ -12,11 +12,17 @@ import {
 import { shoppingListReducer } from './shoppingList/shoppingListSlice';
 import { modalReducer } from './modal/modalSlice';
 import { avatarReducer } from './avatar/avatarSlice';
+import { themeReducer } from './theme/themeSlice';
 
 const authPersistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
+};
+
+const themePersistConfig = {
+  key: 'theme',
+  storage,
 };
 
 export const store = configureStore({
@@ -30,6 +36,7 @@ export const store = configureStore({
     avatar: avatarReducer,
     my_recipes: myRecipesReducer,
     favorites: favoritesReducer,
+    theme: persistReducer(themePersistConfig, themeReducer),
   },
 
   middleware: getDefaultMiddleware =>
