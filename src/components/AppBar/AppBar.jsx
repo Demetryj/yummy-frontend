@@ -9,8 +9,6 @@ import { HeaderModal } from '../HeaderModal';
 import logoDark from '../../images/logo/logoDark.png';
 import cross from '../../images/logo/cross-header.svg';
 import { TogglerTheme } from 'components/TogglerTheme';
-// import switchBodyOff from '../../images/logo/switch-body-off.png';
-// import switchOff from '../../images/logo/switch-off.png';
 import { Rectangles } from '../Rectangles';
 import { UserLogo } from '../UserLogo';
 import { ToastContainer } from 'react-toastify';
