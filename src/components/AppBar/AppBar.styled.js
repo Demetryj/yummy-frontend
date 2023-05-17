@@ -51,7 +51,8 @@ export const Paragraph = styled.p`
 `;
 
 export const CrossContainer = styled.div`
-  width: 13px;
-  height: 13px;
+  padding: ${p => p.theme.spacing(4)};
+  width: ${p => p.theme.spacing(16)};
+  height: ${p => p.theme.spacing(16)};
   cursor: pointer;
 `;
