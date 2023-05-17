@@ -17,7 +17,6 @@ export const ModalBackdrop = styled.div`
 export const ModalContent = styled.div`
   width: 100%;
   height: 100%;
-  padding: 12px;
   background-color: #ebf3d4;
   background-image: url(${BgMob});
   background-position: bottom right;
