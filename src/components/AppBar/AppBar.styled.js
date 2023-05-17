@@ -1,11 +1,35 @@
 import styled from 'styled-components';
+import { VscChromeClose } from 'react-icons/vsc';
+import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { NavLink } from 'react-router-dom';
 
-export const NavItem = styled(NavLink)`
-  color: ${p => p.theme.colors.yummyColor};
-  @media screen and ${p => p.theme.media.medium} {
-    color: ${p => p.theme.colors.mainTextColor};
+export const MenuBtn = styled(HiOutlineMenuAlt2)`
+  width: ${p => p.theme.spacing(14)};
+  height: ${p => p.theme.spacing(14)};
+  color: ${p =>
+    p.mode === 'light' ? p.theme.colors.yummyColor : p.theme.colors.whiteColor};
+
+  @media screen and (${p => p.theme.media.medium}) {
+    width: ${p => p.theme.spacing(16)};
+    height: ${p => p.theme.spacing(16)};
   }
+
+  cursor: pointer;
+`;
+
+export const NavItem = styled(NavLink)`
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.yummyColor
+      : p.theme.colors.whiteTextColor};
+
+  @media screen and (${p => p.theme.media.medium}) {
+    color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.mainTextColor
+        : p.theme.colors.whiteTextColor};
+  }
+
   &:hover,
   &:focus,
   &.active {
@@ -55,4 +79,13 @@ export const CrossContainer = styled.div`
   width: ${p => p.theme.spacing(16)};
   height: ${p => p.theme.spacing(16)};
   cursor: pointer;
+`;
+
+export const CloseBtn = styled(VscChromeClose)`
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.closeBtnColor
+      : p.theme.colors.whiteColor};
+  width: ${p => p.theme.spacing(6.7)};
+  height: ${p => p.theme.spacing(6.7)};
 `;
