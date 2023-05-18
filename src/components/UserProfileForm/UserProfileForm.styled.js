@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Field, Form, ErrorMessage } from 'formik';
-import { FiUser } from 'react-icons/fi';
+import { BiUser } from 'react-icons/bi';
 import { HiOutlinePencil } from 'react-icons/hi';
 
 export const ProfileForm = styled(Form)`
@@ -11,8 +11,25 @@ export const ProfileForm = styled(Form)`
 `;
 
 export const Input = styled(Field)`
+  font-weight: ${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes.s};
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.mainTextColor
+      : p.theme.colors.whiteColor};
+  opacity: 0.8;
+  @media screen and (${p => p.theme.media.medium}) {
+    font-size: ${p => p.theme.fontSizes.xm};
+    line-height: 27px;
+  }
+
   border: 1px solid;
-  border-color: rgba(35, 38, 42, 0.3);
+  border-color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.mainTextColor
+      : p.theme.colors.whiteColor};
   width: 100%;
   height: 48px;
   border-radius: ${p => p.theme.radii.light};
@@ -28,14 +45,17 @@ export const Input = styled(Field)`
     height: 59px;
   }
   ::placeholder {
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: ${p => p.theme.fontWeights.regular};
+    font-size: ${p => p.theme.fontSizes.s};
     line-height: 21px;
     letter-spacing: -0.02em;
-    color: #23262a;
+    color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.mainTextColor
+        : p.theme.colors.whiteColor};
     opacity: 0.8;
     @media screen and (${p => p.theme.media.medium}) {
-      font-size: 18px;
+      font-size: ${p => p.theme.fontSizes.xm};
       line-height: 27px;
     }
   }
@@ -59,13 +79,19 @@ export const Error = styled(ErrorMessage)`
   }
 `;
 
-export const UserIcon = styled(FiUser)`
+export const UserIcon = styled(BiUser)`
   width: 18px;
   height: 18px;
   opacity: 0.8;
   position: absolute;
   left: 13px;
   top: 16px;
+
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.mainTextColor
+      : p.theme.colors.whiteColor};
+
   @media screen and (${p => p.theme.media.medium}) {
     width: 24px;
     height: 24px;
@@ -73,9 +99,6 @@ export const UserIcon = styled(FiUser)`
     top: 12px;
   }
   @media screen and (${p => p.theme.media.large}) {
-    width: 24px;
-    height: 24px;
-    left: 18px;
     top: 18px;
   }
 `;
@@ -86,6 +109,12 @@ export const IconPencil = styled(HiOutlinePencil)`
   height: 15px;
   top: 18px;
   right: 15px;
+
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.mainTextColor
+      : p.theme.colors.whiteColor};
+
   @media screen and (${p => p.theme.media.medium}) {
     width: 19px;
     height: 19px;
@@ -115,7 +144,7 @@ export const Button = styled.button`
   left: 24px;
   top: 246px;
 
-  background: #8baa36;
+  background-color: ${p => p.theme.colors.greenBgColor};
   border-radius: 6px;
 
   font-weight: 400;
@@ -126,7 +155,7 @@ export const Button = styled.button`
   align-items: center;
   text-align: center;
 
-  color: #fafafa;
+  color: ${p => p.theme.colors.whiteColor};
 
   @media screen and (${p => p.theme.media.medium}) {
     padding-top: 18px;
