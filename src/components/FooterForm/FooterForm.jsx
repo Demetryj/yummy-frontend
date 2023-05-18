@@ -3,63 +3,68 @@ import { Formik } from 'formik';
 import { object, string } from 'yup';
 import {
   SearchForm,
+  WrapperInput,
   Input,
   // Error,
   IconMail,
   InputContainer,
+  ErrorText,
 } from './FooterForm.styled';
 import { Box } from '../Box';
 import { Button } from '../Button';
 
-const Schema = object({
+const schema = object({
   email: string().required().email('Email is not valid'),
 });
 
-export const FootForm = () => (
+export const FootForm = ({ mode }) => (
   <Box>
     <Formik
-      validationSchema={Schema}
+      validationSchema={schema}
       initialValues={{ email: '' }}
-      validate={values => {
-        const errors = {};
-        if (!values.email) {
-          errors.email = 'Required';
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address';
-        }
-        return errors;
-      }}
+      // validate={values => {
+      //   const errors = {};
+      //   if (!values.email) {
+      //     errors.email = 'Required';
+      //   } else if (
+      //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+      //   ) {
+      //     errors.email = 'Invalid email address';
+      //   }
+      //   return errors;
+      // }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setSubmitting(false);
         resetForm();
       }}
     >
       {({
-        values,
         errors,
-        touched,
-        handleChange,
-        handleBlur,
+        values,
+        // touched,
+        // handleChange,
+        // handleBlur,
         handleSubmit,
         isSubmitting,
       }) => (
-        <SearchForm onSubmit={handleSubmit}>
-          <InputContainer>
-            <IconMail />
-            <Input
-              type="email"
-              name="email"
-              placeholder={`Enter your email address`}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-            />
-
-            {errors.email && touched.email && errors.email}
-          </InputContainer>
-          <Button type="submit" disabled={isSubmitting}>
+        <SearchForm>
+          <WrapperInput>
+            {values.email && (
+              <>{errors.email && <ErrorText>{errors.email}</ErrorText>}</>
+            )}
+            <InputContainer>
+              <IconMail />
+              <Input
+                type="email"
+                name="email"
+                placeholder={`Enter your email address`}
+                // onChange={handleChange}
+                // onBlur={handleBlur}
+                value={values.email}
+              />
+            </InputContainer>
+          </WrapperInput>
+          <Button type="submit" disabled={isSubmitting} mode={mode}>
             Subscribe
           </Button>
         </SearchForm>
