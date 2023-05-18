@@ -6,9 +6,10 @@ export const Button = ({
   disabled = false,
   children,
   onClick,
+  mode,
 }) => {
   return (
-    <StyledButton type={type} disabled={disabled} onClick={onClick}>
+    <StyledButton type={type} disabled={disabled} onClick={onClick} mode={mode}>
       {Icon && <Icon size="16" />}
       {children}
     </StyledButton>
