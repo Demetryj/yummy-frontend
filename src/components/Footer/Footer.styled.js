@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { AiOutlineCopyrightCircle } from 'react-icons/ai';
 
 export const FooterWrap = styled.footer`
+  position: relative;
+  z-index: 100;
   padding-top: ${p => p.theme.spacing(14)};
   padding-bottom: ${p => p.theme.spacing(9)};
 
