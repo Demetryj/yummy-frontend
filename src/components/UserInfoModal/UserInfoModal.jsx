@@ -6,7 +6,7 @@ import { toggleUserInfo } from '../../redux/modal';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const UserInfoModal = () => {
+export const UserInfoModal = ({ mode }) => {
   const dispatch = useDispatch();
 
   const handleClose = e => {
@@ -17,8 +17,8 @@ export const UserInfoModal = () => {
 
   return createPortal(
     <Backdrop onClick={handleClose}>
-      <Content>
-        <UserProfileContent />
+      <Content mode={mode}>
+        <UserProfileContent mode={mode} />
       </Content>
     </Backdrop>,
     modalRoot

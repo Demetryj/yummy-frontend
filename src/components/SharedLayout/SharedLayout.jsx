@@ -29,7 +29,7 @@ export const SharedLayout = () => {
           </Suspense>
         </MainWrapper>
       </Box>
-      <Footer />
+      <Footer mode={theme} />
       <SpinatComponent />
       <Toaster />
     </Wrapper>

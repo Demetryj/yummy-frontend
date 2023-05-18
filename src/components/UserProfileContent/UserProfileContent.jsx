@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { toggleUserInfo } from '../../redux/modal';
 import { UserProfileForm } from 'components/UserProfileForm';
 
-export const UserProfileContent = () => {
+export const UserProfileContent = ({ mode }) => {
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserInfo());
 
@@ -32,8 +32,9 @@ export const UserProfileContent = () => {
         onClick={() => {
           handleClose();
         }}
+        mode={mode}
       />
-      <UserProfileForm />
+      <UserProfileForm mode={mode} />
     </Box>
   );
 };

@@ -1,11 +1,16 @@
 import * as React from 'react';
 import { Box } from '../Box';
-import { Cross, GreenButton, CancelButton, P } from './LogoutContent.styled';
+import {
+  Cross,
+  GreenButton,
+  CancelButton,
+  TextModal,
+} from './LogoutContent.styled';
 import { useDispatch } from 'react-redux';
 import { toggleLogout } from '../../redux/modal';
 import { logout } from '../../redux/auth/operations';
 
-export const LogoutContent = () => {
+export const LogoutContent = ({ mode }) => {
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleLogout());
   const handleLogout = () => {
@@ -27,8 +32,8 @@ export const LogoutContent = () => {
 
   return (
     <Box position="relative">
-      <Cross onClick={handleClose} />
-      <P>Are you sure you want to log out?</P>
+      <Cross onClick={handleClose} mode={mode} />
+      <TextModal mode={mode}>Are you sure you want to log out?</TextModal>
       <Box display="flex">
         <GreenButton
           onClick={() => {

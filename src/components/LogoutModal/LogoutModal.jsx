@@ -6,7 +6,7 @@ import { toggleLogout } from '../../redux/modal';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const LogoutModal = () => {
+export const LogoutModal = ({mode}) => {
   const dispatch = useDispatch();
 
   const handleClose = e => {
@@ -17,8 +17,8 @@ export const LogoutModal = () => {
 
   return createPortal(
     <Backdrop onClick={handleClose}>
-      <Content>
-        <LogoutContent />
+      <Content mode={mode}>
+        <LogoutContent mode={mode} />
       </Content>
     </Backdrop>,
     modalRoot

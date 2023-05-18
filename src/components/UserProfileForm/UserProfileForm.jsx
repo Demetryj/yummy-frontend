@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { toggleUserInfo } from '../../redux/modal';
+import { toggleUserInfo } from 'redux/modal';
 import { updateProfile } from 'redux/auth/operations';
 import { Box } from '../Box';
 import {
@@ -14,10 +14,9 @@ import {
   P,
   AvaLabel,
 } from './UserProfileForm.styled';
-
 import { useAuth } from 'hooks/useAuth';
 
-export const UserProfileForm = () => {
+export const UserProfileForm = ({ mode }) => {
   const dispatch = useDispatch();
   const [file, setFile] = useState();
   const [previw, setPreview] = useState('');
@@ -100,9 +99,15 @@ export const UserProfileForm = () => {
           />
         </Box>
         <Box display="flex" position="relative" width="100%">
-          <UserIcon />
-          <Input name="name" type="text" id="newName" placeholder="entername" />
-          <IconPencil />
+          <UserIcon mode={mode} />
+          <Input
+            name="name"
+            type="text"
+            id="newName"
+            placeholder={user.name}
+            mode={mode}
+          />
+          <IconPencil mode={mode} />
         </Box>
         <Button type="submit">Submit</Button>
       </ProfileForm>

@@ -12,6 +12,7 @@ export const UserLogo = ({ mode }) => {
   const isUserLogoOpen = useSelector(state => state.modal.isUserLogoOpen);
   const isUserInfoOpen = useSelector(state => state.modal.isUserInfoOpen);
   const isLogoutOpen = useSelector(state => state.modal.isLogoutOpen);
+
   // const isAvatarUpdateOpen = useSelector(
   //   state => state.modal.isAvatarUpdateOpen
   // );
@@ -22,9 +23,9 @@ export const UserLogo = ({ mode }) => {
     <Box as="div" display="flex" justifyContent="center" alignItems="center">
       <ImageAvatar user={user} />
       <UserName mode={mode}>{user.name}</UserName>
-      {isUserLogoOpen && <UserLogoModal />}
-      {isUserInfoOpen && <UserInfoModal />}
-      {isLogoutOpen && <LogoutModal />}
+      {isUserLogoOpen && <UserLogoModal mode={mode} />}
+      {isUserInfoOpen && <UserInfoModal mode={mode} />}
+      {isLogoutOpen && <LogoutModal mode={mode} />}
       {/* {isAvatarUpdateOpen && <AvatarUpdateModal />} */}
     </Box>
   );
