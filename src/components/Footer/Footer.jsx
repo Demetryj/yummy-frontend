@@ -31,19 +31,19 @@ const navItems = [
 const socialIcons = [
   {
     href: 'https://uk-ua.facebook.com/',
-    item: <BsFacebook size={20} color="greenBgColor" />,
+    item: <BsFacebook size={20} color="#8BAA36" />,
   },
   {
     href: 'https://www.youtube.com',
-    item: <BsYoutube size={20} color="greenBgColor" />,
+    item: <BsYoutube size={20} color="#8BAA36" />,
   },
   {
     href: 'https://twitter.com',
-    item: <TfiTwitterAlt size={20} color="greenBgColor" />,
+    item: <TfiTwitterAlt size={20} color="#8BAA36" />,
   },
   {
     href: 'https://www.instagram.com/',
-    item: <FiInstagram size={20} color="greenBgColor" />,
+    item: <FiInstagram size={20} color="#8BAA36" />,
   },
 ];
 
