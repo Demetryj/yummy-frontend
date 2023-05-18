@@ -16,7 +16,7 @@ import { HeaderModal } from '../HeaderModal';
 import logoDark from '../../images/logo/logoDark.png';
 import { TogglerTheme } from 'components/TogglerTheme';
 import { Rectangles } from '../Rectangles';
-import { UserLogo } from '../UserLogo';
+import { UserLogo } from 'components/UserLogo';
 import { ToastContainer } from 'react-toastify';
 
 const navItems = [
