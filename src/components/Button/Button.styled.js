@@ -5,10 +5,12 @@ export const StyledButton = styled.button`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  width: 204px;
-  padding-top: ${p => p.theme.spacing(5)};
-  padding-bottom: ${p => p.theme.spacing(5)};
-  background-color: ${p => p.theme.colors.greenColor};
+  /* width: 204px; */
+  padding: ${p => p.theme.spacing(5)} ${p => p.theme.spacing(34)};
+  background-color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.greenColor
+      : p.theme.colors.darckBgColor};
   color: ${p => p.theme.colors.whiteColor};
   font-weight: ${p => p.theme.fontSizes.regular};
   font-size: ${p => p.theme.fontSizes.s};
@@ -19,16 +21,15 @@ export const StyledButton = styled.button`
     /* display: flex; */
     margin-left: ${p => p.theme.spacing(0)};
     margin-right: ${p => p.theme.spacing(0)};
-    padding-right: ${p => p.theme.spacing(25)};
-    padding-left: ${p => p.theme.spacing(25)};
+    padding: ${p => p.theme.spacing(8)} ${p => p.theme.spacing(25)};
+
     font-size: ${p => p.theme.fontSizes.m};
-    padding-top: ${p => p.theme.spacing(8)};
-    padding-bottom: ${p => p.theme.spacing(8)};
+    width: 200px;
   }
 
   @media screen and ${p => p.theme.media.large} {
     width: 100%;
-    font-size: ${p => p.theme.fontSizes.m};
+
     padding-top: ${p => p.theme.spacing(10)};
     padding-bottom: ${p => p.theme.spacing(10)};
   }
