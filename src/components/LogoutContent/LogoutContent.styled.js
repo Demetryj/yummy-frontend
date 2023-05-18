@@ -8,7 +8,13 @@ export const Cross = styled(RxCross2)`
   height: 20px;
   top: -27px;
   right: -7px;
-  @media screen and ${p => p.theme.media.medium} {
+
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.mainTextColor
+      : p.theme.colors.whiteTextColor};
+
+  @media screen and (${p => p.theme.media.medium}) {
     width: 24px;
     height: 24px;
     top: -27px;
@@ -48,16 +54,19 @@ export const CancelButton = styled.button`
   border-radius: ${p => p.theme.radii.light};
 `;
 
-export const P = styled.p`
+export const TextModal = styled.p`
   font-size: ${p => p.theme.fontSizes.s};
   font-weight: ${p => p.theme.fontWeights.regular};
   line-height: 129%;
   text-align: center;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.colors.mainTextColor};
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.mainTextColor
+      : p.theme.colors.whiteTextColor};
   margin-bottom: ${p => p.theme.spacing(12)};
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.xm};
     margin-bottom: ${p => p.theme.spacing(16)};
   }

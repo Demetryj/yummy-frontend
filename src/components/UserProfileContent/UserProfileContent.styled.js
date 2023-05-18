@@ -3,21 +3,25 @@ import { FiUser } from 'react-icons/fi';
 import { RxCross2 } from 'react-icons/rx';
 
 export const Cross = styled(RxCross2)`
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
   position: absolute;
   top: -18px;
   right: -12px;
-  @media screen and ${p => p.theme.media.medium} {
+  width: 20px;
+  height: 20px;
+
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.closeBtnColor
+      : p.theme.colors.whiteColor};
+  cursor: pointer;
+
+  @media screen and (${p => p.theme.media.medium}) {
     width: 24px;
     height: 24px;
     top: -16px;
     right: -9px;
   }
-  @media screen and ${p => p.theme.media.large} {
-    width: 24px;
-    height: 24px;
+  @media screen and (${p => p.theme.media.large}) {
     top: -36px;
     right: -32px;
   }
@@ -26,8 +30,8 @@ export const Cross = styled(RxCross2)`
 export const UserIcon = styled(FiUser)`
   width: 40px;
   height: 40px;
-  color: rgba(196, 196, 196, 0.8);
-  @media screen and ${p => p.theme.media.large} {
+  color: ${p => p.theme.colors.textAreaBg};
+  @media screen and (${p => p.theme.media.large}) {
     width: 47px;
     height: 47px;
   }
@@ -62,7 +66,7 @@ export const Button = styled.button`
   left: 24px;
   top: 246px;
 
-  background: #8baa36;
+  background-color: ${p => p.theme.colors.greenBgColor};
   border-radius: 6px;
 
   font-weight: 400;
@@ -73,5 +77,5 @@ export const Button = styled.button`
   align-items: center;
   text-align: center;
 
-  color: #fafafa;
+  color: ${p => p.theme.colors.whiteColor};
 `;

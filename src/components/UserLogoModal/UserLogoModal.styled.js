@@ -19,18 +19,21 @@ export const Content = styled.div`
   height: ${p => p.theme.spacing(65)};
   left: ${p => p.theme.spacing(77)};
   top: ${p => p.theme.spacing(36)};
-  background: ${p => p.theme.colors.whiteColor};
+  background-color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.whiteColor
+      : p.theme.colors.darckBgColor};
   border-radius: ${p => p.theme.radii.normal};
   border: 1px solid;
   border-color: ${p => p.theme.colors.greenColor};
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     width: ${p => p.theme.spacing(89)};
     height: ${p => p.theme.spacing(67)};
     left: ${p => p.theme.spacing(232)};
     top: ${p => p.theme.spacing(39)};
   }
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     width: ${p => p.theme.spacing(87)};
     height: ${p => p.theme.spacing(67)};
     left: ${p => p.theme.spacing(526)};

@@ -193,7 +193,7 @@ export const Container = styled.div`
   }
   @media screen and ${p => p.theme.media.large} {
     background-image: url(${registerBottomDesk});
-  } ;
+  }
 `;
 
 export const Image = styled.div`

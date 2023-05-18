@@ -13,19 +13,22 @@ export const Content = styled.div`
   position: absolute;
   padding: 32px 24px;
   width: ${p => p.theme.spacing(163)};
-  background: ${p => p.theme.colors.whiteColor};
+  background-color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.whiteColor
+      : p.theme.colors.bgModalDark};
   border-radius: 24px;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     padding: 50px 40px;
     width: ${p => p.theme.spacing(240)};
   }
 
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     width: ${p => p.theme.spacing(250)};
     padding-top: ${p => p.theme.spacing(30)};
     padding-bottom: ${p => p.theme.spacing(30)};

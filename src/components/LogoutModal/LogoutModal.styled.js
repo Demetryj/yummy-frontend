@@ -12,7 +12,10 @@ export const Backdrop = styled.div`
 export const Content = styled.div`
   position: absolute;
   width: 330px;
-  background: #fafafa;
+  background-color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.whiteColor
+      : p.theme.colors.bgModalDark};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
 

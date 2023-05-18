@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectTheme } from 'redux/theme/selectors';
 import {
   toggleUserLogo,
   toggleUserInfo,
@@ -15,6 +16,7 @@ import {
 import { HiOutlinePencil } from 'react-icons/hi';
 
 export const UserLogoContent = () => {
+  const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserLogo());
 
@@ -45,12 +47,7 @@ export const UserLogoContent = () => {
             dispatch(toggleUserInfo());
             handleClose();
           }}
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
+          mode={theme}
         >
           Edit Profile
           <HiOutlinePencil />
@@ -64,7 +61,7 @@ export const UserLogoContent = () => {
           }}
         >
           Log out
-          <Arrow size={18} />
+          <Arrow />
         </LogoutButton>
       </ButtonContainer>
     </Box>
