@@ -1,5 +1,28 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { AiOutlineCopyrightCircle } from 'react-icons/ai';
+
+export const FooterWrap = styled.footer`
+  padding-top: ${p => p.theme.spacing(14)};
+  padding-bottom: ${p => p.theme.spacing(9)};
+
+  background-color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.yummyColor
+      : p.theme.colors.greenBgColor};
+
+  @media screen and (${p => p.theme.media.medium}) {
+    padding-top: ${p => p.theme.spacing(25)};
+    padding-bottom: ${p => p.theme.spacing(12)};
+    padding-left: ${p => p.theme.spacing(16)};
+    padding-right: ${p => p.theme.spacing(16)};
+  }
+
+  @media screen and (${p => p.theme.media.large}) {
+    padding-left: ${p => p.theme.spacing(50)};
+    padding-right: ${p => p.theme.spacing(50)};
+  }
+`;
 
 export const BenefitsList = styled.ul`
   list-style: disc;
@@ -10,7 +33,7 @@ export const BenefitsList = styled.ul`
   line-height: 129%;
   letter-spacing: -0.02em;
 
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     font-size: ${p => p.theme.fontSizes.xm};
     line-height: 133%;
     list-style-position: outside;
@@ -39,7 +62,7 @@ export const List = styled.ul`
   flex-direction: column;
   align-items: center;
   gap: ${p => p.theme.spacing(7)};
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     align-items: flex-start;
   }
 `;
@@ -50,7 +73,7 @@ export const ListItem = styled.li`
   line-height: 129%;
   letter-spacing: -0.02em;
   cursor: pointer;
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     &:not(:last-child) {
       margin-bottom: ${p => p.theme.spacing(10)};
     }
@@ -64,7 +87,7 @@ export const Title = styled.h2`
   line-height: 100%;
   letter-spacing: 0.015em;
   color: ${p => p.theme.colors.whiteColor};
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.xl};
   }
 `;
@@ -77,21 +100,34 @@ export const Subtitle = styled.b`
   margin-bottom: ${p => p.theme.spacing(7)};
 `;
 
+export const IconText = styled(AiOutlineCopyrightCircle)`
+  width: ${p => p.theme.spacing(7)};
+  height: ${p => p.theme.spacing(7)};
+
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.yummyColor
+      : p.theme.colors.whiteTextColor};
+`;
+
 export const Paragraph = styled.p`
   font-size: ${p => p.theme.fontSizes.x};
   font-weight: ${p => p.theme.fontWeights.medium};
   line-height: 100%;
   letter-spacing: -0.01em;
-  color: ${p => p.theme.colors.yummyColor};
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.yummyColor
+      : p.theme.colors.whiteTextColor};
   &:not(:last-child) {
     margin-right: ${p => p.theme.spacing(7)};
   }
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.s};
   }
 `;
 
-export const P = styled.p`
+export const Text = styled.p`
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes.s};
   line-height: 129%;
@@ -104,17 +140,15 @@ export const IconList = styled.ul`
   margin-top: 0;
   margin-bottom: 0;
   gap: ${p => p.theme.spacing(7)};
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     gap: ${p => p.theme.spacing(9)};
   }
 `;
 
-export const IconItem = styled.li``;
-
 export const Logo = styled.img`
   width: ${p => p.theme.spacing(16)};
   height: ${p => p.theme.spacing(16)};
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     width: ${p => p.theme.spacing(22)};
     height: ${p => p.theme.spacing(22)};
   }
