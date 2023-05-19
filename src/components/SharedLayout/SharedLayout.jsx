@@ -7,7 +7,7 @@ import { Footer } from 'components/Footer';
 import { Box } from 'components/Box';
 import { Toaster } from 'react-hot-toast';
 import { Wrapper, MainWrapper } from './SharedLayout.styled';
-import { SpinatComponent } from 'components/SpinatComponent/SpinatComponent';
+import { SpinatComponent } from 'components/SpinatComponent';
 
 export const SharedLayout = () => {
   const theme = useSelector(selectTheme);
@@ -23,7 +23,7 @@ export const SharedLayout = () => {
         px={{ xs: 16, md: 32, lg: 100 }}
         py={{ xs: 0 }}
       >
-        <MainWrapper style={{ minHeight: '100vh' }}>
+        <MainWrapper>
           <Suspense fallback={<div>Loading...</div>}>
             <Outlet />
           </Suspense>
