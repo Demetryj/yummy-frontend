@@ -10,7 +10,7 @@ import {
 } from './Search.styled';
 import { useState } from 'react';
 
-export const Search = () => {
+export const Search = ({ mode }) => {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -22,8 +22,8 @@ export const Search = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-  
-    if ( input === '') {
+
+    if (input === '') {
       return toast.error('Please enter title.', {
         duration: 2000,
         position: 'top-center',
@@ -35,7 +35,7 @@ export const Search = () => {
     } else {
       navigate(`/search?query=${input}`, { replace: true });
     }
-    
+
     dispatch(fetchSearchRecipes(input));
     setInput('');
   };
@@ -50,8 +50,11 @@ export const Search = () => {
           autocomplete="off"
           autoFocus
           placeholder="Search recipe"
+          mode={mode}
         />
-        <Button type="submit">Search</Button>
+        <Button type="submit" mode={mode}>
+          Search
+        </Button>
       </SearchForm>
     </SearchFormContainer>
   );
