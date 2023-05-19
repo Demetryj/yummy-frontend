@@ -19,7 +19,7 @@ export const SpinatLeft = styled.div`
   background-position: bottom ${p => p.theme.spacing(123)} left;
   width: 100%;
   height: 100%;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
 
   @media screen and (min-device-pixel-ratio: 2),
@@ -61,7 +61,7 @@ export const SpinatRight = styled.div`
   background-repeat: no-repeat;
   background-size: ${p => p.theme.spacing(90)} ${p => p.theme.spacing(78)};
   background-position: bottom right;
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   height: 100%;
   bottom: 0;
