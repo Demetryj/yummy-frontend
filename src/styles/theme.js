@@ -28,6 +28,7 @@ export const theme = {
 
     whiteColor: '#FAFAFA',
     bcgWhiteColor: '#FFFFFF',
+    greyColor: '#BDBDBD',
     searchBorderColor: '#F0F0F0',
     greenColor: '#8BAA36',
     inputBgColor: '#F5F5F5',
