@@ -17,8 +17,7 @@ export const ContentWrapper = styled.ul`
 `;
 
 export const Wrapper = styled.div`
-  padding-bottom: ${p =>
-    p.location === 'favorite' ? p.theme.spacing(50) : p.theme.spacing(100)};
+  padding-bottom: ${p => p.theme.spacing(50)};
   height: 100%;
 
   @media screen and (${p => p.theme.media.medium}) {
@@ -26,6 +25,6 @@ export const Wrapper = styled.div`
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    padding-bottom: ${p => p.theme.spacing(50)};
+    padding-bottom: ${p => p.theme.spacing(100)};
   }
 `;
