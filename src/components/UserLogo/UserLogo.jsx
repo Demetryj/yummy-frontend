@@ -8,7 +8,7 @@ import { LogoutModal } from '../LogoutModal';
 import { useAuth } from 'hooks/useAuth';
 import { UserName } from './UserLogo.styled';
 
-export const UserLogo = ({ mode }) => {
+export const UserLogo = ({ mode, isRecipePage, shouldDarkColorUserName }) => {
   const isUserLogoOpen = useSelector(state => state.modal.isUserLogoOpen);
   const isUserInfoOpen = useSelector(state => state.modal.isUserInfoOpen);
   const isLogoutOpen = useSelector(state => state.modal.isLogoutOpen);
@@ -22,7 +22,14 @@ export const UserLogo = ({ mode }) => {
   return (
     <Box as="div" display="flex" justifyContent="center" alignItems="center">
       <ImageAvatar user={user} />
-      <UserName mode={mode}>{user.name}</UserName>
+      <UserName
+        mode={mode}
+        style={{
+          color: (isRecipePage || shouldDarkColorUserName) && '#22252A',
+        }}
+      >
+        {user.name}
+      </UserName>
       {isUserLogoOpen && <UserLogoModal mode={mode} />}
       {isUserInfoOpen && <UserInfoModal mode={mode} />}
       {isLogoutOpen && <LogoutModal mode={mode} />}
