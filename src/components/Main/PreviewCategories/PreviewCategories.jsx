@@ -9,10 +9,10 @@ import {
   LinkDown,
   Wrap,
 } from './PreviewCategories.styled';
-import { MainTitle } from 'components/MainTitle/MainTitle';
+import { MainTitle } from 'components/MainTitle';
 import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
 
-export const PreviewCategories = ({ recipes }) => {
+export const PreviewCategories = ({ recipes, mode }) => {
   const { isMobile, isTablet } = useMedia();
   let numCard;
 
@@ -55,7 +55,7 @@ export const PreviewCategories = ({ recipes }) => {
         })}
       </ListCategory>
       <LinkDown to={`/categories/Beef`}>
-        <ButtonDown>Other categories</ButtonDown>
+        <ButtonDown mode={mode}>Other categories</ButtonDown>
       </LinkDown>
     </>
   );
