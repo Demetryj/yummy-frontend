@@ -1,7 +1,15 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import { selectTheme } from 'redux/theme/selectors';
+import { useMedia } from 'hooks/useMedia';
+import { FiSearch } from 'react-icons/fi';
+import { HeaderModal } from '../HeaderModal';
+import logoDark from '../../images/logo/logoDark.png';
+import { TogglerTheme } from 'components/TogglerTheme';
+import { Rectangles } from '../Rectangles';
+import { UserLogo } from 'components/UserLogo';
 import { Box } from '../Box';
 import {
   MenuBtn,
@@ -11,13 +19,6 @@ import {
   CrossContainer,
   CloseBtn,
 } from './AppBar.styled';
-import { FiSearch } from 'react-icons/fi';
-import { HeaderModal } from '../HeaderModal';
-import logoDark from '../../images/logo/logoDark.png';
-import { TogglerTheme } from 'components/TogglerTheme';
-import { Rectangles } from '../Rectangles';
-import { UserLogo } from 'components/UserLogo';
-import { ToastContainer } from 'react-toastify';
 
 const navItems = [
   { href: 'categories/Beef', item: 'Categories' },
@@ -30,7 +31,7 @@ const navItems = [
     item: (
       <Box display="flex" alignItems="center">
         <Box display="flex" alignItems="center" mr={'8px'}>
-          <FiSearch size={20} />
+          <FiSearch size={24} />
         </Box>
         <Box display={{ lg: 'none' }} alignItems="center">
           Search
@@ -43,6 +44,8 @@ const navItems = [
 export const AppBar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+
+  const { isMobile, isDesktop } = useMedia();
 
   const theme = useSelector(selectTheme);
 
@@ -57,6 +60,9 @@ export const AppBar = () => {
   ];
 
   const isImgPage = routesArr.some(route => location.pathname.includes(route));
+  const isRecipePage = location.pathname.includes('recipe');
+  const shouldDarkColorMenu = location.pathname === '/' && !isMobile;
+  const shouldDarkColorUserName = location.pathname === '/' && isDesktop;
 
   const toggleModal = () => {
     setOpen(!open);
@@ -96,14 +102,23 @@ export const AppBar = () => {
           </List>
         </Box>
         <Box display="flex" alignItems="center">
-          <UserLogo mode={theme} />
+          <UserLogo
+            mode={theme}
+            isRecipePage={isRecipePage}
+            shouldDarkColorUserName={shouldDarkColorUserName}
+          />
           <TogglerTheme device="desktop" />
           <Box
             onClick={toggleModal}
             display={{ xs: 'flex', lg: 'none' }}
             ml={{ xs: 14, md: 50 }}
           >
-            <MenuBtn mode={theme} />
+            <MenuBtn
+              mode={theme}
+              style={{
+                color: (isRecipePage || shouldDarkColorMenu) && '#22252A',
+              }}
+            />
           </Box>
         </Box>
         {isImgPage && <Rectangles />}
