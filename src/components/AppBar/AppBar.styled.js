@@ -44,7 +44,7 @@ export const List = styled.ul`
   flex-direction: column;
   align-items: center;
   gap: ${p => p.theme.spacing(16)};
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     display: flex;
     flex-direction: row;
   }
@@ -57,7 +57,7 @@ export const ListItem = styled.li`
   letter-spacing: -0.02em;
   cursor: pointer;
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     font-weight: ${p => p.theme.fontWeights.medium};
     font-size: ${p => p.theme.fontWeights.s};
     line-height: 160%;
@@ -69,7 +69,7 @@ export const Paragraph = styled.p`
   font-weight: ${p => p.theme.fontWeights.semiBold};
   line-height: 170%;
 
-  @media screen and ${p => p.theme.media.medium} {
+  @media screen and (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.s};
   }
 `;
