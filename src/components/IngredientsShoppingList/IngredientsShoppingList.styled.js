@@ -4,16 +4,16 @@ import PlugIsEmptyMobile from 'images/searchPage/search_mob@2x.png';
 
 export const Container = styled.section`
   padding-top: ${p => p.theme.spacing(26)};
-  padding-bottom: ${p => p.theme.spacing(62)};
+  padding-bottom: ${p => p.theme.spacing(50)};
 
   @media screen and ${p => p.theme.media.medium} {
     padding-top: ${p => p.theme.spacing(37)};
-    padding-bottom: ${p => p.theme.spacing(125)};
+    padding-bottom: ${p => p.theme.spacing(100)};
   }
 
   @media screen and ${p => p.theme.media.large} {
     padding-top: ${p => p.theme.spacing(51)};
-    padding-bottom: ${p => p.theme.spacing(118)};
+    /* padding-bottom: ${p => p.theme.spacing(118)}; */
   }
 `;
 
@@ -62,7 +62,7 @@ export const ShoppingList = styled.ul`
   position: relative;
   display: grid;
   text-align: center;
-  grid-template-rows: repeat(5, 1fr);
+  /* grid-template-rows: repeat(5, 1fr); */
   grid-template-columns: repeat(1, 1fr);
   margin: ${p => p.theme.spacing(0)} auto;
   margin-top: ${p => p.theme.spacing(16)};
@@ -87,7 +87,7 @@ export const IsEmptyText = styled.div`
   font-weight: ${p => p.theme.fontWeights.medium};
   line-height: 1;
   letter-spacing: -0.02em;
-  margin-bottom: ${p => p.theme.spacing(50)};
+  /* margin-bottom: ${p => p.theme.spacing(50)}; */
   opacity: 0.5;
   @media screen and ${p => p.theme.media.medium} {
     font-size: ${p => p.theme.spacing(12)};
