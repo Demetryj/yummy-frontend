@@ -63,6 +63,7 @@ export const AppBar = () => {
   const isRecipePage = location.pathname.includes('recipe');
   const shouldDarkColorMenu = location.pathname === '/' && !isMobile;
   const shouldDarkColorUserName = location.pathname === '/' && isDesktop;
+  const shouldDarcNavList = isRecipePage && isDesktop;
 
   const toggleModal = () => {
     setOpen(!open);
@@ -96,7 +97,11 @@ export const AppBar = () => {
           <List>
             {navItems.map(({ href, item }) => (
               <ListItem key={href}>
-                <NavItem to={href} mode={theme}>
+                <NavItem
+                  to={href}
+                  mode={theme}
+                  style={{ color: shouldDarcNavList && '#23262A' }}
+                >
                   {item}
                 </NavItem>
               </ListItem>
