@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Title = styled.h3`
+export const Title = styled.h2`
   font-family: 'Poppins';
   font-style: normal;
   font-weight: ${p => p.theme.fontWeights.semiBold};
