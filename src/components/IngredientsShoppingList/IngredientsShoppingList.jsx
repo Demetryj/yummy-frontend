@@ -7,7 +7,8 @@ import {
 } from 'redux/shoppingList/selectors';
 
 import { Ingredient } from './Ingredient';
-import { MainTitle } from 'components/MainTitle/MainTitle';
+import { MainTitle } from 'components/MainTitle';
+import { EmptyPagePlug } from 'components/EmptyPagePlug';
 import { Loader } from 'components/Loader';
 import { ScrollUpButton } from 'components/Button/ScrollUpButton';
 
@@ -17,9 +18,6 @@ import {
   PanelСontrol,
   Title,
   ShoppingList,
-  IsEmptyImage,
-  IsEmptyText,
-  Wrapper,
 } from './IngredientsShoppingList.styled';
 
 export const IngredientsShoppingList = () => {
@@ -80,10 +78,7 @@ export const IngredientsShoppingList = () => {
       {isVisible && <ScrollUpButton handleClick={scrollToTop} />}
       {isLoading && <Loader />}
       {shoppingList.length <= 0 && !isLoading && !error && (
-        <Wrapper>
-          <IsEmptyImage />
-          <IsEmptyText>Shopping list is empty...</IsEmptyText>
-        </Wrapper>
+        <EmptyPagePlug text="Shopping list is empty..." />
       )}
     </Container>
   );
