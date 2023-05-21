@@ -1,19 +1,20 @@
-import { RecipeIngredientList } from 'components/RecipeIngredientList/RecipeIngredientList';
-import { RecipePageHero } from 'components/RecipePageHero/RecipePageHero';
-import { RecipePreparation } from 'components/RecipePreparation/RecipePreparation';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
   selectError,
   selectIsLoading,
   selectRecipes,
 } from 'redux/recipes/selectors';
-import { Loader } from 'components/Loader/Loader.jsx';
-import { onScrollUp } from 'utils/scrollUp';
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { getRecipeById } from 'redux/recipes/operations';
+import { selectTheme } from 'redux/theme/selectors';
+import { RecipeIngredientList } from 'components/RecipeIngredientList';
+import { RecipePageHero } from 'components/RecipePageHero';
+import { RecipePreparation } from 'components/RecipePreparation';
+import { Loader } from 'components/Loader/Loader.jsx';
 import { ScrollUpButton } from 'components/Button/ScrollUpButton';
 import { ErrorText } from 'components/ErrorText/ErrorText';
+import { onScrollUp } from 'utils/scrollUp';
 
 const Recipe = () => {
   const [heightHero, setHeightHero] = useState(0);
@@ -22,6 +23,7 @@ const Recipe = () => {
 
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
+  const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -53,10 +55,14 @@ const Recipe = () => {
         <RecipePageHero getHeightHero={setHeightHero} recipe={recipe} />
       )}
       {recipe && (
-        <RecipeIngredientList heightHero={heightHero} recipe={recipe} />
+        <RecipeIngredientList
+          heightHero={heightHero}
+          recipe={recipe}
+          mode={theme}
+        />
       )}
 
-      {recipe && <RecipePreparation recipe={recipe} />}
+      {recipe && <RecipePreparation recipe={recipe} mode={theme} />}
       {isLoading && !error && !recipe && <Loader />}
       {buttonVisible && <ScrollUpButton handleClick={handleClick} />}
       {error && <ErrorText />}
