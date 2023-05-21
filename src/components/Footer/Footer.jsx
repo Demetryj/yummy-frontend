@@ -13,6 +13,7 @@ import {
   Subtitle,
   Text,
   IconText,
+  IconItem,
 } from './Footer.styled';
 import { FootForm } from '../FooterForm';
 import logoHeader from 'images/logo/logo-footer.svg';
@@ -31,19 +32,19 @@ const navItems = [
 const socialIcons = [
   {
     href: 'https://uk-ua.facebook.com/',
-    item: <BsFacebook size={20} color="#8BAA36" />,
+    item: <BsFacebook size={20} />,
   },
   {
     href: 'https://www.youtube.com',
-    item: <BsYoutube size={20} color="#8BAA36" />,
+    item: <BsYoutube size={20} />,
   },
   {
     href: 'https://twitter.com',
-    item: <TfiTwitterAlt size={20} color="#8BAA36" />,
+    item: <TfiTwitterAlt size={20} />,
   },
   {
     href: 'https://www.instagram.com/',
-    item: <FiInstagram size={20} color="#8BAA36" />,
+    item: <FiInstagram size={20} />,
   },
 ];
 
@@ -56,7 +57,7 @@ const benefits = [
 
 export const Footer = ({ mode }) => {
   return (
-    <Box as="section">
+    <Box as="section" bg={mode === 'light' ? 'yummyColor' : 'greenBgColor'}>
       <FooterWrap mode={mode}>
         <Box display={{ lg: 'flex' }} justifyContent={{ lg: 'space-between' }}>
           <Box display={{ md: 'flex' }} mb={{ md: 72 }} flexGrow={{ lg: 0 }}>
@@ -88,7 +89,9 @@ export const Footer = ({ mode }) => {
               <List>
                 {navItems.map(({ href, item }) => (
                   <ListItem key={href}>
-                    <NavItem to={href}>{item}</NavItem>
+                    <NavItem to={href} mode={mode}>
+                      {item}
+                    </NavItem>
                   </ListItem>
                 ))}
               </List>
@@ -112,7 +115,9 @@ export const Footer = ({ mode }) => {
           <IconList>
             {socialIcons.map(({ href, item }) => (
               <li key={href}>
-                <NavItem to={href}>{item}</NavItem>
+                <IconItem to={href} mode={mode}>
+                  {item}
+                </IconItem>
               </li>
             ))}
           </IconList>
