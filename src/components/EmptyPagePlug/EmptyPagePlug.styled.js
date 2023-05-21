@@ -24,7 +24,10 @@ export const EmptyPlugText = styled.p`
   font-size: ${p => p.theme.fontSizes.s};
   text-align: center;
   font-feature-settings: 'liga' off;
-  color: ${p => p.theme.colors.blackTextColor};
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.blackTextColor
+      : p.theme.colors.whiteTextColor};
   opacity: 0.5;
 
   @media screen and (${p => p.theme.media.medium}) {
