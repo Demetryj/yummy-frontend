@@ -12,6 +12,7 @@ import { SearchBar } from 'components/SearchBar';
 import { Loader } from 'components/Loader';
 import { SearchedRecipesList } from 'components/SearchedRecipesList';
 import { ListSection, SearchSection } from './Search.styled';
+import { onScrollUp } from 'utils/scrollUp';
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -47,6 +48,8 @@ const Search = () => {
   };
 
   useEffect(() => {
+    onScrollUp();
+
     if (searchQuery === '') return;
 
     if (searchType === 'title') dispatch(fetchSearchRecipes(searchQuery));
