@@ -22,6 +22,7 @@ const IngredientsFilter = ({
   getFilterData,
   setInitialList,
   gettingFilterData,
+  mode,
 }) => {
   const [serviceList, setServiceList] = useState([{}]);
   const dispatch = useDispatch();
@@ -88,7 +89,7 @@ const IngredientsFilter = ({
   return (
     <IngredientsContainet>
       <IngListSetting>
-        <BoxTitle>Ingredients</BoxTitle>
+        <BoxTitle mode={mode}>Ingredients</BoxTitle>
         {serviceList.length > 0 && (
           <Buttons>
             <button
