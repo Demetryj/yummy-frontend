@@ -45,7 +45,11 @@ export const ProductName = styled.p`
   font-weight: ${p => p.theme.fontWeights.medium};
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: 1.2;
-  color: ${p => p.theme.colors.subtitleTextColor};
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.subtitleTextColor
+      : p.theme.colors.whiteTextColor};
+
   @media screen and ${p => p.theme.media.medium} {
     margin-left: ${p => p.theme.spacing(8)};
     font-size: ${p => p.theme.fontSizes.m};
