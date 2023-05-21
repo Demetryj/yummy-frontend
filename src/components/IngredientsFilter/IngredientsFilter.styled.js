@@ -16,6 +16,11 @@ export const BoxTitle = styled.h2`
   font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: ${p => p.theme.fontSizes.l};
   line-height: 24px;
+
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.subtitleTextColor
+      : p.theme.colors.whiteTextColor};
 `;
 
 export const Buttons = styled.div`
@@ -59,7 +64,7 @@ export const SelectCustomisation = styled.div`
 
 export const Input = styled.input`
   max-width: 50px;
-  border: ${p=>p.theme.borders.none};
+  border: ${p => p.theme.borders.none};
   text-align: end;
   height: ${p => p.theme.spacing(25)};
   border-radius: 6px 0 0 6px;
@@ -73,7 +78,7 @@ export const Input = styled.input`
 export const SelectUnit = styled.select`
   max-width: 60px;
 
-  border: ${p=>p.theme.borders.none};
+  border: ${p => p.theme.borders.none};
   height: ${p => p.theme.spacing(25)};
   padding: ${p => p.theme.spacing(2.5)};
   border-radius: 0 6px 6px 0;
