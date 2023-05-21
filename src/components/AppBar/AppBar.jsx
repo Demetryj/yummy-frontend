@@ -78,6 +78,8 @@ export const AppBar = () => {
         justifyContent="space-between"
         py={{ xs: 18 }}
         px={{ xs: 16, md: 32, lg: 100 }}
+        maxWidth={{ xs: 375, md: 768, lg: 1440 }}
+        mx="auto"
       >
         <Box
           display="flex"
