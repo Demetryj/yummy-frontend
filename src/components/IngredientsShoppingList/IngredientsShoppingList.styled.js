@@ -3,16 +3,16 @@ import PlugIsEmptyDesktop from 'images/searchPage/search_desk_tab@2x.png';
 import PlugIsEmptyMobile from 'images/searchPage/search_mob@2x.png';
 
 export const Container = styled.section`
-  padding-top: ${p => p.theme.spacing(26)};
+  padding-top: ${p => p.theme.spacing(25)};
   padding-bottom: ${p => p.theme.spacing(50)};
 
   @media screen and ${p => p.theme.media.medium} {
-    padding-top: ${p => p.theme.spacing(37)};
+    padding-top: ${p => p.theme.spacing(28)};
     padding-bottom: ${p => p.theme.spacing(100)};
   }
 
   @media screen and ${p => p.theme.media.large} {
-    padding-top: ${p => p.theme.spacing(51)};
+    padding-top: ${p => p.theme.spacing(42)};
     /* padding-bottom: ${p => p.theme.spacing(118)}; */
   }
 `;

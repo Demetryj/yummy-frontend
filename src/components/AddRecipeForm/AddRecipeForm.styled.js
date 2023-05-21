@@ -1,19 +1,21 @@
 import styled from 'styled-components';
 
 export const AddRecipePage = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${p => p.theme.spacing(36)};
+
   padding-top: ${p => p.theme.spacing(25)};
   padding-bottom: 100px;
 
   @media screen and (${p => p.theme.media.medium}) {
-    display: flex;
-    padding-top: ${p => p.theme.spacing(36)};
-    justify-content: center;
+    gap: ${p => p.theme.spacing(50)};
+    padding-top: ${p => p.theme.spacing(28)};
     padding-bottom: ${p => p.theme.spacing(100)};
   }
 
   @media screen and (${p => p.theme.media.large}) {
-    padding-top: ${p => p.theme.spacing(50)};
-    justify-content: center;
+    padding-top: ${p => p.theme.spacing(42)};
   }
 `;
 
@@ -21,7 +23,7 @@ export const AddRecipeWrap = styled.div`
   @media screen and (${p => p.theme.media.large}) {
     display: flex;
     gap: ${p => p.theme.spacing(50)};
-    justify-content: center;
+    justify-content: space-between;
   }
 `;
 
@@ -43,23 +45,6 @@ export const Form = styled.form`
 
   @media screen and (${p => p.theme.media.large}) {
     padding-bottom: 0px;
-  }
-`;
-
-export const PageTitle = styled.h1`
-  line-height: 28px;
-  display: inline-block;
-  font-weight: ${p => p.theme.fontWeights.semibold};
-  font-size: ${p => p.theme.fontSizes.xl};
-  padding-bottom: ${p => p.theme.spacing(36)};
-  color: ${p => p.theme.colors.titleTextColor};
-  @media screen and (${p => p.theme.media.medium}) {
-    line-height: 32px;
-    padding-bottom: ${p => p.theme.spacing(50)};
-    font-size: ${p => p.theme.fontSizes.xxl};
-  }
-  @media screen and (${p => p.theme.media.large}) {
-    font-size: ${p => p.theme.fontSizes.sb};
   }
 `;
 
@@ -122,6 +107,11 @@ export const BoxTitle = styled.h2`
   font-size: ${p => p.theme.fontSizes.l};
   line-height: 24px;
 
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.subtitleTextColor
+      : p.theme.colors.whiteTextColor};
+
   @media screen and (${p => p.theme.media.medium}) {
     padding-bottom: ${p => p.theme.spacing(16)};
   }
@@ -165,15 +155,15 @@ export const ButtonAdd = styled.button`
   /* cursor: pointer; */
   text-align: center;
   font-weight: ${p => p.theme.fontWeights.regular};
-  color: ${p =>
-    p.theme === 'black'
-      // ? p.theme.colors.btnDarckBgColor
-      // : p.styled === 'olive'
-      // ? p.theme.colors.greenColor
-      // : p.styled === 'white'
-      // ? p.theme.colors.whiteColor
-      // : ''
-      };
+  color: ${
+    p => p.theme === 'black'
+    // ? p.theme.colors.btnDarckBgColor
+    // : p.styled === 'olive'
+    // ? p.theme.colors.greenColor
+    // : p.styled === 'white'
+    // ? p.theme.colors.whiteColor
+    // : ''
+  };
   background-color: ${p =>
     p.theme === 'black'
       ? p.theme.colors.btnDarckBgColor
@@ -197,21 +187,21 @@ export const ButtonAdd = styled.button`
   &:hover {
     color: ${p =>
       p.theme === 'black'
-        // ? p.theme.colors.btnDarckBgColor
-        // : p.styled === 'olive'
-        // ? p.theme.colors.greenColor
-        // : p.styled === 'white'
-        ? p.theme.colors.whiteColor
+        ? // ? p.theme.colors.btnDarckBgColor
+          // : p.styled === 'olive'
+          // ? p.theme.colors.greenColor
+          // : p.styled === 'white'
+          p.theme.colors.whiteColor
         : ''};
     background-color: ${p =>
       p.theme === 'black'
-        // ? p.theme.colors.btnDarckBgColor
-        // : p.styled === 'olive'
-        // ? p.theme.colors.greenColor
-        // : p.styled === 'white'
-        // ? p.theme.colors.whiteColor
-        // : p.styled === 'transparent'
-        ? 'transparent'
+        ? // ? p.theme.colors.btnDarckBgColor
+          // : p.styled === 'olive'
+          // ? p.theme.colors.greenColor
+          // : p.styled === 'white'
+          // ? p.theme.colors.whiteColor
+          // : p.styled === 'transparent'
+          'transparent'
         : ''};
     border: ${({ styled, theme }) => {
       switch (styled) {
@@ -263,7 +253,7 @@ export const ButtonAdd = styled.button`
     ${p => p.theme.spacing(12)} ${p => p.theme.spacing(26)},
     // 22px 44px;
     ${p => p.theme.spacing(11)} ${p => p.theme.spacing(22)}, */
-    /* (
+  /* (
       font-size: ${p => p.theme.fontSizes.s},
       ${p => p.theme.fontSizes.m},
       ${p => p.theme.fontSizes.xm}
