@@ -5,24 +5,24 @@ import { AiOutlineCopyrightCircle } from 'react-icons/ai';
 export const FooterWrap = styled.footer`
   /* position: relative;
   z-index: 100; */
+  margin-left: auto;
+  margin-right: auto;
   padding-top: ${p => p.theme.spacing(14)};
   padding-bottom: ${p => p.theme.spacing(9)};
-
-  background-color: ${p =>
-    p.mode === 'light'
-      ? p.theme.colors.yummyColor
-      : p.theme.colors.greenBgColor};
+  max-width: 375px;
 
   @media screen and (${p => p.theme.media.medium}) {
     padding-top: ${p => p.theme.spacing(25)};
     padding-bottom: ${p => p.theme.spacing(12)};
     padding-left: ${p => p.theme.spacing(16)};
     padding-right: ${p => p.theme.spacing(16)};
+    max-width: 768px;
   }
 
   @media screen and (${p => p.theme.media.large}) {
     padding-left: ${p => p.theme.spacing(50)};
     padding-right: ${p => p.theme.spacing(50)};
+    max-width: 1440px;
   }
 `;
 
@@ -51,9 +51,14 @@ export const BenefitsItem = styled.li`
 
 export const NavItem = styled(NavLink)`
   color: ${p => p.theme.colors.whiteColor};
+  transition: color 250ms;
+
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.greenTextColor};
+    color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.greenTextColor
+        : p.theme.colors.mainTextColor};
   }
 `;
 
@@ -79,6 +84,20 @@ export const ListItem = styled.li`
     &:not(:last-child) {
       margin-bottom: ${p => p.theme.spacing(10)};
     }
+  }
+`;
+
+export const IconItem = styled(NavLink)`
+  color: ${p =>
+    p.mode === 'light' ? p.theme.colors.greenColor : p.theme.colors.whiteColor};
+  transition: color 250ms;
+
+  &:hover,
+  &:focus {
+    color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.whiteColor
+        : p.theme.colors.yummyColor};
   }
 `;
 
