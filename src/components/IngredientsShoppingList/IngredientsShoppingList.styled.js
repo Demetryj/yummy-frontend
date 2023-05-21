@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import PlugIsEmptyDesktop from 'images/searchPage/search_desk_tab@2x.png';
-import PlugIsEmptyMobile from 'images/searchPage/search_mob@2x.png';
 
 export const Container = styled.section`
   padding-top: ${p => p.theme.spacing(25)};
@@ -71,39 +69,5 @@ export const ShoppingList = styled.ul`
   @media screen and ${p => p.theme.media.medium} {
     margin-top: ${p => p.theme.spacing(25)};
     gap: ${p => p.theme.spacing(45)};
-  }
-`;
-
-export const Wrapper = styled.div`
-  margin-top: ${p => p.theme.spacing(25)};
-  @media screen and ${p => p.theme.media.medium} {
-    margin-top: ${p => p.theme.spacing(50)};
-  }
-`;
-
-export const IsEmptyText = styled.div`
-  font-size: ${p => p.theme.spacing(7)};
-  text-align: center;
-  font-weight: ${p => p.theme.fontWeights.medium};
-  line-height: 1;
-  letter-spacing: -0.02em;
-  /* margin-bottom: ${p => p.theme.spacing(50)}; */
-  opacity: 0.5;
-  @media screen and ${p => p.theme.media.medium} {
-    font-size: ${p => p.theme.spacing(12)};
-  }
-`;
-
-export const IsEmptyImage = styled.div`
-  width: ${p => p.theme.spacing(104)};
-  height: ${p => p.theme.spacing(66)};
-  margin: auto;
-  background-image: url(${PlugIsEmptyMobile});
-  background-size: contain;
-  margin-bottom: ${p => p.theme.spacing(16)};
-  @media screen and ${p => p.theme.media.medium} {
-    width: ${p => p.theme.spacing(208)};
-    height: ${p => p.theme.spacing(133)};
-    background-image: url(${PlugIsEmptyDesktop});
   }
 `;
