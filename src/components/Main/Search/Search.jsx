@@ -33,7 +33,8 @@ export const Search = ({ mode }) => {
     if (input === '') {
       return;
     } else {
-      navigate(`/search?query=${input}`, { replace: true });
+      const capitalizedInput = input.charAt(0).toUpperCase() + input.slice(1);
+      navigate(`/search?query=${capitalizedInput}`, { replace: true });
     }
 
     dispatch(fetchSearchRecipes(input));

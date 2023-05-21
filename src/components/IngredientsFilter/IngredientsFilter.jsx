@@ -39,7 +39,7 @@ const IngredientsFilter = ({
       window.document.getElementById('sizeSelect').value = '';
       window.document.getElementById('serviceSelect').value = '';
       window.document.querySelector('.css-1dimb5e-singleValue').textContent =
-        'Type ingredent';
+        'Type ingredient';
     }
   }, [gettingFilterData]);
 
@@ -120,7 +120,7 @@ const IngredientsFilter = ({
                 required
                 options={ingredients}
                 maxMenuHeight={150}
-                placeholder="Type ingredent"
+                placeholder="Type ingredient"
                 onChange={e => handleIngredientChange(e.value, index, 'ttl')}
               />
             </SelectCustomisation>

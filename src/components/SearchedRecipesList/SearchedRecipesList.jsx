@@ -1,10 +1,13 @@
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import { selectRecipesByIngredient } from 'redux/ingredients/selectors';
 import { selectRecipes } from 'redux/recipes/selectors';
-import { List } from './SearchedRecipesList.styled';
+
 import { SearchedItemNotFound } from 'components/SearchedItemNotFound';
 import { SearchedRecipesItem } from 'components/SearchedRecipesItem';
+
+import { List } from './SearchedRecipesList.styled';
 
 export const SearchedRecipesList = ({ type }) => {
   const selectedRecipes = useSelector(selectRecipes).map(item => ({

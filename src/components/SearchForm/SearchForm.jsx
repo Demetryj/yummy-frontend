@@ -1,67 +1,51 @@
+import { useEffect } from 'react';
 import Select from 'react-select';
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  Btn,
-  Form,
-  // Input,
-  InputWrapper,
-} from './SearchForm.styled';
+import { selectAllRecipes } from 'redux/recipes/selectors';
+import { selectIngredients } from 'redux/ingredients/selectors';
+import { fetchIngredients } from 'redux/ingredients/operations';
+import { fetchAllRecipes } from 'redux/recipes/operations';
+import { selectSearchFormConfigs } from 'utils/selectSearchFormConfigs';
 
-const customStyles = {
-  control: provided => ({
-    ...provided,
-    width: '100%',
-    height: '53px',
-    fontSize: '12px',
-    paddingLeft: '32px',
-    borderRadius: '24px 44px',
-    boxShadow: 'none',
-    borderColor: '#F0F0F0',
+import { Btn, Form, InputWrapper } from './SearchForm.styled';
 
-    '&:focus, &:focus-visible, &:hover': {
-      outline: 'none',
-      boxShadow: 'none',
-      borderColor: '#F0F0F0',
-    },
+export const SearchForm = ({ onSubmit, onInputChange }) => {
+  const { search } = useLocation();
+  const searchParamsFromMain = new URLSearchParams(search);
+  const requestFromMain = searchParamsFromMain.get('searchType');
 
-    '@media screen and (min-width: 768px)': {
-      height: '57px',
-      paddingLeft: '38px',
-      fontSize: '14px',
-    },
-    '@media screen and (min-width: 1440px)': {
-      height: '70px',
-      paddingLeft: '48px',
-      fontSize: '16px',
-    },
-  }),
-  menu: provided => ({
-    ...provided,
-    margin: 0,
-    borderRadius: '24px 44px', // replace with the same value as in the styled component
-  }),
-  option: (provided, state) => ({
-    ...provided,
-    backgroundColor: state.isSelected ? '#EEE' : 'white',
-    '&:hover': {
-      backgroundColor: '#EEE',
-    },
-    color: '#3E4462',
-  }),
-};
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchIngredients());
+    dispatch(fetchAllRecipes());
+  }, [dispatch]);
 
-export const SearchForm = ({ onSubmit, value, onInputChange }) => {
+  const collectionOfRecipes = useSelector(selectAllRecipes).map(
+    (item, idx) => ({
+      label: item,
+      value: idx,
+    })
+  );
+
+  const ingredientsList = useSelector(selectIngredients);
+
+  const ingredients = ingredientsList.map(item => ({
+    label: item.ttl,
+    value: item._id,
+  }));
+
   return (
     <Form onSubmit={e => onSubmit(e)}>
-      {/* <InputWrapper>
-        <Input type="text" value={value} onChange={e => onInputChange(e)} />
-        <Btn type="submit">Search</Btn>
-      </InputWrapper> */}
       <InputWrapper>
         <Select
-          value={value}
-          onChange={e => onInputChange(e)}
-          styles={customStyles}
+          onChange={e => onInputChange(e.label)}
+          styles={selectSearchFormConfigs}
+          placeholder="Search..."
+          options={
+            requestFromMain === 'title' ? collectionOfRecipes : ingredients
+          }
         />
         <Btn type="submit">Search</Btn>
       </InputWrapper>
