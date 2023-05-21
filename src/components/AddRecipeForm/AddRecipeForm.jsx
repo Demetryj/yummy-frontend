@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { selectTheme } from 'redux/theme/selectors';
 import {
   AboutRecipe,
   Input,
@@ -11,7 +12,6 @@ import {
   TextAreaContainer,
   BoxTitle,
   Form,
-  PageTitle,
   AddRecipePage,
   AddRecipeWrap,
   FollowSPopular,
@@ -26,6 +26,7 @@ import { fetchCategoriesList } from 'redux/recipes';
 import { addRecipe } from 'redux/recipes/operations';
 import { selectUser } from 'redux/auth/selectors';
 import cookingTime from './data/cookingTime.json';
+import { MainTitle } from 'components/MainTitle';
 
 const getFormValues = () => {
   const storedValues = localStorage.getItem('form');
@@ -47,6 +48,8 @@ const AddRecipeForm = () => {
   const [gettingFilterData, setGettingFilterData] = useState(false);
   const [preview, setPreview] = useState(plug);
   const [recipes, setRecipes] = useState(getFormValues);
+
+  const theme = useSelector(selectTheme);
 
   useEffect(() => {
     localStorage.setItem('form', JSON.stringify(recipes));
@@ -72,8 +75,6 @@ const AddRecipeForm = () => {
       })),
     }));
   };
-
-
 
   const handleChangePhoto = event => {
     const fileUpl = event.target.files[0];
@@ -113,104 +114,103 @@ const AddRecipeForm = () => {
 
   return (
     <AddRecipePage>
-      <div>
-        <PageTitle>Add recipe</PageTitle>
-        <AddRecipeWrap>
-          <Form autoComplete="off" onSubmit={handleSubmit} id='resipeForm'>
-            <FormImageContainer>
-              <div>
-                <label htmlFor="file-input">
-                  <img
-                    src={preview}
-                    alt="Receipe img"
-                    style={{
-                      maxWidth: '350px',
-                      maxHeight: '340px',
-                    }}
-                  />
-                </label>
-                <input
-                  id="file-input"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleChangePhoto}
+      <MainTitle mode={theme} title="Add recipe" />
+      <AddRecipeWrap>
+        <Form autoComplete="off" onSubmit={handleSubmit} id="resipeForm">
+          <FormImageContainer>
+            <div>
+              <label htmlFor="file-input">
+                <img
+                  src={preview}
+                  alt="Receipe img"
                   style={{
-                    display: 'none',
-                    width: '350px',
-                    height: '340px',
+                    maxWidth: '350px',
+                    maxHeight: '340px',
                   }}
                 />
-              </div>
-              <AboutRecipe>
-                <Input
-                  type="text"
-                  name="title"
-                  value={recipes.title || ''}
-                  placeholder="Enter item title"
-                  onChange={handleChange}
-                />
-                <Input
-                  type="text"
-                  placeholder="Enter about recipe"
-                  name="description"
-                  onChange={handleChange}
-                  value={recipes.description || ''}
-                />
-                <InputSelect>
-                  <div>Category</div>
-                  <SelectCategory
-                    name="category"
-                    onChange={handleChange}
-                    value={recipes.category || ''}
-                  >
-                    <option></option>
-
-                    {categories.map(category => (
-                      <option key={category}>{category}</option>
-                    ))}
-                  </SelectCategory>
-                </InputSelect>
-                <InputSelect>
-                  <div>Cooking time</div>
-                  <SelectCooking
-                    name="time"
-                    value={recipes.time || ''}
-                    onChange={handleChange}
-                  >
-                    {cookingTime.map(({ value }) => {
-                      return <option key={value}>{value}</option>;
-                    })}
-                  </SelectCooking>
-                </InputSelect>
-              </AboutRecipe>
-            </FormImageContainer>
-
-            <IngredientsFilter
-                getFilterData={getFilterData}
-                setInitialList={initialList}
-                gettingFilterData={gettingFilterData}
-                recipes={recipes} 
-            />
-
-            <TextAreaContainer>
-              <BoxTitle>Recipe Preparation</BoxTitle>
-              <TextArea
-                name="instructions"
-                value={recipes.instructions || ''}
-                placeholder="Enter recipe"
-                scroll={true}
+              </label>
+              <input
+                id="file-input"
+                type="file"
+                accept="image/*"
+                onChange={handleChangePhoto}
+                style={{
+                  display: 'none',
+                  width: '350px',
+                  height: '340px',
+                }}
+              />
+            </div>
+            <AboutRecipe>
+              <Input
+                type="text"
+                name="title"
+                value={recipes.title || ''}
+                placeholder="Enter item title"
                 onChange={handleChange}
-              ></TextArea>
-            </TextAreaContainer>
-            <ButtonAdd type="submit">Add</ButtonAdd>
-          </Form>
-          <FollowSPopular>
-            <FollowUs />
+              />
+              <Input
+                type="text"
+                placeholder="Enter about recipe"
+                name="description"
+                onChange={handleChange}
+                value={recipes.description || ''}
+              />
+              <InputSelect>
+                <div>Category</div>
+                <SelectCategory
+                  name="category"
+                  onChange={handleChange}
+                  value={recipes.category || ''}
+                >
+                  <option></option>
 
-            <PopularRecipe />
-          </FollowSPopular>
-        </AddRecipeWrap>
-      </div>
+                  {categories.map(category => (
+                    <option key={category}>{category}</option>
+                  ))}
+                </SelectCategory>
+              </InputSelect>
+              <InputSelect>
+                <div>Cooking time</div>
+                <SelectCooking
+                  name="time"
+                  value={recipes.time || ''}
+                  onChange={handleChange}
+                >
+                  {cookingTime.map(({ value }) => {
+                    return <option key={value}>{value}</option>;
+                  })}
+                </SelectCooking>
+              </InputSelect>
+            </AboutRecipe>
+          </FormImageContainer>
+
+          <IngredientsFilter
+            getFilterData={getFilterData}
+            setInitialList={initialList}
+            gettingFilterData={gettingFilterData}
+            recipes={recipes}
+            mode={theme}
+          />
+
+          <TextAreaContainer>
+            <BoxTitle mode={theme}>Recipe Preparation</BoxTitle>
+            <TextArea
+              name="instructions"
+              value={recipes.instructions || ''}
+              placeholder="Enter recipe"
+              scroll={true}
+              onChange={handleChange}
+            ></TextArea>
+          </TextAreaContainer>
+          <ButtonAdd type="submit">Add</ButtonAdd>
+        </Form>
+        <FollowSPopular>
+          <FollowUs />
+
+          <PopularRecipe />
+        </FollowSPopular>
+      </AddRecipeWrap>
     </AddRecipePage>
   );
 };
