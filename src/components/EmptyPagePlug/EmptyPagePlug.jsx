@@ -1,10 +1,12 @@
-import searchMob1 from '../../images/bgEmptyPage/bg_search_mob@1x.png';
-import searchMob2 from '../../images/bgEmptyPage/bg_search_mob@2x.png';
-import searchTablet1 from '../../images/bgEmptyPage/bg_search_tablet@1x.png';
-import searchTablet2 from '../../images/bgEmptyPage/bg_search_tablet@2x.png';
-import searchDesktop1 from '../../images/bgEmptyPage/bg_search_desktop@1x.png';
-import searchDesktop2 from '../../images/bgEmptyPage/bg_search_desktop@2x.png';
-import { NavLinkSkew } from 'components/NavLinkSkew/NavLinkSkew';
+import { useSelector } from 'react-redux';
+import { NavLinkSkew } from 'components/NavLinkSkew';
+import { selectTheme } from 'redux/theme/selectors';
+import searchMob1 from 'images/bgEmptyPage/bg_search_mob@1x.png';
+import searchMob2 from 'images/bgEmptyPage/bg_search_mob@2x.png';
+import searchTablet1 from 'images/bgEmptyPage/bg_search_tablet@1x.png';
+import searchTablet2 from 'images/bgEmptyPage/bg_search_tablet@2x.png';
+import searchDesktop1 from 'images/bgEmptyPage/bg_search_desktop@1x.png';
+import searchDesktop2 from 'images/bgEmptyPage/bg_search_desktop@2x.png';
 
 import {
   EmptyPlugImgWrapper,
@@ -13,6 +15,8 @@ import {
 } from './EmptyPagePlug.styled';
 
 export const EmptyPagePlug = ({ text, location }) => {
+  const theme = useSelector(selectTheme);
+
   return (
     <EmptyPlugWrapper>
       <EmptyPlugImgWrapper>
@@ -32,7 +36,7 @@ export const EmptyPagePlug = ({ text, location }) => {
           />
         </picture>
       </EmptyPlugImgWrapper>
-      <EmptyPlugText>{text}</EmptyPlugText>
+      <EmptyPlugText mode={theme}>{text}</EmptyPlugText>
       {location === 'recipes' && (
         <NavLinkSkew
           navigate="/add"
