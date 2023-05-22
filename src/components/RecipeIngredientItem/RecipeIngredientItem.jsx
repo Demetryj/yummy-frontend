@@ -1,3 +1,14 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
+import {
+  addIngredientToShoppingList,
+  deleteIngredientFromShoppingList,
+} from 'redux/shoppingList/operations';
+import { selectError } from 'redux/shoppingList/selectors';
+import { getPoster } from 'utils/getPlugImageIngredient';
+import sprite from 'images/symbol-defs.svg';
+import plug from 'images/plugs/apple 128x128.png';
 import {
   RecipeContainer,
   ImageBlock,
@@ -8,18 +19,8 @@ import {
   CustomCheckbox,
   RealCheckbox,
 } from './RecipeIngredientItem.styled';
-import {
-  addIngredientToShoppingList,
-  deleteIngredientFromShoppingList,
-} from 'redux/shoppingList/operations';
-import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-import sprite from '../../images/symbol-defs.svg';
-import plug from 'images/plugs/apple 128x128.png';
-import { getPoster } from 'utils/getPlugImageIngredient';
-import toast from 'react-hot-toast';
-import { selectError } from 'redux/shoppingList/selectors';
-export const RecipeIngredientItem = ({ ingrediento }) => {
+
+export const RecipeIngredientItem = ({ ingrediento, mode }) => {
   const { thb, ttl, measure, id, desc } = ingrediento;
 
   const [checked, setChecked] = useState(false);
@@ -68,13 +69,13 @@ export const RecipeIngredientItem = ({ ingrediento }) => {
   };
 
   return (
-    <RecipeContainer>
+    <RecipeContainer mode={mode}>
       <Label>
         <ImageBlock>
           <img src={getPoster(thb, plug)} alt="poster" />
         </ImageBlock>
 
-        <IngName>{ttl}</IngName>
+        <IngName mode={mode}>{ttl}</IngName>
         <IngDescr>{desc}</IngDescr>
         <IngQuantity>{measure}</IngQuantity>
         <RealCheckbox

@@ -1,9 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { DeleteBtnWrapper } from './DeleteBtn.styled';
-import sprite from '../../../images/symbol-defs.svg';
-import { removeRecipe, removeFavorite } from 'modules';
+import { RiDeleteBinLine } from 'react-icons/ri';
 
-export const DeleteBtn = ({ location, id }) => {
+import { removeRecipe, removeFavorite } from 'modules';
+import { DeleteBtnWrapper } from './DeleteBtn.styled';
+
+export const DeleteBtn = ({ location, id, mode }) => {
   const dispatch = useDispatch();
   const handleDeleteBtnClick = () => {
     if (location === 'favorite') {
@@ -18,10 +19,9 @@ export const DeleteBtn = ({ location, id }) => {
       type="button"
       onClick={handleDeleteBtnClick}
       location={location}
+      mode={mode}
     >
-      <svg>
-        <use href={sprite + `#trash`} />
-      </svg>
+      <RiDeleteBinLine />
     </DeleteBtnWrapper>
   );
 };

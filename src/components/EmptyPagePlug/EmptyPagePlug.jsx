@@ -43,6 +43,7 @@ export const EmptyPagePlug = ({ text, location }) => {
           location={location}
           text="Add recipe"
           styled="olive"
+          mode={theme}
         />
       )}
     </EmptyPlugWrapper>

@@ -3,13 +3,16 @@ import {
   ImageBlock,
   InstructionWrapper,
   InstructionList,
+  InstructionTitle,
   InstructionText,
   Container,
 } from './RecipePreparation.styled';
 import plug from 'images/plugs/image 300x323@2x.png';
 import { getPoster } from 'utils/getPlugImageIngredient';
-export const RecipePreparation = ({ recipe }) => {
+
+export const RecipePreparation = ({ recipe, mode }) => {
   const { instructions, preview } = recipe;
+
   const items = instructions
     .split('\r\n')
     .filter(elem => {
@@ -26,16 +29,17 @@ export const RecipePreparation = ({ recipe }) => {
         }
       }
       return (
-        <InstructionText key={nanoid()}>
+        <InstructionText key={nanoid()} mode={mode}>
           <span>{index + 1}</span>
           <p>{slicedItem}</p>
         </InstructionText>
       );
     });
+
   return (
     <Container>
       <InstructionWrapper>
-        <h2>Recipe Preparation</h2>
+        <InstructionTitle mode={mode}>Recipe Preparation</InstructionTitle>
         <InstructionList>{items}</InstructionList>
       </InstructionWrapper>
       <ImageBlock>

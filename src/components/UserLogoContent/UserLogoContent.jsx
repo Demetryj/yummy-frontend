@@ -15,7 +15,7 @@ import {
 } from './UserLogoContent.styled';
 import { HiOutlinePencil } from 'react-icons/hi';
 
-export const UserLogoContent = () => {
+export const UserLogoContent = ({ mode }) => {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const handleClose = () => dispatch(toggleUserLogo());
@@ -59,6 +59,7 @@ export const UserLogoContent = () => {
             dispatch(toggleLogout());
             handleClose();
           }}
+          mode={mode}
         >
           Log out
           <Arrow />

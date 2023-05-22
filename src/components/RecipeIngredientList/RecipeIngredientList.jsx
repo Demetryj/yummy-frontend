@@ -1,3 +1,4 @@
+import { RecipeIngredientItem } from 'components/RecipeIngredientItem';
 import {
   Container,
   Table,
@@ -5,8 +6,8 @@ import {
   Label,
   InngredientsList,
 } from './RecipeIngredientList.styled';
-import { RecipeIngredientItem } from 'components/RecipeIngredientItem/RecipeIngredientItem';
-export const RecipeIngredientList = ({ recipe, heightHero }) => {
+
+export const RecipeIngredientList = ({ recipe, heightHero, mode }) => {
   const { ingredients } = recipe;
 
   return (
@@ -20,7 +21,7 @@ export const RecipeIngredientList = ({ recipe, heightHero }) => {
       <InngredientsList>
         {ingredients.map(item => (
           <li key={item.id}>
-            <RecipeIngredientItem ingrediento={item} />
+            <RecipeIngredientItem ingrediento={item} mode={mode} />
           </li>
         ))}
       </InngredientsList>

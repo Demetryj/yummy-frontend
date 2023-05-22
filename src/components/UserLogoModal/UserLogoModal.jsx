@@ -18,7 +18,7 @@ export const UserLogoModal = ({ mode }) => {
   return createPortal(
     <Backdrop onClick={handleClose}>
       <Content mode={mode}>
-        <UserLogoContent />
+        <UserLogoContent mode={mode} />
       </Content>
     </Backdrop>,
     modalRoot

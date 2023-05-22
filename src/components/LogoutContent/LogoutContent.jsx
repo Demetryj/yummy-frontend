@@ -44,7 +44,9 @@ export const LogoutContent = ({ mode }) => {
           Log out
         </GreenButton>
         <Box width={{ xs: 8, lg: 16 }}></Box>
-        <CancelButton onClick={handleClose}>Cancel</CancelButton>
+        <CancelButton onClick={handleClose} mode={mode}>
+          Cancel
+        </CancelButton>
       </Box>
     </Box>
   );

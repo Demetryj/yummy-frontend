@@ -109,7 +109,9 @@ export const UserProfileForm = ({ mode }) => {
           />
           <IconPencil mode={mode} />
         </Box>
-        <Button type="submit">Submit</Button>
+        <Button type="submit" mode={mode}>
+          Submit
+        </Button>
       </ProfileForm>
     </Formik>
   );
