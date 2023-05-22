@@ -8,15 +8,19 @@ export const PaginationWrapper = styled.div`
 
   box-sizing: border-box;
   margin: 0 auto;
-  margin-top: ${p => p.theme.spacing(20)};
+
   padding: 12px 15px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
 
-  background-color: ${p => p.theme.colors.paginationBgColor};
-  box-shadow: ${p => p.theme.shadows.pagination};
+  background-color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.paginationBgColor
+      : p.theme.colors.bgModalDark};
+  box-shadow: ${p =>
+    p.mode === 'light' ? p => p.theme.shadows.pagination : 'none'};
   border-radius: ${p => p.theme.radii.pagination};
 
   & nav {
@@ -33,7 +37,6 @@ export const PaginationWrapper = styled.div`
     max-width: ${p => p.theme.spacing(162)};
     height: ${p => p.theme.spacing(27.5)};
     padding: 14px 24px;
-    margin-top: ${p => p.theme.spacing(25)};
   }
 
   & .MuiPagination-ul {
@@ -42,18 +45,44 @@ export const PaginationWrapper = styled.div`
     justify-content: center;
     max-width: 100%;
     flex-wrap: nowrap;
-    gap: 0px;
+    gap: 8px;
     color: ${p => p.theme.colors.paginationColor};
   }
 
   & .MuiPaginationItem-page {
-    color: ${p => p.theme.colors.paginationColor};
+    color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.paginationColor
+        : p.theme.colors.whiteColor};
     padding: 0;
-    min-width: ${p => p.theme.spacing(13.5)};
+    transition: ${p => p.theme.transitions.main};
+
+    &:hover,
+    &:focus {
+      background-color: ${p =>
+        p.mode === 'light'
+          ? p.theme.colors.footerLogoBgColor
+          : p.theme.colors.greenBgColor};
+    }
+  }
+
+  & .MuiPaginationItem-previousNext {
+    transition: ${p => p.theme.transitions.main};
+
+    &:hover,
+    &:focus {
+      background-color: ${p =>
+        p.mode === 'light'
+          ? p.theme.colors.footerLogoBgColor
+          : p.theme.colors.greenBgColor};
+    }
   }
 
   & .MuiPaginationItem-icon {
-    fill: ${p => p.theme.colors.paginationColor};
+    fill: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.paginationColor
+        : p.theme.colors.whiteColor};
   }
 
   & .MuiPaginationItem-ellipsis {
@@ -61,16 +90,24 @@ export const PaginationWrapper = styled.div`
   }
 
   & .MuiPaginationItem-page.Mui-selected {
-    background-color: ${p => p.theme.colors.footerLogoBgColor};
+    background-color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.footerLogoBgColor
+        : p.theme.colors.greenBgColor};
+
+    color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.yummyColor
+        : p.theme.colors.whiteColor};
+
     transition: ${p => p.theme.transitions.main};
-    color: ${p => p.theme.colors.yummyColor};
-    width: ${p => p.theme.spacing(13.5)};
-    height: ${p => p.theme.spacing(13.5)};
 
     &:hover,
     &:focus {
-      background-color: ${p => p.theme.colors.footerLogoBgColor};
-      color: ${p => p.theme.colors.yummyColor};
+      background-color: ${p =>
+        p.mode === 'light'
+          ? p.theme.colors.footerLogoBgColor
+          : p.theme.colors.greenBgColor};
     }
   }
 `;

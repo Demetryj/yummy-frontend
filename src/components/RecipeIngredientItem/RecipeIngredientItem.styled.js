@@ -2,7 +2,10 @@ import styled from 'styled-components';
 
 export const RecipeContainer = styled.div`
   border-radius: ${p => p.theme.radii.normal};
-  background-color: ${p => p.theme.colors.footerLogoBgColor};
+  background-color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.footerLogoBgColor
+      : p.theme.colors.bgModalDark};
 `;
 
 export const ImageBlock = styled.div`
@@ -117,7 +120,10 @@ export const IngName = styled.p`
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: 1.17;
   letter-spacing: -0.24px;
-  color: ${p => p.theme.colors.subtitleTextColor};
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.subtitleTextColor
+      : p.theme.colors.whiteTextColor};
   &:hover ~ ${IngDescr} {
     display: block;
   }

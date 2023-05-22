@@ -15,6 +15,13 @@ export const Cross = styled(RxCross2)`
       : p.theme.colors.whiteColor};
   cursor: pointer;
 
+  transition: ${p => p.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.greenColor};
+  }
+
   @media screen and (${p => p.theme.media.medium}) {
     width: 24px;
     height: 24px;

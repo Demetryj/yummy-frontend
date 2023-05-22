@@ -10,9 +10,9 @@ export const Card = styled.div`
     p.location === 'favorite' ? p.theme.spacing(7) : p.theme.spacing(7)};
 
   background-color: ${p =>
-    p.location === 'favorite'
+    p.mode === 'light'
       ? p.theme.colors.bcgWhiteColor
-      : p.theme.colors.bcgWhiteColor};
+      : p.theme.colors.bgModalDark};
 
   padding: ${p => (p.location === 'favorite' ? '14px 9px' : '14px 9px')};
 
@@ -121,7 +121,10 @@ export const Title = styled.h3`
   font-size: ${p => p.theme.fontSizes.s};
   letter-spacing: ${p => p.theme.letterSpacings.subheader};
 
-  color: ${p => p.theme.colors.subtitleTextColor};
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.subtitleTextColor
+      : p.theme.colors.whiteTextColor};
 
   @media screen and (${p => p.theme.media.medium}) {
     max-width: ${p => p.theme.spacing(150)};
@@ -152,7 +155,10 @@ export const Description = styled.div`
   line-height: ${p => p.theme.lineHeights.description};
   letter-spacing: ${p => p.theme.letterSpacings.content};
 
-  color: ${p => p.theme.colors.mainTextColor};
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.mainTextColor
+      : p.theme.colors.whiteTextColor};
 
   & span {
     max-width: 100%;
@@ -215,7 +221,10 @@ export const Time = styled.p`
   line-height: ${p => p.theme.lineHeights.time};
   letter-spacing: ${p => p.theme.letterSpacings.subheader};
 
-  color: ${p => p.theme.colors.subtitleTextColor};
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.subtitleTextColor
+      : p.theme.colors.whiteTextColor};
 
   @media screen and (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.s};

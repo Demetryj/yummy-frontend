@@ -31,7 +31,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-  } ;
+  }
 `;
 export const InstructionWrapper = styled.div`
   margin-bottom: ${p => p.theme.spacing(20)};
@@ -54,7 +54,11 @@ export const InstructionTitle = styled.title`
   font-size: ${p => p.theme.fontSizes.l};
   line-height: 1;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.colors.subtitleTextColor};
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.subtitleTextColor
+      : p.theme.colors.whiteTextColor};
+
   @media screen and ${p => p.theme.media.medium} {
     margin-bottom: ${p => p.theme.spacing(16)};
     letter-spacing: -0.24px;
@@ -96,8 +100,8 @@ export const InstructionText = styled.li`
     font-weight: ${p => p.theme.fontWeights.semiBold};
     font-size: ${p => p.theme.fontSizes.xs};
     line-height: 1.5;
-    color: #ffffff;
-    background: #8baa36;
+    color: ${p => p.theme.colors.whiteTextColor};
+    background: ${p => p.theme.colors.greenBgColor};
     border-radius: ${p => p.theme.radii.round};
     flex: none;
 
@@ -110,8 +114,12 @@ export const InstructionText = styled.li`
 
   & p {
     padding-top: ${p => p.theme.spacing(1)};
-    color: ${p => p.theme.colors.blackTextColor};
     width: ${p => p.theme.spacing(155)};
+    color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.blackTextColor
+        : p.theme.colors.whiteTextColor};
+
     @media screen and ${p => p.theme.media.medium} {
       width: ${p => p.theme.spacing(330)};
     }

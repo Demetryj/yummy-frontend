@@ -17,7 +17,17 @@ export const StyledButton = styled.button`
   line-height: 114%;
   border-radius: ${p => p.theme.radii.light};
 
-  @media screen and ${p => p.theme.media.medium} {
+  transition: ${p => p.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.yummyColor
+        : p.theme.colors.greenTextColor};
+  }
+
+  @media screen and (${p => p.theme.media.medium}) {
     /* display: flex; */
     margin-left: ${p => p.theme.spacing(0)};
     margin-right: ${p => p.theme.spacing(0)};
@@ -27,7 +37,7 @@ export const StyledButton = styled.button`
     width: 200px;
   }
 
-  @media screen and ${p => p.theme.media.large} {
+  @media screen and (${p => p.theme.media.large}) {
     width: 100%;
 
     padding-top: ${p => p.theme.spacing(10)};

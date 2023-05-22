@@ -15,6 +15,18 @@ export const EditButton = styled.button`
     p.mode === 'light'
       ? p.theme.colors.mainTextColor
       : p.theme.colors.whiteColor};
+
+  transition: ${p => p.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.greenColor};
+  }
+
+  &:hover > svg,
+  &:focus > svg {
+    color: ${p => p.theme.colors.greenColor};
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -41,12 +53,25 @@ export const LogoutButton = styled.button`
 
   gap: ${p => p.theme.spacing(2)};
 
-  color: #fafafa;
+  color: ${p => p.theme.colors.whiteTextColor};
   border-radius: 35px 70px;
+
+  transition: ${p => p.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.yummyColor};
+  }
+
+  &:hover > svg,
+  &:focus > svg {
+    color: ${p => p.theme.colors.yummyColor};
+  }
 `;
 
 export const Arrow = styled(HiOutlineArrowSmRight)`
   width: ${p => p.theme.spacing(9)};
   height: ${p => p.theme.spacing(9)};
   color: ${p => p.theme.colors.whiteColor};
+  transition: ${p => p.theme.transitions.main};
 `;

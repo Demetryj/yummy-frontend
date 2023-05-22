@@ -157,6 +157,13 @@ export const Button = styled.button`
 
   color: ${p => p.theme.colors.whiteColor};
 
+  transition: ${p => p.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.yummyColor};
+  }
+
   @media screen and (${p => p.theme.media.medium}) {
     padding-top: 18px;
     padding-bottom: 18px;

@@ -12,20 +12,15 @@ export const DeleteBtnWrapper = styled.button`
 
   border-radius: ${p => p.theme.radii.btnIcon};
 
-  background-color: ${p =>
-    p.location === 'recipes'
-      ? p.theme.colors.greenTextColor
-      : p.theme.colors.paginationBg};
+  background-color: ${p => p.theme.colors.greenTextColor};
   transition: ${p => p.theme.transitions.main};
 
   &:hover,
   &:focus {
-    background-color: ${p => p.theme.colors.btnDarckBgColor};
-  }
-
-  &:hover svg,
-  &:focus svg {
-    stroke: ${p => p.theme.colors.bcgWhiteColor};
+    background-color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.btnDarckBgColor
+        : p.theme.colors.bcgWhiteColor};
   }
 
   @media screen and (${p => p.theme.media.medium}) {
@@ -41,12 +36,10 @@ export const DeleteBtnWrapper = styled.button`
   }
 
   & svg {
-    stroke: ${p =>
-      p.location === 'recipes'
-        ? p.theme.colors.bcgWhiteColor
-        : p.theme.colors.mainTextColor};
     width: ${p => p.theme.spacing(7)};
     height: ${p => p.theme.spacing(7)};
+    fill: ${p => p.theme.colors.whiteColor};
+    transition: ${p => p.theme.transitions.main};
 
     @media screen and (${p => p.theme.media.medium}) {
       width: ${p => p.theme.spacing(11)};
@@ -57,5 +50,10 @@ export const DeleteBtnWrapper = styled.button`
       width: ${p => p.theme.spacing(12)};
       height: ${p => p.theme.spacing(12)};
     }
+  }
+
+  &:hover > svg,
+  &:focus > svg {
+    fill: ${p => p.mode !== 'light' && p.theme.colors.greenColor};
   }
 `;
