@@ -2,6 +2,8 @@
 
 export const selectRecipes = state => state.recipes.items;
 
+export const selectAllRecipes = state => state.recipes.recipes;
+
 export const selectIsLoading = state => state.recipes.isLoading;
 
 export const selectError = state => state.recipes.error;

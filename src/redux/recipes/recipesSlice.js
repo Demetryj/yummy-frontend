@@ -10,6 +10,7 @@ import {
   fetchSearchRecipes,
   getRecipesPopular,
   addRecipe,
+  fetchAllRecipes,
 } from './operations';
 
 import { getFavorite, removeFavorite } from './favoritesOperations';
@@ -17,6 +18,7 @@ import { getOwnRecipes, removeOwnRecipe } from './ownRecipesOperations';
 
 const initialState = {
   items: [],
+  recipes: [],
   paginationData: null,
   categories: [],
   popular: [],
@@ -97,8 +99,20 @@ const recipesSlice = createSlice({
         state.error = action.payload;
       })
 
+      .addCase(fetchAllRecipes.fulfilled, (state, action) => {
+        state.recipes = action.payload.recipes;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(fetchAllRecipes.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchAllRecipes.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
       .addCase(fetchSearchRecipes.fulfilled, (state, action) => {
-        state.items = action.payload[0].recipeData;
+        state.items = action.payload.recipeData;
         state.isLoading = false;
         state.error = null;
       })

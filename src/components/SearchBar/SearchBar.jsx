@@ -12,8 +12,7 @@ export const SearchBar = ({
   searchQuery,
 }) => {
   const [value, setValue] = useState(searchQuery ?? '');
-  // eslint-disable-next-line no-unused-vars
-  const [type, setType] = useState(searchType);
+  const [setType] = useState(searchType);
   const [selectedOption, setSelectedOption] = useState(null);
 
   const onSubmit = e => {
@@ -23,25 +22,21 @@ export const SearchBar = ({
         duration: 2000,
         position: 'top-center',
       });
-    handleOnSubmit(value.trim().toLowerCase(), searchType);
+    handleOnSubmit(value.trim(), searchType);
   };
 
-  const onInputChange = e => setValue(e.target.value);
+  const onInputChange = e => setValue(e);
 
   const onSearchTypeChange = selectedOption => {
     const newSearchType = selectedOption.value;
-    handleOnSubmit(value.trim().toLowerCase(), newSearchType);
+    handleOnSubmit(value.trim(), newSearchType);
     setType(newSearchType);
     setSelectedOption(selectedOption);
   };
 
   return (
     <Container>
-      <SearchForm
-        onSubmit={onSubmit}
-        onInputChange={onInputChange}
-        value={value}
-      />
+      <SearchForm onSubmit={onSubmit} onInputChange={onInputChange} />
       <SearchTypeSelector
         selectedOption={selectedOption}
         onSearchTypeChange={onSearchTypeChange}

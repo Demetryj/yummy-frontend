@@ -11,6 +11,7 @@ import { MainTitle } from 'components/MainTitle/MainTitle';
 import { SearchBar } from 'components/SearchBar';
 import { Loader } from 'components/Loader';
 import { SearchedRecipesList } from 'components/SearchedRecipesList';
+
 import { ListSection, SearchSection } from './Search.styled';
 import { onScrollUp } from 'utils/scrollUp';
 

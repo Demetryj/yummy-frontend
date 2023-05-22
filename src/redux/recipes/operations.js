@@ -17,7 +17,19 @@ export const fetchSearchRecipes = createAsyncThunk(
   'recipes/fetchSearch',
   async (query, thunkAPI) => {
     try {
-      const response = await axios.get(`/search?keyword=${query}`);
+      const response = await axios.get(`/search/title/${query}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const fetchAllRecipes = createAsyncThunk(
+  'recipes/fetchAllRecipes',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(`/search/recipes`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

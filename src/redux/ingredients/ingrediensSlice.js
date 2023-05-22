@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchIngredients, fetchRecipesByIngredient } from './operations';
 
-const initialState = { items: [], isLoading: false, error: null };
+const initialState = {
+  items: [],
+  selectedRecipes: [],
+  isLoading: false,
+  error: null,
+};
 
 const ingrediensSlice = createSlice({
   name: 'ingredients',
@@ -23,7 +28,7 @@ const ingrediensSlice = createSlice({
 
     builder
       .addCase(fetchRecipesByIngredient.fulfilled, (state, action) => {
-        state.items = action.payload;
+        state.selectedRecipes = action.payload;
         state.isLoading = false;
         state.error = null;
       })
