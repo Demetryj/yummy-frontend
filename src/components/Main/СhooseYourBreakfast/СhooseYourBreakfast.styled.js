@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { BsArrowRight } from 'react-icons/bs';
 
 export const TextBox = styled.div`
   width: ${p => p.theme.spacing(112.5)};
@@ -12,7 +13,7 @@ export const TextBox = styled.div`
   @media (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.s};
     padding: ${p => p.theme.spacing(6)};
-    line-height:  ${p => p.theme.spacing(10)};
+    line-height: ${p => p.theme.spacing(10)};
     letter-spacing: -0.24px;
     width: ${p => p.theme.spacing(130.5)};
     height: ${p => p.theme.spacing(50)};
@@ -29,7 +30,8 @@ export const TextBox = styled.div`
     position: absolute;
     right: ${p => p.theme.spacing(61)};
     top: ${p => p.theme.spacing(231)};
-  }`;
+  }
+`;
 
 export const Text = styled.p`
   font-weight: ${p => p.theme.fontWeights.medium};
@@ -40,12 +42,13 @@ export const Text = styled.p`
 
   @media (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.s};
-    line-height:${p => p.theme.spacing(9)};
+    line-height: ${p => p.theme.spacing(9)};
   }
 
   @media (${p => p.theme.media.large}) {
     line-height: ${p => p.theme.spacing(10)};
-  }`;
+  }
+`;
 
 export const Selected = styled.span`
   font-weight: ${p => p.theme.fontWeights.medium};
@@ -60,22 +63,25 @@ export const Selected = styled.span`
 
   @media (${p => p.theme.media.large}) {
     line-height: ${p => p.theme.spacing(10)};
-  }`;
+  }
+`;
 
 export const Button = styled.button`
-  margin-top: ${p => p.theme.spacing(3.5)};
-  margin-left:${p => p.theme.spacing(67.5)};
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  gap: ${p => p.theme.spacing(4)};
+  margin-top: ${p => p.theme.spacing(3.5)};
+  margin-left: auto;
 
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes.x};
   line-height: ${p => p.theme.spacing(6)};
   letter-spacing: ${p => p.theme.spacing(0.1)};
   color: ${p => p.theme.colors.middleGreyTextColor};
+  background-color: transparent;
+
   &:hover {
-      color: ${p => p.theme.colors.greenColor};
+    color: ${p => p.theme.colors.greenColor};
     svg path {
       stroke: ${p => p.theme.colors.greenColor};
     }
@@ -86,12 +92,11 @@ export const Button = styled.button`
   }
 
   @media (${p => p.theme.media.large}) {
-    margin-left: ${p => p.theme.spacing(82)};
     line-height: ${p => p.theme.spacing(10)};
-  }`;
+  }
+`;
 
-export const BsArrowRight = styled.svg`
+export const ArrowRight = styled(BsArrowRight)`
   width: ${p => p.theme.spacing(9)};
   height: ${p => p.theme.spacing(9)};
-  margin-left: ${p => p.theme.spacing(2)};
-  display: flex;`;
+`;
