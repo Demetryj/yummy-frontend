@@ -6,13 +6,18 @@ export const ContentWrapper = styled.ul`
   gap: ${p => p.theme.spacing(9)};
   margin-block-start: 0;
   margin-block-end: 0;
+  margin-bottom: ${p => p.theme.spacing(20)};
+  padding-top: ${p => p.theme.spacing(25)};
 
   @media screen and (${p => p.theme.media.medium}) {
     gap: ${p => p.theme.spacing(20)};
+    margin-bottom: ${p => p.theme.spacing(25)};
+    padding-top: ${p => p.theme.spacing(50)};
   }
 
   @media screen and (${p => p.theme.media.large}) {
     gap: ${p => p.theme.spacing(25)};
+    padding-top: ${p => p.theme.spacing(50)};
   }
 `;
 
