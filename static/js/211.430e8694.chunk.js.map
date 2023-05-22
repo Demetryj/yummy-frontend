@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/211.430e8694.chunk.js","mappings":"qKAQA,UANmB,kBACjB,+BACE,SAAC,KAAD,KAFe,C","sources":["pages/Categories.jsx"],"sourcesContent":["import { CategoriesSection } from 'modules';\n\nconst Categories = () => (\n  <>\n    <CategoriesSection />\n  </>\n);\n\nexport default Categories;\n"],"names":[],"sourceRoot":""}
