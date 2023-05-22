@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Text, TextBox, Button, Selected } from './СhooseYourBreakfast.styled';
-import { BsArrowRight } from 'react-icons/bs';
+import {
+  Text,
+  TextBox,
+  Button,
+  Selected,
+  ArrowRight,
+} from './СhooseYourBreakfast.styled';
 
 export const СhooseYourBreakfast = () => {
   return (
@@ -12,7 +17,7 @@ export const СhooseYourBreakfast = () => {
         </Text>
         <Link to="/categories/Breakfast">
           <Button>
-            See recipes<BsArrowRight></BsArrowRight>
+            See recipes <ArrowRight />
           </Button>
         </Link>
       </TextBox>
