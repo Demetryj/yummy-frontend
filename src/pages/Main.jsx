@@ -1,4 +1,4 @@
-import { StartMainPage } from '../components/Main';
+import { StartMainPage } from 'components/Main';
 
 const Main = () => {
   return (
