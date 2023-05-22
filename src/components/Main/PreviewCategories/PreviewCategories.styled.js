@@ -55,14 +55,16 @@ export const ButtonSeeAll = styled.button`
   padding: ${p => p.theme.spacing(5)} ${p => p.theme.spacing(12)};
   border-radius: ${p => p.theme.radii.light};
   color: ${p => p.theme.colors.whiteColor};
-  background: ${p => p.theme.colors.greenTextColor};
+  background-color: ${p => p.theme.colors.greenTextColor};
   font-weight: ${p => p.theme.fontWeights.regular};
   font-family: inherit;
   cursor: pointer;
 
+  transition: ${p => p.theme.transitions.main};
+
   &:hover,
   &:focus {
-    background-color: ${p => p.theme.colors.btnDarckBgColor};
+    color: ${p => p.theme.colors.yummyColor};
   }
 `;
 
@@ -91,7 +93,7 @@ export const ButtonDown = styled.button`
   border-radius: 35px 70px;
 
   background-color: transparent;
-  transition: color 250ms, border-color 250ms;
+  transition: ${p => p.theme.transitions.main};
 
   &:hover,
   &:focus {
