@@ -82,10 +82,11 @@ export const CrossContainer = styled.div`
 `;
 
 export const CloseBtn = styled(VscChromeClose)`
+  width: ${p => p.theme.spacing(6.7)};
+  height: ${p => p.theme.spacing(6.7)};
+
   color: ${p =>
     p.mode === 'light'
       ? p.theme.colors.closeBtnColor
       : p.theme.colors.whiteColor};
-  width: ${p => p.theme.spacing(6.7)};
-  height: ${p => p.theme.spacing(6.7)};
 `;
