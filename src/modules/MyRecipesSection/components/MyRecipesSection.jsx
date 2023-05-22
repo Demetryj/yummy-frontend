@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { getRecipes } from '../redux';
 import { onScrollUp } from 'utils/scrollUp';
 import img from 'images/default.jpg';
 import { useMyRecipes } from '../hooks';
-import { toast } from 'react-toastify';
 import { OwnRecipesSection } from 'components/OwnRecipesSection';
 
 export const MyRecipesSection = () => {
