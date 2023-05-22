@@ -14,6 +14,13 @@ export const Cross = styled(RxCross2)`
       ? p.theme.colors.mainTextColor
       : p.theme.colors.whiteTextColor};
 
+  transition: ${p => p.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.greenColor};
+  }
+
   @media screen and (${p => p.theme.media.medium}) {
     width: 24px;
     height: 24px;
@@ -27,15 +34,29 @@ export const GreenButton = styled.button`
   align-items: center;
   justify-content: center;
   color: ${p => p.theme.colors.whiteColor};
-  background: ${p => p.theme.colors.greenColor};
+  background-color: ${p => p.theme.colors.greenColor};
   width: 100%;
-  padding-top: ${p => p.theme.spacing(7)};
-  padding-bottom: ${p => p.theme.spacing(7)};
-  font-weight: ${p => p.theme.fontWeights.medium};
+  margin-right: ${p => p.theme.spacing(4)};
+  padding: ${p => p.theme.spacing(9)} ${p => p.theme.spacing(10.5)};
+  font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontWeights.s};
   line-height: 129%;
   text-align: center;
+  border: ${p => p.theme.borders.normal} transparent;
   border-radius: ${p => p.theme.radii.light};
+
+  transition: ${p => p.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.btnDarckBgColor};
+  }
+
+  @media screen and (${p => p.theme.media.medium}) {
+    margin-right: ${p => p.theme.spacing(8)};
+    padding: ${p => p.theme.spacing(9)} ${p => p.theme.spacing(19.5)};
+    font-size: ${p => p.theme.fontWeights.m};
+  }
 `;
 
 export const CancelButton = styled.button`
@@ -43,21 +64,35 @@ export const CancelButton = styled.button`
   align-items: center;
   justify-content: center;
   color: ${p => p.theme.colors.mainTextColor};
-  background: #d9d9d9;
+  background: ${p => p.theme.colors.greyColor};
   width: 100%;
-  padding-top: ${p => p.theme.spacing(7)};
-  padding-bottom: ${p => p.theme.spacing(7)};
-  font-weight: ${p => p.theme.fontWeights.medium};
+  padding: ${p => p.theme.spacing(9)} ${p => p.theme.spacing(10.5)};
+
+  font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontWeights.s};
-  line-height: 129%;
+  line-height: 1.29;
   text-align: center;
+  border: ${p => p.theme.borders.normal} transparent;
   border-radius: ${p => p.theme.radii.light};
+
+  transition: ${p => p.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    background-color: ${p => p.theme.colors.bcgWhiteColor};
+    border: ${p => p.mode === 'light' && '1px solid #23262A'};
+  }
+
+  @media screen and (${p => p.theme.media.medium}) {
+    padding: ${p => p.theme.spacing(9)} ${p => p.theme.spacing(19.5)};
+    font-size: ${p => p.theme.fontWeights.m};
+  }
 `;
 
 export const TextModal = styled.p`
-  font-size: ${p => p.theme.fontSizes.s};
   font-weight: ${p => p.theme.fontWeights.regular};
-  line-height: 129%;
+  font-size: ${p => p.theme.fontSizes.s};
+  line-height: 1.29;
   text-align: center;
   letter-spacing: -0.02em;
   color: ${p =>
