@@ -47,7 +47,7 @@ export const PreviewCategories = ({ recipes, mode }) => {
               </ListCard>
               <Wrap>
                 <Link to={`/categories/${category}`}>
-                  <ButtonSeeAll>See all</ButtonSeeAll>
+                  <ButtonSeeAll mode={mode}>See all</ButtonSeeAll>
                 </Link>
               </Wrap>
             </li>
