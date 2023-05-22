@@ -36,6 +36,7 @@ export const theme = {
     popularRecBorder: '#707070',
     paginationBgColor: '#FAFAFA',
     closeBtnColor: '#333333',
+    borderBtnColor: '#23262A',
   },
 
   spacing: n => `${2 * n}px`,
