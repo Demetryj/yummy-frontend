@@ -1,9 +1,5 @@
 import { CategoriesSection } from 'modules';
 
-const Categories = () => (
-  <>
-    <CategoriesSection />
-  </>
-);
+const Categories = () => <CategoriesSection />;
 
 export default Categories;
