@@ -38,6 +38,11 @@ export const Title = styled.h1`
   font-feature-settings: 'liga' off;
   margin-bottom: ${p => p.theme.spacing(4)};
 
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.blackTextColor
+      : p.theme.colors.whiteTextColor};
+
   @media screen and (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.l};
     line-height: 100%;
@@ -51,6 +56,11 @@ export const Desc = styled.p`
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
   opacity: 0.5;
+
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.blackTextColor
+      : p.theme.colors.whiteTextColor};
 
   @media screen and (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.xm};
