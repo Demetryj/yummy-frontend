@@ -25,6 +25,11 @@ export const Desc = styled.p`
   font-feature-settings: 'liga' off;
   opacity: 0.5;
 
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.blackTextColor
+      : p.theme.colors.whiteTextColor};
+
   @media screen and (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.l};
   }

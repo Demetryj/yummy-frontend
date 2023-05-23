@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams, useLocation, useNavigate } from 'react-router-dom';
 
+import { selectTheme } from 'redux/theme/selectors';
 import { fetchSearchRecipes } from 'redux/recipes/operations';
 import { fetchRecipesByIngredient } from 'redux/ingredients/operations';
 import { selectIsLoading } from 'redux/ingredients/selectors';
@@ -31,6 +32,8 @@ const Search = () => {
   const ingredientsByRecipesAreLoading = useSelector(recipesLoading);
 
   const dispatch = useDispatch();
+
+  const theme = useSelector(selectTheme);
 
   const handleOnSubmit = (query, type) => {
     setSearchParams(
@@ -68,6 +71,7 @@ const Search = () => {
           handleOnSubmit={handleOnSubmit}
           searchQuery={searchQuery}
           searchType={searchType}
+          mode={theme}
         />
       </SearchSection>
       <ListSection>

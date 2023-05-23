@@ -65,7 +65,10 @@ export const Btn = styled.button`
   display: flex;
   align-items: center;
 
-  background-color: ${p => p.theme.colors.greenBgColor};
+  background-color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.greenBgColor
+      : p.theme.colors.btnDarckBgColor};
   color: ${p => p.theme.colors.whiteColor};
   border-radius: 24px 44px;
   border: ${p => p.theme.borders.none};
@@ -73,9 +76,13 @@ export const Btn = styled.button`
   font-size: ${p => p.theme.fontSizes.s};
   line-height: 1.5;
 
+  transition: ${p => p.theme.transitions.main};
+
   &:hover {
-    background-color: ${p => p.theme.colors.btnDarckBgColor};
-    transition: all 250ms linear 0s;
+    background-color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.btnDarckBgColor
+        : p.theme.colors.greenBgColor};
   }
 
   @media screen and (${p => p.theme.media.medium}) {

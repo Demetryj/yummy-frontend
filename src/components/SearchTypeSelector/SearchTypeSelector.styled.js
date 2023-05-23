@@ -5,14 +5,11 @@ export const SelectorWrapper = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: center;
-  width: ${p => p.theme.spacing(111.5)};
   margin: 0 auto;
+  gap: ${p => p.theme.spacing(7.5)};
 
   @media screen and (${p => p.theme.media.medium}) {
-    width: ${p => p.theme.spacing(136.5)};
-  }
-  @media screen and (${p => p.theme.media.large}) {
-    width: ${p => p.theme.spacing(155)};
+    gap: ${p => p.theme.spacing(9)};
   }
 `;
 
@@ -20,7 +17,10 @@ export const SelectorText = styled.p`
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: 1.33;
   font-weight: ${p => p.theme.fontWeights.medium};
-  color: ${p => p.theme.colors.titleTextColor};
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.titleTextColor
+      : p.theme.colors.whiteTextColor};
 
   @media screen and (${p => p.theme.media.medium}) {
     font-size: ${p => p.theme.fontSizes.s};

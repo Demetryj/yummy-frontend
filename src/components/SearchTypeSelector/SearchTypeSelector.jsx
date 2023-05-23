@@ -9,10 +9,14 @@ const options = [
   { label: 'Ingredient', value: 'ingredient' },
 ];
 
-export const SearchTypeSelector = ({ selectedOption, onSearchTypeChange }) => {
+export const SearchTypeSelector = ({
+  selectedOption,
+  onSearchTypeChange,
+  mode,
+}) => {
   return (
     <SelectorWrapper>
-      <SelectorText>Search by: </SelectorText>
+      <SelectorText mode={mode}>Search by: </SelectorText>
 
       <Select
         value={selectedOption}

@@ -11,7 +11,7 @@ import { selectSearchFormConfigs } from 'utils/selectSearchFormConfigs';
 
 import { Btn, Form, InputWrapper } from './SearchForm.styled';
 
-export const SearchForm = ({ onSubmit, onInputChange }) => {
+export const SearchForm = ({ onSubmit, onInputChange, mode }) => {
   const { search } = useLocation();
   const searchParamsFromMain = new URLSearchParams(search);
   const requestFromMain = searchParamsFromMain.get('searchType');
@@ -47,7 +47,9 @@ export const SearchForm = ({ onSubmit, onInputChange }) => {
             requestFromMain === 'title' ? collectionOfRecipes : ingredients
           }
         />
-        <Btn type="submit">Search</Btn>
+        <Btn type="submit" mode={mode}>
+          Search
+        </Btn>
       </InputWrapper>
     </Form>
   );

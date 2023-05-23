@@ -10,6 +10,7 @@ export const SearchBar = ({
   handleOnSubmit,
   searchType = 'title',
   searchQuery,
+  mode,
 }) => {
   const [value, setValue] = useState(searchQuery ?? '');
   const [setType] = useState(searchType);
@@ -36,10 +37,15 @@ export const SearchBar = ({
 
   return (
     <Container>
-      <SearchForm onSubmit={onSubmit} onInputChange={onInputChange} />
+      <SearchForm
+        onSubmit={onSubmit}
+        onInputChange={onInputChange}
+        mode={mode}
+      />
       <SearchTypeSelector
         selectedOption={selectedOption}
         onSearchTypeChange={onSearchTypeChange}
+        mode={mode}
       />
     </Container>
   );
