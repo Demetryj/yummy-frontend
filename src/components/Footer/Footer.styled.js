@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineCopyrightCircle } from 'react-icons/ai';
 
-export const FooterWrap = styled.footer`
+export const FooterWrap = styled.div`
   /* position: relative;
   z-index: 100; */
   margin-left: auto;

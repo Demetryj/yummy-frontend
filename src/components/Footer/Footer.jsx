@@ -57,72 +57,77 @@ const benefits = [
 
 export const Footer = ({ mode }) => {
   return (
-    <Box as="section" bg={mode === 'light' ? 'yummyColor' : 'greenBgColor'}>
-      <FooterWrap mode={mode}>
-        <Box display={{ lg: 'flex' }} justifyContent={{ lg: 'space-between' }}>
-          <Box display={{ md: 'flex' }} mb={{ md: 72 }} flexGrow={{ lg: 0 }}>
-            <Box
-              flexGrow={{ md: 3, lg: 0 }}
-              mr={{ lg: 159 }}
-              width={{ lg: 418 }}
-            >
+    <Box as="section">
+      <Box as="footer" bg={mode === 'light' ? 'yummyColor' : 'greenBgColor'}>
+        <FooterWrap mode={mode}>
+          <Box
+            display={{ lg: 'flex' }}
+            justifyContent={{ lg: 'space-between' }}
+          >
+            <Box display={{ md: 'flex' }} mb={{ md: 72 }} flexGrow={{ lg: 0 }}>
               <Box
-                display={{ sx: 'flex' }}
-                justifyContent={{ sx: 'center', md: 'start' }}
-                alignItems="center"
-                mb={{ xs: 32 }}
+                flexGrow={{ md: 3, lg: 0 }}
+                mr={{ lg: 159 }}
+                width={{ lg: 418 }}
               >
-                <NavItem to={'/'}>
-                  <Logo src={logoHeader} alt="logo" />
-                </NavItem>
-                <Title>So Yummy</Title>
+                <Box
+                  display={{ sx: 'flex' }}
+                  justifyContent={{ sx: 'center', md: 'start' }}
+                  alignItems="center"
+                  mb={{ xs: 32 }}
+                >
+                  <NavItem to={'/'}>
+                    <Logo src={logoHeader} alt="logo" />
+                  </NavItem>
+                  <Title>So Yummy</Title>
+                </Box>
+                <Box display={{ xs: 'none', md: 'block' }}>
+                  <BenefitsList>
+                    {benefits.map(({ item }) => (
+                      <BenefitsItem key={item}>{item}</BenefitsItem>
+                    ))}
+                  </BenefitsList>
+                </Box>
               </Box>
-              <Box display={{ xs: 'none', md: 'block' }}>
-                <BenefitsList>
-                  {benefits.map(({ item }) => (
-                    <BenefitsItem key={item}>{item}</BenefitsItem>
+              <Box as="nav" mb={{ xs: 32 }} flexGrow={{ md: 1 }}>
+                <List>
+                  {navItems.map(({ href, item }) => (
+                    <ListItem key={href}>
+                      <NavItem to={href} mode={mode}>
+                        {item}
+                      </NavItem>
+                    </ListItem>
                   ))}
-                </BenefitsList>
+                </List>
               </Box>
             </Box>
-            <Box as="nav" mb={{ xs: 32 }} flexGrow={{ md: 1 }}>
-              <List>
-                {navItems.map(({ href, item }) => (
-                  <ListItem key={href}>
-                    <NavItem to={href} mode={mode}>
-                      {item}
-                    </NavItem>
-                  </ListItem>
-                ))}
-              </List>
+
+            <Box mb={{ xs: 44, md: 38 }}>
+              <Box display={{ xs: 'none', lg: 'block' }} mb={{ lg: 28 }}>
+                <Subtitle>Subscribe to our Newsletter</Subtitle>
+
+                <Text>
+                  Subscribe up to our newsletter. Be in touch with <br /> latest
+                  news and special offers, etc.
+                </Text>
+              </Box>
+              <FootForm mode={mode} />
             </Box>
           </Box>
 
-          <Box mb={{ xs: 44, md: 38 }}>
-            <Box display={{ xs: 'none', lg: 'block' }} mb={{ lg: 28 }}>
-              <Subtitle>Subscribe to our Newsletter</Subtitle>
-
-              <Text>
-                Subscribe up to our newsletter. Be in touch with <br /> latest
-                news and special offers, etc.
-              </Text>
-            </Box>
-            <FootForm mode={mode} />
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <IconList>
+              {socialIcons.map(({ href, item }) => (
+                <li key={href}>
+                  <IconItem to={href} mode={mode}>
+                    {item}
+                  </IconItem>
+                </li>
+              ))}
+            </IconList>
           </Box>
-        </Box>
-
-        <Box display="flex" alignItems="center" justifyContent="center">
-          <IconList>
-            {socialIcons.map(({ href, item }) => (
-              <li key={href}>
-                <IconItem to={href} mode={mode}>
-                  {item}
-                </IconItem>
-              </li>
-            ))}
-          </IconList>
-        </Box>
-      </FooterWrap>
+        </FooterWrap>
+      </Box>
       <Box
         display="flex"
         justifyContent="center"
