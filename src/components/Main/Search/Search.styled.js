@@ -139,7 +139,11 @@ export const Button = styled.button`
   border: ${p => p.theme.borders.none};
   outline: ${p => p.theme.borders.none};
 
-  &:hover {
+  transition: ${p => p.theme.transitions.main};
+
+  &:hover,
+  &:focus {
+    color: ${p => p.mode !== 'light' && p.theme.colors.yummyColor};
     background: ${p => p.theme.colors.greenTextColor};
   }
 

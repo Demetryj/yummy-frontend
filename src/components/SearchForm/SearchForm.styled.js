@@ -65,10 +65,8 @@ export const Btn = styled.button`
   display: flex;
   align-items: center;
 
-  background-color: ${p =>
-    p.mode === 'light'
-      ? p.theme.colors.greenBgColor
-      : p.theme.colors.btnDarckBgColor};
+  background-color: ${p => p.theme.colors.greenBgColor};
+
   color: ${p => p.theme.colors.whiteColor};
   border-radius: 24px 44px;
   border: ${p => p.theme.borders.none};
@@ -79,10 +77,9 @@ export const Btn = styled.button`
   transition: ${p => p.theme.transitions.main};
 
   &:hover {
+    color: ${p => p.mode !== 'light' && p.theme.colors.yummyColor};
     background-color: ${p =>
-      p.mode === 'light'
-        ? p.theme.colors.btnDarckBgColor
-        : p.theme.colors.greenBgColor};
+      p.mode === 'light' && p.theme.colors.btnDarckBgColor};
   }
 
   @media screen and (${p => p.theme.media.medium}) {
