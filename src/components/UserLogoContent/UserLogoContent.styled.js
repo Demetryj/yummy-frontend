@@ -22,11 +22,6 @@ export const EditButton = styled.button`
   &:focus {
     color: ${p => p.theme.colors.greenColor};
   }
-
-  &:hover > svg,
-  &:focus > svg {
-    color: ${p => p.theme.colors.greenColor};
-  }
 `;
 
 export const ButtonContainer = styled.div`

@@ -17,7 +17,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useMedia } from 'hooks/useMedia';
 
-const PopularRecipe = () => {
+const PopularRecipe = ({ mode }) => {
   const { isMobile, isTablet } = useMedia();
   let numCard;
 
@@ -38,7 +38,7 @@ const PopularRecipe = () => {
   return (
     <Container>
       <div>
-        <BoxTitle>Popular recipe</BoxTitle>
+        <BoxTitle mode={mode}>Popular recipe</BoxTitle>
         <RecipeList>
           {popular.length > 0 ? (
             popular
@@ -52,12 +52,12 @@ const PopularRecipe = () => {
                       </ImageDiv>
 
                       <AboutRecipe>
-                        <CardTitle>
+                        <CardTitle mode={mode}>
                           {title.length > 15
                             ? `${title.substring(0, 20)}...`
                             : title}
                         </CardTitle>
-                        <CardText>
+                        <CardText mode={mode}>
                           {description.length > 80
                             ? `${description.substring(0, 80)}...`
                             : description}

@@ -13,31 +13,33 @@ import {
 const socialIcons = [
   {
     href: 'https://uk-ua.facebook.com/',
-    item: <BsFacebook size={25} color="#8BAA36" />,
+    item: <BsFacebook />,
   },
   {
     href: 'https://www.youtube.com',
-    item: <BsYoutube size={25} color="#8BAA36" />,
+    item: <BsYoutube />,
   },
   {
     href: 'https://twitter.com',
-    item: <TfiTwitterAlt size={25} color="#8BAA36" />,
+    item: <TfiTwitterAlt />,
   },
   {
     href: 'https://www.instagram.com/',
-    item: <FiInstagram size={25} color="#8BAA36" />,
+    item: <FiInstagram />,
   },
 ];
 
-const FollowUs = () => {
+const FollowUs = ({ mode }) => {
   return (
     <FollowUsContainer>
       <Box>
-        <BoxTitle>Follow us</BoxTitle>
+        <BoxTitle mode={mode}>Follow us</BoxTitle>
         <IconList>
           {socialIcons.map(({ href, item }) => (
             <IconItem key={href}>
-              <NavItem to={href}>{item}</NavItem>
+              <NavItem to={href} mode={mode}>
+                {item}
+              </NavItem>
             </IconItem>
           ))}
         </IconList>

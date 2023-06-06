@@ -14,6 +14,12 @@ export const BoxTitle = styled.h2`
   padding-bottom: ${p => p.theme.spacing(16)};
   font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: ${p => p.theme.fontSizes.l};
+
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.subtitleTextColor
+      : p.theme.colors.whiteTextColor};
+
   @media screen and (${p => p.theme.media.medium}) {
     padding-bottom: ${p => p.theme.spacing(20)};
   }
@@ -60,14 +66,22 @@ export const Card = styled.div`
 export const CardTitle = styled.h4`
   font-weight: ${p => p.theme.fontWeights.medium};
   font-size: ${p => p.theme.fontSizes.m};
-  line-height: 20px;
-  color: ${p=>p.theme.colors.subtitleTextColor}
+  line-height: 1.25;
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.subtitleTextColor
+      : p.theme.colors.whiteTextColor};
 `;
 export const CardText = styled.p`
   font-weight: ${p => p.theme.fontWeights.regular};
-  font-size: ${p => p.theme.fontSizes.m};
-  line-height: 16px;
-  color: ${p => p.theme.colors.lightGreyTextColor};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: 1.33;
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.lightGreyTextColor
+      : p.theme.colors.whiteTextColor};
+
+  opacity: ${p => (p.mode === 'light' ? '100%' : '60%')};
 `;
 
 export const AboutRecipe = styled.div`

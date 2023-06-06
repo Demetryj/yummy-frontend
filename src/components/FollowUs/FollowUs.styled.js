@@ -17,6 +17,11 @@ export const BoxTitle = styled.h2`
   font-size: ${p => p.theme.fontSizes.l};
   line-height: 24px;
   padding-bottom: 40px;
+
+  color: ${p =>
+    p.mode === 'light'
+      ? p.theme.colors.subtitleTextColor
+      : p.theme.colors.whiteTextColor};
 `;
 
 export const IconList = styled.ul`
@@ -31,9 +36,20 @@ export const IconList = styled.ul`
 export const IconItem = styled.li``;
 
 export const NavItem = styled(NavLink)`
-  color: ${p => p.theme.colors.whiteColor};
+  color: ${p => p.theme.colors.greenTextColor};
+
+  & > svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  transition: ${p => p.theme.transitions.main};
+
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.greenTextColor};
+    color: ${p =>
+      p.mode === 'light'
+        ? p.theme.colors.yummyColor
+        : p.theme.colors.whiteColor};
   }
 `;

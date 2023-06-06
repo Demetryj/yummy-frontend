@@ -6,6 +6,7 @@ import {
   Input,
   TextArea,
   InputSelect,
+  InputSelectTitle,
   SelectCategory,
   SelectCooking,
   FormImageContainer,
@@ -148,30 +149,33 @@ const AddRecipeForm = () => {
                 value={recipes.title || ''}
                 placeholder="Enter item title"
                 onChange={handleChange}
+                mode={theme}
               />
+
               <Input
                 type="text"
                 placeholder="Enter about recipe"
                 name="description"
                 onChange={handleChange}
                 value={recipes.description || ''}
+                mode={theme}
               />
-              <InputSelect>
-                <div>Category</div>
+
+              <InputSelect mode={theme}>
+                <InputSelectTitle mode={theme}>Category</InputSelectTitle>
                 <SelectCategory
                   name="category"
                   onChange={handleChange}
                   value={recipes.category || ''}
                 >
-                  <option></option>
-
                   {categories.map(category => (
                     <option key={category}>{category}</option>
                   ))}
                 </SelectCategory>
               </InputSelect>
-              <InputSelect>
-                <div>Cooking time</div>
+
+              <InputSelect mode={theme}>
+                <InputSelectTitle mode={theme}>Cooking time</InputSelectTitle>
                 <SelectCooking
                   name="time"
                   value={recipes.time || ''}
@@ -201,14 +205,17 @@ const AddRecipeForm = () => {
               placeholder="Enter recipe"
               scroll={true}
               onChange={handleChange}
+              mode={theme}
             ></TextArea>
           </TextAreaContainer>
-          <ButtonAdd type="submit">Add</ButtonAdd>
+          <ButtonAdd type="submit" mode={theme}>
+            Add
+          </ButtonAdd>
         </Form>
         <FollowSPopular>
-          <FollowUs />
+          <FollowUs mode={theme} />
 
-          <PopularRecipe />
+          <PopularRecipe mode={theme} />
         </FollowSPopular>
       </AddRecipeWrap>
     </AddRecipePage>
